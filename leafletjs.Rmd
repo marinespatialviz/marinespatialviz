@@ -148,7 +148,7 @@ Now, let's construct the body adding the map object:
 
 Here is the result of the above code:
 
-<iframe src="https://jackdougherty.github.io/leaflet-map-polygon-click/" width="100%" height=550></iframe>
+<iframe src="marinespatialviz/external/map.html" width="100%" height=550></iframe>
 
 ```{r echo = FALSE}
 htmltools::includeHTML("marinespatialviz/external/map.html")
