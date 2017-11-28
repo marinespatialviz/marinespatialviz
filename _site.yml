@@ -9,6 +9,8 @@ navbar:
       href: rstudio.html
     - text: "Leaflet.js"
       href: leafletjs.html
+    - text: "Shiny"
+      href: shiny.html
     - text: "Data sources"
       href: datasources.html
     - text: "About"

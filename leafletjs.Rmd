@@ -146,12 +146,11 @@ Now, let's construct the body adding the map object:
     </html>
 
 
-Here is the result of the above code:
+Here is the result of the above code (if the map does not show, click [here](https://marinespatialviz.github.io/marinespatialviz/external/map.html):
 
-<iframe src="marinespatialviz/external/map.html" width="100%" height=550></iframe>
 
-```{r echo = FALSE}
-htmltools::includeHTML("marinespatialviz/external/map.html")
+```{r, echo = FALSE}
+htmltools::includeHTML("https://marinespatialviz.github.io/marinespatialviz/external/map.html")
 ```
 
 $~$

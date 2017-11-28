@@ -1,0 +1,11 @@
+---
+title: "Shiny"
+output: 
+  html_document:
+    toc: true
+    toc_depth: 2
+    toc_float: true
+    theme: cosmo
+---
+
+Coming soon...
