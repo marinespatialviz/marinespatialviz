@@ -6,4 +6,4 @@ output:
 ---
 
 
-![](C:/Users/HP/Desktop/MarineSpatialViz/images/main.png)
+![](C:/Users/HP/Desktop/MarineSpatialViz/website/images/main.png)

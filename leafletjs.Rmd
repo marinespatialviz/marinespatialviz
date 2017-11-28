@@ -150,7 +150,7 @@ Here is the result of the above code:
 
 
 ```{r echo = FALSE}
-htmltools::includeHTML("https://wandabodnar.github.io/leaflet.js/first%20map.html")
+htmltools::includeHTML("C:/Users/HP/Desktop/MarineSpatialViz/website/external/first map.html")
 ```
 
 $~$
