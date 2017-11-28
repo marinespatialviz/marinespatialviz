@@ -1,0 +1,9 @@
+---
+title: "Marine GIS & Data Visualisation"
+output: 
+  html_document:
+    theme: cosmo
+---
+
+
+![](C:/Users/HP/Desktop/MarineSpatialViz/images/main.png)

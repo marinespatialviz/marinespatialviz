@@ -1,0 +1,30 @@
+---
+title: "R Studio"
+output: 
+  html_document:
+    toc: true
+    toc_depth: 2
+    toc_float: true
+    theme: cosmo
+---
+
+# Installing R Studio
+
+$~$
+
+## Basics of R Studio
+
+$~$
+
+## Create a leaflet map
+
+Start with the installation of the leaflet package.
+
+`install.packages("leaflet")`
+
+After calling the leaflet library, with two lines of code create your first map: 
+```{r, fig.width = 8.4, fig.height = 6}
+library(leaflet)
+leaflet() %>%
+  addTiles()
+```

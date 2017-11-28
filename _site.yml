@@ -1,0 +1,15 @@
+name: "MarineSpatialViz"
+output_dir: "."
+navbar:
+  title: "MarineSpatialViz"
+  left:
+    - text: "Marine GIS & Data Visualisation"
+      href: index.html
+    - text: "R Studio"
+      href: rstudio.html
+    - text: "Leaflet.js"
+      href: leafletjs.html
+    - text: "Data sources"
+      href: datasources.html
+    - text: "About"
+      href: about.html
