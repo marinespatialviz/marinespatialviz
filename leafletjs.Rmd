@@ -14,7 +14,7 @@ output:
 [Leaflet.js](http://leafletjs.com/) is an open-source JavaScript library used for the creation of interactive, simple and lightweight web maps.
 
 
-The first step of creating a web map starts with the **HTML page**:
+The first step of creating a web map starts with the **HTML page**.
 
 
 <!DOCTYPE html>
@@ -146,9 +146,10 @@ Now, let's construct the body adding the map object:
     </html>
 
 
-Here is the result of the above code (if the map does not show, click [here](https://marinespatialviz.github.io/marinespatialviz/external/map.html):
+Here is the result of the above code (if the map does not show, click [here](https://marinespatialviz.github.io/marinespatialviz/external/map.html).
 
 
 ```{r, echo = FALSE}
 htmltools::includeHTML("https://marinespatialviz.github.io/marinespatialviz/external/map.html")
+
 ```

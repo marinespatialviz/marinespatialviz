@@ -43,7 +43,7 @@ shinyApp(ui, server)
 ```
 
 ```{r echo = FALSE}
-knitr::include_app("https://marinespatialviz.shinyapps.io/Map1/", height = "500px")
+knitr::include_app("https://marinespatialviz.shinyapps.io/Map1/", height = "600px")
 ```
   
 $~$
@@ -69,5 +69,5 @@ shinyApp(ui, server)
 ```
 
 ```{r echo = FALSE}
-knitr::include_app("https://marinespatialviz.shinyapps.io/Map2/", height = "500px")
+knitr::include_app("https://marinespatialviz.shinyapps.io/Map2/")
 ```

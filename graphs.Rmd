@@ -1,0 +1,18 @@
+---
+title: "Graphs"
+output: 
+  html_document:
+    toc: true
+    toc_depth: 2
+    toc_float: true
+    theme: cosmo
+---
+
+# ggmap package
+
+```{r message = FALSE}
+library(ggmap)
+map <- map_data("world")
+ggplot() + 
+  geom_polygon(data = map, aes(x = long, y = lat, group = group))
+```
