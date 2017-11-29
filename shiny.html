@@ -324,7 +324,7 @@ server &lt;- function(input, output) {}
 
 shinyApp(ui = ui, server = server)</code></pre>
 <p><span class="math inline">\(~\)</span></p>
-<p>Let’s create a very basic map using Shiny.</p>
+<p>Let’s create a basic map using Shiny.</p>
 <pre class="r"><code>library(shiny)
 library(leaflet)
 
@@ -345,11 +345,11 @@ shinyApp(ui, server)</code></pre>
 <pre class="r"><code>library(shiny)
 library(leaflet)
 
-ui &lt;- fluidPage(leafletOutput(&quot;mymap&quot;))
+ui &lt;- fluidPage(leafletOutput(&quot;map&quot;))
 
 server &lt;- function(input, output, session) {
   
-  output$mymap &lt;- renderLeaflet({
+  output$map &lt;- renderLeaflet({
     library(leaflet)
     leaflet() %&gt;%
       setView(lng = -15, lat = 20, zoom = 1) %&gt;%
