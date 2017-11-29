@@ -64,5 +64,5 @@ Let's set the view by defining a set of coordinates and the zoom level, and add 
 leaflet() %>%
   setView(lng = -15, lat = 20, zoom = 2) %>%
   addTiles() %>%
-  addProviderTiles(providers$CartoDB.DarkMatter)
+  addProviderTiles(providers$Hydda.Full)
 ```
