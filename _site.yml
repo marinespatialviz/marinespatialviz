@@ -11,10 +11,11 @@ navbar:
       href: leafletjs.html
     - text: "Shiny"
       href: shiny.html
+    - text: "Graphs"
+      href: graphs.html
     - text: "Data sources"
       href: datasources.html
     - text: "Blog"
       href: blog.html
     - text: "About"
       href: about.html
-      
