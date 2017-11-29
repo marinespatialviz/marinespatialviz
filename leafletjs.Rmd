@@ -151,5 +151,4 @@ Here is the result of the above code (if the map does not show, click [here](htt
 
 ```{r, echo = FALSE}
 htmltools::includeHTML("https://marinespatialviz.github.io/marinespatialviz/external/map.html")
-
 ```

@@ -10,7 +10,7 @@ output:
 
 $~$
 
-# Mapping tweets - #BluePlanet2
+# Mapping tweets #BluePlanet2
 
 ![](http://marinespatialviz.github.io/marinespatialviz/images/blueplanet2.gif)
 

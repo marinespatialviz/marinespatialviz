@@ -19,7 +19,7 @@ Then load the necessary packages:
 install.packages(c("devtools", "rjson", "bit64", "httr"))
 install_github("geoffjentry/twitteR")
 install.packages("ROAuth")
-devtools::install_github("dkahle/ggmap")
+devtools::install_github("dgrtwo/gganimate").
 
 library(twitteR)
 library(ROAuth)
@@ -31,13 +31,15 @@ library(DT)
 library(tidyr)
 library(maps)
 library(purrr)
+library(ggplot2)
+library(ggthemes)
 ```
 
 
 Get [Google API key](https://developers.google.com/maps/documentation/javascript/get-api-key)
 
 ```{r}
-register_google(key = "ENTER YOUR KEY HERE")
+register_google(key = "AIzaSyC6vh5eEsIWg_Hhn1-J7JKiGgZf_qWQjpM")
 ```
 
 
@@ -78,24 +80,18 @@ Run Twitter search. In this case it is #BluePlanet2.
 ```{r}
 #only max 600 due to image convert
 tweets <- searchTwitter('BluePlanet2 -filter:retweets', n = 600)
-
 #create dataframe
 tweets.df <-twListToDF(tweets)
-
 ##look for users
 userInfo <- lookupUsers(tweets.df$screenName) 
-
-#create dataframe
+create dataframe
 userFrame <- twListToDF(userInfo)
-
 #geolocate users
 userFrame <- userFrame %>% 
   mutate(longlat = purrr::map(.$location, geocode))
-  
 #add the latitude and logitude values to dataframe
 userFrame <- userFrame  %>% 
   unnest() 
-  
 #merge
 merged <- merge(tweets.df, userFrame, by = "screenName")
 ```
@@ -124,6 +120,7 @@ Create the GIF image.
 ```{r}
 library(gganimate)
 library(animation)
+
 ani.options(interval = 0.5)
 gganimate(map, "blueplanet2.gif", ani.width = 800, ani.height = 600)
 ```
