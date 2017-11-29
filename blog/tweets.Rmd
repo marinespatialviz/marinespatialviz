@@ -1,5 +1,4 @@
 ---
-title: "Blog"
 output: 
   html_document:
     toc: true
@@ -39,7 +38,7 @@ library(ggthemes)
 Get [Google API key](https://developers.google.com/maps/documentation/javascript/get-api-key)
 
 ```{r}
-register_google(key = "AIzaSyC6vh5eEsIWg_Hhn1-J7JKiGgZf_qWQjpM")
+register_google(key = "ENTER YOUR KEY HERE")
 ```
 
 
