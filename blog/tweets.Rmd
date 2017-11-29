@@ -19,7 +19,7 @@ Then load the necessary packages:
 install.packages(c("devtools", "rjson", "bit64", "httr"))
 install_github("geoffjentry/twitteR")
 install.packages("ROAuth")
-devtools::install_github("dgrtwo/gganimate").
+devtools::install_github("dkahle/ggmap")
 
 library(twitteR)
 library(ROAuth)
@@ -31,8 +31,6 @@ library(DT)
 library(tidyr)
 library(maps)
 library(purrr)
-library(ggplot2)
-library(ggthemes)
 ```
 
 
@@ -106,6 +104,9 @@ merged <- merge(tweets.df, userFrame, by = "screenName")
 Create the map: 
 
 ```{r}
+library(ggplot2)
+library(ggthemes)
+
 world <- ggplot() +
   borders("world", colour = "#232227", fill = "#464648") +
   theme_map()
@@ -121,6 +122,8 @@ map <- world +
 Create the GIF image.
 
 ```{r}
+library(gganimate)
+library(animation)
 ani.options(interval = 0.5)
 gganimate(map, "blueplanet2.gif", ani.width = 800, ani.height = 600)
 ```
