@@ -24,7 +24,7 @@ shinyApp(ui = ui, server = server)
 
 $~$
 
-Let's create a very basic map using Shiny. 
+Let's create a very map using Shiny. 
 
 ```{r}
 library(shiny)
@@ -54,11 +54,11 @@ Let's change the basemap and the view:
 library(shiny)
 library(leaflet)
 
-ui <- fluidPage(leafletOutput("mymap"))
+ui <- fluidPage(leafletOutput("map"))
 
 server <- function(input, output, session) {
   
-  output$mymap <- renderLeaflet({
+  output$map <- renderLeaflet({
     library(leaflet)
     leaflet() %>%
       setView(lng = -15, lat = 20, zoom = 1) %>%
