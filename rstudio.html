@@ -34,6 +34,8 @@
 <script src="site_libs/Proj4Leaflet-0.7.2/proj4-compressed.js"></script>
 <script src="site_libs/Proj4Leaflet-0.7.2/proj4leaflet.js"></script>
 <script src="site_libs/leaflet-binding-1.1.0/leaflet.js"></script>
+<script src="site_libs/leaflet-providers-1.0.27/leaflet-providers.js"></script>
+<script src="site_libs/leaflet-providers-plugin-1.1.0/leaflet-providers-plugin.js"></script>
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
@@ -300,6 +302,9 @@ div.tocify {
   <a href="datasources.html">Data sources</a>
 </li>
 <li>
+  <a href="blog.html">Blog</a>
+</li>
+<li>
   <a href="about.html">About</a>
 </li>
       </ul>
@@ -319,23 +324,58 @@ div.tocify {
 </div>
 
 
-<div id="installing-r-studio" class="section level1">
-<h1>Installing R Studio</h1>
-<p><span class="math inline">\(~\)</span></p>
-<div id="basics-of-r-studio" class="section level2">
-<h2>Basics of R Studio</h2>
-<p><span class="math inline">\(~\)</span></p>
+<div id="installing-and-the-basics-of-r-studio" class="section level1">
+<h1>Installing and the basics of R Studio</h1>
+<p>Install <a href="https://cran.r-project.org/bin/windows/base/">R</a> and <a href="https://www.rstudio.com/products/rstudio/download/">R Studio</a>.</p>
+<p>After opening R Studio, you will see the menu bar and four different panes.</p>
+<div class="figure">
+<img src="http://marinespatialviz.github.io/marinespatialviz/images/1.png" />
+
 </div>
+<p><span class="math inline">\(~\)</span></p>
+<p>Here is an overview explaining what the different panes are used for:</p>
+<ol style="list-style-type: decimal">
+<li><p>Scripting window: for typing commands</p></li>
+<li><p>Console: for typing commands and to see the output of each</p></li>
+<li>Top right side with three tabs:</li>
+</ol>
+<ul>
+<li>Environment: showing all active objects</li>
+<li>History: showing list of commands</li>
+<li>Connections: to connect, explore, and view data in a variety of databases</li>
+</ul>
+<ol start="4" style="list-style-type: decimal">
+<li>Bottom right side with five tabs:</li>
+</ol>
+<ul>
+<li>Files: your default workspace</li>
+<li>Plots: showing graphs that you generate</li>
+<li>Packages: packages contain collections of R functions, data, and compiled code, and are used to make graphs, maps and so on</li>
+<li>Help: additional info</li>
+<li>Viewer: showing interactive plots and graphs GIS</li>
+</ul>
+<p><span class="math inline">\(~\)</span></p>
 <div id="create-a-leaflet-map" class="section level2">
 <h2>Create a leaflet map</h2>
 <p>Start with the installation of the leaflet package.</p>
 <p><code>install.packages(&quot;leaflet&quot;)</code></p>
-<p>After calling the leaflet library, with two lines of code create your first map:</p>
+<p>After calling the leaflet library, two lines of code will create your first map.</p>
 <pre class="r"><code>library(leaflet)
 leaflet() %&gt;%
   addTiles()</code></pre>
-<div id="htmlwidget-56a048a299e3c3bd6fc6" style="width:806.4px;height:576px;" class="leaflet html-widget"></div>
-<script type="application/json" data-for="htmlwidget-56a048a299e3c3bd6fc6">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"maxNativeZoom":null,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"continuousWorld":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":null,"unloadInvisibleTiles":null,"updateWhenIdle":null,"detectRetina":false,"reuseTiles":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]}]},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-98b9360d96d8281238ef" style="width:806.4px;height:576px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-98b9360d96d8281238ef">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"maxNativeZoom":null,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"continuousWorld":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":null,"unloadInvisibleTiles":null,"updateWhenIdle":null,"detectRetina":false,"reuseTiles":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]}]},"evals":[],"jsHooks":[]}</script>
+<p><span class="math inline">\(~\)</span></p>
+</div>
+<div id="set-the-view-and-the-basemap" class="section level2">
+<h2>Set the view and the basemap</h2>
+<p>Let’s set the view by defining a set of coordinates and the zoom level, and add a different basemap (leaflet will use Open Street Map by default). <a href="https://leaflet-extras.github.io/leaflet-providers/preview/">Here</a> you can find a wide range of options for the basemap.</p>
+<pre class="r"><code>leaflet() %&gt;%
+  setView(lng = -15, lat = 20, zoom = 2) %&gt;%
+  addTiles() %&gt;%
+  addProviderTiles(providers$CartoDB.DarkMatter)</code></pre>
+<div id="htmlwidget-e4f9a03fed0cf4bbe9e1" style="width:806.4px;height:576px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-e4f9a03fed0cf4bbe9e1">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"setView":[[20,-15],2,[]],"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"maxNativeZoom":null,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"continuousWorld":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":null,"unloadInvisibleTiles":null,"updateWhenIdle":null,"detectRetina":false,"reuseTiles":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]},{"method":"addProviderTiles","args":["CartoDB.DarkMatter",null,null,{"errorTileUrl":"","noWrap":false,"zIndex":null,"unloadInvisibleTiles":null,"updateWhenIdle":null,"detectRetina":false,"reuseTiles":false}]}]},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 

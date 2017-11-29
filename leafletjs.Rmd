@@ -152,16 +152,3 @@ Here is the result of the above code (if the map does not show, click [here](htt
 ```{r, echo = FALSE}
 htmltools::includeHTML("https://marinespatialviz.github.io/marinespatialviz/external/map.html")
 ```
-
-$~$
-
-Let's look into how you can use leaflet.js on [JSFiddle](https://jsfiddle.net/) which is an online code editor used to test your JavaScript, CSS, HTML; and in Atom that you can download and use as text and source code editor. [Atom](https://atom.io/) will help you create the .html files.
-
-$~$
-
-## JSFiddle
-
-
-## Atom
-
-

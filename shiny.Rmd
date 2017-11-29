@@ -8,4 +8,66 @@ output:
     theme: cosmo
 ---
 
-Coming soon...
+# Basic Shiny app with a map
+
+Here is the basic set up for a Shiny app.
+
+```{r}
+library(shiny)
+
+ui <- fluidPage()
+
+server <- function(input, output) {}
+
+shinyApp(ui = ui, server = server)
+```
+
+$~$
+
+Let's create a very basic map using Shiny. 
+
+```{r}
+library(shiny)
+library(leaflet)
+
+ui <- fluidPage(leafletOutput("map"))
+
+server <- function(input, output, session) {
+  
+  output$map <- renderLeaflet({
+    library(leaflet)
+    leaflet() %>%
+      addTiles()})}
+
+shinyApp(ui, server)
+```
+
+```{r echo = FALSE}
+knitr::include_app("https://marinespatialviz.shinyapps.io/Map1/", height = "500px")
+```
+  
+$~$
+
+Let's change the basemap and the view:
+
+```{r}
+library(shiny)
+library(leaflet)
+
+ui <- fluidPage(leafletOutput("mymap"))
+
+server <- function(input, output, session) {
+  
+  output$mymap <- renderLeaflet({
+    library(leaflet)
+    leaflet() %>%
+      setView(lng = -15, lat = 20, zoom = 1) %>%
+      addTiles() %>%
+      addProviderTiles(providers$Esri.WorldImagery)})}
+
+shinyApp(ui, server)
+```
+
+```{r echo = FALSE}
+knitr::include_app("https://marinespatialviz.shinyapps.io/Map2/", height = "500px")
+```

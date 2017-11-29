@@ -8,11 +8,35 @@ output:
     theme: cosmo
 ---
 
-# Installing R Studio
+# Installing and the basics of R Studio
+
+Install [R](https://cran.r-project.org/bin/windows/base/) and [R Studio](https://www.rstudio.com/products/rstudio/download/). 
+
+After opening R Studio, you will see the menu bar and four different panes.
+
+![](http://marinespatialviz.github.io/marinespatialviz/images/1.png)
 
 $~$
 
-## Basics of R Studio
+Here is an overview explaining what the different panes are used for:
+
+1. Scripting window: for typing commands
+
+2. Console: for typing commands and to see the output of each
+
+3. Top right side with three tabs:
+  + Environment: showing all active objects
+  + History: showing list of commands
+  + Connections: to connect, explore, and view data in a variety of databases
+  
+4. Bottom right side with five tabs:
+  + Files: your default workspace
+  + Plots: showing graphs that you generate
+  + Packages: packages contain collections of R functions, data, and compiled
+code, and are used to make graphs, maps and so on
+  + Help: additional info
+  + Viewer: showing interactive plots and graphs
+GIS
 
 $~$
 
@@ -22,9 +46,23 @@ Start with the installation of the leaflet package.
 
 `install.packages("leaflet")`
 
-After calling the leaflet library, with two lines of code create your first map: 
+After calling the leaflet library, two lines of code will create your first map.
+
 ```{r, fig.width = 8.4, fig.height = 6}
 library(leaflet)
 leaflet() %>%
   addTiles()
+```
+
+$~$
+
+## Set the view and the basemap
+
+Let's set the view by defining a set of coordinates and the zoom level, and add a different basemap (leaflet will use Open Street Map by default). [Here](https://leaflet-extras.github.io/leaflet-providers/preview/) you can find a wide range of options for the basemap. 
+
+```{r, fig.width = 8.4, fig.height = 6}
+leaflet() %>%
+  setView(lng = -15, lat = 20, zoom = 2) %>%
+  addTiles() %>%
+  addProviderTiles(providers$CartoDB.DarkMatter)
 ```

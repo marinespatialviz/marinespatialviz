@@ -1,0 +1,16 @@
+---
+title: "Blog"
+output: 
+  html_document:
+    toc: true
+    toc_depth: 2
+    toc_float: true
+    theme: cosmo
+---
+
+
+# Mapping Twitter tweets
+
+Start with downloading [ImageMagick](http://ftp.icm.edu.pl/packages/ImageMagick/binaries/) (ImageMagick-6.9.3-9-Q16-x64-dll.exe)
+
+Then load the necessary packages:

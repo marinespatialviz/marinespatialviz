@@ -291,6 +291,9 @@ div.tocify {
   <a href="datasources.html">Data sources</a>
 </li>
 <li>
+  <a href="blog.html">Blog</a>
+</li>
+<li>
   <a href="about.html">About</a>
 </li>
       </ul>
@@ -310,7 +313,56 @@ div.tocify {
 </div>
 
 
-<p>Coming soon…</p>
+<div id="basic-shiny-app-with-a-map" class="section level1">
+<h1>Basic Shiny app with a map</h1>
+<p>Here is the basic set up for a Shiny app.</p>
+<pre class="r"><code>library(shiny)
+
+ui &lt;- fluidPage()
+
+server &lt;- function(input, output) {}
+
+shinyApp(ui = ui, server = server)</code></pre>
+<div style="width: 100% ; height: 400px ; text-align: center; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;" class="muted well">Shiny applications not supported in static R Markdown documents</div>
+<p><span class="math inline">\(~\)</span></p>
+<p>Let’s create a very basic map using Shiny.</p>
+<pre class="r"><code>library(shiny)
+library(leaflet)
+
+ui &lt;- fluidPage(leafletOutput(&quot;map&quot;))
+
+server &lt;- function(input, output, session) {
+  
+  output$map &lt;- renderLeaflet({
+    library(leaflet)
+    leaflet() %&gt;%
+      addTiles()})}
+
+shinyApp(ui, server)</code></pre>
+<div style="width: 100% ; height: 400px ; text-align: center; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;" class="muted well">Shiny applications not supported in static R Markdown documents</div>
+<iframe src="https://marinespatialviz.shinyapps.io/Map1/?showcase=0" width="672" height="500px">
+</iframe>
+<p><span class="math inline">\(~\)</span></p>
+<p>Let’s change the basemap and the view:</p>
+<pre class="r"><code>library(shiny)
+library(leaflet)
+
+ui &lt;- fluidPage(leafletOutput(&quot;mymap&quot;))
+
+server &lt;- function(input, output, session) {
+  
+  output$mymap &lt;- renderLeaflet({
+    library(leaflet)
+    leaflet() %&gt;%
+      setView(lng = -15, lat = 20, zoom = 1) %&gt;%
+      addTiles() %&gt;%
+      addProviderTiles(providers$Esri.WorldImagery)})}
+
+shinyApp(ui, server)</code></pre>
+<div style="width: 100% ; height: 400px ; text-align: center; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;" class="muted well">Shiny applications not supported in static R Markdown documents</div>
+<iframe src="https://marinespatialviz.shinyapps.io/Map2/?showcase=0" width="672" height="500px">
+</iframe>
+</div>
 
 
 

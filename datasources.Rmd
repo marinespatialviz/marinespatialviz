@@ -7,5 +7,6 @@ output:
 
 $~$
 
+* [Copernicus](http://www.copernicus.eu/)
 * [EMODnet](http://www.emodnet.eu/)
 * [Natural Earth Data](http://www.naturalearthdata.com/)
