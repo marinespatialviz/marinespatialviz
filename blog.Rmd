@@ -18,7 +18,7 @@ Access the RMarkdown file explaining how the map was created [here](https://mari
 
 $~$
 
-# Wordcloud
+# Word cloud
 
 The first [wordcloud](https://cran.r-project.org/web/packages/wordcloud/wordcloud.pdf) package was used with XKCD [fonts](http://simonsoftware.se/other/xkcd.ttf). 
 
@@ -40,3 +40,5 @@ wordcloud(c("gis", "data", "rstudio", "leaflet.js",
           freq = c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13), 
           col = pal, scale = c(2, 3), min.freq = 1)
 ```
+
+![](http://marinespatialviz.github.io/marinespatialviz/images/wordcloud.png)

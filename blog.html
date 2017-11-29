@@ -323,8 +323,8 @@ div.tocify {
 <p>Access the RMarkdown file explaining how the map was created <a href="https://marinespatialviz.github.io/marinespatialviz/blog/tweets.Rmd">here</a>.</p>
 <p><span class="math inline">\(~\)</span></p>
 </div>
-<div id="wordcloud" class="section level1">
-<h1>Wordcloud</h1>
+<div id="word-cloud" class="section level1">
+<h1>Word cloud</h1>
 <p>The first <a href="https://cran.r-project.org/web/packages/wordcloud/wordcloud.pdf">wordcloud</a> package was used with XKCD <a href="http://simonsoftware.se/other/xkcd.ttf">fonts</a>.</p>
 <pre class="r"><code>library(RColorBrewer)
 library(wordcloud)
@@ -343,6 +343,10 @@ wordcloud(c(&quot;gis&quot;, &quot;data&quot;, &quot;rstudio&quot;, &quot;leafle
           freq = c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13), 
           col = pal, scale = c(2, 3), min.freq = 1)</code></pre>
 <p><img src="blog_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<div class="figure">
+<img src="http://marinespatialviz.github.io/marinespatialviz/images/wordcloud.png" />
+
+</div>
 </div>
 
 
