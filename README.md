@@ -2,4 +2,4 @@
 
 Files used for the https://marinespatialviz.github.io/marinespatialviz website.
 
-Please note that the content is constantly growing.
+This is a work in progress...
