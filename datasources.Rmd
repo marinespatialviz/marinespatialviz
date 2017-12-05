@@ -2,7 +2,7 @@
 title: "Data sources"
 output: 
   html_document:
-    theme: cosmo
+    theme: flatly
 ---
 
 $~$

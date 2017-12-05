@@ -15,7 +15,7 @@
 
 <script src="site_libs/jquery-1.12.4/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
@@ -113,34 +113,34 @@ button.code-folding-btn:focus {
 <style type="text/css">
 /* padding for bootstrap navbar */
 body {
-  padding-top: 51px;
+  padding-top: 60px;
   padding-bottom: 40px;
 }
 /* offset scroll position for anchor links (for fixed navbar)  */
 .section h1 {
-  padding-top: 56px;
-  margin-top: -56px;
+  padding-top: 65px;
+  margin-top: -65px;
 }
 
 .section h2 {
-  padding-top: 56px;
-  margin-top: -56px;
+  padding-top: 65px;
+  margin-top: -65px;
 }
 .section h3 {
-  padding-top: 56px;
-  margin-top: -56px;
+  padding-top: 65px;
+  margin-top: -65px;
 }
 .section h4 {
-  padding-top: 56px;
-  margin-top: -56px;
+  padding-top: 65px;
+  margin-top: -65px;
 }
 .section h5 {
-  padding-top: 56px;
-  margin-top: -56px;
+  padding-top: 65px;
+  margin-top: -65px;
 }
 .section h6 {
-  padding-top: 56px;
-  margin-top: -56px;
+  padding-top: 65px;
+  margin-top: -65px;
 }
 </style>
 
@@ -293,7 +293,10 @@ div.tocify {
   <a href="rstudio.html">R Studio</a>
 </li>
 <li>
-  <a href="leafletjs.html">Leaflet.js</a>
+  <a href="leaflet.html">Leaflet.js</a>
+</li>
+<li>
+  <a href="mapbox.html">Mapbox.js</a>
 </li>
 <li>
   <a href="shiny.html">Shiny</a>
@@ -355,28 +358,40 @@ div.tocify {
 <li>Viewer: showing interactive plots and graphs GIS</li>
 </ul>
 <p><span class="math inline">\(~\)</span></p>
-<div id="create-a-leaflet-map" class="section level2">
-<h2>Create a leaflet map</h2>
+</div>
+<div id="create-a-leaflet-map" class="section level1">
+<h1>Create a leaflet map</h1>
 <p>Start with the installation of the leaflet package.</p>
 <p><code>install.packages(&quot;leaflet&quot;)</code></p>
 <p>After calling the leaflet library, two lines of code will create your first map.</p>
 <pre class="r"><code>library(leaflet)
 leaflet() %&gt;%
   addTiles()</code></pre>
-<div id="htmlwidget-24109a03dd13f147aa9c" style="width:806.4px;height:576px;" class="leaflet html-widget"></div>
-<script type="application/json" data-for="htmlwidget-24109a03dd13f147aa9c">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"maxNativeZoom":null,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"continuousWorld":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":null,"unloadInvisibleTiles":null,"updateWhenIdle":null,"detectRetina":false,"reuseTiles":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]}]},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-155e9286e6394b17cc0e" style="width:806.4px;height:576px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-155e9286e6394b17cc0e">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"maxNativeZoom":null,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"continuousWorld":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":null,"unloadInvisibleTiles":null,"updateWhenIdle":null,"detectRetina":false,"reuseTiles":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]}]},"evals":[],"jsHooks":[]}</script>
 <p><span class="math inline">\(~\)</span></p>
 </div>
-<div id="set-the-view-and-the-basemap" class="section level2">
-<h2>Set the view and the basemap</h2>
+<div id="view-and-basemap" class="section level1">
+<h1>View and basemap</h1>
 <p>Let’s set the view by defining a set of coordinates and the zoom level, and add a different basemap (leaflet will use Open Street Map by default). <a href="https://leaflet-extras.github.io/leaflet-providers/preview/">Here</a> you can find a wide range of options for the basemap.</p>
 <pre class="r"><code>leaflet() %&gt;%
   setView(lng = -15, lat = 20, zoom = 2) %&gt;%
   addTiles() %&gt;%
   addProviderTiles(providers$CartoDB.DarkMatter)</code></pre>
-<div id="htmlwidget-d1e812435133e92a7f43" style="width:806.4px;height:576px;" class="leaflet html-widget"></div>
-<script type="application/json" data-for="htmlwidget-d1e812435133e92a7f43">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"setView":[[20,-15],2,[]],"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"maxNativeZoom":null,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"continuousWorld":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":null,"unloadInvisibleTiles":null,"updateWhenIdle":null,"detectRetina":false,"reuseTiles":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]},{"method":"addProviderTiles","args":["CartoDB.DarkMatter",null,null,{"errorTileUrl":"","noWrap":false,"zIndex":null,"unloadInvisibleTiles":null,"updateWhenIdle":null,"detectRetina":false,"reuseTiles":false}]}]},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-f100c983c717cc9490b5" style="width:806.4px;height:576px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-f100c983c717cc9490b5">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"setView":[[20,-15],2,[]],"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"maxNativeZoom":null,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"continuousWorld":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":null,"unloadInvisibleTiles":null,"updateWhenIdle":null,"detectRetina":false,"reuseTiles":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]},{"method":"addProviderTiles","args":["CartoDB.DarkMatter",null,null,{"errorTileUrl":"","noWrap":false,"zIndex":null,"unloadInvisibleTiles":null,"updateWhenIdle":null,"detectRetina":false,"reuseTiles":false}]}]},"evals":[],"jsHooks":[]}</script>
+<p><span class="math inline">\(~\)</span></p>
 </div>
+<div id="marker" class="section level1">
+<h1>Marker</h1>
+<p>You can easily add a marker by defining a set of coordinates and using <code>addMarker()</code>. The example here is the Mariana Trench, the deepest part of the world’s oceans.</p>
+<pre class="r"><code>leaflet() %&gt;%
+  addTiles() %&gt;%
+  setView(lng = 142, lat = 11, zoom = 3) %&gt;%
+  addMarkers(lng = 142.1999992, lat = 11.3499986) %&gt;%
+  addProviderTiles(providers$Esri.OceanBasemap)</code></pre>
+<div id="htmlwidget-73d3a0714988a73cd03b" style="width:806.4px;height:576px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-73d3a0714988a73cd03b">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"maxNativeZoom":null,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"continuousWorld":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":null,"unloadInvisibleTiles":null,"updateWhenIdle":null,"detectRetina":false,"reuseTiles":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]},{"method":"addMarkers","args":[11.3499986,142.1999992,null,null,null,{"clickable":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},null,null,null,null,null,null,null]},{"method":"addProviderTiles","args":["Esri.OceanBasemap",null,null,{"errorTileUrl":"","noWrap":false,"zIndex":null,"unloadInvisibleTiles":null,"updateWhenIdle":null,"detectRetina":false,"reuseTiles":false}]}],"setView":[[11,142],3,[]],"limits":{"lat":[11.3499986,11.3499986],"lng":[142.1999992,142.1999992]}},"evals":[],"jsHooks":[]}</script>
 </div>
 
 

@@ -5,8 +5,9 @@ output:
     toc: true
     toc_depth: 2
     toc_float: true
-    theme: cosmo
+    theme: flatly
 ---
+
 
 # Installing and the basics of R Studio
 
@@ -40,7 +41,7 @@ GIS
 
 $~$
 
-## Create a leaflet map
+# Create a leaflet map
 
 Start with the installation of the leaflet package.
 
@@ -56,7 +57,7 @@ leaflet() %>%
 
 $~$
 
-## Set the view and the basemap
+# View and basemap
 
 Let's set the view by defining a set of coordinates and the zoom level, and add a different basemap (leaflet will use Open Street Map by default). [Here](https://leaflet-extras.github.io/leaflet-providers/preview/) you can find a wide range of options for the basemap. 
 
@@ -65,4 +66,18 @@ leaflet() %>%
   setView(lng = -15, lat = 20, zoom = 2) %>%
   addTiles() %>%
   addProviderTiles(providers$CartoDB.DarkMatter)
+```
+
+$~$
+
+# Marker
+
+You can easily add a marker by defining a set of coordinates and using `addMarker()`. The example here is the Mariana Trench, the deepest part of the world's oceans.
+
+```{r, fig.width = 8.4, fig.height = 6}
+leaflet() %>%
+  addTiles() %>%
+  setView(lng = 142, lat = 11, zoom = 3) %>%
+  addMarkers(lng = 142.1999992, lat = 11.3499986) %>%
+  addProviderTiles(providers$Esri.OceanBasemap)
 ```

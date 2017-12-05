@@ -2,7 +2,7 @@
 title: "Marine GIS & Data Visualisation"
 output: 
   html_document:
-    theme: cosmo
+    theme: flatly
 ---
 
 

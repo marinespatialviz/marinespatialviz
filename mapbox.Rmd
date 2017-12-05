@@ -1,0 +1,149 @@
+---
+title: "Mapbox.js"
+output: 
+  html_document:
+    toc: true
+    toc_depth: 2
+    toc_float: true
+    theme: flatly
+---
+
+
+# Basics of Mapbox.js
+
+Similarly to Leaflet.js, Mapbox.js is also an open-source JavaScript library that allows you to create interactive maps which then can be added to your website. 
+
+The **HTML page** set-up is the same as for [Leaflet.js](https://marinespatialviz.github.io/marinespatialviz/leafletjs.html#basics_of_leafletjs).
+
+$~$
+
+# View and basemap
+
+You can set the view and the [basemap](https://www.mapbox.com/maps/) using the code `var map = L.mapbox.map('map', 'mapbox.streets').setView([20, -15], 3);`.
+
+    <html>
+
+      <head>
+
+        <script src='https://api.mapbox.com/mapbox.js/v3.1.1/mapbox.js'></script>
+        
+        <link href='https://api.mapbox.com/mapbox.js/v3.1.1/mapbox.css' rel='stylesheet'/>
+
+        <style>
+        
+          body { margin:0; padding:0; }
+          #map { position:absolute; top:0; bottom:0; width:100%; }
+          
+        </style>
+
+      </head>
+
+      <body>
+
+        <div id='map'></div>
+
+        <script>
+
+        L.mapbox.accessToken ='pk.eyJ1Ijoid2FuZGFib2RuYXIiLCJhIjoiY2phdHM1dm0xNXF0ajJxanU3dmdmaHRqcCJ9.mFPox1jAE9LkZN6v5OZ7Lw';
+
+        var map = L.mapbox.map('map', 'mapbox.streets').setView([20, -15], 3);
+
+        </script>
+
+      </body>
+
+    </html>
+
+Click [here](https://marinespatialviz.github.io/marinespatialviz/external/mapbox/map.html) to see the map.
+
+$~$
+
+# Marker
+
+You can add a marker to the map using the code `var marker = L.marker([]); marker.addTo(map);`. This will add the same type of marker as in Leaflet.js. 
+
+
+    <html>
+
+      <head>
+
+        <script src='https://api.mapbox.com/mapbox.js/v3.1.1/mapbox.js'></script>
+        
+        <link href='https://api.mapbox.com/mapbox.js/v3.1.1/mapbox.css' rel='stylesheet'/>
+
+        <style>
+        
+          body { margin:0; padding:0; }
+          #map { position:absolute; top:0; bottom:0; width:100%; }
+          
+        </style>
+
+      </head>
+
+      <body>
+
+        <div id='map'></div>
+
+        <script>
+
+        L.mapbox.accessToken = 'pk.eyJ1Ijoid2FuZGFib2RuYXIiLCJhIjoiY2phdHM1dm0xNXF0ajJxanU3dmdmaHRqcCJ9.mFPox1jAE9LkZN6v5OZ7Lw';
+
+        var map = L.mapbox.map('map', 'mapbox.light').setView([11, 142], 3);
+
+        var marker = L.marker([11.3499986, 142.1999992]);
+        marker.addTo(map);
+
+        </script>
+
+      </body>
+
+    </html>
+    
+Click [here](https://marinespatialviz.github.io/marinespatialviz/external/mapbox/marker.html) to see the map.
+
+$~$
+
+## Mapbox marker
+
+You can also use the Mapbox marker. 
+
+    <html>
+
+      <head>
+
+      <script src='https://api.mapbox.com/mapbox.js/v3.1.1/mapbox.js'></script>
+      
+      <link href='https://api.mapbox.com/mapbox.js/v3.1.1/mapbox.css' rel='stylesheet'/>
+
+      <style>
+      
+        body { margin:0; padding:0; }
+        #map { position:absolute; top:0; bottom:0; width:100%; }
+        
+      </style>
+
+      </head>
+
+        <body>
+
+          <div id='map'></div>
+
+          <script>
+
+          L.mapbox.accessToken = 'pk.eyJ1Ijoid2FuZGFib2RuYXIiLCJhIjoiY2phdHM1dm0xNXF0ajJxanU3dmdmaHRqcCJ9.mFPox1jAE9LkZN6v5OZ7Lw';
+
+          var map = L.mapbox.map('map', 'mapbox.light').setView([11, 142], 3);
+
+          L.marker([11.3499986, 142.1999992], {
+            icon: L.mapbox.marker.icon({
+            'marker-size': 'large',
+            'marker-color': '#e12323'})
+            }).addTo(map);
+
+          </script>
+
+        </body>
+
+      </html>
+
+Click [here](https://marinespatialviz.github.io/marinespatialviz/external/mapbox/mapboxmarker.html) to see the map.

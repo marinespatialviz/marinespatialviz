@@ -2,7 +2,7 @@
 title: "About"
 output: 
   html_document:
-    theme: cosmo
+    theme: flatly
 ---
 
 More information coming soon...

@@ -11,7 +11,7 @@
 
 
 
-<title>Blog</title>
+<title>Mapbox.js</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -311,42 +311,138 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Blog</h1>
+<h1 class="title toc-ignore">Mapbox.js</h1>
 
 </div>
 
 
-<p><span class="math inline">\(~\)</span></p>
-<div id="mapping-tweets-blueplanet2" class="section level1">
-<h1>Mapping tweets #BluePlanet2</h1>
-<div class="figure">
-<img src="http://marinespatialviz.github.io/marinespatialviz/images/blueplanet2.gif" />
-
-</div>
-<p>Access the RMarkdown file explaining how the map was created <a href="https://marinespatialviz.github.io/marinespatialviz/blog/tweets.Rmd">here</a>.</p>
+<div id="basics-of-mapbox.js" class="section level1">
+<h1>Basics of Mapbox.js</h1>
+<p>Similarly to Leaflet.js, Mapbox.js is also an open-source JavaScript library that allows you to create interactive maps which then can be added to your website.</p>
+<p>The <strong>HTML page</strong> set-up is the same as for <a href="https://marinespatialviz.github.io/marinespatialviz/leafletjs.html#basics_of_leafletjs">Leaflet.js</a>.</p>
 <p><span class="math inline">\(~\)</span></p>
 </div>
-<div id="word-cloud" class="section level1">
-<h1>Word cloud</h1>
-<p>The first <a href="https://cran.r-project.org/web/packages/wordcloud/wordcloud.pdf">wordcloud</a> package was used with XKCD <a href="http://simonsoftware.se/other/xkcd.ttf">fonts</a>.</p>
-<pre class="r"><code>library(RColorBrewer)
-library(wordcloud)
-library(tm)
+<div id="view-and-basemap" class="section level1">
+<h1>View and basemap</h1>
+<p>You can set the view and the <a href="https://www.mapbox.com/maps/">basemap</a> using the code <code>var map = L.mapbox.map('map', 'mapbox.streets').setView([20, -15], 3);</code>.</p>
+<pre><code>&lt;html&gt;
 
-pal = brewer.pal(8, &quot;Dark2&quot;)
+  &lt;head&gt;
 
-windowsFonts(JP1 = windowsFont(&quot;xkcd&quot;))
+    &lt;script src=&#39;https://api.mapbox.com/mapbox.js/v3.1.1/mapbox.js&#39;&gt;&lt;/script&gt;
+    
+    &lt;link href=&#39;https://api.mapbox.com/mapbox.js/v3.1.1/mapbox.css&#39; rel=&#39;stylesheet&#39;/&gt;
 
-par(family = &quot;JP1&quot;)
+    &lt;style&gt;
+    
+      body { margin:0; padding:0; }
+      #map { position:absolute; top:0; bottom:0; width:100%; }
+      
+    &lt;/style&gt;
 
-wordcloud(c(&quot;gis&quot;, &quot;data&quot;, &quot;rstudio&quot;, &quot;leaflet.js&quot;, 
-            &quot;gif&quot;, &quot;interactive&quot;, &quot;mapping&quot;, &quot;animated&quot;, 
-            &quot;ocean&quot;, &quot;globe&quot;, &quot;marine&quot;, &quot;shiny&quot;, 
-            &quot;climate&quot;),
-          freq = c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13), 
-          col = pal, scale = c(2, 3), min.freq = 1)</code></pre>
-<p><img src="blog_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
-<p>(If the picture does not show, click <a href="http://marinespatialviz.github.io/marinespatialviz/images/wordcloud.png">here</a>.)</p>
+  &lt;/head&gt;
+
+  &lt;body&gt;
+
+    &lt;div id=&#39;map&#39;&gt;&lt;/div&gt;
+
+    &lt;script&gt;
+
+    L.mapbox.accessToken =&#39;pk.eyJ1Ijoid2FuZGFib2RuYXIiLCJhIjoiY2phdHM1dm0xNXF0ajJxanU3dmdmaHRqcCJ9.mFPox1jAE9LkZN6v5OZ7Lw&#39;;
+
+    var map = L.mapbox.map(&#39;map&#39;, &#39;mapbox.streets&#39;).setView([20, -15], 3);
+
+    &lt;/script&gt;
+
+  &lt;/body&gt;
+
+&lt;/html&gt;</code></pre>
+<p>Click <a href="https://marinespatialviz.github.io/marinespatialviz/external/mapbox/map.html">here</a> to see the map.</p>
+<p><span class="math inline">\(~\)</span></p>
+</div>
+<div id="marker" class="section level1">
+<h1>Marker</h1>
+<p>You can add a marker to the map using the code <code>var marker = L.marker([]); marker.addTo(map);</code>. This will add the same type of marker as in Leaflet.js.</p>
+<pre><code>&lt;html&gt;
+
+  &lt;head&gt;
+
+    &lt;script src=&#39;https://api.mapbox.com/mapbox.js/v3.1.1/mapbox.js&#39;&gt;&lt;/script&gt;
+    
+    &lt;link href=&#39;https://api.mapbox.com/mapbox.js/v3.1.1/mapbox.css&#39; rel=&#39;stylesheet&#39;/&gt;
+
+    &lt;style&gt;
+    
+      body { margin:0; padding:0; }
+      #map { position:absolute; top:0; bottom:0; width:100%; }
+      
+    &lt;/style&gt;
+
+  &lt;/head&gt;
+
+  &lt;body&gt;
+
+    &lt;div id=&#39;map&#39;&gt;&lt;/div&gt;
+
+    &lt;script&gt;
+
+    L.mapbox.accessToken = &#39;pk.eyJ1Ijoid2FuZGFib2RuYXIiLCJhIjoiY2phdHM1dm0xNXF0ajJxanU3dmdmaHRqcCJ9.mFPox1jAE9LkZN6v5OZ7Lw&#39;;
+
+    var map = L.mapbox.map(&#39;map&#39;, &#39;mapbox.light&#39;).setView([11, 142], 3);
+
+    var marker = L.marker([11.3499986, 142.1999992]);
+    marker.addTo(map);
+
+    &lt;/script&gt;
+
+  &lt;/body&gt;
+
+&lt;/html&gt;</code></pre>
+<p>Click <a href="https://marinespatialviz.github.io/marinespatialviz/external/mapbox/marker.html">here</a> to see the map.</p>
+<p><span class="math inline">\(~\)</span></p>
+<div id="mapbox-marker" class="section level2">
+<h2>Mapbox marker</h2>
+<p>You can also use the Mapbox marker.</p>
+<pre><code>&lt;html&gt;
+
+  &lt;head&gt;
+
+  &lt;script src=&#39;https://api.mapbox.com/mapbox.js/v3.1.1/mapbox.js&#39;&gt;&lt;/script&gt;
+  
+  &lt;link href=&#39;https://api.mapbox.com/mapbox.js/v3.1.1/mapbox.css&#39; rel=&#39;stylesheet&#39;/&gt;
+
+  &lt;style&gt;
+  
+    body { margin:0; padding:0; }
+    #map { position:absolute; top:0; bottom:0; width:100%; }
+    
+  &lt;/style&gt;
+
+  &lt;/head&gt;
+
+    &lt;body&gt;
+
+      &lt;div id=&#39;map&#39;&gt;&lt;/div&gt;
+
+      &lt;script&gt;
+
+      L.mapbox.accessToken = &#39;pk.eyJ1Ijoid2FuZGFib2RuYXIiLCJhIjoiY2phdHM1dm0xNXF0ajJxanU3dmdmaHRqcCJ9.mFPox1jAE9LkZN6v5OZ7Lw&#39;;
+
+      var map = L.mapbox.map(&#39;map&#39;, &#39;mapbox.light&#39;).setView([11, 142], 3);
+
+      L.marker([11.3499986, 142.1999992], {
+        icon: L.mapbox.marker.icon({
+        &#39;marker-size&#39;: &#39;large&#39;,
+        &#39;marker-color&#39;: &#39;#e12323&#39;})
+        }).addTo(map);
+
+      &lt;/script&gt;
+
+    &lt;/body&gt;
+
+  &lt;/html&gt;</code></pre>
+<p>Click <a href="https://marinespatialviz.github.io/marinespatialviz/external/mapbox/mapboxmarker.html">here</a> to see the map.</p>
+</div>
 </div>
 
 
