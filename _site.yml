@@ -5,14 +5,14 @@ navbar:
   left:
     - text: "Marine GIS & Data Visualisation"
       href: index.html
-    - text: "R Studio"
+    - text: "R Studio - Leaflet"
       href: rstudio.html
+    - text: "R Studio - Shiny"
+      href: shiny.html
     - text: "Leaflet.js"
       href: leaflet.html
     - text: "Mapbox.js"
       href: mapbox.html
-    - text: "Shiny"
-      href: shiny.html
     - text: "Data sources"
       href: datasources.html
     - text: "Blog"
