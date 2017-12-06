@@ -279,16 +279,16 @@ div.tocify {
   <a href="index.html">Marine GIS &amp; Data Visualisation</a>
 </li>
 <li>
-  <a href="rstudio.html">R Studio</a>
+  <a href="rstudio.html">R Studio - Leaflet</a>
+</li>
+<li>
+  <a href="shiny.html">R Studio - Shiny</a>
 </li>
 <li>
   <a href="leaflet.html">Leaflet.js</a>
 </li>
 <li>
   <a href="mapbox.html">Mapbox.js</a>
-</li>
-<li>
-  <a href="shiny.html">Shiny</a>
 </li>
 <li>
   <a href="datasources.html">Data sources</a>
@@ -316,6 +316,7 @@ div.tocify {
 </div>
 
 
+<p><span class="math inline">\(~\)</span></p>
 <div id="basics-of-leaflet.js" class="section level1">
 <h1>Basics of Leaflet.js</h1>
 <p><a href="http://leafletjs.com/">Leaflet.js</a> is an open-source JavaScript library used for the creation of interactive, simple and lightweight web maps. Leaflet forms the basis of <a href="https://marinespatialviz.github.io/marinespatialviz/mapboxjs.html">Mapbox.js</a>.</p>
@@ -395,7 +396,7 @@ div.tocify {
 </div>
 <div id="view-and-basemap" class="section level1">
 <h1>View and basemap</h1>
-<p>Now, let’s construct the body adding the map object. Just like in in R Studio, different <a href="https://leaflet-extras.github.io/leaflet-providers/preview/">basemaps</a> can be used in Leaflet.js as well.</p>
+<p>Now, let’s construct the body adding the map object. The view can be set using <code>var map = L.map('map', {center: [20, -15], zoom: 3});</code> and just like in in R Studio, different <a href="https://leaflet-extras.github.io/leaflet-providers/preview/">basemaps</a> can be used wiht the line <code>L.tileLayer('http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png', {attribution: '&amp;copy; &lt;a href=&quot;http://www.openstreetmap.org/copyright&quot;&gt;OpenStreetMap&lt;/a&gt;'}).addTo(map);</code>.</p>
 <pre><code>&lt;html&gt;
 
   &lt;head&gt;
@@ -430,131 +431,49 @@ div.tocify {
     &lt;/body&gt;
 
 &lt;/html&gt;</code></pre>
-<p>Here is the result of the above code (if the map does not show, click <a href="https://marinespatialviz.github.io/marinespatialviz/external/leaflet/map.html">here</a>.</p>
-<!DOCTYPE html>
-
-  <html>
-
-    <head>
-
-      <title>My first leaflet.js map</title>
-
-      <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
-
-      <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
-
-        <style>
-
-        </style>
-
-      </head>
-
-      <body>
-
-        <div id = "map" style = "width: 1350px; height: 600px"></div>
-
-          <script>
-
-    var map = L.map('map',{
-    center: [20, -15],
-    zoom: 3
-    });
-
-    L.tileLayer('http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-    }).addTo(map);
-
-        </script>
-
-      </body>
-
-    </html>
+<p><a href="https://marinespatialviz.github.io/marinespatialviz/external/leaflet/map.html"><img src="http://marinespatialviz.github.io/marinespatialviz/images/lmap.png" /></a></p>
 <p><span class="math inline">\(~\)</span></p>
 </div>
 <div id="marker" class="section level1">
 <h1>Marker</h1>
 <p>With the marker variable <code>var marker = L.marker ([x, y])</code> the coordinates will be given and it will be added to the map <code>marker.addTo()</code>.</p>
-<pre><code>&lt;html&gt;
+<pre><code>      &lt;script&gt;
 
-  &lt;head&gt;
+      var map = L.map(&#39;map&#39;,{
+      center: [11, 142],
+      zoom: 3
+      });
 
-    &lt;title&gt;Marker&lt;/title&gt;
+      L.tileLayer(&#39;http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png&#39;, {
+      attribution: &#39;&amp;copy; &lt;a href=&quot;http://www.openstreetmap.org/copyright&quot;&gt;OpenStreetMap&lt;/a&gt;&#39;
+      }).addTo(map);
 
-    &lt;link rel=&quot;stylesheet&quot; href=&quot;http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css&quot; /&gt;
+      var marker = L.marker([11.3499986, 142.1999992])
+      marker.addTo(map);
 
-    &lt;script src=&quot;http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js&quot;&gt;&lt;/script&gt;
+      &lt;/script&gt;</code></pre>
+<p><a href="https://marinespatialviz.github.io/marinespatialviz/external/leaflet/marker.html"><img src="http://marinespatialviz.github.io/marinespatialviz/images/lmarker.png" /></a></p>
+<p><span class="math inline">\(~\)</span></p>
+</div>
+<div id="polyline" class="section level1">
+<h1>Polyline</h1>
+<p>Let’s see how we can add a line between two points (in this case The Equator).</p>
+<p>Here, the <code>var line = ()</code> was defined and was added to the map.</p>
+<pre><code>      &lt;script&gt;
 
-    &lt;style&gt;
+      var map = L.map(&#39;map&#39;,{
+      center: [0, 0],
+      zoom: 3
+      });
 
-    &lt;/style&gt;
+      L.tileLayer(&#39;http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png&#39;, {
+      attribution: &#39;&amp;copy; &lt;a href=&quot;http://www.openstreetmap.org/copyright&quot;&gt;OpenStreetMap&lt;/a&gt;&#39;
+      }).addTo(map);
 
-  &lt;/head&gt;
+      var line = L.polyline([[0, -180], [0, 180]],{color: &#39;red&#39;}).addTo(map);
 
-    &lt;body&gt;
-
-    &lt;div id = &quot;map&quot; style = &quot;width: 1350px; height: 600px&quot;&gt;&lt;/div&gt;
-
-    &lt;script&gt;
-
-    var map = L.map(&#39;map&#39;,{
-    center: [11, 142],
-    zoom: 3
-    });
-
-    L.tileLayer(&#39;http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png&#39;, {
-    attribution: &#39;&amp;copy; &lt;a href=&quot;http://www.openstreetmap.org/copyright&quot;&gt;OpenStreetMap&lt;/a&gt;&#39;
-    }).addTo(map);
-
-    var marker = L.marker([11.3499986, 142.1999992])
-    marker.addTo(map);
-
-    &lt;/script&gt;
-
-  &lt;/body&gt;
-
-&lt;/html&gt;</code></pre>
-<p>Here is the result of the above code (if the map does not show, click <a href="https://marinespatialviz.github.io/marinespatialviz/external/leaflet/marker.html">here</a>.</p>
-<!DOCTYPE html>
-
-  <html>
-
-    <head>
-
-      <title>Marker</title>
-
-      <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
-
-      <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
-
-        <style>
-
-        </style>
-
-      </head>
-
-      <body>
-
-        <div id = "map" style = "width: 1350px; height: 600px"></div>
-
-          <script>
-
-    var map = L.map('map',{
-    center: [11, 142],
-    zoom: 3
-    });
-
-    L.tileLayer('http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-    }).addTo(map);
-
-    var marker = L.marker([11.3499986, 142.1999992])
-    marker.addTo(map);
-
-    </script>
-
-  </body>
-
-</html>
+      &lt;/script&gt;</code></pre>
+<p><a href="https://marinespatialviz.github.io/marinespatialviz/external/leaflet/polyline.html"><img src="http://marinespatialviz.github.io/marinespatialviz/images/lpolyline.png" /></a></p>
 </div>
 
 

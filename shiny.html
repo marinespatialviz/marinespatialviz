@@ -11,7 +11,7 @@
 
 
 
-<title>Shiny</title>
+<title>R Studio - Shiny</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -279,16 +279,16 @@ div.tocify {
   <a href="index.html">Marine GIS &amp; Data Visualisation</a>
 </li>
 <li>
-  <a href="rstudio.html">R Studio</a>
+  <a href="rstudio.html">R Studio - Leaflet</a>
+</li>
+<li>
+  <a href="shiny.html">R Studio - Shiny</a>
 </li>
 <li>
   <a href="leaflet.html">Leaflet.js</a>
 </li>
 <li>
   <a href="mapbox.html">Mapbox.js</a>
-</li>
-<li>
-  <a href="shiny.html">Shiny</a>
 </li>
 <li>
   <a href="datasources.html">Data sources</a>
@@ -311,13 +311,14 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Shiny</h1>
+<h1 class="title toc-ignore">R Studio - Shiny</h1>
 
 </div>
 
 
-<div id="basic-shiny-app-with-a-map" class="section level1">
-<h1>Basic Shiny app with a map</h1>
+<p><span class="math inline">\(~\)</span></p>
+<div id="shiny-app-with-a-map" class="section level1">
+<h1>Shiny app with a map</h1>
 <p>Here is the basic set up for a Shiny app.</p>
 <pre class="r"><code>library(shiny)
 
@@ -326,6 +327,8 @@ ui &lt;- fluidPage()
 server &lt;- function(input, output) {}
 
 shinyApp(ui = ui, server = server)</code></pre>
+<pre><code>## PhantomJS not found. You can install it with webshot::install_phantomjs(). If it is installed, please make sure the phantomjs executable can be found via the PATH variable.</code></pre>
+<div style="width: 100% ; height: 400px ; text-align: center; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;" class="muted well">Shiny applications not supported in static R Markdown documents</div>
 <p><span class="math inline">\(~\)</span></p>
 <p>Let’s create a basic map using Shiny.</p>
 <pre class="r"><code>library(shiny)
@@ -341,7 +344,8 @@ server &lt;- function(input, output, session) {
       addTiles()})}
 
 shinyApp(ui, server)</code></pre>
-<iframe src="https://marinespatialviz.shinyapps.io/Map1/?showcase=0" width="800" height="405px">
+<div style="width: 100% ; height: 400px ; text-align: center; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;" class="muted well">Shiny applications not supported in static R Markdown documents</div>
+<iframe src="https://marinespatialviz.shinyapps.io/Map1/?showcase=0" width="672" height="600px">
 </iframe>
 <p><span class="math inline">\(~\)</span></p>
 </div>
@@ -363,8 +367,10 @@ server &lt;- function(input, output, session) {
       addProviderTiles(providers$Esri.WorldImagery)})}
 
 shinyApp(ui, server)</code></pre>
-<iframe src="https://marinespatialviz.shinyapps.io/Map2/?showcase=0" width="800" height="405px">
+<div style="width: 100% ; height: 400px ; text-align: center; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;" class="muted well">Shiny applications not supported in static R Markdown documents</div>
+<iframe src="https://marinespatialviz.shinyapps.io/Map2/?showcase=0" width="672" height="400px">
 </iframe>
+<p><span class="math inline">\(~\)</span></p>
 </div>
 <div id="marker" class="section level1">
 <h1>Marker</h1>
@@ -385,7 +391,36 @@ server &lt;- function(input, output, session) {
       addProviderTiles(providers$Esri.OceanBasemap)})}
 
 shinyApp(ui, server)</code></pre>
-<iframe src="https://marinespatialviz.shinyapps.io/marker/?showcase=0" width="800" height="405px">
+<div style="width: 100% ; height: 400px ; text-align: center; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;" class="muted well">Shiny applications not supported in static R Markdown documents</div>
+<iframe src="https://marinespatialviz.shinyapps.io/marker/?showcase=0" width="672" height="400px">
+</iframe>
+<p><span class="math inline">\(~\)</span></p>
+</div>
+<div id="polyline" class="section level1">
+<h1>Polyline</h1>
+<p>Let’s add the Equator to the map.</p>
+<pre class="r"><code>library(shiny)
+library(leaflet)
+
+x = c(-180, 180)
+y = c(0, 0)
+e = data.frame(x, y)
+
+ui &lt;- fluidPage(leafletOutput(&quot;mymap&quot;))
+
+server &lt;- function(input, output, session) {
+  
+  output$mymap &lt;- renderLeaflet({
+    library(leaflet)
+    leaflet() %&gt;%
+      addTiles() %&gt;%
+      setView(lng = 0, lat = 0, zoom = 2) %&gt;%
+      addPolylines(lng = e$x, lat = e$y, color = &quot;red&quot;) %&gt;%
+      addProviderTiles(providers$Esri.OceanBasemap)})}
+
+shinyApp(ui, server)</code></pre>
+<div style="width: 100% ; height: 400px ; text-align: center; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;" class="muted well">Shiny applications not supported in static R Markdown documents</div>
+<iframe src="https://marinespatialviz.shinyapps.io/polyline/?showcase=0" width="672" height="400px">
 </iframe>
 </div>
 
