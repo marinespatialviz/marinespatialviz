@@ -146,7 +146,7 @@ shinyApp(ui, server)
 knitr::include_app("https://marinespatialviz.shinyapps.io/polyline/")
 ```
 
-#Polyline
+#Polygon
 
 Let's also highlight the tropics. 
 
