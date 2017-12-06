@@ -302,7 +302,7 @@ div.tocify {
   <a href="mapbox.html">Mapbox.js</a>
 </li>
 <li>
-  <a href="datasources.html">Data sources</a>
+  <a href="datasources.html">Sources</a>
 </li>
 <li>
   <a href="blog.html">Blog</a>
@@ -368,8 +368,8 @@ div.tocify {
 <pre class="r"><code>library(leaflet)
 leaflet() %&gt;%
   addTiles()</code></pre>
-<div id="htmlwidget-6b353a40ff40196d6e0a" style="width:806.4px;height:576px;" class="leaflet html-widget"></div>
-<script type="application/json" data-for="htmlwidget-6b353a40ff40196d6e0a">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"maxNativeZoom":null,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"continuousWorld":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":null,"unloadInvisibleTiles":null,"updateWhenIdle":null,"detectRetina":false,"reuseTiles":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]}]},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-891b16eda036db62106e" style="width:806.4px;height:576px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-891b16eda036db62106e">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"maxNativeZoom":null,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"continuousWorld":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":null,"unloadInvisibleTiles":null,"updateWhenIdle":null,"detectRetina":false,"reuseTiles":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]}]},"evals":[],"jsHooks":[]}</script>
 <p><span class="math inline">\(~\)</span></p>
 </div>
 <div id="view-and-basemap" class="section level1">
@@ -379,8 +379,8 @@ leaflet() %&gt;%
   setView(lng = -15, lat = 20, zoom = 2) %&gt;%
   addTiles() %&gt;%
   addProviderTiles(providers$CartoDB.DarkMatter)</code></pre>
-<div id="htmlwidget-62392c6ff514e3a47ae5" style="width:806.4px;height:576px;" class="leaflet html-widget"></div>
-<script type="application/json" data-for="htmlwidget-62392c6ff514e3a47ae5">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"setView":[[20,-15],2,[]],"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"maxNativeZoom":null,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"continuousWorld":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":null,"unloadInvisibleTiles":null,"updateWhenIdle":null,"detectRetina":false,"reuseTiles":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]},{"method":"addProviderTiles","args":["CartoDB.DarkMatter",null,null,{"errorTileUrl":"","noWrap":false,"zIndex":null,"unloadInvisibleTiles":null,"updateWhenIdle":null,"detectRetina":false,"reuseTiles":false}]}]},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-ff1fcd4f52723c3743c4" style="width:806.4px;height:576px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-ff1fcd4f52723c3743c4">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"setView":[[20,-15],2,[]],"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"maxNativeZoom":null,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"continuousWorld":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":null,"unloadInvisibleTiles":null,"updateWhenIdle":null,"detectRetina":false,"reuseTiles":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]},{"method":"addProviderTiles","args":["CartoDB.DarkMatter",null,null,{"errorTileUrl":"","noWrap":false,"zIndex":null,"unloadInvisibleTiles":null,"updateWhenIdle":null,"detectRetina":false,"reuseTiles":false}]}]},"evals":[],"jsHooks":[]}</script>
 <p><span class="math inline">\(~\)</span></p>
 </div>
 <div id="marker" class="section level1">
@@ -391,9 +391,17 @@ leaflet() %&gt;%
   setView(lng = 142, lat = 11, zoom = 3) %&gt;%
   addMarkers(lng = 142.1999992, lat = 11.3499986) %&gt;%
   addProviderTiles(providers$Esri.OceanBasemap)</code></pre>
-<div id="htmlwidget-8182aba3a70ff25437ea" style="width:806.4px;height:576px;" class="leaflet html-widget"></div>
-<script type="application/json" data-for="htmlwidget-8182aba3a70ff25437ea">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"maxNativeZoom":null,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"continuousWorld":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":null,"unloadInvisibleTiles":null,"updateWhenIdle":null,"detectRetina":false,"reuseTiles":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]},{"method":"addMarkers","args":[11.3499986,142.1999992,null,null,null,{"clickable":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},null,null,null,null,null,null,null]},{"method":"addProviderTiles","args":["Esri.OceanBasemap",null,null,{"errorTileUrl":"","noWrap":false,"zIndex":null,"unloadInvisibleTiles":null,"updateWhenIdle":null,"detectRetina":false,"reuseTiles":false}]}],"setView":[[11,142],3,[]],"limits":{"lat":[11.3499986,11.3499986],"lng":[142.1999992,142.1999992]}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-a8742f549e37aadb80bd" style="width:806.4px;height:576px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-a8742f549e37aadb80bd">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"maxNativeZoom":null,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"continuousWorld":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":null,"unloadInvisibleTiles":null,"updateWhenIdle":null,"detectRetina":false,"reuseTiles":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]},{"method":"addMarkers","args":[11.3499986,142.1999992,null,null,null,{"clickable":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},null,null,null,null,null,null,null]},{"method":"addProviderTiles","args":["Esri.OceanBasemap",null,null,{"errorTileUrl":"","noWrap":false,"zIndex":null,"unloadInvisibleTiles":null,"updateWhenIdle":null,"detectRetina":false,"reuseTiles":false}]}],"setView":[[11,142],3,[]],"limits":{"lat":[11.3499986,11.3499986],"lng":[142.1999992,142.1999992]}},"evals":[],"jsHooks":[]}</script>
 <p><span class="math inline">\(~\)</span></p>
+<div id="pop-up-marker" class="section level2">
+<h2>Pop-up marker</h2>
+<p><span class="math inline">\(~\)</span></p>
+</div>
+<div id="cluster-marker" class="section level2">
+<h2>Cluster marker</h2>
+<p><span class="math inline">\(~\)</span></p>
+</div>
 </div>
 <div id="polyline" class="section level1">
 <h1>Polyline</h1>
@@ -407,8 +415,24 @@ leaflet() %&gt;%
   setView(lng = 0, lat = 0, zoom = 2) %&gt;%
   addPolylines(lng = e$x, lat = e$y, color = &quot;red&quot;) %&gt;% 
   addProviderTiles(providers$Esri.OceanBasemap)</code></pre>
-<div id="htmlwidget-4670711091e09facc649" style="width:806.4px;height:576px;" class="leaflet html-widget"></div>
-<script type="application/json" data-for="htmlwidget-4670711091e09facc649">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"maxNativeZoom":null,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"continuousWorld":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":null,"unloadInvisibleTiles":null,"updateWhenIdle":null,"detectRetina":false,"reuseTiles":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]},{"method":"addPolylines","args":[[[[{"lng":[-180,180],"lat":[0,0]}]]],null,null,{"lineCap":null,"lineJoin":null,"clickable":true,"pointerEvents":null,"className":"","stroke":true,"color":"red","weight":5,"opacity":0.5,"fill":false,"fillColor":"red","fillOpacity":0.2,"dashArray":null,"smoothFactor":1,"noClip":false},null,null,null,null,null]},{"method":"addProviderTiles","args":["Esri.OceanBasemap",null,null,{"errorTileUrl":"","noWrap":false,"zIndex":null,"unloadInvisibleTiles":null,"updateWhenIdle":null,"detectRetina":false,"reuseTiles":false}]}],"setView":[[0,0],2,[]],"limits":{"lat":[0,0],"lng":[-180,180]}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-365ed05445495037baa7" style="width:806.4px;height:576px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-365ed05445495037baa7">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"maxNativeZoom":null,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"continuousWorld":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":null,"unloadInvisibleTiles":null,"updateWhenIdle":null,"detectRetina":false,"reuseTiles":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]},{"method":"addPolylines","args":[[[[{"lng":[-180,180],"lat":[0,0]}]]],null,null,{"lineCap":null,"lineJoin":null,"clickable":true,"pointerEvents":null,"className":"","stroke":true,"color":"red","weight":5,"opacity":0.5,"fill":false,"fillColor":"red","fillOpacity":0.2,"dashArray":null,"smoothFactor":1,"noClip":false},null,null,null,null,null]},{"method":"addProviderTiles","args":["Esri.OceanBasemap",null,null,{"errorTileUrl":"","noWrap":false,"zIndex":null,"unloadInvisibleTiles":null,"updateWhenIdle":null,"detectRetina":false,"reuseTiles":false}]}],"setView":[[0,0],2,[]],"limits":{"lat":[0,0],"lng":[-180,180]}},"evals":[],"jsHooks":[]}</script>
+<p><span class="math inline">\(~\)</span></p>
+</div>
+<div id="polygon" class="section level1">
+<h1>Polygon</h1>
+<p>Highlighting the tropics, let’s add a polygon to the map using <code>addPolygon()</code>.</p>
+<pre class="r"><code>x = c(-180, 180, 180, -180)
+y = c(23.5, 23.5, -23.5, -23.5)
+e = data.frame(x, y)
+
+leaflet() %&gt;%
+  addTiles() %&gt;%
+  setView(lng = 0, lat = 0, zoom = 2) %&gt;%
+  addPolygons(lng = e$x, lat = e$y, color = &quot;orange&quot;, fillOpacity = .5) %&gt;% 
+  addProviderTiles(providers$Hydda.Base)</code></pre>
+<div id="htmlwidget-1f78a822572f89148088" style="width:806.4px;height:576px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1f78a822572f89148088">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"maxNativeZoom":null,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"continuousWorld":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":null,"unloadInvisibleTiles":null,"updateWhenIdle":null,"detectRetina":false,"reuseTiles":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]},{"method":"addPolygons","args":[[[[{"lng":[-180,180,180,-180],"lat":[23.5,23.5,-23.5,-23.5]}]]],null,null,{"lineCap":null,"lineJoin":null,"clickable":true,"pointerEvents":null,"className":"","stroke":true,"color":"orange","weight":5,"opacity":0.5,"fill":true,"fillColor":"orange","fillOpacity":0.5,"dashArray":null,"smoothFactor":1,"noClip":false},null,null,null,null,null]},{"method":"addProviderTiles","args":["Hydda.Base",null,null,{"errorTileUrl":"","noWrap":false,"zIndex":null,"unloadInvisibleTiles":null,"updateWhenIdle":null,"detectRetina":false,"reuseTiles":false}]}],"setView":[[0,0],2,[]],"limits":{"lat":[-23.5,23.5],"lng":[-180,180]}},"evals":[],"jsHooks":[]}</script>
 </div>
 
 

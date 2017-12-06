@@ -291,7 +291,7 @@ div.tocify {
   <a href="mapbox.html">Mapbox.js</a>
 </li>
 <li>
-  <a href="datasources.html">Data sources</a>
+  <a href="datasources.html">Sources</a>
 </li>
 <li>
   <a href="blog.html">Blog</a>
@@ -395,6 +395,14 @@ div.tocify {
 <p><a href="https://marinespatialviz.github.io/marinespatialviz/external/mapbox/mapboxmarker.html"><img src="http://marinespatialviz.github.io/marinespatialviz/images/mmapboxmarker.png" /></a></p>
 <p><span class="math inline">\(~\)</span></p>
 </div>
+<div id="pop-up-marker" class="section level2">
+<h2>Pop-up marker</h2>
+<p><span class="math inline">\(~\)</span></p>
+</div>
+<div id="cluster-marker" class="section level2">
+<h2>Cluster marker</h2>
+<p><span class="math inline">\(~\)</span></p>
+</div>
 </div>
 <div id="polyline" class="section level1">
 <h1>Polyline</h1>
@@ -409,6 +417,24 @@ div.tocify {
 
       &lt;/script&gt;</code></pre>
 <p><a href="https://marinespatialviz.github.io/marinespatialviz/external/mapbox/polyline.html"><img src="http://marinespatialviz.github.io/marinespatialviz/images/mpolyline.png" /></a></p>
+<p><span class="math inline">\(~\)</span></p>
+</div>
+<div id="polyline-1" class="section level1">
+<h1>Polyline</h1>
+<p>Again, the same code can be used.</p>
+<pre><code>      &lt;script&gt;
+
+      L.mapbox.accessToken = &#39;pk.eyJ1Ijoid2FuZGFib2RuYXIiLCJhIjoiY2phdHM1dm0xNXF0ajJxanU3dmdmaHRqcCJ9.mFPox1jAE9LkZN6v5OZ7Lw&#39;;
+
+      var map = L.mapbox.map(&#39;map&#39;, &#39;mapbox.light&#39;).setView([0, 0], 3);
+
+      var polygon = L.polygon([[23.5, 180], [-23.5, 180], [-23.5, -180], [23.5, -180]],
+      {color: &#39;orange&#39;, fillColor: &#39;orange&#39;, fillOpacity: .5}).addTo(map);
+
+      map.addLayer(polygon);
+
+      &lt;/script&gt;</code></pre>
+<p><a href="https://marinespatialviz.github.io/marinespatialviz/external/mapbox/polygon.html"><img src="http://marinespatialviz.github.io/marinespatialviz/images/mpolygon.png" /></a></p>
 </div>
 
 

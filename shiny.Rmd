@@ -10,7 +10,7 @@ output:
 
 $~$
 
-# Shiny app with a map
+# Shiny app
 
 Here is the basic set up for a Shiny app.
 
@@ -107,6 +107,14 @@ knitr::include_app("https://marinespatialviz.shinyapps.io/marker/")
 
 $~$
 
+## Pop-up marker
+
+$~$
+
+## Cluster marker
+
+$~$
+
 # Polyline
 
 Let's add the Equator to the map. 
@@ -136,4 +144,35 @@ shinyApp(ui, server)
 
 ```{r echo = FALSE}
 knitr::include_app("https://marinespatialviz.shinyapps.io/polyline/")
+```
+
+#Polyline
+
+Let's also highlight the tropics. 
+
+```{r}
+library(shiny)
+library(leaflet)
+
+x = c(-180, 180, 180, -180)
+y = c(23.5, 23.5, -23.5, -23.5)
+e = data.frame(x, y)
+
+ui <- fluidPage(leafletOutput("mymap"))
+
+server <- function(input, output, session) {
+  
+  output$mymap <- renderLeaflet({
+    library(leaflet)
+      leaflet() %>%
+      addTiles() %>%
+      setView(lng = 0, lat = 0, zoom = 2) %>%
+      addPolygons(lng = e$x, lat = e$y, color = "orange", fillOpacity = .5) %>% 
+      addProviderTiles(providers$Hydda.Base)})}
+
+shinyApp(ui, server)
+```
+
+```{r echo = FALSE}
+knitr::include_app("https://marinespatialviz.shinyapps.io/polygon/")
 ```

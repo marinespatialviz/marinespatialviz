@@ -291,7 +291,7 @@ div.tocify {
   <a href="mapbox.html">Mapbox.js</a>
 </li>
 <li>
-  <a href="datasources.html">Data sources</a>
+  <a href="datasources.html">Sources</a>
 </li>
 <li>
   <a href="blog.html">Blog</a>
@@ -454,6 +454,14 @@ div.tocify {
       &lt;/script&gt;</code></pre>
 <p><a href="https://marinespatialviz.github.io/marinespatialviz/external/leaflet/marker.html"><img src="http://marinespatialviz.github.io/marinespatialviz/images/lmarker.png" /></a></p>
 <p><span class="math inline">\(~\)</span></p>
+<div id="pop-up-marker" class="section level2">
+<h2>Pop-up marker</h2>
+<p><span class="math inline">\(~\)</span></p>
+</div>
+<div id="cluster-marker" class="section level2">
+<h2>Cluster marker</h2>
+<p><span class="math inline">\(~\)</span></p>
+</div>
 </div>
 <div id="polyline" class="section level1">
 <h1>Polyline</h1>
@@ -474,6 +482,30 @@ div.tocify {
 
       &lt;/script&gt;</code></pre>
 <p><a href="https://marinespatialviz.github.io/marinespatialviz/external/leaflet/polyline.html"><img src="http://marinespatialviz.github.io/marinespatialviz/images/lpolyline.png" /></a></p>
+<p><span class="math inline">\(~\)</span></p>
+</div>
+<div id="polygon" class="section level1">
+<h1>Polygon</h1>
+<p>A polygon can be added using the <code>var polygon = L.polygon()</code></p>
+<pre><code>      &lt;script&gt;
+
+      var map = L.map(&#39;map&#39;,{
+      center: [0, 0],
+      zoom: 3
+      });
+
+      L.tileLayer(&#39;http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png&#39;, {
+      attribution: &#39;&amp;copy; &lt;a href=&quot;http://www.openstreetmap.org/copyright&quot;&gt;OpenStreetMap&lt;/a&gt;&#39;
+      }).addTo(map);
+
+      var polygon = L.polygon([[23.5, 180], [-23.5, 180], [-23.5, -180], [23.5, -180]],
+      {color: &#39;orange&#39;, fillColor: &#39;orange&#39;, fillOpacity: .5}).addTo(map);
+
+      map.addLayer(polygon);
+
+      &lt;/script&gt;
+      </code></pre>
+<p><a href="https://marinespatialviz.github.io/marinespatialviz/external/leaflet/polygon.html"><img src="http://marinespatialviz.github.io/marinespatialviz/images/lpolygon.png" /></a></p>
 </div>
 
 

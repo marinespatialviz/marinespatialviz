@@ -13,7 +13,7 @@ navbar:
       href: leaflet.html
     - text: "Mapbox.js"
       href: mapbox.html
-    - text: "Data sources"
+    - text: "Sources"
       href: datasources.html
     - text: "Blog"
       href: blog.html

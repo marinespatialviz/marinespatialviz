@@ -100,6 +100,14 @@ You can also use the Mapbox marker `icon: L.mapbox.marker.icon`.
 
 $~$
 
+## Pop-up marker
+
+$~$
+
+## Cluster marker
+
+$~$
+
 # Polyline
 
 For adding a line, the same code can be used as in Leaflet.js. 
@@ -115,3 +123,24 @@ For adding a line, the same code can be used as in Leaflet.js.
           </script>
 
 [![](http://marinespatialviz.github.io/marinespatialviz/images/mpolyline.png)](https://marinespatialviz.github.io/marinespatialviz/external/mapbox/polyline.html)
+
+$~$
+
+# Polyline
+
+Again, the same code can be used. 
+
+          <script>
+
+          L.mapbox.accessToken = 'pk.eyJ1Ijoid2FuZGFib2RuYXIiLCJhIjoiY2phdHM1dm0xNXF0ajJxanU3dmdmaHRqcCJ9.mFPox1jAE9LkZN6v5OZ7Lw';
+
+          var map = L.mapbox.map('map', 'mapbox.light').setView([0, 0], 3);
+
+          var polygon = L.polygon([[23.5, 180], [-23.5, 180], [-23.5, -180], [23.5, -180]],
+          {color: 'orange', fillColor: 'orange', fillOpacity: .5}).addTo(map);
+
+          map.addLayer(polygon);
+
+          </script>
+
+[![](http://marinespatialviz.github.io/marinespatialviz/images/mpolygon.png)](https://marinespatialviz.github.io/marinespatialviz/external/mapbox/polygon.html)
