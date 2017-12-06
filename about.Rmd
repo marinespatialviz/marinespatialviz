@@ -2,7 +2,54 @@
 title: "About"
 output: 
   html_document:
+    toc: true
+    toc_depth: 2
+    toc_float: true
     theme: flatly
 ---
 
+$~$
+
 More information coming soon...
+
+$~$
+
+# CV
+
+$~$
+
+# Portfolio
+
+$~$
+
+## Thames Estuary - [Thames Estuary Partnership](https://thamesestuarypartnership.org/)
+
+Still under development... 
+
+<iframe width="100%" height="800px" src="https://www.arcgis.com/apps/MapJournal/index.html?appid=f06710f3623e49f4851794cae988f13f" frameborder="0" scrolling="no"></iframe>
+
+$~$
+
+## Cetaceans of the World
+
+This is my very first map created using ArcGIS Online. 
+
+<iframe width="100%" height="800px" src="http://www.arcgis.com/apps/MapJournal/index.html?appid=4f434403e1c9481d951f1e2a210276e9" frameborder="0" scrolling="no"></iframe>
+
+$~$
+
+## [Thames Plastic](https://www.thamesplastic.com/beach-cleanups)
+
+The map shows Maria Arceo's journey along the Thames collecting plastic for her art installation. 
+
+<iframe width="100%" height="800px" src="https://arcg.is/0Cy9b0"></iframe>
+
+$~$
+
+## 2017Storms
+
+$~$
+
+## AquaPollMap - Mapping global plastic pollution
+
+
