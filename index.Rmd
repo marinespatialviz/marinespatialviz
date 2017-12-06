@@ -5,24 +5,4 @@ output:
     theme: flatly
 ---
 
-```{r message = FALSE, echo = FALSE}
-library(highcharter)
-library(geofilter)
-
-getContent <- function(url) {
-  library(httr)
-  content(GET(url))
-}
-
-world <- getContent("https://raw.githubusercontent.com/johan/world.geo.json/master/countries.geo.json")
-world <- jsonlite::fromJSON(world, simplifyVector = FALSE)
-
-currents <- geojsonio::geojson_read('https://marinespatialviz.github.io/marinespatialviz/currents/currents.geojson')
-
-highchart(type = "map") %>%
-  hc_chart(backgroundColor = "#161C20") %>% 
-  hc_add_series(mapData = world, showInLegend = FALSE, nullColor = "#2C3E50",
-                borderWidth = 0) %>%
-  hc_add_series(data = currents, type = "mapline", geojson = TRUE, showInLegend = FALSE, 
-                color = "#306590", name = "Marine currents", tooltip = list(pointFormat = "{point.properties.Name}"))
-```
+![](http://marinespatialviz.github.io/marinespatialviz/images/main.png)
