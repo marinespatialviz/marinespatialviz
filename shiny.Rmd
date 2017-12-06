@@ -1,5 +1,5 @@
 ---
-title: "Shiny"
+title: "R Studio - Shiny"
 output: 
   html_document:
     toc: true
@@ -8,7 +8,9 @@ output:
     theme: flatly
 ---
 
-# Basic Shiny app with a map
+$~$
+
+# Shiny app with a map
 
 Here is the basic set up for a Shiny app.
 
@@ -74,6 +76,8 @@ shinyApp(ui, server)
 knitr::include_app("https://marinespatialviz.shinyapps.io/Map2/")
 ```
 
+$~$
+
 # Marker
 
 Using the example from the R Studio [section](https://marinespatialviz.github.io/marinespatialviz/rstudio.html#marker), let's add a marker. 
@@ -99,4 +103,37 @@ shinyApp(ui, server)
 
 ```{r echo = FALSE}
 knitr::include_app("https://marinespatialviz.shinyapps.io/marker/")
+```
+
+$~$
+
+# Polyline
+
+Let's add the Equator to the map. 
+
+```{r}
+library(shiny)
+library(leaflet)
+
+x = c(-180, 180)
+y = c(0, 0)
+e = data.frame(x, y)
+
+ui <- fluidPage(leafletOutput("mymap"))
+
+server <- function(input, output, session) {
+  
+  output$mymap <- renderLeaflet({
+    library(leaflet)
+    leaflet() %>%
+      addTiles() %>%
+      setView(lng = 0, lat = 0, zoom = 2) %>%
+      addPolylines(lng = e$x, lat = e$y, color = "red") %>%
+      addProviderTiles(providers$Esri.OceanBasemap)})}
+
+shinyApp(ui, server)
+```
+
+```{r echo = FALSE}
+knitr::include_app("https://marinespatialviz.shinyapps.io/polyline/")
 ```

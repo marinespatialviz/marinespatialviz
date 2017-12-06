@@ -8,6 +8,7 @@ output:
     theme: flatly
 ---
 
+$~$
 
 # Basics of Mapbox.js
 
@@ -44,9 +45,9 @@ You can set the view and the [basemap](https://www.mapbox.com/maps/) using the c
 
         <script>
 
-        L.mapbox.accessToken ='pk.eyJ1Ijoid2FuZGFib2RuYXIiLCJhIjoiY2phdHM1dm0xNXF0ajJxanU3dmdmaHRqcCJ9.mFPox1jAE9LkZN6v5OZ7Lw';
+          L.mapbox.accessToken ='pk.eyJ1Ijoid2FuZGFib2RuYXIiLCJhIjoiY2phdHM1dm0xNXF0ajJxanU3dmdmaHRqcCJ9.mFPox1jAE9LkZN6v5OZ7Lw';
 
-        var map = L.mapbox.map('map', 'mapbox.streets').setView([20, -15], 3);
+          var map = L.mapbox.map('map', 'mapbox.streets').setView([20, -15], 3);
 
         </script>
 
@@ -54,7 +55,7 @@ You can set the view and the [basemap](https://www.mapbox.com/maps/) using the c
 
     </html>
 
-Click [here](https://marinespatialviz.github.io/marinespatialviz/external/mapbox/map.html) to see the map.
+[![](http://marinespatialviz.github.io/marinespatialviz/images/mmap.png)](https://marinespatialviz.github.io/marinespatialviz/external/mapbox/map.html)
 
 $~$
 
@@ -62,71 +63,24 @@ $~$
 
 You can add a marker to the map using the code `var marker = L.marker([]); marker.addTo(map);`. This will add the same type of marker as in Leaflet.js. 
 
+          <script>
 
-    <html>
+          L.mapbox.accessToken = 'pk.eyJ1Ijoid2FuZGFib2RuYXIiLCJhIjoiY2phdHM1dm0xNXF0ajJxanU3dmdmaHRqcCJ9.mFPox1jAE9LkZN6v5OZ7Lw';
 
-      <head>
+          var map = L.mapbox.map('map', 'mapbox.light').setView([11, 142], 3);
 
-        <script src='https://api.mapbox.com/mapbox.js/v3.1.1/mapbox.js'></script>
-        
-        <link href='https://api.mapbox.com/mapbox.js/v3.1.1/mapbox.css' rel='stylesheet'/>
+          var marker = L.marker([11.3499986, 142.1999992]);
+          marker.addTo(map);
 
-        <style>
-        
-          body { margin:0; padding:0; }
-          #map { position:absolute; top:0; bottom:0; width:100%; }
-          
-        </style>
-
-      </head>
-
-      <body>
-
-        <div id='map'></div>
-
-        <script>
-
-        L.mapbox.accessToken = 'pk.eyJ1Ijoid2FuZGFib2RuYXIiLCJhIjoiY2phdHM1dm0xNXF0ajJxanU3dmdmaHRqcCJ9.mFPox1jAE9LkZN6v5OZ7Lw';
-
-        var map = L.mapbox.map('map', 'mapbox.light').setView([11, 142], 3);
-
-        var marker = L.marker([11.3499986, 142.1999992]);
-        marker.addTo(map);
-
-        </script>
-
-      </body>
-
-    </html>
+          </script>
     
-Click [here](https://marinespatialviz.github.io/marinespatialviz/external/mapbox/marker.html) to see the map.
+[![](http://marinespatialviz.github.io/marinespatialviz/images/mmarker.png)](https://marinespatialviz.github.io/marinespatialviz/external/mapbox/marker.html)
 
 $~$
 
 ## Mapbox marker
 
-You can also use the Mapbox marker. 
-
-    <html>
-
-      <head>
-
-      <script src='https://api.mapbox.com/mapbox.js/v3.1.1/mapbox.js'></script>
-      
-      <link href='https://api.mapbox.com/mapbox.js/v3.1.1/mapbox.css' rel='stylesheet'/>
-
-      <style>
-      
-        body { margin:0; padding:0; }
-        #map { position:absolute; top:0; bottom:0; width:100%; }
-        
-      </style>
-
-      </head>
-
-        <body>
-
-          <div id='map'></div>
+You can also use the Mapbox marker `icon: L.mapbox.marker.icon`. 
 
           <script>
 
@@ -142,8 +96,22 @@ You can also use the Mapbox marker.
 
           </script>
 
-        </body>
+[![](http://marinespatialviz.github.io/marinespatialviz/images/mmapboxmarker.png)](https://marinespatialviz.github.io/marinespatialviz/external/mapbox/mapboxmarker.html)
 
-      </html>
+$~$
 
-Click [here](https://marinespatialviz.github.io/marinespatialviz/external/mapbox/mapboxmarker.html) to see the map.
+# Polyline
+
+For adding a line, the same code can be used as in Leaflet.js. 
+
+          <script>
+
+          L.mapbox.accessToken = 'pk.eyJ1Ijoid2FuZGFib2RuYXIiLCJhIjoiY2phdHM1dm0xNXF0ajJxanU3dmdmaHRqcCJ9.mFPox1jAE9LkZN6v5OZ7Lw';
+
+          var map = L.mapbox.map('map', 'mapbox.light').setView([0, 0], 3);
+
+          var line = L.polyline([[0, -180], [0, 180]],{color: 'red'}).addTo(map);
+
+          </script>
+
+[![](http://marinespatialviz.github.io/marinespatialviz/images/mpolyline.png)](https://marinespatialviz.github.io/marinespatialviz/external/mapbox/polyline.html)

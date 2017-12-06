@@ -1,5 +1,5 @@
 ---
-title: "R Studio"
+title: "R Studio - Leaflet"
 output: 
   html_document:
     toc: true
@@ -8,6 +8,7 @@ output:
     theme: flatly
 ---
 
+$~$
 
 # Installing and the basics of R Studio
 
@@ -79,5 +80,22 @@ leaflet() %>%
   addTiles() %>%
   setView(lng = 142, lat = 11, zoom = 3) %>%
   addMarkers(lng = 142.1999992, lat = 11.3499986) %>%
+  addProviderTiles(providers$Esri.OceanBasemap)
+```
+
+# Polyline
+
+Let's add the Equator to the map using the `addPolylines()`. 
+
+```{r, fig.width = 8.4, fig.height = 6}
+
+x = c(-180, 180)
+y = c(0, 0)
+e = data.frame(x, y)
+
+leaflet() %>%
+  addTiles() %>%
+  setView(lng = 0, lat = 0, zoom = 2) %>%
+  addPolylines(lng = e$x, lat = e$y, color = "red") %>% 
   addProviderTiles(providers$Esri.OceanBasemap)
 ```
