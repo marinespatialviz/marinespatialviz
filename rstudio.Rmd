@@ -83,6 +83,8 @@ leaflet() %>%
   addProviderTiles(providers$Esri.OceanBasemap)
 ```
 
+$~$
+
 # Polyline
 
 Let's add the Equator to the map using the `addPolylines()`. 
