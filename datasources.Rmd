@@ -1,5 +1,5 @@
 ---
-title: "Data sources"
+title: "Sources"
 output: 
   html_document:
     theme: flatly
@@ -7,6 +7,32 @@ output:
 
 $~$
 
+# Data
+
 * [Copernicus](http://www.copernicus.eu/)
 * [EMODnet](http://www.emodnet.eu/)
 * [Natural Earth Data](http://www.naturalearthdata.com/)
+* [Open Street Map](https://www.openstreetmap.org/)
+* [USGS](https://earthquake.usgs.gov/data/)
+
+$~$
+
+# Software
+
+* ArcGIS
+* ArcGIS Online
+* QGIS
+* Mapinfo
+* R
+* R Studio
+* Leaflet
+* Mapbox
+* Carto
+* TileMill
+
+$~$
+
+# Maps
+
+* [The True Size of...](https://thetruesize.com/)
+* [Antipodes Map](https://www.antipodesmap.com/)

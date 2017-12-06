@@ -18,6 +18,14 @@ $~$
 
 $~$
 
+# Book
+
+'GIS and Data Visualisation using QGIS and R Studio' is an educational book designed to introduce QGIS and R Studio to anyone with an interest in mapping and data visualisation. It also discusses the basic principles of marine and climate science using openly available atmospheric carbon-dioxide, sea surface temperature, hurricane track data and ecosystem shapefiles (e.g. coral reefs).
+
+[![](http://marinespatialviz.github.io/marinespatialviz/images/title_page.png)](https://leanpub.com/spatialviz)
+
+$~$
+
 # Portfolio
 
 $~$
@@ -46,10 +54,8 @@ The map shows Maria Arceo's journey along the Thames collecting plastic for her 
 
 $~$
 
-## 2017Storms
+## Glowing Thames
 
-$~$
+This map created in QGIS shows the sightings of marine mammals in the Thames in 2017. Data was obtained from the ZSL [website](http://sites.zsl.org/inthethames/).
 
-## AquaPollMap - Mapping global plastic pollution
-
-
+![](http://marinespatialviz.github.io/marinespatialviz/images/Glowing%20Thames.gif)
