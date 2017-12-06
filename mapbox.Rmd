@@ -126,7 +126,7 @@ For adding a line, the same code can be used as in Leaflet.js.
 
 $~$
 
-# Polyline
+# Polygon
 
 Again, the same code can be used. 
 
