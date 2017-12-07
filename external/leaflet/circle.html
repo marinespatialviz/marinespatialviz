@@ -4,7 +4,7 @@
 
     <head>
 
-      <title>Polyline</title>
+      <title>Circle</title>
 
       <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
 
@@ -23,7 +23,7 @@
           <script>
 
     var map = L.map('map',{
-    center: [0, 0],
+    center: [11, 142],
     zoom: 3
     });
 
@@ -31,8 +31,12 @@
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(map);
 
-    var line = L.polyline([[0, -180], [0, 180]],
-    {color: 'red'}).addTo(map);
+    var circle = L.circle([11.3499986, 142.1999992], 100000, {
+    color: '#a58fa4',
+    fillColor: '#0d11ee',
+    fillOpacity: 0.5}).addTo(map);
+
+    map.addLayer(circle);
 
     </script>
 
