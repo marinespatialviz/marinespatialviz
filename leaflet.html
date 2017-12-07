@@ -394,6 +394,48 @@ div.tocify {
 &lt;/html&gt;</code></pre>
 <p><span class="math inline">\(~\)</span></p>
 </div>
+<div id="html-css-and-javascript" class="section level1">
+<h1>HTML, CSS and JavaScript</h1>
+<p>Let’s look into how you can use leaflet.js on <a href="https://jsfiddle.net/">JSFiddle</a> which is an online code editor used to test your JavaScript, CSS, HTML; and in <a href="https://atom.io/">Atom</a> that you can download and use as text and source code editor.</p>
+<p><span class="math inline">\(~\)</span></p>
+<div id="jsfiddle" class="section level2">
+<h2>JSFiddle</h2>
+<p>After registering on JSFiddle, start with a blank workspace.</p>
+<div class="figure">
+<img src="http://marinespatialviz.github.io/marinespatialviz/images/jsfiddle.png" />
+
+</div>
+<p><span class="math inline">\(~\)</span></p>
+<p>The first step here is the add leaflet.js and leaflet.css as an external resource.</p>
+<p>Click on External Resources and add these two web addresses:</p>
+<p><a href="https://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" class="uri">https://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css</a></p>
+<p><a href="https://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js" class="uri">https://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js</a></p>
+<p><img src="http://marinespatialviz.github.io/marinespatialviz/images/jsfiddle1.png" /> <span class="math inline">\(~\)</span></p>
+<p>Then using the previous example, let’s add the HTML, CSS and JAVASCRIPT elements.</p>
+<p>HTML (will not need the whole HTML code):</p>
+<pre><code>&lt;div id=&quot;map&quot;&gt;&lt;/div&gt;</code></pre>
+<p>CSS (the width and height is adjusted to the size of the preview window):</p>
+<pre><code>#map {
+width: 580px; 
+height: 420px
+}</code></pre>
+<p>JAVASCRIPT:</p>
+<pre><code>var map = L.map(&#39;map&#39;,{
+center: [20, -15],
+zoom: 3
+});
+
+L.tileLayer(&#39;http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png&#39;, {
+attribution: &#39;&amp;copy; &lt;a href=&quot;http://www.openstreetmap.org/copyright&quot;&gt;OpenStreetMap&lt;/a&gt;&#39;
+}).addTo(map);</code></pre>
+<script async src="https://jsfiddle.net/WandaBodnar/2eton50g/embed/js,html,css,result/dark/"></script>
+<p><span class="math inline">\(~\)</span></p>
+</div>
+<div id="atom" class="section level2">
+<h2>Atom</h2>
+<p><span class="math inline">\(~\)</span></p>
+</div>
+</div>
 <div id="view-and-basemap" class="section level1">
 <h1>View and basemap</h1>
 <p>Now, let’s construct the body adding the map object. The view can be set using <code>var map = L.map('map', {center: [20, -15], zoom: 3});</code> and just like in in R Studio, different <a href="https://leaflet-extras.github.io/leaflet-providers/preview/">basemaps</a> can be used.</p>
