@@ -115,7 +115,6 @@ Let's look into how you can use leaflet.js on [jsFiddle](https://jsfiddle.net/),
 After registering on jsFiddle, start with a blank workspace.
 
 ![](http://marinespatialviz.github.io/marinespatialviz/images/jsfiddle.png)
-
 $~$
 
 The first step here is to add leaflet.js and leaflet.css as an external resource.

@@ -14,12 +14,10 @@ $~$
 
 Similarly to Leaflet.js, Mapbox.js is also an open-source JavaScript library that allows you to create interactive maps which then can be added to your website. 
 
-The **HTML page** set-up is the same as for Leaflet.js.
-
 $~$
 
 
-**In the examples below both text editor and jsFiddle codes are displayed.**
+**Simiarly to the Leaflet.js page, in the examples below both text editor and jsFiddle codes are displayed.**
 
 
 $~$
