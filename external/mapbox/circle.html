@@ -24,11 +24,12 @@ L.mapbox.accessToken = 'pk.eyJ1Ijoid2FuZGFib2RuYXIiLCJhIjoiY2phdHM1dm0xNXF0ajJxa
 
 var map = L.mapbox.map('map', 'mapbox.light').setView([11, 142], 3);
 
-L.marker([11.3499986, 142.1999992], {
-    icon: L.mapbox.marker.icon({
-        'marker-size': 'large',
-        'marker-color': '#e12323'})
-}).addTo(map);
+var circle = L.circle([11.3499986, 142.1999992], 100000, {
+color: '#a58fa4',
+fillColor: '#0d11ee',
+fillOpacity: 0.5}).addTo(map);
+
+map.addLayer(circle);
 
 </script>
 

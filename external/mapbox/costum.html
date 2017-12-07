@@ -24,11 +24,13 @@ L.mapbox.accessToken = 'pk.eyJ1Ijoid2FuZGFib2RuYXIiLCJhIjoiY2phdHM1dm0xNXF0ajJxa
 
 var map = L.mapbox.map('map', 'mapbox.light').setView([11, 142], 3);
 
-L.marker([11.3499986, 142.1999992], {
-    icon: L.mapbox.marker.icon({
-        'marker-size': 'large',
-        'marker-color': '#e12323'})
-}).addTo(map);
+var customIcon = L.icon({
+iconUrl: 'https://image.flaticon.com/icons/png/512/190/190006.png',
+iconSize: [100, 95]});
+
+var marker = L.marker([11.3499986, 142.1999992], {icon: customIcon})
+
+marker.addTo(map);
 
 </script>
 
