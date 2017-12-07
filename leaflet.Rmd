@@ -105,8 +105,7 @@ $~$
 
 # HTML, CSS and JavaScript
 
-Let's look into how you can use leaflet.js on [JSFiddle](https://jsfiddle.net/) which is an online code editor used to test your JavaScript, CSS, HTML; and in [Atom](https://atom.io/) that you can download and use as text and source code editor.
-
+Let's look into how you can use leaflet.js on [JSFiddle](https://jsfiddle.net/) which is an online code editor used to test your JavaScript, CSS, HTML.
 $~$
 
 ## JSFiddle
@@ -138,7 +137,7 @@ CSS (the width and height is adjusted to the size of the preview window):
 
     #map {height: 420px}
     
-JAVASCRIPT:
+JavaScript:
 
     var map = L.map('map',{center: [20, -15],zoom: 3});
 
@@ -151,7 +150,7 @@ JAVASCRIPT:
 
 $~$
 
-## Atom
+**In the examples below both text editor and jsFiddle codes will be displayed.**
 
 $~$
 
@@ -195,8 +194,7 @@ Now, let's construct the body adding the map object. The view can be set using `
 
     </html>
 
-	
-[![](http://marinespatialviz.github.io/marinespatialviz/images/lmap.png)](https://marinespatialviz.github.io/marinespatialviz/external/leaflet/map.html)
+<script async src="https://jsfiddle.net/WandaBodnar/Lvgjye3n/embed/js,html,css,result/dark/"></script>
 
 $~$
 
@@ -220,8 +218,7 @@ With the marker variable `var marker = L.marker ([x, y])` the coordinates will b
 
           </script>
 
-
-[![](http://marinespatialviz.github.io/marinespatialviz/images/lmarker.png)](https://marinespatialviz.github.io/marinespatialviz/external/leaflet/marker.html)
+<script async src="https://jsfiddle.net/WandaBodnar/Lvgjye3n/1/embed/js,html,css,result/dark/"></script>
 
 $~$
 
@@ -267,7 +264,7 @@ Here is another option.
 
           </script>
 
-[![](http://marinespatialviz.github.io/marinespatialviz/images/lpopup.png)](https://marinespatialviz.github.io/marinespatialviz/external/leaflet/popup.html)
+<script async src="https://jsfiddle.net/WandaBodnar/2tbp9cL5/1/embed/js,html,css,result/dark/"></script>
 
 $~$
 
@@ -293,7 +290,7 @@ Here is the code for adding a circle.
 
           map.addLayer(circle);
 
-[![](http://marinespatialviz.github.io/marinespatialviz/images/lcircle.png)](https://marinespatialviz.github.io/marinespatialviz/external/leaflet/circle.html)
+<script async src="https://jsfiddle.net/WandaBodnar/2tbp9cL5/2/embed/js,html,css,result/dark/"></script>
 
 $~$
 
@@ -322,7 +319,7 @@ Let's also add the submarine to the map.
 
           </script>
     
-[![](http://marinespatialviz.github.io/marinespatialviz/images/lcostum.png)](https://marinespatialviz.github.io/marinespatialviz/external/leaflet/costum.html)
+<script async src="https://jsfiddle.net/WandaBodnar/2tbp9cL5/3/embed/js,html,css,result/dark/"></script>
 
 $~$
 
@@ -347,7 +344,7 @@ Here, the `var line = ()` was defined and was added to the map.
 
           </script>
 
-[![](http://marinespatialviz.github.io/marinespatialviz/images/lpolyline.png)](https://marinespatialviz.github.io/marinespatialviz/external/leaflet/polyline.html)
+<script async src="https://jsfiddle.net/WandaBodnar/2tbp9cL5/5/embed/js,html,css,result/dark/"></script>
 
 $~$
 
@@ -373,4 +370,4 @@ A polygon can be added using the `var polygon = L.polygon()`
 
           </script>
           
-[![](http://marinespatialviz.github.io/marinespatialviz/images/lpolygon.png)](https://marinespatialviz.github.io/marinespatialviz/external/leaflet/polygon.html)
+<script async src="https://jsfiddle.net/WandaBodnar/3o8f746u/2/embed/js,html,css,result/dark/"></script>

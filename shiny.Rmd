@@ -26,6 +26,10 @@ shinyApp(ui = ui, server = server)
 
 $~$
 
+(**All these code examples can be used in R Studio: just start up the program, create a Single file (app.R), and copy and paste the code.**)
+
+$~$
+
 Let's create a basic map using Shiny. 
 
 ```{r message = FALSE}
@@ -121,7 +125,7 @@ $~$
 
 ## Circle marker
 
-Change to marker to circle marker. 
+Change to marker to a circle marker. 
 
 ```{r message = FALSE}
 library(shiny)
@@ -144,6 +148,8 @@ shinyApp(ui, server)
 $~$
 
 ## Costum marker
+
+Let's add the submarine.
 
 ```{r message = FALSE}
 library(shiny)

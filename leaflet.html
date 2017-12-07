@@ -396,8 +396,7 @@ div.tocify {
 </div>
 <div id="html-css-and-javascript" class="section level1">
 <h1>HTML, CSS and JavaScript</h1>
-<p>Let’s look into how you can use leaflet.js on <a href="https://jsfiddle.net/">JSFiddle</a> which is an online code editor used to test your JavaScript, CSS, HTML; and in <a href="https://atom.io/">Atom</a> that you can download and use as text and source code editor.</p>
-<p><span class="math inline">\(~\)</span></p>
+<p>Let’s look into how you can use leaflet.js on <a href="https://jsfiddle.net/">JSFiddle</a> which is an online code editor used to test your JavaScript, CSS, HTML. <span class="math inline">\(~\)</span></p>
 <div id="jsfiddle" class="section level2">
 <h2>JSFiddle</h2>
 <p>After registering on JSFiddle, start with a blank workspace.</p>
@@ -415,24 +414,16 @@ div.tocify {
 <p>HTML (will not need the whole HTML code):</p>
 <pre><code>&lt;div id=&quot;map&quot;&gt;&lt;/div&gt;</code></pre>
 <p>CSS (the width and height is adjusted to the size of the preview window):</p>
-<pre><code>#map {
-width: 580px; 
-height: 420px
-}</code></pre>
-<p>JAVASCRIPT:</p>
-<pre><code>var map = L.map(&#39;map&#39;,{
-center: [20, -15],
-zoom: 3
-});
+<pre><code>#map {height: 420px}</code></pre>
+<p>JavaScript:</p>
+<pre><code>var map = L.map(&#39;map&#39;,{center: [20, -15],zoom: 3});
 
 L.tileLayer(&#39;http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png&#39;, {
 attribution: &#39;&amp;copy; &lt;a href=&quot;http://www.openstreetmap.org/copyright&quot;&gt;OpenStreetMap&lt;/a&gt;&#39;
 }).addTo(map);</code></pre>
 <script async src="https://jsfiddle.net/WandaBodnar/2eton50g/embed/js,html,css,result/dark/"></script>
 <p><span class="math inline">\(~\)</span></p>
-</div>
-<div id="atom" class="section level2">
-<h2>Atom</h2>
+<p><strong>In the examples below both text editor and jsFiddle codes will be displayed.</strong></p>
 <p><span class="math inline">\(~\)</span></p>
 </div>
 </div>
@@ -473,7 +464,7 @@ attribution: &#39;&amp;copy; &lt;a href=&quot;http://www.openstreetmap.org/copyr
     &lt;/body&gt;
 
 &lt;/html&gt;</code></pre>
-<p><a href="https://marinespatialviz.github.io/marinespatialviz/external/leaflet/map.html"><img src="http://marinespatialviz.github.io/marinespatialviz/images/lmap.png" /></a></p>
+<script async src="https://jsfiddle.net/WandaBodnar/Lvgjye3n/embed/js,html,css,result/dark/"></script>
 <p><span class="math inline">\(~\)</span></p>
 </div>
 <div id="marker" class="section level1">
@@ -494,7 +485,7 @@ attribution: &#39;&amp;copy; &lt;a href=&quot;http://www.openstreetmap.org/copyr
       marker.addTo(map);
 
       &lt;/script&gt;</code></pre>
-<p><a href="https://marinespatialviz.github.io/marinespatialviz/external/leaflet/marker.html"><img src="http://marinespatialviz.github.io/marinespatialviz/images/lmarker.png" /></a></p>
+<script async src="https://jsfiddle.net/WandaBodnar/Lvgjye3n/1/embed/js,html,css,result/dark/"></script>
 <p><span class="math inline">\(~\)</span></p>
 <div id="pop-up-marker" class="section level2">
 <h2>Pop-up marker</h2>
@@ -535,7 +526,7 @@ attribution: &#39;&amp;copy; &lt;a href=&quot;http://www.openstreetmap.org/copyr
       marker.addTo(map);
 
       &lt;/script&gt;</code></pre>
-<p><a href="https://marinespatialviz.github.io/marinespatialviz/external/leaflet/popup.html"><img src="http://marinespatialviz.github.io/marinespatialviz/images/lpopup.png" /></a></p>
+<script async src="https://jsfiddle.net/WandaBodnar/2tbp9cL5/1/embed/js,html,css,result/dark/"></script>
 <p><span class="math inline">\(~\)</span></p>
 </div>
 <div id="circle-marker" class="section level2">
@@ -558,7 +549,7 @@ attribution: &#39;&amp;copy; &lt;a href=&quot;http://www.openstreetmap.org/copyr
       fillOpacity: 0.5}).addTo(map);
 
       map.addLayer(circle);</code></pre>
-<p><a href="https://marinespatialviz.github.io/marinespatialviz/external/leaflet/circle.html"><img src="http://marinespatialviz.github.io/marinespatialviz/images/lcircle.png" /></a></p>
+<script async src="https://jsfiddle.net/WandaBodnar/2tbp9cL5/2/embed/js,html,css,result/dark/"></script>
 <p><span class="math inline">\(~\)</span></p>
 </div>
 <div id="costum-marker" class="section level2">
@@ -584,7 +575,7 @@ attribution: &#39;&amp;copy; &lt;a href=&quot;http://www.openstreetmap.org/copyr
       marker.addTo(map);
 
       &lt;/script&gt;</code></pre>
-<p><a href="https://marinespatialviz.github.io/marinespatialviz/external/leaflet/costum.html"><img src="http://marinespatialviz.github.io/marinespatialviz/images/lcostum.png" /></a></p>
+<script async src="https://jsfiddle.net/WandaBodnar/2tbp9cL5/3/embed/js,html,css,result/dark/"></script>
 <p><span class="math inline">\(~\)</span></p>
 </div>
 </div>
@@ -606,7 +597,7 @@ attribution: &#39;&amp;copy; &lt;a href=&quot;http://www.openstreetmap.org/copyr
       var line = L.polyline([[0, -180], [0, 180]],{color: &#39;red&#39;}).addTo(map);
 
       &lt;/script&gt;</code></pre>
-<p><a href="https://marinespatialviz.github.io/marinespatialviz/external/leaflet/polyline.html"><img src="http://marinespatialviz.github.io/marinespatialviz/images/lpolyline.png" /></a></p>
+<script async src="https://jsfiddle.net/WandaBodnar/2tbp9cL5/5/embed/js,html,css,result/dark/"></script>
 <p><span class="math inline">\(~\)</span></p>
 </div>
 <div id="polygon" class="section level1">
@@ -630,7 +621,7 @@ attribution: &#39;&amp;copy; &lt;a href=&quot;http://www.openstreetmap.org/copyr
 
       &lt;/script&gt;
       </code></pre>
-<p><a href="https://marinespatialviz.github.io/marinespatialviz/external/leaflet/polygon.html"><img src="http://marinespatialviz.github.io/marinespatialviz/images/lpolygon.png" /></a></p>
+<script async src="https://jsfiddle.net/WandaBodnar/3o8f746u/2/embed/js,html,css,result/dark/"></script>
 </div>
 
 

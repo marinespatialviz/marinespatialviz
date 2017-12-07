@@ -12,9 +12,7 @@ $~$
 
 # Installing and the basics of R Studio
 
-Install [R](https://cran.r-project.org/bin/windows/base/) and [R Studio](https://www.rstudio.com/products/rstudio/download/). 
-
-After opening R Studio, you will see the menu bar and four different panes.
+After installing [R](https://cran.r-project.org/bin/windows/base/) and [R Studio](https://www.rstudio.com/products/rstudio/download/), open R Studio and you will see the menu bar and four different panes.
 
 ![](http://marinespatialviz.github.io/marinespatialviz/images/1.png)
 
@@ -87,7 +85,7 @@ $~$
 
 ## Pop-up marker
 
-Label a marker can be done using `popup = ()`.
+Adding a pop-up to the marker can be done using `popup = ()`.
 
 ```{r, fig.width = 8.4, fig.height = 6}
 
@@ -102,7 +100,7 @@ $~$
 
 ## Circle marker
 
-Instead of the default marker circle markers can also be used `addCircleMarkers = ()`.
+Instead of the default marker, circle markers can also be used `addCircleMarkers = ()`.
 
 ```{r, fig.width = 8.4, fig.height = 6}
 
@@ -117,7 +115,7 @@ $~$
 
 ## Costum marker
 
-Alternatively, the marker can also be costumised. 
+Alternatively, the marker can be costumised. 
 
 ```{r, fig.width = 8.4, fig.height = 6}
 

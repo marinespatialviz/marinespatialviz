@@ -55,7 +55,7 @@ You can set the view and the [basemap](https://www.mapbox.com/maps/) using the c
 
     </html>
 
-[![](http://marinespatialviz.github.io/marinespatialviz/images/mmap.png)](https://marinespatialviz.github.io/marinespatialviz/external/mapbox/map.html)
+<script async src="https://jsfiddle.net/WandaBodnar/3o8f746u/4/embed/js,html,css,result/dark/"></script>
 
 $~$
 
@@ -74,7 +74,7 @@ You can add a marker to the map using the code `var marker = L.marker([]); marke
 
           </script>
     
-[![](http://marinespatialviz.github.io/marinespatialviz/images/mmarker.png)](https://marinespatialviz.github.io/marinespatialviz/external/mapbox/marker.html)
+<script async src="https://jsfiddle.net/WandaBodnar/3o8f746u/5/embed/js,html,css,result/dark/"></script>
 
 $~$
 
@@ -96,7 +96,7 @@ You can also use the Mapbox marker `icon: L.mapbox.marker.icon`.
 
           </script>
 
-[![](http://marinespatialviz.github.io/marinespatialviz/images/mmapboxmarker.png)](https://marinespatialviz.github.io/marinespatialviz/external/mapbox/mapboxmarker.html)
+<script async src="https://jsfiddle.net/WandaBodnar/3o8f746u/6/embed/js,html,css,result/dark/"></script>
 
 $~$
 
@@ -118,7 +118,7 @@ Pop-up can also be addded.
 
           </script>
 
-[![](http://marinespatialviz.github.io/marinespatialviz/images/mpopup.png)](https://marinespatialviz.github.io/marinespatialviz/external/mapbox/popup.html)
+<script async src="https://jsfiddle.net/WandaBodnar/3o8f746u/7/embed/js,html,css,result/dark/"></script>
 
 $~$
 
@@ -139,7 +139,9 @@ Changing the default marker to circle.
 
           map.addLayer(circle);
           
-[![](http://marinespatialviz.github.io/marinespatialviz/images/mcircle.png)](https://marinespatialviz.github.io/marinespatialviz/external/mapbox/circle.html)
+          </script>
+          
+<script async src="https://jsfiddle.net/WandaBodnar/3o8f746u/8/embed/js,html,css,result/dark/"></script>
 
 $~$
 
@@ -163,7 +165,7 @@ Adding costum maker.
 
           </script>
 
-[![](http://marinespatialviz.github.io/marinespatialviz/images/mcostum.png)](https://marinespatialviz.github.io/marinespatialviz/external/mapbox/costum.html)
+<script async src="https://jsfiddle.net/WandaBodnar/3o8f746u/9/embed/js,html,css,result/dark/"></script>
 
 $~$
 
@@ -181,7 +183,7 @@ For adding a line, the same code can be used as in Leaflet.js.
 
           </script>
 
-[![](http://marinespatialviz.github.io/marinespatialviz/images/mpolyline.png)](https://marinespatialviz.github.io/marinespatialviz/external/mapbox/polyline.html)
+<script async src="https://jsfiddle.net/WandaBodnar/3o8f746u/11/embed/js,html,css,result/dark/"></script>
 
 $~$
 
@@ -202,4 +204,4 @@ Again, the same code can be used.
 
           </script>
 
-[![](http://marinespatialviz.github.io/marinespatialviz/images/mpolygon.png)](https://marinespatialviz.github.io/marinespatialviz/external/mapbox/polygon.html)
+<script async src="https://jsfiddle.net/WandaBodnar/3o8f746u/13/embed/js,html,css,result/dark/"></script>
