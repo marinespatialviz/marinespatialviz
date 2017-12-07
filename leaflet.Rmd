@@ -13,10 +13,15 @@ $~$
 # Basics of Leaflet.js
 
 
-[Leaflet.js](http://leafletjs.com/) is an open-source JavaScript library used for the creation of interactive, simple and lightweight web maps. Leaflet forms the basis of [Mapbox.js](https://marinespatialviz.github.io/marinespatialviz/mapboxjs.html). 
+[Leaflet.js](http://leafletjs.com/) is an open-source JavaScript library used for the creation of interactive, simple and lightweight web maps. Leaflet forms the basis of [Mapbox.js](https://www.mapbox.com/mapbox.js/api/v3.1.1/). 
 
+You can create a web map either using a text editor on your PC, or an online code editor. 
 
-The first step of creating a web map starts with the **HTML page**.
+## Text editor
+
+One example of a text editor is [Atom](https://atom.io/) which is available for free to download.
+
+Using a text editor, the first step of creating a web map starts with the **HTML page**.
 
 
     <html>
@@ -103,20 +108,17 @@ Then, create a container for the map defining the dimensions. This will sit in t
 
 $~$
 
-# HTML, CSS and JavaScript
+## Online code editor
 
-Let's look into how you can use leaflet.js on [JSFiddle](https://jsfiddle.net/) which is an online code editor used to test your JavaScript, CSS, HTML.
-$~$
+Let's look into how you can use leaflet.js on [jsFiddle](https://jsfiddle.net/), an online code editor used to test your JavaScript, CSS, HTML.
 
-## JSFiddle
-
-After registering on JSFiddle, start with a blank workspace.
+After registering on jsFiddle, start with a blank workspace.
 
 ![](http://marinespatialviz.github.io/marinespatialviz/images/jsfiddle.png)
 
 $~$
 
-The first step here is the add leaflet.js and leaflet.css as an external resource.
+The first step here is to add leaflet.js and leaflet.css as an external resource.
 
 Click on External Resources and add these two web addresses:
 
@@ -127,7 +129,7 @@ https://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js
 ![](http://marinespatialviz.github.io/marinespatialviz/images/jsfiddle1.png)
 $~$
 
-Then using the previous example, let's add the HTML, CSS and JAVASCRIPT elements.
+Then using the previous example, let's add the HTML, CSS and JavaScript elements.
 
 HTML (will not need the whole HTML code):
 
@@ -150,7 +152,9 @@ JavaScript:
 
 $~$
 
-**In the examples below both text editor and jsFiddle codes will be displayed.**
+
+**In the examples below both text editor and jsFiddle codes are displayed.**
+
 
 $~$
 
