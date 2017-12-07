@@ -102,9 +102,68 @@ $~$
 
 ## Pop-up marker
 
+Pop-up can also be addded.
+
+          <script>
+
+          L.mapbox.accessToken = 'pk.eyJ1Ijoid2FuZGFib2RuYXIiLCJhIjoiY2phdHM1dm0xNXF0ajJxanU3dmdmaHRqcCJ9.mFPox1jAE9LkZN6v5OZ7Lw';
+
+          var map = L.mapbox.map('map', 'mapbox.light').setView([11, 142], 3);
+
+          var marker = L.marker([11.3499986, 142.1999992])
+
+          marker.bindPopup('Mariana Trench').openPopup();
+
+          marker.addTo(map);
+
+          </script>
+
+[![](http://marinespatialviz.github.io/marinespatialviz/images/mpopup.png)](https://marinespatialviz.github.io/marinespatialviz/external/mapbox/popup.html)
+
 $~$
 
-## Cluster marker
+## Circle marker
+
+Changing the default marker to circle. 
+
+          <script>
+
+          L.mapbox.accessToken = 'pk.eyJ1Ijoid2FuZGFib2RuYXIiLCJhIjoiY2phdHM1dm0xNXF0ajJxanU3dmdmaHRqcCJ9.mFPox1jAE9LkZN6v5OZ7Lw';
+
+          var map = L.mapbox.map('map', 'mapbox.light').setView([11, 142], 3);
+
+          var circle = L.circle([11.3499986, 142.1999992], 100000, {
+          color: '#a58fa4',
+          fillColor: '#0d11ee',
+          fillOpacity: 0.5}).addTo(map);
+
+          map.addLayer(circle);
+          
+[![](http://marinespatialviz.github.io/marinespatialviz/images/mcircle.png)](https://marinespatialviz.github.io/marinespatialviz/external/mapbox/circle.html)
+
+$~$
+
+## Costum marker
+
+Adding costum maker. 
+
+          <script>
+
+          L.mapbox.accessToken = 'pk.eyJ1Ijoid2FuZGFib2RuYXIiLCJhIjoiY2phdHM1dm0xNXF0ajJxanU3dmdmaHRqcCJ9.mFPox1jAE9LkZN6v5OZ7Lw';
+
+          var map = L.mapbox.map('map', 'mapbox.light').setView([11, 142], 3);
+
+          var customIcon = L.icon({
+          iconUrl: 'https://image.flaticon.com/icons/png/512/190/190006.png',
+          iconSize: [100, 95]});
+
+          var marker = L.marker([11.3499986, 142.1999992], {icon: customIcon})
+
+          marker.addTo(map);
+
+          </script>
+
+[![](http://marinespatialviz.github.io/marinespatialviz/images/mcostum.png)](https://marinespatialviz.github.io/marinespatialviz/external/mapbox/costum.html)
 
 $~$
 
@@ -126,7 +185,7 @@ For adding a line, the same code can be used as in Leaflet.js.
 
 $~$
 
-# Polygon
+# Polyline
 
 Again, the same code can be used. 
 

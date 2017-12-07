@@ -397,10 +397,61 @@ div.tocify {
 </div>
 <div id="pop-up-marker" class="section level2">
 <h2>Pop-up marker</h2>
+<p>Pop-up can also be addded.</p>
+<pre><code>      &lt;script&gt;
+
+      L.mapbox.accessToken = &#39;pk.eyJ1Ijoid2FuZGFib2RuYXIiLCJhIjoiY2phdHM1dm0xNXF0ajJxanU3dmdmaHRqcCJ9.mFPox1jAE9LkZN6v5OZ7Lw&#39;;
+
+      var map = L.mapbox.map(&#39;map&#39;, &#39;mapbox.light&#39;).setView([11, 142], 3);
+
+      var marker = L.marker([11.3499986, 142.1999992])
+
+      marker.bindPopup(&#39;Mariana Trench&#39;).openPopup();
+
+      marker.addTo(map);
+
+      &lt;/script&gt;</code></pre>
+<p><a href="https://marinespatialviz.github.io/marinespatialviz/external/mapbox/popup.html"><img src="http://marinespatialviz.github.io/marinespatialviz/images/mpopup.png" /></a></p>
 <p><span class="math inline">\(~\)</span></p>
 </div>
-<div id="cluster-marker" class="section level2">
-<h2>Cluster marker</h2>
+<div id="circle-marker" class="section level2">
+<h2>Circle marker</h2>
+<p>Changing the default marker to circle.</p>
+<pre><code>      &lt;script&gt;
+
+      L.mapbox.accessToken = &#39;pk.eyJ1Ijoid2FuZGFib2RuYXIiLCJhIjoiY2phdHM1dm0xNXF0ajJxanU3dmdmaHRqcCJ9.mFPox1jAE9LkZN6v5OZ7Lw&#39;;
+
+      var map = L.mapbox.map(&#39;map&#39;, &#39;mapbox.light&#39;).setView([11, 142], 3);
+
+      var circle = L.circle([11.3499986, 142.1999992], 100000, {
+      color: &#39;#a58fa4&#39;,
+      fillColor: &#39;#0d11ee&#39;,
+      fillOpacity: 0.5}).addTo(map);
+
+      map.addLayer(circle);
+      </code></pre>
+<p><a href="https://marinespatialviz.github.io/marinespatialviz/external/mapbox/circle.html"><img src="http://marinespatialviz.github.io/marinespatialviz/images/mcircle.png" /></a></p>
+<p><span class="math inline">\(~\)</span></p>
+</div>
+<div id="costum-marker" class="section level2">
+<h2>Costum marker</h2>
+<p>Adding costum maker.</p>
+<pre><code>      &lt;script&gt;
+
+      L.mapbox.accessToken = &#39;pk.eyJ1Ijoid2FuZGFib2RuYXIiLCJhIjoiY2phdHM1dm0xNXF0ajJxanU3dmdmaHRqcCJ9.mFPox1jAE9LkZN6v5OZ7Lw&#39;;
+
+      var map = L.mapbox.map(&#39;map&#39;, &#39;mapbox.light&#39;).setView([11, 142], 3);
+
+      var customIcon = L.icon({
+      iconUrl: &#39;https://image.flaticon.com/icons/png/512/190/190006.png&#39;,
+      iconSize: [100, 95]});
+
+      var marker = L.marker([11.3499986, 142.1999992], {icon: customIcon})
+
+      marker.addTo(map);
+
+      &lt;/script&gt;</code></pre>
+<p><a href="https://marinespatialviz.github.io/marinespatialviz/external/mapbox/costum.html"><img src="http://marinespatialviz.github.io/marinespatialviz/images/mcostum.png" /></a></p>
 <p><span class="math inline">\(~\)</span></p>
 </div>
 </div>
@@ -420,7 +471,7 @@ div.tocify {
 <p><span class="math inline">\(~\)</span></p>
 </div>
 <div id="polyline-1" class="section level1">
-<h1>Polygon</h1>
+<h1>Polyline</h1>
 <p>Again, the same code can be used.</p>
 <pre><code>      &lt;script&gt;
 

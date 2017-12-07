@@ -456,10 +456,93 @@ div.tocify {
 <p><span class="math inline">\(~\)</span></p>
 <div id="pop-up-marker" class="section level2">
 <h2>Pop-up marker</h2>
+<p>Let’s add a pop-up with text to the marker.</p>
+<pre><code>      &lt;script&gt;
+      
+      var map = L.map(&#39;map&#39;,{
+      center: [11, 142],
+      zoom: 3
+      });
+
+      L.tileLayer(&#39;http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png&#39;, {
+      attribution: &#39;&amp;copy; &lt;a href=&quot;http://www.openstreetmap.org/copyright&quot;&gt;OpenStreetMap&lt;/a&gt;&#39;
+      }).addTo(map);
+      
+      var marker = L.marker([11.3499986, 142.1999992])
+
+      marker.bindPopup(&#39;Mariana Trench&#39;).openPopup();
+      
+      marker.addTo(map);
+      
+      &lt;/script&gt;
+      </code></pre>
+<p>Here is another option.</p>
+<pre><code>      &lt;script&gt;
+    
+      var map = L.map(&#39;map&#39;,{
+      center: [11, 142],
+      zoom: 3
+      });
+
+      L.tileLayer(&#39;http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png&#39;, {
+      attribution: &#39;&amp;copy; &lt;a href=&quot;http://www.openstreetmap.org/copyright&quot;&gt;OpenStreetMap&lt;/a&gt;&#39;
+      }).addTo(map);
+      
+      var marker = L.marker([11.3499986, 142.1999992]).bindPopup(&#39;Mariana Trench&#39;)
+
+      marker.addTo(map);
+
+      &lt;/script&gt;</code></pre>
+<p><a href="https://marinespatialviz.github.io/marinespatialviz/external/leaflet/popup.html"><img src="http://marinespatialviz.github.io/marinespatialviz/images/lpopup.png" /></a></p>
 <p><span class="math inline">\(~\)</span></p>
 </div>
-<div id="cluster-marker" class="section level2">
-<h2>Cluster marker</h2>
+<div id="circle-marker" class="section level2">
+<h2>Circle marker</h2>
+<p>Here is the code for adding a circle.</p>
+<pre><code>      &lt;script&gt;
+
+      var map = L.map(&#39;map&#39;,{
+      center: [11, 142],
+      zoom: 3
+      });
+
+      L.tileLayer(&#39;http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png&#39;, {
+      attribution: &#39;&amp;copy; &lt;a href=&quot;http://www.openstreetmap.org/copyright&quot;&gt;OpenStreetMap&lt;/a&gt;&#39;
+      }).addTo(map);
+
+      var circle = L.circle([11.3499986, 142.1999992], 100000, {
+      color: &#39;#a58fa4&#39;,
+      fillColor: &#39;#0d11ee&#39;,
+      fillOpacity: 0.5}).addTo(map);
+
+      map.addLayer(circle);</code></pre>
+<p><a href="https://marinespatialviz.github.io/marinespatialviz/external/leaflet/circle.html"><img src="http://marinespatialviz.github.io/marinespatialviz/images/lcircle.png" /></a></p>
+<p><span class="math inline">\(~\)</span></p>
+</div>
+<div id="costum-marker" class="section level2">
+<h2>Costum marker</h2>
+<p>Let’s also add the submarine to the map.</p>
+<pre><code>      &lt;script&gt;
+
+      var map = L.map(&#39;map&#39;,{
+      center: [11, 142],
+      zoom: 3
+      });
+
+      L.tileLayer(&#39;http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png&#39;, {
+      attribution: &#39;&amp;copy; &lt;a href=&quot;http://www.openstreetmap.org/copyright&quot;&gt;OpenStreetMap&lt;/a&gt;&#39;
+      }).addTo(map);
+
+      var customIcon = L.icon({
+      iconUrl: &#39;https://image.flaticon.com/icons/png/512/190/190006.png&#39;,
+      iconSize: [100, 95]});
+
+      var marker = L.marker([11.3499986, 142.1999992], {icon: customIcon})
+
+      marker.addTo(map);
+
+      &lt;/script&gt;</code></pre>
+<p><a href="https://marinespatialviz.github.io/marinespatialviz/external/leaflet/costum.html"><img src="http://marinespatialviz.github.io/marinespatialviz/images/lcostum.png" /></a></p>
 <p><span class="math inline">\(~\)</span></p>
 </div>
 </div>

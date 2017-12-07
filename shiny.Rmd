@@ -28,7 +28,7 @@ $~$
 
 Let's create a basic map using Shiny. 
 
-```{r}
+```{r message = FALSE}
 library(shiny)
 library(leaflet)
 
@@ -44,17 +44,13 @@ server <- function(input, output, session) {
 shinyApp(ui, server)
 ```
 
-```{r echo = FALSE}
-knitr::include_app("https://marinespatialviz.shinyapps.io/Map1/", height = "600px")
-```
-  
 $~$
 
 # View and basemap
 
-Let's change the basemap and the view.
+Let's change the basemap and set the view.
 
-```{r}
+```{r message = FALSE}
 library(shiny)
 library(leaflet)
 
@@ -72,17 +68,13 @@ server <- function(input, output, session) {
 shinyApp(ui, server)
 ```
 
-```{r echo = FALSE}
-knitr::include_app("https://marinespatialviz.shinyapps.io/Map2/")
-```
-
 $~$
 
 # Marker
 
 Using the example from the R Studio [section](https://marinespatialviz.github.io/marinespatialviz/rstudio.html#marker), let's add a marker. 
 
-```{r}
+```{r message = FALSE}
 library(shiny)
 library(leaflet)
 
@@ -101,17 +93,78 @@ server <- function(input, output, session) {
 shinyApp(ui, server)
 ```
 
-```{r echo = FALSE}
-knitr::include_app("https://marinespatialviz.shinyapps.io/marker/")
-```
-
 $~$
 
 ## Pop-up marker
 
+Let's add a pop-up to the marker. 
+
+```{r message = FALSE}
+library(shiny)
+library(leaflet)
+
+ui <- fluidPage(leafletOutput("mymap"))
+
+server <- function(input, output, session) {
+  
+  output$mymap <- renderLeaflet({
+    leaflet() %>%
+    addTiles() %>%
+    setView(lng = 142, lat = 11, zoom = 3) %>%
+    addMarkers(lng = 142.1999992, lat = 11.3499986, popup = 'Mariana Trench') %>%
+    addProviderTiles(providers$CartoDB.Positron)})}
+
+shinyApp(ui, server)
+```
+
 $~$
 
-## Cluster marker
+## Circle marker
+
+Change to marker to circle marker. 
+
+```{r message = FALSE}
+library(shiny)
+library(leaflet)
+
+ui <- fluidPage(leafletOutput("mymap"))
+
+server <- function(input, output, session) {
+  
+  output$mymap <- renderLeaflet({
+    leaflet() %>%
+    addTiles() %>%
+    setView(lng = 142, lat = 11, zoom = 3) %>%
+    addCircleMarkers(lng = 142.1999992, lat = 11.3499986, radius = 6, fillOpacity = .5, color = 'green') %>%
+    addProviderTiles(providers$CartoDB.Positron)})}
+
+shinyApp(ui, server)
+```
+
+$~$
+
+## Costum marker
+
+```{r message = FALSE}
+library(shiny)
+library(leaflet)
+
+subIcon <- makeIcon(iconUrl = "https://image.flaticon.com/icons/png/512/190/190006.png",
+                    iconWidth = 100, iconHeight = 95)
+
+ui <- fluidPage(leafletOutput("mymap"))
+
+server <- function(input, output, session) {
+  
+  output$mymap <- renderLeaflet({
+    leaflet() %>%
+    addTiles() %>%
+    setView(lng = 142, lat = 11, zoom = 3) %>%
+    addMarkers(lng = 142.1999992, lat = 11.3499986, icon = subIcon) %>%
+    addProviderTiles(providers$CartoDB.Positron)})}
+
+shinyApp(ui, server)
+```
 
 $~$
 
@@ -119,7 +172,7 @@ $~$
 
 Let's add the Equator to the map. 
 
-```{r}
+```{r message = FALSE}
 library(shiny)
 library(leaflet)
 
@@ -142,15 +195,13 @@ server <- function(input, output, session) {
 shinyApp(ui, server)
 ```
 
-```{r echo = FALSE}
-knitr::include_app("https://marinespatialviz.shinyapps.io/polyline/")
-```
+$~$
 
 #Polygon
 
 Let's also highlight the tropics. 
 
-```{r}
+```{r message = FALSE}
 library(shiny)
 library(leaflet)
 
@@ -171,8 +222,4 @@ server <- function(input, output, session) {
       addProviderTiles(providers$Hydda.Base)})}
 
 shinyApp(ui, server)
-```
-
-```{r echo = FALSE}
-knitr::include_app("https://marinespatialviz.shinyapps.io/polygon/")
 ```

@@ -175,9 +175,102 @@ $~$
 
 ## Pop-up marker
 
+Let's add a pop-up with text to the marker.
+
+          <script>
+          
+          var map = L.map('map',{
+          center: [11, 142],
+          zoom: 3
+          });
+
+          L.tileLayer('http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png', {
+          attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+          }).addTo(map);
+          
+          var marker = L.marker([11.3499986, 142.1999992])
+
+          marker.bindPopup('Mariana Trench').openPopup();
+          
+          marker.addTo(map);
+          
+          </script>
+          
+Here is another option. 
+
+          <script>
+        
+          var map = L.map('map',{
+          center: [11, 142],
+          zoom: 3
+          });
+
+          L.tileLayer('http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png', {
+          attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+          }).addTo(map);
+          
+          var marker = L.marker([11.3499986, 142.1999992]).bindPopup('Mariana Trench')
+
+          marker.addTo(map);
+
+          </script>
+
+[![](http://marinespatialviz.github.io/marinespatialviz/images/lpopup.png)](https://marinespatialviz.github.io/marinespatialviz/external/leaflet/popup.html)
+
 $~$
 
-## Cluster marker
+## Circle marker
+
+Here is the code for adding a circle. 
+
+          <script>
+
+          var map = L.map('map',{
+          center: [11, 142],
+          zoom: 3
+          });
+
+          L.tileLayer('http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png', {
+          attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+          }).addTo(map);
+
+          var circle = L.circle([11.3499986, 142.1999992], 100000, {
+          color: '#a58fa4',
+          fillColor: '#0d11ee',
+          fillOpacity: 0.5}).addTo(map);
+
+          map.addLayer(circle);
+
+[![](http://marinespatialviz.github.io/marinespatialviz/images/lcircle.png)](https://marinespatialviz.github.io/marinespatialviz/external/leaflet/circle.html)
+
+$~$
+
+## Costum marker
+
+Let's also add the submarine to the map. 
+
+          <script>
+
+          var map = L.map('map',{
+          center: [11, 142],
+          zoom: 3
+          });
+
+          L.tileLayer('http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png', {
+          attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+          }).addTo(map);
+
+          var customIcon = L.icon({
+          iconUrl: 'https://image.flaticon.com/icons/png/512/190/190006.png',
+          iconSize: [100, 95]});
+
+          var marker = L.marker([11.3499986, 142.1999992], {icon: customIcon})
+
+          marker.addTo(map);
+
+          </script>
+    
+[![](http://marinespatialviz.github.io/marinespatialviz/images/lcostum.png)](https://marinespatialviz.github.io/marinespatialviz/external/leaflet/costum.html)
 
 $~$
 

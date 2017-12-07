@@ -87,9 +87,49 @@ $~$
 
 ## Pop-up marker
 
+Label a marker can be done using `popup = ()`.
+
+```{r, fig.width = 8.4, fig.height = 6}
+
+leaflet() %>%
+  addTiles() %>%
+  setView(lng = 142, lat = 11, zoom = 3) %>%
+  addMarkers(lng = 142.1999992, lat = 11.3499986, popup = 'Mariana Trench') %>%
+  addProviderTiles(providers$CartoDB.Positron)
+```
+
 $~$
 
-## Cluster marker
+## Circle marker
+
+Instead of the default marker circle markers can also be used `addCircleMarkers = ()`.
+
+```{r, fig.width = 8.4, fig.height = 6}
+
+leaflet() %>%
+  addTiles() %>%
+  setView(lng = 142, lat = 11, zoom = 3) %>%
+  addCircleMarkers(lng = 142.1999992, lat = 11.3499986, radius = 6, fillOpacity = .5, color = 'green') %>%
+  addProviderTiles(providers$CartoDB.Positron)
+```
+
+$~$
+
+## Costum marker
+
+Alternatively, the marker can also be costumised. 
+
+```{r, fig.width = 8.4, fig.height = 6}
+
+subIcon <- makeIcon(iconUrl = "https://image.flaticon.com/icons/png/512/190/190006.png",
+                    iconWidth = 100, iconHeight = 95)
+
+leaflet() %>%
+  addTiles() %>%
+  setView(lng = 142, lat = 11, zoom = 3) %>%
+  addMarkers(lng = 142.1999992, lat = 11.3499986, icon = subIcon) %>%
+  addProviderTiles(providers$CartoDB.Positron)
+```
 
 $~$
 
