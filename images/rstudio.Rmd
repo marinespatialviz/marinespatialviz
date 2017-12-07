@@ -1,0 +1,170 @@
+---
+title: "R Studio - Leaflet"
+output: 
+  html_document:
+    toc: true
+    toc_depth: 2
+    toc_float: true
+    theme: flatly
+---
+
+$~$
+
+# Installing and the basics of R Studio
+
+Install [R](https://cran.r-project.org/bin/windows/base/) and [R Studio](https://www.rstudio.com/products/rstudio/download/). 
+
+After opening R Studio, you will see the menu bar and four different panes.
+
+![](http://marinespatialviz.github.io/marinespatialviz/images/1.png)
+
+$~$
+
+Here is an overview explaining what the different panes are used for:
+
+1. Scripting window: for typing commands
+
+2. Console: for typing commands and to see the output of each
+
+3. Top right side with three tabs:
+  + Environment: showing all active objects
+  + History: showing list of commands
+  + Connections: to connect, explore, and view data in a variety of databases
+  
+4. Bottom right side with five tabs:
+  + Files: your default workspace
+  + Plots: showing graphs that you generate
+  + Packages: packages contain collections of R functions, data, and compiled
+code, and are used to make graphs, maps and so on
+  + Help: additional info
+  + Viewer: showing interactive plots and graphs
+GIS
+
+$~$
+
+# Create a leaflet map
+
+Start with the installation of the leaflet package.
+
+`install.packages("leaflet")`
+
+After calling the leaflet library, two lines of code will create your first map.
+
+```{r, fig.width = 8.4, fig.height = 6}
+library(leaflet)
+leaflet() %>%
+  addTiles()
+```
+
+$~$
+
+# View and basemap
+
+Let's set the view by defining a set of coordinates and the zoom level, and add a different basemap (leaflet will use Open Street Map by default). [Here](https://leaflet-extras.github.io/leaflet-providers/preview/) you can find a wide range of options for the basemap. 
+
+```{r, fig.width = 8.4, fig.height = 6}
+leaflet() %>%
+  setView(lng = -15, lat = 20, zoom = 2) %>%
+  addTiles() %>%
+  addProviderTiles(providers$CartoDB.DarkMatter)
+```
+
+$~$
+
+# Marker
+
+You can easily add a marker by defining a set of coordinates and using `addMarker()`. The example here is the Mariana Trench, the deepest part of the world's oceans.
+
+```{r, fig.width = 8.4, fig.height = 6}
+leaflet() %>%
+  addTiles() %>%
+  setView(lng = 142, lat = 11, zoom = 3) %>%
+  addMarkers(lng = 142.1999992, lat = 11.3499986) %>%
+  addProviderTiles(providers$Esri.OceanBasemap)
+```
+
+$~$
+
+## Pop-up marker
+
+Label a marker can be done using `popup = ()`.
+
+```{r, fig.width = 8.4, fig.height = 6}
+
+leaflet() %>%
+  addTiles() %>%
+  setView(lng = 142, lat = 11, zoom = 3) %>%
+  addMarkers(lng = 142.1999992, lat = 11.3499986, popup = 'Mariana Trench') %>%
+  addProviderTiles(providers$CartoDB.Positron)
+```
+
+$~$
+
+## Circle marker
+
+Instead of the default marker circle markers can also be used `addCircleMarkers = ()`.
+
+```{r, fig.width = 8.4, fig.height = 6}
+
+leaflet() %>%
+  addTiles() %>%
+  setView(lng = 142, lat = 11, zoom = 3) %>%
+  addCircleMarkers(lng = 142.1999992, lat = 11.3499986, radius = 6, fillOpacity = .5, color = 'green') %>%
+  addProviderTiles(providers$CartoDB.Positron)
+```
+
+$~$
+
+## Costum marker
+
+Alternatively, the marker can also be costumised. 
+
+```{r, fig.width = 8.4, fig.height = 6}
+
+subIcon <- makeIcon(iconUrl = "https://image.flaticon.com/icons/png/512/190/190006.png",
+                    iconWidth = 100, iconHeight = 95)
+
+leaflet() %>%
+  addTiles() %>%
+  setView(lng = 142, lat = 11, zoom = 3) %>%
+  addMarkers(lng = 142.1999992, lat = 11.3499986, icon = subIcon) %>%
+  addProviderTiles(providers$CartoDB.Positron)
+```
+
+$~$
+
+# Polyline
+
+Let's add the Equator to the map using the `addPolylines()`. 
+
+```{r, fig.width = 8.4, fig.height = 6}
+
+x = c(-180, 180)
+y = c(0, 0)
+e = data.frame(x, y)
+
+leaflet() %>%
+  addTiles() %>%
+  setView(lng = 0, lat = 0, zoom = 2) %>%
+  addPolylines(lng = e$x, lat = e$y, color = "red") %>% 
+  addProviderTiles(providers$Esri.OceanBasemap)
+```
+
+$~$
+
+# Polygon
+
+Highlighting the tropics, let's add a polygon to the map using `addPolygon()`. 
+
+```{r, fig.width = 8.4, fig.height = 6}
+
+x = c(-180, 180, 180, -180)
+y = c(23.5, 23.5, -23.5, -23.5)
+e = data.frame(x, y)
+
+leaflet() %>%
+  addTiles() %>%
+  setView(lng = 0, lat = 0, zoom = 2) %>%
+  addPolygons(lng = e$x, lat = e$y, color = "orange", fillOpacity = .5) %>% 
+  addProviderTiles(providers$Hydda.Base)
+```

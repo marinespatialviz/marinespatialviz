@@ -1,0 +1,205 @@
+---
+title: "Mapbox.js"
+output: 
+  html_document:
+    toc: true
+    toc_depth: 2
+    toc_float: true
+    theme: flatly
+---
+
+$~$
+
+# Basics of Mapbox.js
+
+Similarly to Leaflet.js, Mapbox.js is also an open-source JavaScript library that allows you to create interactive maps which then can be added to your website. 
+
+The **HTML page** set-up is the same as for [Leaflet.js](https://marinespatialviz.github.io/marinespatialviz/leafletjs.html#basics_of_leafletjs).
+
+$~$
+
+# View and basemap
+
+You can set the view and the [basemap](https://www.mapbox.com/maps/) using the code `var map = L.mapbox.map('map', 'mapbox.streets').setView([20, -15], 3);`.
+
+    <html>
+
+      <head>
+
+        <script src='https://api.mapbox.com/mapbox.js/v3.1.1/mapbox.js'></script>
+        
+        <link href='https://api.mapbox.com/mapbox.js/v3.1.1/mapbox.css' rel='stylesheet'/>
+
+        <style>
+        
+          body { margin:0; padding:0; }
+          #map { position:absolute; top:0; bottom:0; width:100%; }
+          
+        </style>
+
+      </head>
+
+      <body>
+
+        <div id='map'></div>
+
+        <script>
+
+          L.mapbox.accessToken ='pk.eyJ1Ijoid2FuZGFib2RuYXIiLCJhIjoiY2phdHM1dm0xNXF0ajJxanU3dmdmaHRqcCJ9.mFPox1jAE9LkZN6v5OZ7Lw';
+
+          var map = L.mapbox.map('map', 'mapbox.streets').setView([20, -15], 3);
+
+        </script>
+
+      </body>
+
+    </html>
+
+[![](http://marinespatialviz.github.io/marinespatialviz/images/mmap.png)](https://marinespatialviz.github.io/marinespatialviz/external/mapbox/map.html)
+
+$~$
+
+# Marker
+
+You can add a marker to the map using the code `var marker = L.marker([]); marker.addTo(map);`. This will add the same type of marker as in Leaflet.js. 
+
+          <script>
+
+          L.mapbox.accessToken = 'pk.eyJ1Ijoid2FuZGFib2RuYXIiLCJhIjoiY2phdHM1dm0xNXF0ajJxanU3dmdmaHRqcCJ9.mFPox1jAE9LkZN6v5OZ7Lw';
+
+          var map = L.mapbox.map('map', 'mapbox.light').setView([11, 142], 3);
+
+          var marker = L.marker([11.3499986, 142.1999992]);
+          marker.addTo(map);
+
+          </script>
+    
+[![](http://marinespatialviz.github.io/marinespatialviz/images/mmarker.png)](https://marinespatialviz.github.io/marinespatialviz/external/mapbox/marker.html)
+
+$~$
+
+## Mapbox marker
+
+You can also use the Mapbox marker `icon: L.mapbox.marker.icon`. 
+
+          <script>
+
+          L.mapbox.accessToken = 'pk.eyJ1Ijoid2FuZGFib2RuYXIiLCJhIjoiY2phdHM1dm0xNXF0ajJxanU3dmdmaHRqcCJ9.mFPox1jAE9LkZN6v5OZ7Lw';
+
+          var map = L.mapbox.map('map', 'mapbox.light').setView([11, 142], 3);
+
+          L.marker([11.3499986, 142.1999992], {
+            icon: L.mapbox.marker.icon({
+            'marker-size': 'large',
+            'marker-color': '#e12323'})
+            }).addTo(map);
+
+          </script>
+
+[![](http://marinespatialviz.github.io/marinespatialviz/images/mmapboxmarker.png)](https://marinespatialviz.github.io/marinespatialviz/external/mapbox/mapboxmarker.html)
+
+$~$
+
+## Pop-up marker
+
+Pop-up can also be addded.
+
+          <script>
+
+          L.mapbox.accessToken = 'pk.eyJ1Ijoid2FuZGFib2RuYXIiLCJhIjoiY2phdHM1dm0xNXF0ajJxanU3dmdmaHRqcCJ9.mFPox1jAE9LkZN6v5OZ7Lw';
+
+          var map = L.mapbox.map('map', 'mapbox.light').setView([11, 142], 3);
+
+          var marker = L.marker([11.3499986, 142.1999992])
+
+          marker.bindPopup('Mariana Trench').openPopup();
+
+          marker.addTo(map);
+
+          </script>
+
+[![](http://marinespatialviz.github.io/marinespatialviz/images/mpopup.png)](https://marinespatialviz.github.io/marinespatialviz/external/mapbox/popup.html)
+
+$~$
+
+## Circle marker
+
+Changing the default marker to circle. 
+
+          <script>
+
+          L.mapbox.accessToken = 'pk.eyJ1Ijoid2FuZGFib2RuYXIiLCJhIjoiY2phdHM1dm0xNXF0ajJxanU3dmdmaHRqcCJ9.mFPox1jAE9LkZN6v5OZ7Lw';
+
+          var map = L.mapbox.map('map', 'mapbox.light').setView([11, 142], 3);
+
+          var circle = L.circle([11.3499986, 142.1999992], 100000, {
+          color: '#a58fa4',
+          fillColor: '#0d11ee',
+          fillOpacity: 0.5}).addTo(map);
+
+          map.addLayer(circle);
+          
+[![](http://marinespatialviz.github.io/marinespatialviz/images/mcircle.png)](https://marinespatialviz.github.io/marinespatialviz/external/mapbox/circle.html)
+
+$~$
+
+## Costum marker
+
+Adding costum maker. 
+
+          <script>
+
+          L.mapbox.accessToken = 'pk.eyJ1Ijoid2FuZGFib2RuYXIiLCJhIjoiY2phdHM1dm0xNXF0ajJxanU3dmdmaHRqcCJ9.mFPox1jAE9LkZN6v5OZ7Lw';
+
+          var map = L.mapbox.map('map', 'mapbox.light').setView([11, 142], 3);
+
+          var customIcon = L.icon({
+          iconUrl: 'https://image.flaticon.com/icons/png/512/190/190006.png',
+          iconSize: [100, 95]});
+
+          var marker = L.marker([11.3499986, 142.1999992], {icon: customIcon})
+
+          marker.addTo(map);
+
+          </script>
+
+[![](http://marinespatialviz.github.io/marinespatialviz/images/mcostum.png)](https://marinespatialviz.github.io/marinespatialviz/external/mapbox/costum.html)
+
+$~$
+
+# Polyline
+
+For adding a line, the same code can be used as in Leaflet.js. 
+
+          <script>
+
+          L.mapbox.accessToken = 'pk.eyJ1Ijoid2FuZGFib2RuYXIiLCJhIjoiY2phdHM1dm0xNXF0ajJxanU3dmdmaHRqcCJ9.mFPox1jAE9LkZN6v5OZ7Lw';
+
+          var map = L.mapbox.map('map', 'mapbox.light').setView([0, 0], 3);
+
+          var line = L.polyline([[0, -180], [0, 180]],{color: 'red'}).addTo(map);
+
+          </script>
+
+[![](http://marinespatialviz.github.io/marinespatialviz/images/mpolyline.png)](https://marinespatialviz.github.io/marinespatialviz/external/mapbox/polyline.html)
+
+$~$
+
+# Polyline
+
+Again, the same code can be used. 
+
+          <script>
+
+          L.mapbox.accessToken = 'pk.eyJ1Ijoid2FuZGFib2RuYXIiLCJhIjoiY2phdHM1dm0xNXF0ajJxanU3dmdmaHRqcCJ9.mFPox1jAE9LkZN6v5OZ7Lw';
+
+          var map = L.mapbox.map('map', 'mapbox.light').setView([0, 0], 3);
+
+          var polygon = L.polygon([[23.5, 180], [-23.5, 180], [-23.5, -180], [23.5, -180]],
+          {color: 'orange', fillColor: 'orange', fillOpacity: .5}).addTo(map);
+
+          map.addLayer(polygon);
+
+          </script>
+
+[![](http://marinespatialviz.github.io/marinespatialviz/images/mpolygon.png)](https://marinespatialviz.github.io/marinespatialviz/external/mapbox/polygon.html)

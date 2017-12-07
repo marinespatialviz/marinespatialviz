@@ -1,0 +1,225 @@
+---
+title: "R Studio - Shiny"
+output: 
+  html_document:
+    toc: true
+    toc_depth: 2
+    toc_float: true
+    theme: flatly
+---
+
+$~$
+
+# Shiny app
+
+Here is the basic set up for a Shiny app.
+
+```{r}
+library(shiny)
+
+ui <- fluidPage()
+
+server <- function(input, output) {}
+
+shinyApp(ui = ui, server = server)
+```
+
+$~$
+
+Let's create a basic map using Shiny. 
+
+```{r message = FALSE}
+library(shiny)
+library(leaflet)
+
+ui <- fluidPage(leafletOutput("map"))
+
+server <- function(input, output, session) {
+  
+  output$map <- renderLeaflet({
+    library(leaflet)
+    leaflet() %>%
+      addTiles()})}
+
+shinyApp(ui, server)
+```
+
+$~$
+
+# View and basemap
+
+Let's change the basemap and set the view.
+
+```{r message = FALSE}
+library(shiny)
+library(leaflet)
+
+ui <- fluidPage(leafletOutput("mymap"))
+
+server <- function(input, output, session) {
+  
+  output$mymap <- renderLeaflet({
+    library(leaflet)
+    leaflet() %>%
+      setView(lng = -15, lat = 20, zoom = 1) %>%
+      addTiles() %>%
+      addProviderTiles(providers$Esri.WorldImagery)})}
+
+shinyApp(ui, server)
+```
+
+$~$
+
+# Marker
+
+Using the example from the R Studio [section](https://marinespatialviz.github.io/marinespatialviz/rstudio.html#marker), let's add a marker. 
+
+```{r message = FALSE}
+library(shiny)
+library(leaflet)
+
+ui <- fluidPage(leafletOutput("mymap"))
+
+server <- function(input, output, session) {
+  
+  output$mymap <- renderLeaflet({
+    library(leaflet)
+    leaflet() %>%
+      addTiles() %>%
+      setView(lng = 142, lat = 11, zoom = 3) %>%
+      addMarkers(lng = 142.1999992, lat = 11.3499986) %>%
+      addProviderTiles(providers$Esri.OceanBasemap)})}
+
+shinyApp(ui, server)
+```
+
+$~$
+
+## Pop-up marker
+
+Let's add a pop-up to the marker. 
+
+```{r message = FALSE}
+library(shiny)
+library(leaflet)
+
+ui <- fluidPage(leafletOutput("mymap"))
+
+server <- function(input, output, session) {
+  
+  output$mymap <- renderLeaflet({
+    leaflet() %>%
+    addTiles() %>%
+    setView(lng = 142, lat = 11, zoom = 3) %>%
+    addMarkers(lng = 142.1999992, lat = 11.3499986, popup = 'Mariana Trench') %>%
+    addProviderTiles(providers$CartoDB.Positron)})}
+
+shinyApp(ui, server)
+```
+
+$~$
+
+## Circle marker
+
+Change to marker to circle marker. 
+
+```{r message = FALSE}
+library(shiny)
+library(leaflet)
+
+ui <- fluidPage(leafletOutput("mymap"))
+
+server <- function(input, output, session) {
+  
+  output$mymap <- renderLeaflet({
+    leaflet() %>%
+    addTiles() %>%
+    setView(lng = 142, lat = 11, zoom = 3) %>%
+    addCircleMarkers(lng = 142.1999992, lat = 11.3499986, radius = 6, fillOpacity = .5, color = 'green') %>%
+    addProviderTiles(providers$CartoDB.Positron)})}
+
+shinyApp(ui, server)
+```
+
+$~$
+
+## Costum marker
+
+```{r message = FALSE}
+library(shiny)
+library(leaflet)
+
+subIcon <- makeIcon(iconUrl = "https://image.flaticon.com/icons/png/512/190/190006.png",
+                    iconWidth = 100, iconHeight = 95)
+
+ui <- fluidPage(leafletOutput("mymap"))
+
+server <- function(input, output, session) {
+  
+  output$mymap <- renderLeaflet({
+    leaflet() %>%
+    addTiles() %>%
+    setView(lng = 142, lat = 11, zoom = 3) %>%
+    addMarkers(lng = 142.1999992, lat = 11.3499986, icon = subIcon) %>%
+    addProviderTiles(providers$CartoDB.Positron)})}
+
+shinyApp(ui, server)
+```
+
+$~$
+
+# Polyline
+
+Let's add the Equator to the map. 
+
+```{r message = FALSE}
+library(shiny)
+library(leaflet)
+
+x = c(-180, 180)
+y = c(0, 0)
+e = data.frame(x, y)
+
+ui <- fluidPage(leafletOutput("mymap"))
+
+server <- function(input, output, session) {
+  
+  output$mymap <- renderLeaflet({
+    library(leaflet)
+    leaflet() %>%
+      addTiles() %>%
+      setView(lng = 0, lat = 0, zoom = 2) %>%
+      addPolylines(lng = e$x, lat = e$y, color = "red") %>%
+      addProviderTiles(providers$Esri.OceanBasemap)})}
+
+shinyApp(ui, server)
+```
+
+$~$
+
+#Polygon
+
+Let's also highlight the tropics. 
+
+```{r message = FALSE}
+library(shiny)
+library(leaflet)
+
+x = c(-180, 180, 180, -180)
+y = c(23.5, 23.5, -23.5, -23.5)
+e = data.frame(x, y)
+
+ui <- fluidPage(leafletOutput("mymap"))
+
+server <- function(input, output, session) {
+  
+  output$mymap <- renderLeaflet({
+    library(leaflet)
+      leaflet() %>%
+      addTiles() %>%
+      setView(lng = 0, lat = 0, zoom = 2) %>%
+      addPolygons(lng = e$x, lat = e$y, color = "orange", fillOpacity = .5) %>% 
+      addProviderTiles(providers$Hydda.Base)})}
+
+shinyApp(ui, server)
+```
