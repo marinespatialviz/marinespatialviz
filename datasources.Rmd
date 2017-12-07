@@ -19,20 +19,28 @@ $~$
 
 # Software
 
-* ArcGIS
-* ArcGIS Online
-* QGIS
-* Mapinfo
-* R
-* R Studio
-* Leaflet
-* Mapbox
-* Carto
-* TileMill
+* [ArcGIS Online](https://www.arcgis.com/features/index.html)
+* [ArcGIS](http://desktop.arcgis.com/en/)
+* [QGIS](https://www.qgis.org/en/site/)
+* [Mapinfo](https://www.pitneybowes.com/us/location-intelligence/geographic-information-systems/mapinfo-pro.html0)
+* [Mango Map](https://mangomap.com/)
+* [R](https://www.r-project.org/)
+* [R Studio](https://www.rstudio.com/)
+* [Leaflet](http://leafletjs.com/)
+* [Mapbox](https://www.mapbox.com/)
+* [Carto](https://carto.com/)
+* [TileMill](https://tilemill-project.github.io/tilemill/)
+
+$~$
+
+# Tools
+
+* [GeoJSON](http://geojson.io/)
+* [Map Shaper](http://mapshaper.org/)
 
 $~$
 
 # Maps
 
-* [The True Size of...](https://thetruesize.com/)
 * [Antipodes Map](https://www.antipodesmap.com/)
+* [The True Size of...](https://thetruesize.com/)
