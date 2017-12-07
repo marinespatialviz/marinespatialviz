@@ -17,6 +17,8 @@ $~$
 
 You can create a web map either using a text editor on your PC, or an online code editor. 
 
+$~$
+
 ## Text editor
 
 One example of a text editor is [Atom](https://atom.io/) which is available for free to download.
