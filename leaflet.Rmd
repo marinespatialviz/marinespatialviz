@@ -79,7 +79,7 @@ Both files will sit in the head section of the HTML code. Make sure to keep the 
       </html>
     
 
-Then, create a container for the map defining the dimensions. This will sit in the body section:
+Then, create a container for the map defining the dimensions. This will sit in the body section.
 
 
     <html>
@@ -130,7 +130,17 @@ https://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js
 ![](http://marinespatialviz.github.io/marinespatialviz/images/jsfiddle1.png)
 $~$
 
-Then using the previous example, let's add the HTML, CSS and JavaScript elements.
+Before going further, let's discuss the terms: 
+
+HTML (HypterText Markup Language): provides the content of the web page that can be structured.
+
+CSS (Cascading Style Sheets): gives control over the style and visual presentation of the web page.
+
+JS (JavaScript): this will give the web page interactivity.
+
+$~$
+
+Now using the previous example, let's add the HTML, CSS and JavaScript elements.
 
 HTML (will not need the whole HTML code):
 

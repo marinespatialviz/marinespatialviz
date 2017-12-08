@@ -36,6 +36,7 @@ $~$
 # Tools
 
 * [GeoJSON](http://geojson.io/)
+* [Leaflet drag and drop](http://leaflet.calvinmetcalf.com/)
 * [Map Shaper](http://mapshaper.org/)
 
 $~$

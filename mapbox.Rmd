@@ -14,17 +14,19 @@ $~$
 
 Similarly to Leaflet.js, Mapbox.js is also an open-source JavaScript library that allows you to create interactive maps which then can be added to your website. 
 
+You can access the Mapbox .js script [here](https://api.tiles.mapbox.com/mapbox-gl-js/v0.42.2/mapbox-gl.js) and the .css script [here](https://api.tiles.mapbox.com/mapbox-gl-js/v0.42.2/mapbox-gl.css)
+
 $~$
 
 
-**Simiarly to the Leaflet.js page, in the examples below both text editor and jsFiddle codes are displayed.**
+**Just like on the Leaflet.js page, in the examples below both text editor and jsFiddle codes are displayed.**
 
 
 $~$
 
 # View and basemap
 
-You can set the view and the [basemap](https://www.mapbox.com/maps/) using the code `var map = L.mapbox.map('map', 'mapbox.streets').setView([20, -15], 3);`.
+Here is the basic HTML code for the web map, and you can set the view and the [basemap](https://www.mapbox.com/maps/) using the code `var map = L.mapbox.map('map', 'mapbox.streets').setView([20, -15], 3);`.
 
     <html>
 
