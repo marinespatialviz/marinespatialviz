@@ -166,3 +166,20 @@ leaflet() %>%
   addPolygons(lng = e$x, lat = e$y, color = "orange", fillOpacity = .5) %>% 
   addProviderTiles(providers$Hydda.Base)
 ```
+
+$~$
+
+# Layer control
+
+In case of the use of more than one basemap, it can be decided which basemap to show using the layer control function `addLayersControl()`. In this case, the group needs to defined and also the layer control option can be defined to be either visible or not. 
+
+```{r, fig.width = 8.4, fig.height = 6}
+leaflet() %>%
+  addTiles() %>%
+  setView(lng = 0, lat = 0, zoom = 2) %>%
+  addProviderTiles(providers$Hydda.Base, group = "Hydda") %>%
+  addProviderTiles(providers$CartoDB.DarkMatter, group = "Carto") %>%
+  addLayersControl(
+    baseGroups = c("Hydda", "Carto"),
+    options = layersControlOptions(collapsed = FALSE))
+```

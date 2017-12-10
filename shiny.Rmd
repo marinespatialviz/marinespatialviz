@@ -205,7 +205,7 @@ $~$
 
 #Polygon
 
-Let's also highlight the tropics. 
+Let's also highlight the tropics adding a polygon. 
 
 ```{r message = FALSE}
 library(shiny)
@@ -226,6 +226,33 @@ server <- function(input, output, session) {
       setView(lng = 0, lat = 0, zoom = 2) %>%
       addPolygons(lng = e$x, lat = e$y, color = "orange", fillOpacity = .5) %>% 
       addProviderTiles(providers$Hydda.Base)})}
+
+shinyApp(ui, server)
+```
+
+$~$
+
+# Layer control
+
+Here is function for the layer control. 
+
+```{r message = FALSE}
+library(shiny)
+library(leaflet)
+
+ui <- fluidPage(leafletOutput("mymap"))
+
+server <- function(input, output, session) {
+  
+  output$mymap <- renderLeaflet({
+    library(leaflet)
+     leaflet() %>%
+       addTiles() %>%
+       setView(lng = 0, lat = 0, zoom = 2) %>%
+       addProviderTiles(providers$Hydda.Base, group = "Hydda") %>%
+       addProviderTiles(providers$CartoDB.DarkMatter, group = "Carto") %>%
+       addLayersControl(baseGroups = c("Hydda", "Carto"),
+                        options = layersControlOptions(collapsed = TRUE))})}
 
 shinyApp(ui, server)
 ```

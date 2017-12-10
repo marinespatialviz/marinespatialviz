@@ -386,3 +386,36 @@ A polygon can be added using the `var polygon = L.polygon()`
           </script>
           
 <script async src="https://jsfiddle.net/WandaBodnar/3o8f746u/2/embed/js,html,css,result/dark/"></script>
+
+$~$
+
+# Layer control
+
+The layer control can be added by defining the choosen basemap and adding the control function.
+
+          <script>
+
+          var map = L.map('map',{
+          center: [0, 0],
+          zoom: 2
+          });
+
+          var Hydda_Full = L.tileLayer('https://{s}.tile.openstreetmap.se/hydda/full/{z}/{x}/{y}.png', {
+          maxZoom: 18,
+          attribution: 'Tiles courtesy of <a href="http://openstreetmap.se/" target="_blank">OpenStreetMap Sweden</a> &mdash; Map data &copy; <ahref="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+          }).addTo(map);
+
+          var CartoDB_DarkMatter = L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png', {
+          attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
+          subdomains: 'abcd',
+          maxZoom: 19
+          }).addTo(map);
+          
+          L.control.layers({
+          'Hydda': Hydda_Full,
+          'Carto': CartoDB_DarkMatter
+          }).addTo(map);
+
+          </script>
+
+<script async src="https://jsfiddle.net/WandaBodnar/3o8f746u/17/embed/js,html,css,result/dark/"></script>

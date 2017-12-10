@@ -626,6 +626,36 @@ attribution: &#39;&amp;copy; &lt;a href=&quot;http://www.openstreetmap.org/copyr
       &lt;/script&gt;
       </code></pre>
 <script async src="https://jsfiddle.net/WandaBodnar/3o8f746u/2/embed/js,html,css,result/dark/"></script>
+<p><span class="math inline">\(~\)</span></p>
+</div>
+<div id="layer-control" class="section level1">
+<h1>Layer control</h1>
+<p>The layer control can be added by defining the choosen basemap and adding the control function.</p>
+<pre><code>      &lt;script&gt;
+
+      var map = L.map(&#39;map&#39;,{
+      center: [0, 0],
+      zoom: 2
+      });
+
+      var Hydda_Full = L.tileLayer(&#39;https://{s}.tile.openstreetmap.se/hydda/full/{z}/{x}/{y}.png&#39;, {
+      maxZoom: 18,
+      attribution: &#39;Tiles courtesy of &lt;a href=&quot;http://openstreetmap.se/&quot; target=&quot;_blank&quot;&gt;OpenStreetMap Sweden&lt;/a&gt; &amp;mdash; Map data &amp;copy; &lt;ahref=&quot;http://www.openstreetmap.org/copyright&quot;&gt;OpenStreetMap&lt;/a&gt;&#39;
+      }).addTo(map);
+
+      var CartoDB_DarkMatter = L.tileLayer(&#39;https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png&#39;, {
+      attribution: &#39;&amp;copy; &lt;a href=&quot;http://www.openstreetmap.org/copyright&quot;&gt;OpenStreetMap&lt;/a&gt; &amp;copy; &lt;a href=&quot;http://cartodb.com/attributions&quot;&gt;CartoDB&lt;/a&gt;&#39;,
+      subdomains: &#39;abcd&#39;,
+      maxZoom: 19
+      }).addTo(map);
+      
+      L.control.layers({
+      &#39;Hydda&#39;: Hydda_Full,
+      &#39;Carto&#39;: CartoDB_DarkMatter
+      }).addTo(map);
+
+      &lt;/script&gt;</code></pre>
+<script async src="https://jsfiddle.net/WandaBodnar/3o8f746u/17/embed/js,html,css,result/dark/"></script>
 </div>
 
 
