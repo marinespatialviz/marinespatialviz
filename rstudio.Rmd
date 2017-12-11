@@ -183,3 +183,22 @@ leaflet() %>%
     baseGroups = c("Hydda", "Carto"),
     options = layersControlOptions(collapsed = FALSE))
 ```
+
+$~$
+
+# WMS tile
+
+WMS stands for web map services and it is a standard protocol used for serving georeferenced map images over the Internet. 
+
+For this example seabed habitats [data](http://www.emodnet-seabedhabitats.eu/default.aspx?page=1974&LAYERS=EUSMMSFD&zoom=2&Y=51.599999999888055&X=-14.999999999967768) from the [EMODnet](http://www.emodnet.eu/) website is used. 
+
+```{r, fig.width = 8.4, fig.height = 6}
+leaflet() %>% 
+  addTiles() %>% 
+  setView(1, 51, zoom = 3) %>%
+  addWMSTiles(
+    "http://213.122.160.75/scripts/mapserv.exe?map=D:/Websites/MeshAtlantic/map/MESHAtlantic.map",
+    layers = "EUSMMSFD",
+    options = WMSTileOptions(format = "image/png", transparent = TRUE),
+    attribution = "EUSeaMap2 Broad-Scale Predictive Habitat Map © 2016 EMODnet")
+```

@@ -240,3 +240,26 @@ For the layer control option the same example is used as for the leaflet.js map.
           </script>
           
 <script async src="https://jsfiddle.net/WandaBodnar/3o8f746u/19/embed/js,html,css,result/dark/"></script>
+
+$~$
+
+# WMS tile
+
+The same code can be applied for the WMS tile. 
+
+          <script>
+          
+          L.mapbox.accessToken = 'pk.eyJ1Ijoid2FuZGFib2RuYXIiLCJhIjoiY2phdHM1dm0xNXF0ajJxanU3dmdmaHRqcCJ9.mFPox1jAE9LkZN6v5OZ7Lw';
+
+          var map = L.mapbox.map('map', 'mapbox.satellite').setView([51, 1], 3);
+
+          L.tileLayer.wms("http://213.122.160.75/scripts/mapserv.exe?map=D:/Websites/MeshAtlantic/map/MESHAtlantic.map", {
+          layers: 'EUSMMSFD',
+          format: 'image/png',
+          transparent: true,
+          attribution: '&copy; <a href="http://www.emodnet.eu/">EUSeaMap2 2016 Broad-Scale Predictive Habitat Map</a>'
+          }).addTo(map);
+          
+          </script>
+          
+<script async src="https://jsfiddle.net/WandaBodnar/3o8f746u/22/embed/js,html,css,result/dark/"></script>

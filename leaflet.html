@@ -656,7 +656,41 @@ attribution: &#39;&amp;copy; &lt;a href=&quot;http://www.openstreetmap.org/copyr
 
       &lt;/script&gt;</code></pre>
 <script async src="https://jsfiddle.net/WandaBodnar/3o8f746u/17/embed/js,html,css,result/dark/"></script>
+<p><span class="math inline">\(~\)</span></p>
 </div>
+<div id="wms-tile" class="section level1">
+<h1>WMS tile</h1>
+<p>Web Map Sevices tile can be added using the <code>L.tileLayer.wms()</code> function.</p>
+<pre><code>      &lt;script&gt;
+
+      var map = L.map(&#39;map&#39;,{
+      center: [51.5, -0.11],
+      zoom: 4
+      });
+
+      L.tileLayer(&#39;http://{s}.tile.osm.org/{z}/{x}/{y}.png&#39;, {
+      attribution: &#39;&amp;copy; &lt;a href=&quot;http://osm.org/copyright&quot;&gt;OpenStreetMap&lt;/a&gt;contributors&#39;
+      }).addTo(map);
+      
+      L.tileLayer.wms(&quot;http://213.122.160.75/scripts/mapserv.exe?map=D:/Websites/MeshAtlantic/map/MESHAtlantic.map&quot;, {
+        layers: &#39;EUSMMSFD&#39;,
+        format: &#39;image/png&#39;,
+      transparent: true,
+      attribution: &#39;&amp;copy; &lt;a href=&quot;http://www.emodnet.eu/&quot;&gt;EUSeaMap2 2016 Broad-Scale Predictive Habitat Map&lt;/a&gt;&#39;
+      }).addTo(map);
+
+      &lt;/script&gt;
+      </code></pre>
+<script async src="https://jsfiddle.net/WandaBodnar/3o8f746u/20/embed/js,html,css,result/dark/"></script>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
 <script>
 
 // add bootstrap table styles to pandoc tables

@@ -419,3 +419,31 @@ The layer control can be added by defining the choosen basemap and adding the co
           </script>
 
 <script async src="https://jsfiddle.net/WandaBodnar/3o8f746u/17/embed/js,html,css,result/dark/"></script>
+
+$~$
+
+# WMS tile
+
+Web Map Sevices tile can be added using the `L.tileLayer.wms()` function. 
+
+          <script>
+
+          var map = L.map('map',{
+          center: [51.5, -0.11],
+          zoom: 4
+          });
+
+          L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+          attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a>contributors'
+          }).addTo(map);
+          
+          L.tileLayer.wms("http://213.122.160.75/scripts/mapserv.exe?map=D:/Websites/MeshAtlantic/map/MESHAtlantic.map", {
+    	    layers: 'EUSMMSFD',
+    	    format: 'image/png',
+          transparent: true,
+          attribution: '&copy; <a href="http://www.emodnet.eu/">EUSeaMap2 2016 Broad-Scale Predictive Habitat Map</a>'
+          }).addTo(map);
+
+          </script>
+          
+<script async src="https://jsfiddle.net/WandaBodnar/3o8f746u/20/embed/js,html,css,result/dark/"></script>

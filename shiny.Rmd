@@ -256,3 +256,32 @@ server <- function(input, output, session) {
 
 shinyApp(ui, server)
 ```
+
+$~$
+
+# WMS tile
+
+Here is the same example for the WMS tile in Shiny.
+
+```{r message = FALSE}
+library(shiny)
+library(leaflet)
+
+ui <- fluidPage(leafletOutput("mymap"))
+
+server <- function(input, output, session) {
+  
+  output$mymap <- renderLeaflet({
+    library(leaflet)
+     leaflet() %>% 
+  addTiles() %>% 
+  setView(1, 51, zoom = 3) %>%
+  addWMSTiles(
+    "http://213.122.160.75/scripts/mapserv.exe?map=D:/Websites/MeshAtlantic/map/MESHAtlantic.map",
+    layers = "EUSMMSFD",
+    options = WMSTileOptions(format = "image/png", transparent = TRUE),
+    attribution = "EUSeaMap2 Broad-Scale Predictive Habitat Map © 2016 EMODnet"
+  )})}
+
+shinyApp(ui, server)
+```
