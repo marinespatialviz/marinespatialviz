@@ -41,4 +41,6 @@ wordcloud(c("gis", "data", "rstudio", "leaflet.js",
           col = pal, scale = c(2, 3), min.freq = 1)
 ```
 
-(If the picture does not show, click [here](http://marinespatialviz.github.io/marinespatialviz/images/wordcloud.png).)
+$~$
+
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a> This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>
