@@ -209,7 +209,7 @@ Now, let's construct the body adding the map object. The view can be set using `
 
     </html>
 
-<script async src="https://jsfiddle.net/WandaBodnar/Lvgjye3n/embed/js,html,css,result/dark/"></script>
+<script async src=https:"//jsfiddle.net/WandaBodnar/2eton50g/1/embed/js,html,css,result/dark/"></script>
 
 $~$
 
@@ -385,7 +385,7 @@ A polygon can be added using the `var polygon = L.polygon()`
 
           </script>
           
-<script async src="https://jsfiddle.net/WandaBodnar/3o8f746u/2/embed/js,html,css,result/dark/"></script>
+<script async src="https://jsfiddle.net/WandaBodnar/2eton50g/2/embed/js,html,css,result/dark/"></script>
 
 $~$
 
@@ -418,7 +418,52 @@ The layer control can be added by defining the choosen basemap and adding the co
 
           </script>
 
-<script async src="https://jsfiddle.net/WandaBodnar/3o8f746u/17/embed/js,html,css,result/dark/"></script>
+<script async src="https://jsfiddle.net/WandaBodnar/2eton50g/3/embed/js,html,css,result/dark/"></script>
+
+$~$
+
+## Layer control with icon
+
+          <script>
+ 
+          var dolphinIcon = L.icon({
+          iconUrl: 'https://image.flaticon.com/icons/svg/47/47327.svg',
+          iconSize: [32, 37]
+          });
+
+          var sealIcon = L.icon({
+          iconUrl: 'https://d30y9cdsu7xlg0.cloudfront.net/png/56283-200.png',
+          iconSize: [32, 37]
+          });
+
+          var dolphinLayer = L.marker([51.4709, -0.221], {icon: dolphinIcon});
+
+          var sealLayer = L.marker([51.4701, -0.1801], {icon: sealIcon});
+
+          var map = L.map('map', {
+          center: [51.47, -0.20],
+          zoom: 13,
+          layers: [dolphinLayer, sealLayer]
+          });
+
+          var overlayMaps = {
+          "<img src='https://image.flaticon.com/icons/svg/47/47327.svg' height=21>Dolphin": dolphinLayer,
+          "<img src='https://d30y9cdsu7xlg0.cloudfront.net/png/56283-200.png' height=21>Seal": sealLayer
+          };
+
+          L.control.layers(null, overlayMaps, {
+          collapsed: false
+          }).addTo(map);
+
+          var CartoDB_Positron = L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png', {
+          attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
+          subdomains: 'abcd',
+          maxZoom: 19
+          }).addTo(map);
+          
+          </script>
+
+<script async src="https://jsfiddle.net/WandaBodnar/2eton50g/4/embed/js,html,css,result/dark/"></script>
 
 $~$
 
@@ -446,7 +491,7 @@ Web Map Sevices tile can be added using the `L.tileLayer.wms()` function.
 
           </script>
           
-<script async src="https://jsfiddle.net/WandaBodnar/3o8f746u/20/embed/js,html,css,result/dark/"></script>
+<script async src="https://jsfiddle.net/WandaBodnar/2eton50g/5/embed/js,html,css,result/dark/"></script>
 
 $~$
 

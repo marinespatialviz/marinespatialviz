@@ -17,5 +17,3 @@ navbar:
       href: datasources.html
     - text: "Blog"
       href: blog.html
-    - text: "About"
-      href: about.html

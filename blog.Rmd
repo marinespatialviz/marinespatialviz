@@ -10,6 +10,26 @@ output:
 
 $~$
 
+# Converting
+
+$~$
+
+## LatLong to UTM
+
+UTM Zones
+
+![](https://upload.wikimedia.org/wikipedia/commons/e/ed/Utm-zones.jpg)
+
+$~$
+
+```{r message = FALSE}
+library(rgdal)
+SP <- SpatialPoints(cbind(142.19, 11.34), proj4string = CRS("+proj=longlat"))
+spTransform(SP, CRS("+proj=utm +north +zone=54 +datum=WGS84"))
+```
+
+$~$
+
 # Mapping tweets #BluePlanet2
 
 ![](http://marinespatialviz.github.io/marinespatialviz/images/blueplanet2.gif)

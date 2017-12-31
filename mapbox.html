@@ -296,9 +296,6 @@ div.tocify {
 <li>
   <a href="blog.html">Blog</a>
 </li>
-<li>
-  <a href="about.html">About</a>
-</li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         
@@ -360,7 +357,7 @@ div.tocify {
   &lt;/body&gt;
 
 &lt;/html&gt;</code></pre>
-<script async src="https://jsfiddle.net/WandaBodnar/3o8f746u/4/embed/js,html,css,result/dark/"></script>
+<script async src="https://jsfiddle.net/WandaBodnar/jga1e38m/2/embed/js,html,css,result/dark/"></script>
 <p><span class="math inline">\(~\)</span></p>
 </div>
 <div id="marker" class="section level1">
@@ -376,7 +373,7 @@ div.tocify {
       marker.addTo(map);
 
       &lt;/script&gt;</code></pre>
-<script async src="https://jsfiddle.net/WandaBodnar/3o8f746u/5/embed/js,html,css,result/dark/"></script>
+<script async src="https://jsfiddle.net/WandaBodnar/jga1e38m/3/embed/js,html,css,result/dark/"></script>
 <p><span class="math inline">\(~\)</span></p>
 <div id="mapbox-marker" class="section level2">
 <h2>Mapbox marker</h2>
@@ -394,7 +391,7 @@ div.tocify {
         }).addTo(map);
 
       &lt;/script&gt;</code></pre>
-<script async src="https://jsfiddle.net/WandaBodnar/3o8f746u/6/embed/js,html,css,result/dark/"></script>
+<script async src="https://jsfiddle.net/WandaBodnar/jga1e38m/4/embed/js,html,css,result/dark/"></script>
 <p><span class="math inline">\(~\)</span></p>
 </div>
 <div id="pop-up-marker" class="section level2">
@@ -413,7 +410,7 @@ div.tocify {
       marker.addTo(map);
 
       &lt;/script&gt;</code></pre>
-<script async src="https://jsfiddle.net/WandaBodnar/3o8f746u/7/embed/js,html,css,result/dark/"></script>
+<script async src="https://jsfiddle.net/WandaBodnar/jga1e38m/5/embed/js,html,css,result/dark/"></script>
 <p><span class="math inline">\(~\)</span></p>
 </div>
 <div id="circle-marker" class="section level2">
@@ -434,7 +431,7 @@ div.tocify {
       
       &lt;/script&gt;
       </code></pre>
-<script async src="https://jsfiddle.net/WandaBodnar/3o8f746u/8/embed/js,html,css,result/dark/"></script>
+<script async src="https://jsfiddle.net/WandaBodnar/jga1e38m/6/embed/js,html,css,result/dark/"></script>
 <p><span class="math inline">\(~\)</span></p>
 </div>
 <div id="costum-marker" class="section level2">
@@ -455,7 +452,7 @@ div.tocify {
       marker.addTo(map);
 
       &lt;/script&gt;</code></pre>
-<script async src="https://jsfiddle.net/WandaBodnar/3o8f746u/9/embed/js,html,css,result/dark/"></script>
+<script async src="https://jsfiddle.net/WandaBodnar/jga1e38m/7/embed/js,html,css,result/dark/"></script>
 <p><span class="math inline">\(~\)</span></p>
 </div>
 </div>
@@ -471,7 +468,7 @@ div.tocify {
       var line = L.polyline([[0, -180], [0, 180]],{color: &#39;red&#39;}).addTo(map);
 
       &lt;/script&gt;</code></pre>
-<script async src="https://jsfiddle.net/WandaBodnar/3o8f746u/11/embed/js,html,css,result/dark/"></script>
+<script async src="https://jsfiddle.net/WandaBodnar/jga1e38m/8/embed/js,html,css,result/dark/"></script>
 <p><span class="math inline">\(~\)</span></p>
 </div>
 <div id="polygon" class="section level1">
@@ -489,7 +486,7 @@ div.tocify {
       map.addLayer(polygon);
 
       &lt;/script&gt;</code></pre>
-<script async src="https://jsfiddle.net/WandaBodnar/3o8f746u/13/embed/js,html,css,result/dark/"></script>
+<script async src="https://jsfiddle.net/WandaBodnar/jga1e38m/9/embed/js,html,css,result/dark/"></script>
 <p><span class="math inline">\(~\)</span></p>
 </div>
 <div id="layer-control" class="section level1">
@@ -516,8 +513,57 @@ div.tocify {
 
       &lt;/script&gt;
       </code></pre>
-<script async src="https://jsfiddle.net/WandaBodnar/3o8f746u/19/embed/js,html,css,result/dark/"></script>
+<script async src="https://jsfiddle.net/WandaBodnar/jga1e38m/10/embed/js,html,css,result/dark/"></script>
 <p><span class="math inline">\(~\)</span></p>
+<div id="layer-control-with-icon" class="section level2">
+<h2>Layer control with icon</h2>
+<pre><code>      &lt;script&gt;
+      
+      L.mapbox.accessToken = &#39;pk.eyJ1Ijoid2FuZGFib2RuYXIiLCJhIjoiY2phdHM1dm0xNXF0ajJxanU3dmdmaHRqcCJ9.mFPox1jAE9LkZN6v5OZ7Lw&#39;;
+
+      var dolphinIcon = L.icon({
+      iconUrl: &#39;https://image.flaticon.com/icons/svg/47/47327.svg&#39;,
+      iconSize: [32, 37]
+      });
+
+      var sealIcon = L.icon({
+      iconUrl: &#39;https://d30y9cdsu7xlg0.cloudfront.net/png/56283-200.png&#39;,
+      iconSize: [32, 37]
+      });
+
+      var dolphinLayer = L.marker([51.4709, -0.221], {
+      icon: dolphinIcon
+      });
+
+      var sealLayer = L.marker([51.4701, -0.1801], {
+      icon: sealIcon
+      });
+
+      var map = L.map(&#39;map&#39;, {
+      center: [51.47, -0.20],
+      zoom: 13,
+      layers: [dolphinLayer, sealLayer]
+      });
+
+      var overlayMaps = {
+      &quot;&lt;img src=&#39;https://image.flaticon.com/icons/svg/47/47327.svg&#39; height=21&gt;Dolphin&quot;: dolphinLayer,
+      &quot;&lt;img src=&#39;https://d30y9cdsu7xlg0.cloudfront.net/png/56283-200.png&#39; height=21&gt;Seal&quot;: sealLayer
+      };
+
+      L.control.layers(null, overlayMaps, {
+      collapsed: false
+      }).addTo(map);
+
+      var CartoDB_Positron = L.tileLayer(&#39;https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png&#39;, {
+      attribution: &#39;&amp;copy; &lt;a href=&quot;http://www.openstreetmap.org/copyright&quot;&gt;OpenStreetMap&lt;/a&gt; &amp;copy; &lt;a href=&quot;http://cartodb.com/attributions&quot;&gt;CartoDB&lt;/a&gt;&#39;,
+      subdomains: &#39;abcd&#39;,
+      maxZoom: 19
+      }).addTo(map);
+      
+      &lt;/script&gt;</code></pre>
+<script async src="https://jsfiddle.net/WandaBodnar/jga1e38m/18/embed/js,html,css,result/dark/"></script>
+<p><span class="math inline">\(~\)</span></p>
+</div>
 </div>
 <div id="wms-tile" class="section level1">
 <h1>WMS tile</h1>
@@ -537,10 +583,21 @@ div.tocify {
       
       &lt;/script&gt;
       </code></pre>
-<script async src="https://jsfiddle.net/WandaBodnar/3o8f746u/22/embed/js,html,css,result/dark/"></script>
-<p><span class="math inline">\(~\)</span></p>
-<p><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a> This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a></p>
+<script async src="https://jsfiddle.net/WandaBodnar/jga1e38m/11/embed/js,html,css,result/dark/"></script
+
+$~$
+
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+<p><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a> This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a></p>
 </div>
+
+
+
+</div>
+</div>
+
+</div>
+
 <script>
 
 // add bootstrap table styles to pandoc tables

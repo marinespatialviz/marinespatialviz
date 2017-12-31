@@ -61,7 +61,7 @@ Here is the basic HTML code for the web map, and you can set the view and the [b
 
     </html>
 
-<script async src="https://jsfiddle.net/WandaBodnar/3o8f746u/4/embed/js,html,css,result/dark/"></script>
+<script async src="https://jsfiddle.net/WandaBodnar/jga1e38m/2/embed/js,html,css,result/dark/"></script>
 
 $~$
 
@@ -80,7 +80,7 @@ You can add a marker to the map using the code `var marker = L.marker([]); marke
 
           </script>
     
-<script async src="https://jsfiddle.net/WandaBodnar/3o8f746u/5/embed/js,html,css,result/dark/"></script>
+<script async src="https://jsfiddle.net/WandaBodnar/jga1e38m/3/embed/js,html,css,result/dark/"></script>
 
 $~$
 
@@ -102,7 +102,7 @@ You can also use the Mapbox marker `icon: L.mapbox.marker.icon`.
 
           </script>
 
-<script async src="https://jsfiddle.net/WandaBodnar/3o8f746u/6/embed/js,html,css,result/dark/"></script>
+<script async src="https://jsfiddle.net/WandaBodnar/jga1e38m/4/embed/js,html,css,result/dark/"></script>
 
 $~$
 
@@ -124,7 +124,7 @@ Pop-up can also be addded.
 
           </script>
 
-<script async src="https://jsfiddle.net/WandaBodnar/3o8f746u/7/embed/js,html,css,result/dark/"></script>
+<script async src="https://jsfiddle.net/WandaBodnar/jga1e38m/5/embed/js,html,css,result/dark/"></script>
 
 $~$
 
@@ -147,7 +147,7 @@ Changing the default marker to circle.
           
           </script>
           
-<script async src="https://jsfiddle.net/WandaBodnar/3o8f746u/8/embed/js,html,css,result/dark/"></script>
+<script async src="https://jsfiddle.net/WandaBodnar/jga1e38m/6/embed/js,html,css,result/dark/"></script>
 
 $~$
 
@@ -171,7 +171,7 @@ Adding costum maker.
 
           </script>
 
-<script async src="https://jsfiddle.net/WandaBodnar/3o8f746u/9/embed/js,html,css,result/dark/"></script>
+<script async src="https://jsfiddle.net/WandaBodnar/jga1e38m/7/embed/js,html,css,result/dark/"></script>
 
 $~$
 
@@ -189,7 +189,7 @@ For adding a line, the same code can be used as in Leaflet.js.
 
           </script>
 
-<script async src="https://jsfiddle.net/WandaBodnar/3o8f746u/11/embed/js,html,css,result/dark/"></script>
+<script async src="https://jsfiddle.net/WandaBodnar/jga1e38m/8/embed/js,html,css,result/dark/"></script>
 
 $~$
 
@@ -210,7 +210,7 @@ Again, the same code can be used.
 
           </script>
 
-<script async src="https://jsfiddle.net/WandaBodnar/3o8f746u/13/embed/js,html,css,result/dark/"></script>
+<script async src="https://jsfiddle.net/WandaBodnar/jga1e38m/9/embed/js,html,css,result/dark/"></script>
 
 $~$
 
@@ -239,7 +239,58 @@ For the layer control option the same example is used as for the leaflet.js map.
 
           </script>
           
-<script async src="https://jsfiddle.net/WandaBodnar/3o8f746u/19/embed/js,html,css,result/dark/"></script>
+<script async src="https://jsfiddle.net/WandaBodnar/jga1e38m/10/embed/js,html,css,result/dark/"></script>
+
+$~$
+
+## Layer control with icon
+
+          <script>
+          
+          L.mapbox.accessToken = 'pk.eyJ1Ijoid2FuZGFib2RuYXIiLCJhIjoiY2phdHM1dm0xNXF0ajJxanU3dmdmaHRqcCJ9.mFPox1jAE9LkZN6v5OZ7Lw';
+
+          var dolphinIcon = L.icon({
+          iconUrl: 'https://image.flaticon.com/icons/svg/47/47327.svg',
+          iconSize: [32, 37]
+          });
+
+          var sealIcon = L.icon({
+          iconUrl: 'https://d30y9cdsu7xlg0.cloudfront.net/png/56283-200.png',
+          iconSize: [32, 37]
+          });
+
+          var dolphinLayer = L.marker([51.4709, -0.221], {
+          icon: dolphinIcon
+          });
+
+          var sealLayer = L.marker([51.4701, -0.1801], {
+          icon: sealIcon
+          });
+
+          var map = L.map('map', {
+          center: [51.47, -0.20],
+          zoom: 13,
+          layers: [dolphinLayer, sealLayer]
+          });
+
+          var overlayMaps = {
+          "<img src='https://image.flaticon.com/icons/svg/47/47327.svg' height=21>Dolphin": dolphinLayer,
+          "<img src='https://d30y9cdsu7xlg0.cloudfront.net/png/56283-200.png' height=21>Seal": sealLayer
+          };
+
+          L.control.layers(null, overlayMaps, {
+          collapsed: false
+          }).addTo(map);
+
+          var CartoDB_Positron = L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png', {
+          attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
+          subdomains: 'abcd',
+          maxZoom: 19
+          }).addTo(map);
+          
+          </script>
+
+<script async src="https://jsfiddle.net/WandaBodnar/jga1e38m/18/embed/js,html,css,result/dark/"></script>
 
 $~$
 
@@ -262,7 +313,7 @@ The same code can be applied for the WMS tile.
           
           </script>
           
-<script async src="https://jsfiddle.net/WandaBodnar/3o8f746u/22/embed/js,html,css,result/dark/"></script>
+<script async src="https://jsfiddle.net/WandaBodnar/jga1e38m/11/embed/js,html,css,result/dark/"></script
 
 $~$
 
