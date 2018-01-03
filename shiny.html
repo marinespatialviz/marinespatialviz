@@ -324,6 +324,7 @@ ui &lt;- fluidPage()
 server &lt;- function(input, output) {}
 
 shinyApp(ui = ui, server = server)</code></pre>
+<div style="width: 100% ; height: 400px ; text-align: center; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;" class="muted well">Shiny applications not supported in static R Markdown documents</div>
 <p><span class="math inline">\(~\)</span></p>
 <p>(<strong>All these code examples can be used in R Studio: just start up the program, create a Single file (app.R), and copy and paste the code.</strong>)</p>
 <p><span class="math inline">\(~\)</span></p>
@@ -341,6 +342,7 @@ server &lt;- function(input, output, session) {
       addTiles()})}
 
 shinyApp(ui, server)</code></pre>
+<div style="width: 100% ; height: 400px ; text-align: center; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;" class="muted well">Shiny applications not supported in static R Markdown documents</div>
 <p><span class="math inline">\(~\)</span></p>
 </div>
 <div id="view-and-basemap" class="section level1">
@@ -361,6 +363,7 @@ server &lt;- function(input, output, session) {
       addProviderTiles(providers$Esri.WorldImagery)})}
 
 shinyApp(ui, server)</code></pre>
+<div style="width: 100% ; height: 400px ; text-align: center; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;" class="muted well">Shiny applications not supported in static R Markdown documents</div>
 <p><span class="math inline">\(~\)</span></p>
 </div>
 <div id="marker" class="section level1">
@@ -382,6 +385,7 @@ server &lt;- function(input, output, session) {
       addProviderTiles(providers$Esri.OceanBasemap)})}
 
 shinyApp(ui, server)</code></pre>
+<div style="width: 100% ; height: 400px ; text-align: center; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;" class="muted well">Shiny applications not supported in static R Markdown documents</div>
 <p><span class="math inline">\(~\)</span></p>
 <div id="pop-up-marker" class="section level2">
 <h2>Pop-up marker</h2>
@@ -401,6 +405,7 @@ server &lt;- function(input, output, session) {
     addProviderTiles(providers$CartoDB.Positron)})}
 
 shinyApp(ui, server)</code></pre>
+<div style="width: 100% ; height: 400px ; text-align: center; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;" class="muted well">Shiny applications not supported in static R Markdown documents</div>
 <p><span class="math inline">\(~\)</span></p>
 </div>
 <div id="circle-marker" class="section level2">
@@ -421,6 +426,7 @@ server &lt;- function(input, output, session) {
     addProviderTiles(providers$CartoDB.Positron)})}
 
 shinyApp(ui, server)</code></pre>
+<div style="width: 100% ; height: 400px ; text-align: center; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;" class="muted well">Shiny applications not supported in static R Markdown documents</div>
 <p><span class="math inline">\(~\)</span></p>
 </div>
 <div id="costum-marker" class="section level2">
@@ -444,6 +450,7 @@ server &lt;- function(input, output, session) {
     addProviderTiles(providers$CartoDB.Positron)})}
 
 shinyApp(ui, server)</code></pre>
+<div style="width: 100% ; height: 400px ; text-align: center; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;" class="muted well">Shiny applications not supported in static R Markdown documents</div>
 <p><span class="math inline">\(~\)</span></p>
 </div>
 </div>
@@ -470,6 +477,7 @@ server &lt;- function(input, output, session) {
       addProviderTiles(providers$Esri.OceanBasemap)})}
 
 shinyApp(ui, server)</code></pre>
+<div style="width: 100% ; height: 400px ; text-align: center; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;" class="muted well">Shiny applications not supported in static R Markdown documents</div>
 <p><span class="math inline">\(~\)</span></p>
 </div>
 <div id="polygon" class="section level1">
@@ -495,6 +503,7 @@ server &lt;- function(input, output, session) {
       addProviderTiles(providers$Hydda.Base)})}
 
 shinyApp(ui, server)</code></pre>
+<div style="width: 100% ; height: 400px ; text-align: center; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;" class="muted well">Shiny applications not supported in static R Markdown documents</div>
 <p><span class="math inline">\(~\)</span></p>
 </div>
 <div id="layer-control" class="section level1">
@@ -518,7 +527,34 @@ server &lt;- function(input, output, session) {
                         options = layersControlOptions(collapsed = TRUE))})}
 
 shinyApp(ui, server)</code></pre>
+<div style="width: 100% ; height: 400px ; text-align: center; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;" class="muted well">Shiny applications not supported in static R Markdown documents</div>
 <p><span class="math inline">\(~\)</span></p>
+<div id="layer-control-with-icon" class="section level2">
+<h2>Layer control with icon</h2>
+<pre class="r"><code>library(shiny)
+library(leaflet)
+
+ui &lt;- fluidPage(leafletOutput(&quot;mymap&quot;))
+
+server &lt;- function(input, output, session) {
+  
+dolphinIcon &lt;- makeAwesomeIcon(icon = &#39;glyphicon-map-marker&#39;, markerColor = &#39;black&#39;, iconColor = &#39;white&#39;, library = &quot;glyphicon&quot;)
+
+groups &lt;- c(&quot;Dolphin&quot; &lt;- &quot;&lt;div style=&#39;position: relative; display: inline-block&#39; class=&#39;awesome-marker-icon-black awesome-marker&#39;&gt;&lt;i class=&#39;glyphicon glyphicon-map-marker icon-white &#39;&gt;&lt;/i&gt;&lt;/div&gt;Dolphin&quot;)
+
+  output$mymap &lt;- renderLeaflet({
+    library(leaflet)
+     leaflet() %&gt;% 
+       addTiles() %&gt;%
+       addAwesomeMarkers(lng = -0.221, lat = 51.4709, icon = dolphinIcon, group = groups) %&gt;%
+       addLayersControl(
+         overlayGroups = groups,
+         options = layersControlOptions(collapsed = FALSE))})}
+
+shinyApp(ui, server)</code></pre>
+<div style="width: 100% ; height: 400px ; text-align: center; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;" class="muted well">Shiny applications not supported in static R Markdown documents</div>
+<p><span class="math inline">\(~\)</span></p>
+</div>
 </div>
 <div id="wms-tile" class="section level1">
 <h1>WMS tile</h1>
@@ -543,9 +579,18 @@ server &lt;- function(input, output, session) {
   )})}
 
 shinyApp(ui, server)</code></pre>
+<div style="width: 100% ; height: 400px ; text-align: center; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;" class="muted well">Shiny applications not supported in static R Markdown documents</div>
 <p><span class="math inline">\(~\)</span></p>
 <p><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a> This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a></p>
 </div>
+
+
+
+</div>
+</div>
+
+</div>
+
 <script>
 
 // add bootstrap table styles to pandoc tables

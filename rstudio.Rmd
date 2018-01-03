@@ -186,6 +186,25 @@ leaflet() %>%
 
 $~$
 
+## Layer control with icon
+
+```{r}
+library(leaflet)
+
+dolphinIcon <- makeAwesomeIcon(icon = 'glyphicon-map-marker', markerColor = 'black', iconColor = 'white', library = "glyphicon")
+
+groups <- c("Dolphin" <- "<div style='position: relative; display: inline-block' class='awesome-marker-icon-black awesome-marker'><i class='glyphicon glyphicon-map-marker icon-white '></i></div>Dolphin")
+
+leaflet() %>% 
+  addTiles() %>%
+  addAwesomeMarkers(lng = -0.221, lat = 51.4709, icon = dolphinIcon, group = groups) %>%
+  addLayersControl(                  
+    overlayGroups = groups,
+    options = layersControlOptions(collapsed = FALSE))
+```
+
+$~$
+
 # WMS tile
 
 WMS stands for web map services and it is a standard protocol used for serving georeferenced map images over the Internet. 
