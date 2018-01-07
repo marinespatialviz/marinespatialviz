@@ -587,10 +587,43 @@ div.tocify {
 
 $~$
 
-<a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
-<p><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a> This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a></p>
+#Showing coordinate information
+
+          <script>
+<pre><code>      L.mapbox.accessToken = &#39;pk.eyJ1Ijoid2FuZGFib2RuYXIiLCJhIjoiY2phdHM1dm0xNXF0ajJxanU3dmdmaHRqcCJ9.mFPox1jAE9LkZN6v5OZ7Lw&#39;;
+
+      var map = L.mapbox.map(&#39;map&#39;).setView([0, 0], 3);
+
+      var CartoDB_DarkMatter = L.tileLayer(&#39;https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png&#39;, {
+      attribution: &#39;&amp;copy; &lt;a href=&quot;http://www.openstreetmap.org/copyright&quot;&gt;OpenStreetMap&lt;/a&gt; &amp;copy; &lt;a href=&quot;http://cartodb.com/attributions&quot;&gt;CartoDB&lt;/a&gt;&#39;,
+      subdomains: &#39;abcd&#39;,
+      maxZoom: 19
+      }).addTo(map);
+
+      var popup = L.popup();
+
+      function onMapClick(e) {
+      popup
+      .setLatLng(e.latlng)
+      .setContent(e.latlng.toString())
+      .openOn(map);
+      }
+
+      map.on(&#39;click&#39;, onMapClick);</code></pre>
+<script async src="https://jsfiddle.net/WandaBodnar/jga1e38m/20/embed/js,html,css,result/dark/"></script>
+<p><span class="math inline">\(~\)</span></p>
+<p><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a> This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a></p>
 </div>
+
+
+
+</div>
+</div>
+
+</div>
+
 <script>
+
 // add bootstrap table styles to pandoc tables
 function bootstrapStylePandocTables() {
   $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
@@ -598,7 +631,10 @@ function bootstrapStylePandocTables() {
 $(document).ready(function () {
   bootstrapStylePandocTables();
 });
+
+
 </script>
+
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>
   (function () {
@@ -608,5 +644,6 @@ $(document).ready(function () {
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
 </script>
+
 </body>
 </html>
