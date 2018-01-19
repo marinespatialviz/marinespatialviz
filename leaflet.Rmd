@@ -522,4 +522,41 @@ $~$
 
 $~$
 
+# Adding geotagged pictures to a map
+
+          <script>
+
+          var map = L.map('map', {
+          center: [20, -15],
+          zoom: 2
+          });
+
+          var CartoDB_DarkMatter = L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png', {
+          attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
+          subdomains: 'abcd',
+          maxZoom: 19
+          }).addTo(map);
+
+          var customPopup = "Oarai beach<br/><img src='https://c1.staticflickr.com/5/4435/36028473794_62c4e88482_b.jpg' width='300px'/>";
+          var marker = L.marker([36.29, 140.56]).
+          bindPopup(customPopup).addTo(map);
+
+          var customPopup = "Santa Monica<br/><img src='https://c1.staticflickr.com/5/4364/36053908023_67500b4bd6_b.jpg' width='300px'/>";
+          var marker = L.marker([34.00, -118.49]).
+          bindPopup(customPopup).addTo(map);  
+
+          var customPopup = "Bondi beach<br/><img src='https://c1.staticflickr.com/5/4440/36862734845_8c485429e7_b.jpg' width='300px'/>";
+          var marker = L.marker([-33.89, 151.28]).
+          bindPopup(customPopup).addTo(map);
+
+          var customPopup = "West Wittering<br/><img src='https://c1.staticflickr.com/5/4391/36054414233_b3f762af22_b.jpg' width='300px'/>";
+          var marker = L.marker([50.76, -0.90]).
+          bindPopup(customPopup).addTo(map);
+
+          </script>
+          
+<script async src="https://jsfiddle.net/WandaBodnar/Lb951bdj/13/embed/js,html,css,result/dark/"></script>
+
+$~$
+
 <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a> This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>

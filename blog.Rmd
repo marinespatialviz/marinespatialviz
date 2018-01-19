@@ -10,6 +10,21 @@ output:
 
 $~$
 
+# Calculating area of a polygon (square km)
+
+```{r message = FALSE}
+
+library(raster)
+library(maptools)
+
+shp <- shapefile('ne_10m_ocean.shp')
+crs(shp)
+shp$area_sqkm <- area(shp) / 1000000
+print(shp$area_sqkm)
+```
+
+$~$
+
 # Converting
 
 $~$
@@ -60,6 +75,7 @@ wordcloud(c("gis", "data", "rstudio", "leaflet.js",
           freq = c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13), 
           col = pal, scale = c(2, 3), min.freq = 1)
 ```
+![](https://marinespatialviz.github.io/marinespatialviz/images/wordcloud.png)
 
 $~$
 

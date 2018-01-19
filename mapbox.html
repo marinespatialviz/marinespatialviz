@@ -587,8 +587,8 @@ div.tocify {
 
 $~$
 
-<h1>Showing coordinate information</h1>
-  
+# Coordinate information
+
           <script>
 <pre><code>      L.mapbox.accessToken = &#39;pk.eyJ1Ijoid2FuZGFib2RuYXIiLCJhIjoiY2phdHM1dm0xNXF0ajJxanU3dmdmaHRqcCJ9.mFPox1jAE9LkZN6v5OZ7Lw&#39;;
 
@@ -612,9 +612,54 @@ $~$
       map.on(&#39;click&#39;, onMapClick);</code></pre>
 <script async src="https://jsfiddle.net/WandaBodnar/jga1e38m/20/embed/js,html,css,result/dark/"></script>
 <p><span class="math inline">\(~\)</span></p>
+</div>
+<div id="adding-geotagged-pictures-to-a-map" class="section level1">
+<h1>Adding geotagged pictures to a map</h1>
+<pre><code>      &lt;script&gt;
+
+      var map = L.map(&#39;map&#39;, {
+      center: [20, -15],
+      zoom: 2
+      });
+
+      var CartoDB_DarkMatter = L.tileLayer(&#39;https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png&#39;, {
+      attribution: &#39;&amp;copy; &lt;a href=&quot;http://www.openstreetmap.org/copyright&quot;&gt;OpenStreetMap&lt;/a&gt; &amp;copy; &lt;a href=&quot;http://cartodb.com/attributions&quot;&gt;CartoDB&lt;/a&gt;&#39;,
+      subdomains: &#39;abcd&#39;,
+      maxZoom: 19
+      }).addTo(map);
+
+      var customPopup = &quot;Oarai beach&lt;br/&gt;&lt;img src=&#39;https://c1.staticflickr.com/5/4435/36028473794_62c4e88482_b.jpg&#39; width=&#39;300px&#39;/&gt;&quot;;
+      var marker = L.marker([36.29, 140.56]).
+      bindPopup(customPopup).addTo(map);
+
+      var customPopup = &quot;Santa Monica&lt;br/&gt;&lt;img src=&#39;https://c1.staticflickr.com/5/4364/36053908023_67500b4bd6_b.jpg&#39; width=&#39;300px&#39;/&gt;&quot;;
+      var marker = L.marker([34.00, -118.49]).
+      bindPopup(customPopup).addTo(map);  
+
+      var customPopup = &quot;Bondi beach&lt;br/&gt;&lt;img src=&#39;https://c1.staticflickr.com/5/4440/36862734845_8c485429e7_b.jpg&#39; width=&#39;300px&#39;/&gt;&quot;;
+      var marker = L.marker([-33.89, 151.28]).
+      bindPopup(customPopup).addTo(map);
+
+      var customPopup = &quot;West Wittering&lt;br/&gt;&lt;img src=&#39;https://c1.staticflickr.com/5/4391/36054414233_b3f762af22_b.jpg&#39; width=&#39;300px&#39;/&gt;&quot;;
+      var marker = L.marker([50.76, -0.90]).
+      bindPopup(customPopup).addTo(map);
+
+      &lt;/script&gt;
+      </code></pre>
+<script async src="https://jsfiddle.net/WandaBodnar/jga1e38m/28/embed/js,html,css,result/dark/"></script>
+<p><span class="math inline">\(~\)</span></p>
 <p><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a> This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a></p>
 </div>
+
+
+
+</div>
+</div>
+
+</div>
+
 <script>
+
 // add bootstrap table styles to pandoc tables
 function bootstrapStylePandocTables() {
   $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
@@ -622,7 +667,10 @@ function bootstrapStylePandocTables() {
 $(document).ready(function () {
   bootstrapStylePandocTables();
 });
+
+
 </script>
+
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>
   (function () {
@@ -632,5 +680,6 @@ $(document).ready(function () {
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
 </script>
+
 </body>
 </html>

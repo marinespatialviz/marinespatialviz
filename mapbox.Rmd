@@ -317,7 +317,7 @@ The same code can be applied for the WMS tile.
 
 $~$
 
-#Showing coordinate information
+# Coordinate information
 
           <script>
 
@@ -343,6 +343,43 @@ $~$
           map.on('click', onMapClick);
 
 <script async src="https://jsfiddle.net/WandaBodnar/jga1e38m/20/embed/js,html,css,result/dark/"></script>
+
+$~$
+
+# Adding geotagged pictures to a map
+
+          <script>
+
+          var map = L.map('map', {
+          center: [20, -15],
+          zoom: 2
+          });
+
+          var CartoDB_DarkMatter = L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png', {
+          attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
+          subdomains: 'abcd',
+          maxZoom: 19
+          }).addTo(map);
+
+          var customPopup = "Oarai beach<br/><img src='https://c1.staticflickr.com/5/4435/36028473794_62c4e88482_b.jpg' width='300px'/>";
+          var marker = L.marker([36.29, 140.56]).
+          bindPopup(customPopup).addTo(map);
+
+          var customPopup = "Santa Monica<br/><img src='https://c1.staticflickr.com/5/4364/36053908023_67500b4bd6_b.jpg' width='300px'/>";
+          var marker = L.marker([34.00, -118.49]).
+          bindPopup(customPopup).addTo(map);  
+
+          var customPopup = "Bondi beach<br/><img src='https://c1.staticflickr.com/5/4440/36862734845_8c485429e7_b.jpg' width='300px'/>";
+          var marker = L.marker([-33.89, 151.28]).
+          bindPopup(customPopup).addTo(map);
+
+          var customPopup = "West Wittering<br/><img src='https://c1.staticflickr.com/5/4391/36054414233_b3f762af22_b.jpg' width='300px'/>";
+          var marker = L.marker([50.76, -0.90]).
+          bindPopup(customPopup).addTo(map);
+
+          </script>
+          
+<script async src="https://jsfiddle.net/WandaBodnar/jga1e38m/28/embed/js,html,css,result/dark/"></script>
 
 $~$
 
