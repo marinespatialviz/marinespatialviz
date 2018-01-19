@@ -324,6 +324,9 @@ ui &lt;- fluidPage()
 server &lt;- function(input, output) {}
 
 shinyApp(ui = ui, server = server)</code></pre>
+<pre><code>## PhantomJS not found. You can install it with webshot::install_phantomjs(). If it is installed, please make sure the phantomjs executable can be found via the PATH variable.</code></pre>
+<div style="width: 100% ; height: 400px ; text-align: center; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;" class="muted well">Shiny applications not supported in static R Markdown documents</div>
+<p><span class="math inline">\(~\)</span></p>
 <p>(<strong>All these code examples can be used in R Studio: just start up the program, create a Single file (app.R), and copy and paste the code.</strong>)</p>
 <p><span class="math inline">\(~\)</span></p>
 <p>Let’s create a basic map using Shiny.</p>
@@ -340,6 +343,7 @@ server &lt;- function(input, output, session) {
       addTiles()})}
 
 shinyApp(ui, server)</code></pre>
+<div style="width: 100% ; height: 400px ; text-align: center; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;" class="muted well">Shiny applications not supported in static R Markdown documents</div>
 <p><span class="math inline">\(~\)</span></p>
 </div>
 <div id="view-and-basemap" class="section level1">
@@ -360,6 +364,7 @@ server &lt;- function(input, output, session) {
       addProviderTiles(providers$Esri.WorldImagery)})}
 
 shinyApp(ui, server)</code></pre>
+<div style="width: 100% ; height: 400px ; text-align: center; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;" class="muted well">Shiny applications not supported in static R Markdown documents</div>
 <p><span class="math inline">\(~\)</span></p>
 </div>
 <div id="marker" class="section level1">
@@ -381,6 +386,7 @@ server &lt;- function(input, output, session) {
       addProviderTiles(providers$Esri.OceanBasemap)})}
 
 shinyApp(ui, server)</code></pre>
+<div style="width: 100% ; height: 400px ; text-align: center; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;" class="muted well">Shiny applications not supported in static R Markdown documents</div>
 <p><span class="math inline">\(~\)</span></p>
 <div id="pop-up-marker" class="section level2">
 <h2>Pop-up marker</h2>
@@ -400,6 +406,7 @@ server &lt;- function(input, output, session) {
     addProviderTiles(providers$CartoDB.Positron)})}
 
 shinyApp(ui, server)</code></pre>
+<div style="width: 100% ; height: 400px ; text-align: center; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;" class="muted well">Shiny applications not supported in static R Markdown documents</div>
 <p><span class="math inline">\(~\)</span></p>
 </div>
 <div id="circle-marker" class="section level2">
@@ -420,6 +427,7 @@ server &lt;- function(input, output, session) {
     addProviderTiles(providers$CartoDB.Positron)})}
 
 shinyApp(ui, server)</code></pre>
+<div style="width: 100% ; height: 400px ; text-align: center; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;" class="muted well">Shiny applications not supported in static R Markdown documents</div>
 <p><span class="math inline">\(~\)</span></p>
 </div>
 <div id="costum-marker" class="section level2">
@@ -443,6 +451,7 @@ server &lt;- function(input, output, session) {
     addProviderTiles(providers$CartoDB.Positron)})}
 
 shinyApp(ui, server)</code></pre>
+<div style="width: 100% ; height: 400px ; text-align: center; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;" class="muted well">Shiny applications not supported in static R Markdown documents</div>
 <p><span class="math inline">\(~\)</span></p>
 </div>
 </div>
@@ -469,6 +478,7 @@ server &lt;- function(input, output, session) {
       addProviderTiles(providers$Esri.OceanBasemap)})}
 
 shinyApp(ui, server)</code></pre>
+<div style="width: 100% ; height: 400px ; text-align: center; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;" class="muted well">Shiny applications not supported in static R Markdown documents</div>
 <p><span class="math inline">\(~\)</span></p>
 </div>
 <div id="polygon" class="section level1">
@@ -494,6 +504,7 @@ server &lt;- function(input, output, session) {
       addProviderTiles(providers$Hydda.Base)})}
 
 shinyApp(ui, server)</code></pre>
+<div style="width: 100% ; height: 400px ; text-align: center; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;" class="muted well">Shiny applications not supported in static R Markdown documents</div>
 <p><span class="math inline">\(~\)</span></p>
 </div>
 <div id="layer-control" class="section level1">
@@ -517,6 +528,7 @@ server &lt;- function(input, output, session) {
                         options = layersControlOptions(collapsed = TRUE))})}
 
 shinyApp(ui, server)</code></pre>
+<div style="width: 100% ; height: 400px ; text-align: center; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;" class="muted well">Shiny applications not supported in static R Markdown documents</div>
 <p><span class="math inline">\(~\)</span></p>
 <div id="layer-control-with-icon" class="section level2">
 <h2>Layer control with icon</h2>
@@ -541,6 +553,7 @@ groups &lt;- c(&quot;Dolphin&quot; &lt;- &quot;&lt;div style=&#39;position: rela
          options = layersControlOptions(collapsed = FALSE))})}
 
 shinyApp(ui, server)</code></pre>
+<div style="width: 100% ; height: 400px ; text-align: center; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;" class="muted well">Shiny applications not supported in static R Markdown documents</div>
 <p><span class="math inline">\(~\)</span></p>
 </div>
 </div>
@@ -567,6 +580,7 @@ server &lt;- function(input, output, session) {
   )})}
 
 shinyApp(ui, server)</code></pre>
+<div style="width: 100% ; height: 400px ; text-align: center; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;" class="muted well">Shiny applications not supported in static R Markdown documents</div>
 <p><span class="math inline">\(~\)</span></p>
 </div>
 <div id="showing-coordinate-information" class="section level1">
@@ -587,10 +601,79 @@ server &lt;- function(input, output, session) {
        addMouseCoordinates(style = &quot;basic&quot;)})}
 
 shinyApp(ui, server)</code></pre>
+<div style="width: 100% ; height: 400px ; text-align: center; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;" class="muted well">Shiny applications not supported in static R Markdown documents</div>
+<p><span class="math inline">\(~\)</span></p>
+</div>
+<div id="adding-geotagged-pictures-to-a-map" class="section level1">
+<h1>Adding geotagged pictures to a map</h1>
+<p>Here, the same example is used as for R Studio. In addition, a title was also added to the app.</p>
+<pre class="r"><code>library(shiny)
+
+ui &lt;- fluidPage(
+  titlePanel(&quot;Plastic pollution on beaches&quot;),
+  leafletOutput(&quot;mymap&quot;))
+
+server &lt;- function(input, output, session) {
+  
+  content1 &lt;- paste(sep = &quot;&lt;br/&gt;&quot;,  
+                    &quot;&lt;img src=https://c1.staticflickr.com/5/4435/36028473794_62c4e88482_b.jpg&#39;   
+                    style=&#39;width:280px;height:200px;&#39;&gt;&quot;, &quot;Oarai beach, Japan&quot;,
+                    &quot;Plastic pieces&quot;)
+  scene1 &lt;- read_exif(&#39;1.jpg&#39;, recursive = FALSE) 
+  x1 &lt;- scene1$GPSLongitude  
+  y1 &lt;- scene1$GPSLatitude  
+  
+  content2 &lt;- paste(sep = &quot;&lt;br/&gt;&quot;,  
+                    &quot;&lt;img src=&#39;https://c1.staticflickr.com/5/4364/36053908023_67500b4bd6_b.jpg&#39;   
+                    style=&#39;width:200px;height:280px;&#39;&gt;&quot;,
+                    &quot;Santa Monica&quot;,
+                    &quot;Small plastic bag&quot;)
+  scene2 &lt;- read_exif(&#39;2.jpg&#39;, recursive = FALSE)  
+  x2 &lt;- scene2$GPSLongitude  
+  y2 &lt;- scene2$GPSLatitude  
+  content3 &lt;- paste(sep = &quot;&lt;br/&gt;&quot;,  
+                    &quot;&lt;img src=&#39;https://c1.staticflickr.com/5/4440/36862734845_8c485429e7_b.jpg&#39;   
+                    style=&#39;width:280px;height:200px;&#39;&gt;&quot;,
+                    &quot;Bondi beach&quot;,
+                    &quot;Small plastic pieces&quot;)
+  scene3 &lt;- read_exif(&#39;3.jpg&#39;, recursive = FALSE) 
+  x3 &lt;- scene3$GPSLongitude  
+  y3 &lt;- scene3$GPSLatitude  
+  content4 &lt;- paste(sep = &quot;&lt;br/&gt;&quot;,  
+                    &quot;&lt;img src=&#39;https://c1.staticflickr.com/5/4391/36054414233_b3f762af22_b.jpg&#39;   
+                    style=&#39;width:200px;height:280px;&#39;&gt;&quot;,
+                    &quot;West Wittering&quot;,
+                    &quot;Plastic pieces&quot;)
+  scene4 &lt;- read_exif(&#39;4.jpg&#39;, recursive = FALSE)  
+  x4 &lt;- scene4$GPSLongitude  
+  y4 &lt;- scene4$GPSLatitude  
+  
+  output$mymap &lt;- renderLeaflet({
+    library(leaflet)
+    library(exifr)
+    
+    leaflet() %&gt;%
+      addProviderTiles(&quot;Hydda.Full&quot;) %&gt;%
+      addMarkers(x1, y1, popup = content1) %&gt;%
+      addMarkers(x2, y2, popup = content2) %&gt;%
+      addMarkers(x3, y3, popup = content3) %&gt;%
+      addMarkers(x4, y4, popup = content4)})}
+
+shinyApp(ui, server)</code></pre>
+<div style="width: 100% ; height: 400px ; text-align: center; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;" class="muted well">Shiny applications not supported in static R Markdown documents</div>
 <p><span class="math inline">\(~\)</span></p>
 <p><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a> This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a></p>
 </div>
+
+
+
+</div>
+</div>
+
+</div>
+
 <script>
+
 // add bootstrap table styles to pandoc tables
 function bootstrapStylePandocTables() {
   $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
@@ -598,7 +681,10 @@ function bootstrapStylePandocTables() {
 $(document).ready(function () {
   bootstrapStylePandocTables();
 });
+
+
 </script>
+
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>
   (function () {
@@ -608,5 +694,6 @@ $(document).ready(function () {
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
 </script>
+
 </body>
 </html>

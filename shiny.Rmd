@@ -339,4 +339,66 @@ shinyApp(ui, server)
 
 $~$
 
+# Adding geotagged pictures to a map
+
+Here, the same example is used as for R Studio. In addition, a title was also added to the app. 
+
+```{r}
+library(shiny)
+
+ui <- fluidPage(
+  titlePanel("Plastic pollution on beaches"),
+  leafletOutput("mymap"))
+
+server <- function(input, output, session) {
+  
+  content1 <- paste(sep = "<br/>",  
+                    "<img src=https://c1.staticflickr.com/5/4435/36028473794_62c4e88482_b.jpg'   
+                    style='width:280px;height:200px;'>", "Oarai beach, Japan",
+                    "Plastic pieces")
+  scene1 <- read_exif('1.jpg', recursive = FALSE) 
+  x1 <- scene1$GPSLongitude  
+  y1 <- scene1$GPSLatitude  
+  
+  content2 <- paste(sep = "<br/>",  
+                    "<img src='https://c1.staticflickr.com/5/4364/36053908023_67500b4bd6_b.jpg'   
+                    style='width:200px;height:280px;'>",
+                    "Santa Monica",
+                    "Small plastic bag")
+  scene2 <- read_exif('2.jpg', recursive = FALSE)  
+  x2 <- scene2$GPSLongitude  
+  y2 <- scene2$GPSLatitude  
+  content3 <- paste(sep = "<br/>",  
+                    "<img src='https://c1.staticflickr.com/5/4440/36862734845_8c485429e7_b.jpg'   
+                    style='width:280px;height:200px;'>",
+                    "Bondi beach",
+                    "Small plastic pieces")
+  scene3 <- read_exif('3.jpg', recursive = FALSE) 
+  x3 <- scene3$GPSLongitude  
+  y3 <- scene3$GPSLatitude  
+  content4 <- paste(sep = "<br/>",  
+                    "<img src='https://c1.staticflickr.com/5/4391/36054414233_b3f762af22_b.jpg'   
+                    style='width:200px;height:280px;'>",
+                    "West Wittering",
+                    "Plastic pieces")
+  scene4 <- read_exif('4.jpg', recursive = FALSE)  
+  x4 <- scene4$GPSLongitude  
+  y4 <- scene4$GPSLatitude  
+  
+  output$mymap <- renderLeaflet({
+    library(leaflet)
+    library(exifr)
+    
+    leaflet() %>%
+      addProviderTiles("Hydda.Full") %>%
+      addMarkers(x1, y1, popup = content1) %>%
+      addMarkers(x2, y2, popup = content2) %>%
+      addMarkers(x3, y3, popup = content3) %>%
+      addMarkers(x4, y4, popup = content4)})}
+
+shinyApp(ui, server)
+```
+
+$~$
+
 <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a> This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>
