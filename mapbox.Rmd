@@ -381,6 +381,30 @@ $~$
           
 <script async src="https://jsfiddle.net/WandaBodnar/jga1e38m/28/embed/js,html,css,result/dark/"></script>
 
+
+# Adding a marker
+
+          <script>
+          
+          L.mapbox.accessToken = 'pk.eyJ1Ijoid2FuZGFib2RuYXIiLCJhIjoiY2phdHM1dm0xNXF0ajJxanU3dmdmaHRqcCJ9.mFPox1jAE9LkZN6v5OZ7Lw';
+
+          var map = L.mapbox.map('map', 'mapbox.light').setView([0, 0], 3);
+
+          L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+          attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+          }).addTo(map);
+
+          newMarkerGroup = new L.LayerGroup();
+          map.on('click', function(e){var newMarker = new L.marker(e.latlng, 
+          {icon: L.mapbox.marker.icon({
+            'marker-size': 'large',
+            'marker-color': '#e12323'})}).addTo(map);});
+
+    
+          </script>
+          
+<script async src="https://jsfiddle.net/WandaBodnar/jga1e38m/41/embed/js,html,css,result/dark/"></script>
+
 $~$
 
 <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a> This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>
