@@ -242,7 +242,7 @@ $~$
 
 For this example, four geotagged images used that are available on Flickr to download. In order to run this code, the software Strawberry Perl might have to be installed as well.
 
-```{r}
+```{r, fig.width = 8.4, fig.height = 6}
 library(leaflet)  
 library(exifr)  
 
@@ -280,7 +280,7 @@ x4 <- scene4$GPSLongitude
 y4 <- scene4$GPSLatitude  
 
 leaflet() %>%
-  addProviderTiles("Hydda.Full") %>%
+  addTiles() %>%
   addMarkers(x1, y1, popup = content1) %>%
   addMarkers(x2, y2, popup = content2) %>%
   addMarkers(x3, y3, popup = content3) %>%
