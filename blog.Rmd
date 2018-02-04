@@ -12,7 +12,7 @@ $~$
 
 # Reading and mapping .dat file in R Studio
 
-```{r fig.width = 8.4, fig.height = 6}
+```{r results = 'hide'}
 irma <- "http://weather.unisys.com/hurricane/atlantic/2017/IRMA/track.dat"
 irma_data <- read.delim(irma, header = TRUE, sep = "", skip = 2, as.is = TRUE)
 names(irma_data) <- c("LAT", "LON", "DATE", "WIND", "PR", "STAT")
@@ -20,7 +20,6 @@ irma_data[6:7] <- NULL
 irma_data
 
 library(leaflet)
-library(htmltools)
 
 leaflet() %>%
   setView(lng = -50, lat = 16, zoom = 3) %>%
