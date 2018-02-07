@@ -587,8 +587,7 @@ div.tocify {
 
 $~$
 
-<div id="coordinate-information" class="section level1">
-<h1>Coordinate information</h1>
+#Showing coordinate information
 
           <script>
 <pre><code>      L.mapbox.accessToken = &#39;pk.eyJ1Ijoid2FuZGFib2RuYXIiLCJhIjoiY2phdHM1dm0xNXF0ajJxanU3dmdmaHRqcCJ9.mFPox1jAE9LkZN6v5OZ7Lw&#39;;
@@ -648,6 +647,7 @@ $~$
       &lt;/script&gt;
       </code></pre>
 <script async src="https://jsfiddle.net/WandaBodnar/jga1e38m/28/embed/js,html,css,result/dark/"></script>
+<p><span class="math inline">\(~\)</span></p>
 </div>
 <div id="adding-a-marker" class="section level1">
 <h1>Adding a marker</h1>
@@ -671,6 +671,51 @@ $~$
       &lt;/script&gt;
       </code></pre>
 <script async src="https://jsfiddle.net/WandaBodnar/jga1e38m/41/embed/js,html,css,result/dark/"></script>
+<p><span class="math inline">\(~\)</span></p>
+</div>
+<div id="home-button" class="section level1">
+<h1>Home button</h1>
+<p>Extentions to use:</p>
+<ul>
+<li><p><a href="https://cdn.jsdelivr.net/npm/leaflet-easybutton@2/src/easy-button.css" class="uri">https://cdn.jsdelivr.net/npm/leaflet-easybutton@2/src/easy-button.css</a></p></li>
+<li><p><a href="https://cdn.jsdelivr.net/npm/leaflet-easybutton@2/src/easy-button.js" class="uri">https://cdn.jsdelivr.net/npm/leaflet-easybutton@2/src/easy-button.js</a></p></li>
+<li><p><a href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" class="uri">https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css</a></p>
+<pre><code>  &lt;script&gt;
+
+  L.mapbox.accessToken = &#39;pk.eyJ1Ijoid2FuZGFib2RuYXIiLCJhIjoiY2phdHM1dm0xNXF0ajJxanU3dmdmaHRqcCJ9.mFPox1jAE9LkZN6v5OZ7Lw&#39;;
+
+  var map = L.mapbox.map(&#39;map&#39;).setView([0, 0], 3);
+
+  var Hydda_Full = L.tileLayer(&#39;https://{s}.tile.openstreetmap.se/hydda/full/{z}/{x}/{y}.png&#39;, {
+    maxZoom: 18,
+    attribution: &#39;Tiles courtesy of &lt;a href=&quot;http://openstreetmap.se/&quot; target=&quot;_blank&quot;&gt;OpenStreetMap Sweden&lt;/a&gt; &amp;mdash; Map data &amp;copy; &lt;a href=&quot;http://www.openstreetmap.org/copyright&quot;&gt;OpenStreetMap&lt;/a&gt;&#39;
+  }).addTo(map);
+
+  var CartoDB_DarkMatter = L.tileLayer(&#39;https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png&#39;, {
+    attribution: &#39;&amp;copy; &lt;a href=&quot;http://www.openstreetmap.org/copyright&quot;&gt;OpenStreetMap&lt;/a&gt; &amp;copy; &lt;a href=&quot;http://cartodb.com/attributions&quot;&gt;CartoDB&lt;/a&gt;&#39;,
+    subdomains: &#39;abcd&#39;,
+    maxZoom: 19
+  }).addTo(map);
+
+  L.control.layers({
+    &#39;Hydda&#39;: Hydda_Full,
+    &#39;Carto&#39;: CartoDB_DarkMatter
+  }).addTo(map);
+
+  var home = {
+    lat: 0,
+    lng: 0,
+    zoom: 3
+  };
+  L.easyButton(&#39;&lt;i class=&quot;fa-home&quot; style=&quot;font-size:15px;&quot;&gt;&lt;/i&gt;&#39;, function() {
+    map.setView([home.lat, home.lng], home.zoom);
+  }, &#39;Zoom To Home&#39;).addTo(map);
+
+  L.control.locate().addTo(map);
+
+  &lt;/script&gt;</code></pre></li>
+</ul>
+<script async src="https://jsfiddle.net/WandaBodnar/wxmy32o6/1/embed/js,html,css,result/dark/"></script>
 <p><span class="math inline">\(~\)</span></p>
 <p><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a> This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a></p>
 </div>

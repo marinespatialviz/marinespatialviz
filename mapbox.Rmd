@@ -317,7 +317,7 @@ The same code can be applied for the WMS tile.
 
 $~$
 
-# Coordinate information
+#Showing coordinate information
 
           <script>
 
@@ -381,6 +381,7 @@ $~$
           
 <script async src="https://jsfiddle.net/WandaBodnar/jga1e38m/28/embed/js,html,css,result/dark/"></script>
 
+$~$
 
 # Adding a marker
 
@@ -404,6 +405,56 @@ $~$
           </script>
           
 <script async src="https://jsfiddle.net/WandaBodnar/jga1e38m/41/embed/js,html,css,result/dark/"></script>
+
+$~$
+
+# Home button
+
+Extentions to use: 
+
+* https://cdn.jsdelivr.net/npm/leaflet-easybutton@2/src/easy-button.css
+
+* https://cdn.jsdelivr.net/npm/leaflet-easybutton@2/src/easy-button.js
+
+* https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css
+
+
+          <script>
+          
+          L.mapbox.accessToken = 'pk.eyJ1Ijoid2FuZGFib2RuYXIiLCJhIjoiY2phdHM1dm0xNXF0ajJxanU3dmdmaHRqcCJ9.mFPox1jAE9LkZN6v5OZ7Lw';
+          
+          var map = L.mapbox.map('map').setView([0, 0], 3);
+          
+          var Hydda_Full = L.tileLayer('https://{s}.tile.openstreetmap.se/hydda/full/{z}/{x}/{y}.png', {
+            maxZoom: 18,
+            attribution: 'Tiles courtesy of <a href="http://openstreetmap.se/" target="_blank">OpenStreetMap Sweden</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+          }).addTo(map);
+          
+          var CartoDB_DarkMatter = L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
+            subdomains: 'abcd',
+            maxZoom: 19
+          }).addTo(map);
+          
+          L.control.layers({
+            'Hydda': Hydda_Full,
+            'Carto': CartoDB_DarkMatter
+          }).addTo(map);
+          
+          var home = {
+            lat: 0,
+            lng: 0,
+            zoom: 3
+          };
+          L.easyButton('<i class="fa-home" style="font-size:15px;"></i>', function() {
+            map.setView([home.lat, home.lng], home.zoom);
+          }, 'Zoom To Home').addTo(map);
+          
+          L.control.locate().addTo(map);
+    
+          </script>
+
+<script async src="https://jsfiddle.net/WandaBodnar/wxmy32o6/1/embed/js,html,css,result/dark/"></script>
 
 $~$
 

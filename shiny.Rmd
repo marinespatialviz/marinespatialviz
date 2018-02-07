@@ -401,4 +401,58 @@ shinyApp(ui, server)
 
 $~$
 
+# Home button
+
+```{r, fig.width = 8.4, fig.height = 6}
+library(mapview)
+library(leaflet)
+library(shiny)
+
+ui <- fluidPage(leafletOutput("mymap"))
+
+server <- function(input, output, session) {
+  
+  output$mymap <- renderLeaflet({
+    library(leaflet)
+     leaflet() %>% 
+       addTiles() %>%
+       setView(0, 0, zoom = 3) %>%
+       addMouseCoordinates(style = "basic") %>%
+       addEasyButton(easyButton(
+        icon = "fa-globe",
+        onClick = JS("function(btn, map){ map.setZoom(3);}")))})}
+
+shinyApp(ui, server)
+```
+
+$~$
+
+# Full screen button
+
+```{r, fig.width = 8.4, fig.height = 6}
+library(mapview)
+library(leaflet)
+library(leaflet.extras)
+library(shiny)
+
+ui <- fluidPage(leafletOutput("mymap"))
+
+server <- function(input, output, session) {
+  
+  output$mymap <- renderLeaflet({
+    library(leaflet)
+     leaflet() %>% 
+       addTiles() %>%
+       setView(0, 0, zoom = 3) %>%
+       addMouseCoordinates(style = "basic") %>%
+       addEasyButton(easyButton(
+        icon = "fa-globe",
+        onClick = JS("function(btn, map){ map.setZoom(3);}"))) %>%
+       addFullscreenControl()})}
+
+shinyApp(ui, server)
+```
+
+$~$
+
 <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a> This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>

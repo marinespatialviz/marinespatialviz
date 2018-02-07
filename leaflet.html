@@ -385,7 +385,7 @@ div.tocify {
 
     &lt;body&gt;
 
-      &lt;div id = &quot;map&quot; style = &quot;width: 1350px; height: 600px&quot;&gt;&lt;/div&gt;
+      &lt;div id = &quot;map&quot; style = &quot;width: 100%; height: 100%&quot;&gt;&lt;/div&gt;
 
       &lt;script&gt;
 
@@ -447,7 +447,7 @@ attribution: &#39;&amp;copy; &lt;a href=&quot;http://www.openstreetmap.org/copyr
 
     &lt;body&gt;
 
-      &lt;div id = &quot;map&quot; style = &quot;width: 1350px; height: 600px&quot;&gt;&lt;/div&gt;
+      &lt;div id = &quot;map&quot; style = &quot;width: 100%; height: 100%&quot;&gt;&lt;/div&gt;
 
       &lt;script&gt;
 
@@ -801,6 +801,37 @@ attribution: &#39;&amp;copy; &lt;a href=&quot;http://www.openstreetmap.org/copyr
 
       &lt;/script&gt;</code></pre>
 <script async src="https://jsfiddle.net/WandaBodnar/2eton50g/18/embed/js,html,css,result/dark/"></script>
+<p><span class="math inline">\(~\)</span></p>
+</div>
+<div id="home-button" class="section level1">
+<h1>Home button</h1>
+<p>Extentions to use:</p>
+<ul>
+<li><p><a href="https://cdn.jsdelivr.net/npm/leaflet-easybutton@2/src/easy-button.css" class="uri">https://cdn.jsdelivr.net/npm/leaflet-easybutton@2/src/easy-button.css</a></p></li>
+<li><p><a href="https://cdn.jsdelivr.net/npm/leaflet-easybutton@2/src/easy-button.js" class="uri">https://cdn.jsdelivr.net/npm/leaflet-easybutton@2/src/easy-button.js</a></p></li>
+<li><p><a href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" class="uri">https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css</a></p>
+<pre><code>  &lt;script&gt;
+
+  var map = L.map(&#39;map&#39;, {center: [51.6, -0.3], zoom: 9});
+
+  L.tileLayer(&#39;http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png&#39;, {
+  attribution: &#39;&amp;copy; &lt;a href=&quot;http://www.openstreetmap.org/copyright&quot;&gt;OpenStreetMap&lt;/a&gt;&#39;
+  }).addTo(map);
+
+  var home = {
+          lat: 51.6,
+          lng: -0.3,
+          zoom: 9
+          };
+  L.easyButton(&#39;&lt;i class=&quot;fa fa-home&quot; style=&quot;font-size:15px;&quot;&gt;&lt;/i&gt;&#39;, function(){
+    map.setView([home.lat, home.lng], home.zoom);
+  },&#39;Zoom To Home&#39;).addTo(map);
+
+  L.control.locate().addTo(map);
+
+  &lt;/script&gt;</code></pre></li>
+</ul>
+<script async src="https://jsfiddle.net/WandaBodnar/2eton50g/21/embed/js,html,css,result/dark/"></script>
 <p><span class="math inline">\(~\)</span></p>
 <p><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a> This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a></p>
 </div>
