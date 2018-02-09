@@ -99,7 +99,7 @@ shinyApp(ui, server)
 
 $~$
 
-## Pop-up marker
+## Pop-up
 
 Let's add a pop-up to the marker. 
 
@@ -117,6 +117,33 @@ server <- function(input, output, session) {
     setView(lng = 142, lat = 11, zoom = 3) %>%
     addMarkers(lng = 142.1999992, lat = 11.3499986, popup = 'Mariana Trench') %>%
     addProviderTiles(providers$CartoDB.Positron)})}
+
+shinyApp(ui, server)
+```
+
+$~$
+
+## Tooltip
+
+```{r message = FALSE}
+library(shiny)
+library(leaflet)
+library(htmltools)
+
+df <- read.csv(textConnection(
+  "Name,Lat,Long
+  Mariana Trench, 11.3499986, 142.1999992 "))
+
+ui <- fluidPage(leafletOutput("mymap"))
+
+server <- function(input, output, session) {
+  
+  output$mymap <- renderLeaflet({
+    leaflet(df) %>% 
+      addTiles() %>%
+      setView(lng = 142, lat = 11, zoom = 3) %>%
+      addMarkers(~Long, ~Lat, label = ~htmlEscape(Name)) %>%
+      addProviderTiles(providers$CartoDB.Positron)})}
 
 shinyApp(ui, server)
 ```
@@ -203,7 +230,7 @@ shinyApp(ui, server)
 
 $~$
 
-#Polygon
+# Polygon
 
 Let's also highlight the tropics adding a polygon. 
 
@@ -316,7 +343,7 @@ shinyApp(ui, server)
 
 $~$
 
-#Showing coordinate information
+# Showing coordinate information
 
 ```{r, fig.width = 8.4, fig.height = 6}
 library(mapview)
@@ -404,8 +431,6 @@ $~$
 # Home button
 
 ```{r, fig.width = 8.4, fig.height = 6}
-library(mapview)
-library(leaflet)
 library(shiny)
 
 ui <- fluidPage(leafletOutput("mymap"))
@@ -413,14 +438,17 @@ ui <- fluidPage(leafletOutput("mymap"))
 server <- function(input, output, session) {
   
   output$mymap <- renderLeaflet({
-    library(leaflet)
-     leaflet() %>% 
-       addTiles() %>%
-       setView(0, 0, zoom = 3) %>%
-       addMouseCoordinates(style = "basic") %>%
-       addEasyButton(easyButton(
-        icon = "fa-globe",
-        onClick = JS("function(btn, map){ map.setZoom(3);}")))})}
+ 
+      library(mapview)
+      library(leaflet)
+      leaflet() %>% 
+        addTiles() %>%
+        setView(0, 0, zoom = 3) %>%
+        addMouseCoordinates(style = "basic") %>%
+         addEasyButton(easyButton(
+              icon = "fa-globe",
+              onClick = JS("function(btn, map){ map.setZoom(3);}")))
+  })}
 
 shinyApp(ui, server)
 ```
@@ -430,9 +458,6 @@ $~$
 # Full screen button
 
 ```{r, fig.width = 8.4, fig.height = 6}
-library(mapview)
-library(leaflet)
-library(leaflet.extras)
 library(shiny)
 
 ui <- fluidPage(leafletOutput("mymap"))
@@ -440,15 +465,54 @@ ui <- fluidPage(leafletOutput("mymap"))
 server <- function(input, output, session) {
   
   output$mymap <- renderLeaflet({
-    library(leaflet)
-     leaflet() %>% 
-       addTiles() %>%
-       setView(0, 0, zoom = 3) %>%
-       addMouseCoordinates(style = "basic") %>%
-       addEasyButton(easyButton(
-        icon = "fa-globe",
-        onClick = JS("function(btn, map){ map.setZoom(3);}"))) %>%
-       addFullscreenControl()})}
+ 
+      library(mapview)
+      library(leaflet)
+
+      leaflet() %>%
+        addTiles() %>%
+        setView(0, 0, zoom = 3) %>%
+        addMouseCoordinates(style = "basic") %>%
+        addEasyButton(easyButton(
+          icon = "fa-globe",
+          onClick = JS("function(btn, map){ map.setZoom(3);}"))) %>%
+        addFullscreenControl()})
+}
+
+shinyApp(ui, server)
+```
+
+$~$
+
+# Locate button
+
+```{r, fig.width = 8.4, fig.height = 6}
+library(shiny)
+
+ui <- fluidPage(leafletOutput("mymap"))
+
+server <- function(input, output, session) {
+  
+  output$mymap <- renderLeaflet({
+ 
+      library(leaflet)
+      library(leaflet.extras)
+      library(mapview)
+      library(htmltools)
+      library(htmlwidgets)
+
+      leaflet() %>% 
+        addTiles() %>%
+        setView(0, 0, zoom = 2) %>%
+        addMouseCoordinates(style = "basic") %>%
+        addEasyButton(easyButton(
+          icon = "fa-globe",
+          onClick = JS("function(btn, map){ map.setZoom(3);}"))) %>%
+        addEasyButton(easyButton(
+          icon = "fa-crosshairs", title = "Locate Me",
+          onClick=JS("function(btn, map){ map.locate({setView: true}); }"))) %>%
+        addFullscreenControl()})
+}
 
 shinyApp(ui, server)
 ```

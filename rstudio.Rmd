@@ -83,7 +83,7 @@ leaflet() %>%
 
 $~$
 
-## Pop-up marker
+## Pop-up
 
 Adding a pop-up to the marker can be done using `popup = ()`.
 
@@ -93,6 +93,25 @@ leaflet() %>%
   addTiles() %>%
   setView(lng = 142, lat = 11, zoom = 3) %>%
   addMarkers(lng = 142.1999992, lat = 11.3499986, popup = 'Mariana Trench') %>%
+  addProviderTiles(providers$CartoDB.Positron)
+```
+
+$~$
+
+## Tooltip
+
+```{r, fig.width = 8.4, fig.height = 6}
+
+library(htmltools)
+
+df <- read.csv(textConnection(
+  "Name,Lat,Long
+  Mariana Trench, 11.3499986, 142.1999992 "))
+
+leaflet(df) %>% 
+  addTiles() %>%
+  setView(lng = 142, lat = 11, zoom = 3) %>%
+  addMarkers(~Long, ~Lat, label = ~htmlEscape(Name)) %>%
   addProviderTiles(providers$CartoDB.Positron)
 ```
 
@@ -188,7 +207,7 @@ $~$
 
 ## Layer control with icon
 
-```
+```{r, fig.width = 8.4, fig.height = 6}
 library(leaflet)
 
 dolphinIcon <- makeAwesomeIcon(icon = 'glyphicon-map-marker', markerColor = 'black', iconColor = 'white', library = "glyphicon")
@@ -224,7 +243,7 @@ leaflet() %>%
 
 $~$
 
-#Showing coordinate information
+# Showing coordinate information
 
 ```{r, fig.width = 8.4, fig.height = 6}
 library(mapview)
@@ -240,7 +259,7 @@ $~$
 
 # Adding geotagged pictures to a map
 
-For this example, four geotagged images used that are available on Flickr to download. In order to run this code, the software Strawberry Perl might have to be installed as well.
+For this example, four geotagged images used that are available on Flickr to download. In order to run this code, the software [Strawberry Perl](http://strawberryperl.com/) might have to be installed as well.
 
 ```{r, fig.width = 8.4, fig.height = 6}
 library(leaflet)  
@@ -302,12 +321,14 @@ leaflet() %>%
    addEasyButton(easyButton(
         icon = "fa-globe",
         onClick = JS("function(btn, map){ map.setZoom(3);}")))
+
 ```
+
 $~$
 
 # Full screen button
 
-```{r, fig.width = 8.4, fig.height = 6}
+```{r fig.width = 8.4, fig.height = 6}
 library(mapview)
 library(leaflet)
 library(leaflet.extras)
@@ -319,6 +340,30 @@ leaflet() %>%
    addEasyButton(easyButton(
         icon = "fa-globe",
         onClick = JS("function(btn, map){ map.setZoom(3);}"))) %>%
+  addFullscreenControl()
+```
+
+$~$
+
+# Locate button
+
+```{r fig.width = 8.4, fig.height = 6}
+library(leaflet)
+library(leaflet.extras)
+library(mapview)
+library(htmltools)
+library(htmlwidgets)
+
+leaflet() %>% 
+  addTiles() %>%
+  setView(0, 0, zoom = 2) %>%
+  addMouseCoordinates(style = "basic") %>%
+  addEasyButton(easyButton(
+    icon = "fa-globe",
+    onClick = JS("function(btn, map){ map.setZoom(3);}"))) %>%
+  addEasyButton(easyButton(
+    icon = "fa-crosshairs", title = "Locate Me",
+    onClick=JS("function(btn, map){ map.locate({setView: true}); }"))) %>%
   addFullscreenControl()
 ```
 

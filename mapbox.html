@@ -394,8 +394,8 @@ div.tocify {
 <script async src="https://jsfiddle.net/WandaBodnar/jga1e38m/4/embed/js,html,css,result/dark/"></script>
 <p><span class="math inline">\(~\)</span></p>
 </div>
-<div id="pop-up-marker" class="section level2">
-<h2>Pop-up marker</h2>
+<div id="pop-up" class="section level2">
+<h2>Pop-up</h2>
 <p>Pop-up can also be addded.</p>
 <pre><code>      &lt;script&gt;
 
@@ -411,6 +411,26 @@ div.tocify {
 
       &lt;/script&gt;</code></pre>
 <script async src="https://jsfiddle.net/WandaBodnar/jga1e38m/5/embed/js,html,css,result/dark/"></script>
+<p><span class="math inline">\(~\)</span></p>
+</div>
+<div id="tooltip" class="section level2">
+<h2>Tooltip</h2>
+<pre><code>      &lt;script&gt;
+    
+      var map = L.map(&#39;map&#39;,{
+      center: [11, 142],
+      zoom: 3
+      });
+
+      L.tileLayer(&#39;http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png&#39;, {
+      attribution: &#39;&amp;copy; &lt;a href=&quot;http://www.openstreetmap.org/copyright&quot;&gt;OpenStreetMap&lt;/a&gt;&#39;
+      }).addTo(map);
+      
+      var marker = L.marker([11.3499986, 142.1999992]).bindTooltip(&quot;Mariana Trench&quot;).addTo(map);
+
+      &lt;/script&gt;
+      </code></pre>
+<script async src="https://jsfiddle.net/WandaBodnar/rLvmzrnw/3/embed/js,html,css,result/dark/"></script>
 <p><span class="math inline">\(~\)</span></p>
 </div>
 <div id="circle-marker" class="section level2">
@@ -587,7 +607,7 @@ div.tocify {
 
 $~$
 
-#Showing coordinate information
+# Showing coordinate information
 
           <script>
 <pre><code>      L.mapbox.accessToken = &#39;pk.eyJ1Ijoid2FuZGFib2RuYXIiLCJhIjoiY2phdHM1dm0xNXF0ajJxanU3dmdmaHRqcCJ9.mFPox1jAE9LkZN6v5OZ7Lw&#39;;
@@ -675,7 +695,7 @@ $~$
 </div>
 <div id="home-button" class="section level1">
 <h1>Home button</h1>
-<p>Extentions to use:</p>
+<p>Externsions used are:</p>
 <ul>
 <li><p><a href="https://cdn.jsdelivr.net/npm/leaflet-easybutton@2/src/easy-button.css" class="uri">https://cdn.jsdelivr.net/npm/leaflet-easybutton@2/src/easy-button.css</a></p></li>
 <li><p><a href="https://cdn.jsdelivr.net/npm/leaflet-easybutton@2/src/easy-button.js" class="uri">https://cdn.jsdelivr.net/npm/leaflet-easybutton@2/src/easy-button.js</a></p></li>
@@ -717,9 +737,62 @@ $~$
 </ul>
 <script async src="https://jsfiddle.net/WandaBodnar/wxmy32o6/1/embed/js,html,css,result/dark/"></script>
 <p><span class="math inline">\(~\)</span></p>
+</div>
+<div id="full-screen-button" class="section level1">
+<h1>Full screen button</h1>
+<p>Extensions used are:</p>
+<ul>
+<li><p><a href="https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js" class="uri">https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js</a></p></li>
+<li><p><a href="https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css" class="uri">https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css</a></p>
+<pre><code>  &lt;script&gt;
+
+   L.mapbox.accessToken = &#39;pk.eyJ1Ijoid2FuZGFib2RuYXIiLCJhIjoiY2phdHM1dm0xNXF0ajJxanU3dmdmaHRqcCJ9.mFPox1jAE9LkZN6v5OZ7Lw&#39;;
+
+  var map = L.mapbox.map(&#39;map&#39;).setView([0, 0], 3);
+
+  var CartoDB_DarkMatter = L.tileLayer(&#39;https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png&#39;, {
+    attribution: &#39;&amp;copy; &lt;a href=&quot;http://www.openstreetmap.org/copyright&quot;&gt;OpenStreetMap&lt;/a&gt; &amp;copy; &lt;a href=&quot;http://cartodb.com/attributions&quot;&gt;CartoDB&lt;/a&gt;&#39;,
+    subdomains: &#39;abcd&#39;,
+    maxZoom: 19
+  }).addTo(map);
+
+   map.addControl(new L.Control.Fullscreen());
+
+  &lt;/script&gt;</code></pre></li>
+</ul>
+<script async src="https://jsfiddle.net/WandaBodnar/jga1e38m/44/embed/js,html,css,result/dark/"></script>
+<p><span class="math inline">\(~\)</span></p>
+</div>
+<div id="locate-button" class="section level1">
+<h1>Locate button</h1>
+<p>Extensions used are:</p>
+<ul>
+<li><p><a href="https://api.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.43.0/L.Control.Locate.min.js" class="uri">https://api.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.43.0/L.Control.Locate.min.js</a></p></li>
+<li><p><a href="https://api.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.43.0/L.Control.Locate.mapbox.css" class="uri">https://api.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.43.0/L.Control.Locate.mapbox.css</a></p>
+<pre><code>  &lt;script&gt;
+
+  L.mapbox.accessToken = &#39;pk.eyJ1Ijoid2FuZGFib2RuYXIiLCJhIjoiY2phdHM1dm0xNXF0ajJxanU3dmdmaHRqcCJ9.mFPox1jAE9LkZN6v5OZ7Lw&#39;;
+
+  var map = L.mapbox.map(&#39;map&#39;, &#39;mapbox.streets&#39;).setView([20, -15], 3);
+
+  L.control.locate().addTo(map);
+
+  &lt;/script&gt;</code></pre></li>
+</ul>
+<script async src="https://jsfiddle.net/WandaBodnar/rLvmzrnw/4/embed/js,html,css,result/dark/"></script>
+<p><span class="math inline">\(~\)</span></p>
 <p><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a> This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a></p>
 </div>
+
+
+
+</div>
+</div>
+
+</div>
+
 <script>
+
 // add bootstrap table styles to pandoc tables
 function bootstrapStylePandocTables() {
   $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
@@ -727,7 +800,10 @@ function bootstrapStylePandocTables() {
 $(document).ready(function () {
   bootstrapStylePandocTables();
 });
+
+
 </script>
+
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>
   (function () {
@@ -737,5 +813,6 @@ $(document).ready(function () {
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
 </script>
+
 </body>
 </html>
