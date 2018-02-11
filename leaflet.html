@@ -296,6 +296,9 @@ div.tocify {
 <li>
   <a href="blog.html">Blog</a>
 </li>
+<li>
+  <a href="roadmap.html">Roadmap</a>
+</li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         
@@ -349,9 +352,9 @@ div.tocify {
 
   &lt;head&gt;
 
-    &lt;link rel = &quot;stylesheet&quot; href = &quot;http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css&quot; /&gt;
+    &lt;link rel = &quot;stylesheet&quot; href = &quot;https://unpkg.com/leaflet@1.3.1/dist/leaflet.css&quot; /&gt;
 
-    &lt;script src=&quot;http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://unpkg.com/leaflet@1.3.1/dist/leaflet.js&quot;&gt;&lt;/script&gt;
 
     &lt;style&gt;
 
@@ -373,9 +376,9 @@ div.tocify {
 
   &lt;head&gt;
 
-    &lt;link rel = &quot;stylesheet&quot; href = &quot;http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css&quot; /&gt;
+    &lt;link rel = &quot;stylesheet&quot; href = &quot;https://unpkg.com/leaflet@1.3.1/dist/leaflet.css&quot; /&gt;
 
-    &lt;script src=&quot;http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://unpkg.com/leaflet@1.3.1/dist/leaflet.js&quot;&gt;&lt;/script&gt;
 
     &lt;style&gt;
 
@@ -385,7 +388,7 @@ div.tocify {
 
     &lt;body&gt;
 
-      &lt;div id = &quot;map&quot; style = &quot;width: 1350px; height: 600px&quot;&gt;&lt;/div&gt;
+      &lt;div id = &quot;map&quot; style = &quot;width: 100%; height: 100%&quot;&gt;&lt;/div&gt;
 
       &lt;script&gt;
 
@@ -403,8 +406,8 @@ div.tocify {
 <p><img src="http://marinespatialviz.github.io/marinespatialviz/images/jsfiddle.png" /> <span class="math inline">\(~\)</span></p>
 <p>The first step here is to add leaflet.js and leaflet.css as an external resource.</p>
 <p>Click on External Resources and add these two web addresses:</p>
-<p><a href="https://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" class="uri">https://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css</a></p>
-<p><a href="https://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js" class="uri">https://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js</a></p>
+<p><a href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" class="uri">https://unpkg.com/leaflet@1.3.1/dist/leaflet.css</a></p>
+<p><a href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js" class="uri">https://unpkg.com/leaflet@1.3.1/dist/leaflet.js</a></p>
 <p><img src="http://marinespatialviz.github.io/marinespatialviz/images/jsfiddle1.png" /> <span class="math inline">\(~\)</span></p>
 <p>Before going further, let’s discuss the terms:</p>
 <p>HTML (HypterText Markup Language): provides the content of the web page that can be structured.</p>
@@ -422,7 +425,7 @@ div.tocify {
 L.tileLayer(&#39;http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png&#39;, {
 attribution: &#39;&amp;copy; &lt;a href=&quot;http://www.openstreetmap.org/copyright&quot;&gt;OpenStreetMap&lt;/a&gt;&#39;
 }).addTo(map);</code></pre>
-<script async src="https://jsfiddle.net/WandaBodnar/2eton50g/embed/js,html,css,result/dark/"></script>
+<script async src="https://jsfiddle.net/WandaBodnar/b0hraygg/2/embed/js,html,css,result/dark/"></script>
 <p><span class="math inline">\(~\)</span></p>
 <p><strong>In the examples below both text editor and jsFiddle codes are displayed.</strong></p>
 <p><span class="math inline">\(~\)</span></p>
@@ -435,9 +438,9 @@ attribution: &#39;&amp;copy; &lt;a href=&quot;http://www.openstreetmap.org/copyr
 
   &lt;head&gt;
 
-    &lt;link rel = &quot;stylesheet&quot; href = &quot;http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css&quot; /&gt;
+    &lt;link rel = &quot;stylesheet&quot; href = &quot;https://unpkg.com/leaflet@1.3.1/dist/leaflet.css&quot; /&gt;
 
-    &lt;script src=&quot;http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://unpkg.com/leaflet@1.3.1/dist/leaflet.js&quot;&gt;&lt;/script&gt;
 
     &lt;style&gt;
 
@@ -465,12 +468,11 @@ attribution: &#39;&amp;copy; &lt;a href=&quot;http://www.openstreetmap.org/copyr
     &lt;/body&gt;
 
 &lt;/html&gt;</code></pre>
-<script async src=https:"//jsfiddle.net/WandaBodnar/2eton50g/1/embed/js,html,css,result/dark/"></script>
+<script async src="https://jsfiddle.net/WandaBodnar/b0hraygg/2/embed/js,html,css,result/dark/"></script>
 <p><span class="math inline">\(~\)</span></p>
 </div>
 <div id="marker" class="section level1">
 <h1>Marker</h1>
-<p>With the marker variable <code>var marker = L.marker ([x, y])</code> the coordinates will be given and it will be added to the map <code>marker.addTo()</code>.</p>
 <pre><code>      &lt;script&gt;
 
       var map = L.map(&#39;map&#39;,{
@@ -486,11 +488,10 @@ attribution: &#39;&amp;copy; &lt;a href=&quot;http://www.openstreetmap.org/copyr
       marker.addTo(map);
 
       &lt;/script&gt;</code></pre>
-<script async src="https://jsfiddle.net/WandaBodnar/Lvgjye3n/1/embed/js,html,css,result/dark/"></script>
+<script async src="https://jsfiddle.net/WandaBodnar/tmeydta0/1/embed/js,html,css,result/dark/"></script>
 <p><span class="math inline">\(~\)</span></p>
 <div id="pop-up" class="section level2">
 <h2>Pop-up</h2>
-<p>Let’s add a pop-up with text to the marker.</p>
 <pre><code>      &lt;script&gt;
       
       var map = L.map(&#39;map&#39;,{
@@ -527,7 +528,7 @@ attribution: &#39;&amp;copy; &lt;a href=&quot;http://www.openstreetmap.org/copyr
       marker.addTo(map);
 
       &lt;/script&gt;</code></pre>
-<script async src="https://jsfiddle.net/WandaBodnar/2tbp9cL5/1/embed/js,html,css,result/dark/"></script>
+<script async src="https://jsfiddle.net/WandaBodnar/a4aono63/2/embed/js,html,css,result/dark/"></script>
 <p><span class="math inline">\(~\)</span></p>
 </div>
 <div id="tooltip" class="section level2">
@@ -550,12 +551,11 @@ attribution: &#39;&amp;copy; &lt;a href=&quot;http://www.openstreetmap.org/copyr
 
   &lt;/script&gt;</code></pre></li>
 </ul>
-<script async src="https://jsfiddle.net/WandaBodnar/Lvgjye3n/30/embed/js,html,css,result/dark/"></script>
+<script async src="https://jsfiddle.net/WandaBodnar/4gnvkd97/1/embed/js,html,css,result/dark/"></script>
 <p><span class="math inline">\(~\)</span></p>
 </div>
 <div id="circle-marker" class="section level2">
 <h2>Circle marker</h2>
-<p>Here is the code for adding a circle.</p>
 <pre><code>      &lt;script&gt;
 
       var map = L.map(&#39;map&#39;,{
@@ -573,12 +573,11 @@ attribution: &#39;&amp;copy; &lt;a href=&quot;http://www.openstreetmap.org/copyr
       fillOpacity: 0.5}).addTo(map);
 
       map.addLayer(circle);</code></pre>
-<script async src="https://jsfiddle.net/WandaBodnar/2tbp9cL5/2/embed/js,html,css,result/dark/"></script>
+<script async src="https://jsfiddle.net/WandaBodnar/x52Lhwha/1/embed/js,html,css,result/dark/"></script>
 <p><span class="math inline">\(~\)</span></p>
 </div>
 <div id="costum-marker" class="section level2">
 <h2>Costum marker</h2>
-<p>Let’s also add the submarine to the map.</p>
 <pre><code>      &lt;script&gt;
 
       var map = L.map(&#39;map&#39;,{
@@ -599,14 +598,33 @@ attribution: &#39;&amp;copy; &lt;a href=&quot;http://www.openstreetmap.org/copyr
       marker.addTo(map);
 
       &lt;/script&gt;</code></pre>
-<script async src="https://jsfiddle.net/WandaBodnar/2tbp9cL5/3/embed/js,html,css,result/dark/"></script>
+<script async src="https://jsfiddle.net/WandaBodnar/00ucj6m1/1/embed/js,html,css,result/dark/"></script>
 <p><span class="math inline">\(~\)</span></p>
 </div>
 </div>
+<div id="dragable-marker" class="section level1">
+<h1>Dragable marker</h1>
+<pre><code>      &lt;script&gt;
+
+      var map = L.map(&#39;map&#39;, {
+        center: [11, 142],
+        zoom: 3
+      });
+      
+      L.tileLayer(&#39;http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png&#39;, {
+        attribution: &#39;&amp;copy; &lt;a href=&quot;http://www.openstreetmap.org/copyright&quot;&gt;OpenStreetMap&lt;/a&gt;&#39;
+      }).addTo(map);
+      
+      var marker = L.marker([11.3499986, 142.1999992], {
+      draggable: true})
+      marker.addTo(map);
+
+      &lt;/script&gt;</code></pre>
+<script async src="https://jsfiddle.net/WandaBodnar/hmazun1g/1/embed/js,html,css,result/dark/"></script>
+<p><span class="math inline">\(~\)</span></p>
+</div>
 <div id="polyline" class="section level1">
 <h1>Polyline</h1>
-<p>Let’s see how we can add a line between two points (in this case The Equator).</p>
-<p>Here, the <code>var line = ()</code> was defined and was added to the map.</p>
 <pre><code>      &lt;script&gt;
 
       var map = L.map(&#39;map&#39;,{
@@ -621,12 +639,11 @@ attribution: &#39;&amp;copy; &lt;a href=&quot;http://www.openstreetmap.org/copyr
       var line = L.polyline([[0, -180], [0, 180]],{color: &#39;red&#39;}).addTo(map);
 
       &lt;/script&gt;</code></pre>
-<script async src="https://jsfiddle.net/WandaBodnar/2tbp9cL5/5/embed/js,html,css,result/dark/"></script>
+<script async src="https://jsfiddle.net/WandaBodnar/fhj507vz/1/embed/js,html,css,result/dark/"></script>
 <p><span class="math inline">\(~\)</span></p>
 </div>
 <div id="polygon" class="section level1">
 <h1>Polygon</h1>
-<p>A polygon can be added using the <code>var polygon = L.polygon()</code></p>
 <pre><code>      &lt;script&gt;
 
       var map = L.map(&#39;map&#39;,{
@@ -645,12 +662,11 @@ attribution: &#39;&amp;copy; &lt;a href=&quot;http://www.openstreetmap.org/copyr
 
       &lt;/script&gt;
       </code></pre>
-<script async src="https://jsfiddle.net/WandaBodnar/2eton50g/2/embed/js,html,css,result/dark/"></script>
+<script async src="https://jsfiddle.net/WandaBodnar/9ad1aeLx/2/embed/js,html,css,result/dark/"></script>
 <p><span class="math inline">\(~\)</span></p>
 </div>
 <div id="layer-control" class="section level1">
 <h1>Layer control</h1>
-<p>The layer control can be added by defining the choosen basemap and adding the control function.</p>
 <pre><code>      &lt;script&gt;
 
       var map = L.map(&#39;map&#39;,{
@@ -675,7 +691,7 @@ attribution: &#39;&amp;copy; &lt;a href=&quot;http://www.openstreetmap.org/copyr
       }).addTo(map);
 
       &lt;/script&gt;</code></pre>
-<script async src="https://jsfiddle.net/WandaBodnar/2eton50g/3/embed/js,html,css,result/dark/"></script>
+<script async src="https://jsfiddle.net/WandaBodnar/g8c34po6/1/embed/js,html,css,result/dark/"></script>
 <p><span class="math inline">\(~\)</span></p>
 <div id="layer-control-with-icon" class="section level2">
 <h2>Layer control with icon</h2>
@@ -717,13 +733,12 @@ attribution: &#39;&amp;copy; &lt;a href=&quot;http://www.openstreetmap.org/copyr
       }).addTo(map);
       
       &lt;/script&gt;</code></pre>
-<script async src="https://jsfiddle.net/WandaBodnar/2eton50g/4/embed/js,html,css,result/dark/"></script>
+<script async src="https://jsfiddle.net/WandaBodnar/sm2g32bt/1/embed/js,html,css,result/dark/"></script>
 <p><span class="math inline">\(~\)</span></p>
 </div>
 </div>
 <div id="wms-tile" class="section level1">
 <h1>WMS tile</h1>
-<p>Web Map Sevices tile can be added using the <code>L.tileLayer.wms()</code> function.</p>
 <pre><code>      &lt;script&gt;
 
       var map = L.map(&#39;map&#39;,{
@@ -744,7 +759,7 @@ attribution: &#39;&amp;copy; &lt;a href=&quot;http://www.openstreetmap.org/copyr
 
       &lt;/script&gt;
       </code></pre>
-<script async src="https://jsfiddle.net/WandaBodnar/2eton50g/5/embed/js,html,css,result/dark/"></script>
+<script async src="https://jsfiddle.net/WandaBodnar/zha6qqpo/embed/js,html,css,result/dark/"></script>
 <p><span class="math inline">\(~\)</span></p>
 </div>
 <div id="showing-coordinate-information" class="section level1">
@@ -770,7 +785,7 @@ attribution: &#39;&amp;copy; &lt;a href=&quot;http://www.openstreetmap.org/copyr
 
       &lt;/script&gt;
       </code></pre>
-<script async src="https://jsfiddle.net/WandaBodnar/2eton50g/9/embed/js,html,css,result/dark/"></script>
+<script async src="https://jsfiddle.net/WandaBodnar/h4hc1f95/1/embed/js,html,css,result/dark/"></script>
 <p><span class="math inline">\(~\)</span></p>
 </div>
 <div id="adding-geotagged-pictures-to-a-map" class="section level1">
@@ -779,7 +794,7 @@ attribution: &#39;&amp;copy; &lt;a href=&quot;http://www.openstreetmap.org/copyr
 
       var map = L.map(&#39;map&#39;, {
       center: [20, -15],
-      zoom: 2
+      zoom: 1
       });
 
       var CartoDB_DarkMatter = L.tileLayer(&#39;https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png&#39;, {
@@ -806,7 +821,7 @@ attribution: &#39;&amp;copy; &lt;a href=&quot;http://www.openstreetmap.org/copyr
 
       &lt;/script&gt;
       </code></pre>
-<script async src="https://jsfiddle.net/WandaBodnar/Lb951bdj/13/embed/js,html,css,result/dark/"></script>
+<script async src="https://jsfiddle.net/WandaBodnar/6asr8o83/2/embed/js,html,css,result/dark/"></script>
 <p><span class="math inline">\(~\)</span></p>
 </div>
 <div id="adding-a-marker" class="section level1">
@@ -823,7 +838,7 @@ attribution: &#39;&amp;copy; &lt;a href=&quot;http://www.openstreetmap.org/copyr
       map.on(&#39;click&#39;, function(e){var newMarker = new L.marker(e.latlng).addTo(map);});
 
       &lt;/script&gt;</code></pre>
-<script async src="https://jsfiddle.net/WandaBodnar/2eton50g/18/embed/js,html,css,result/dark/"></script>
+<script async src="https://jsfiddle.net/WandaBodnar/cbu6gg0k/1/embed/js,html,css,result/dark/"></script>
 <p><span class="math inline">\(~\)</span></p>
 </div>
 <div id="home-button" class="section level1">
@@ -835,26 +850,29 @@ attribution: &#39;&amp;copy; &lt;a href=&quot;http://www.openstreetmap.org/copyr
 <li><p><a href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" class="uri">https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css</a></p>
 <pre><code>  &lt;script&gt;
 
-  var map = L.map(&#39;map&#39;, {center: [51.6, -0.3], zoom: 9});
+  var map = L.map(&#39;map&#39;, {
+    center: [10, 0],
+    zoom: 1
+  });
 
   L.tileLayer(&#39;http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png&#39;, {
-  attribution: &#39;&amp;copy; &lt;a href=&quot;http://www.openstreetmap.org/copyright&quot;&gt;OpenStreetMap&lt;/a&gt;&#39;
+    attribution: &#39;&amp;copy; &lt;a href=&quot;http://www.openstreetmap.org/copyright&quot;&gt;OpenStreetMap&lt;/a&gt;&#39;
   }).addTo(map);
 
   var home = {
-          lat: 51.6,
-          lng: -0.3,
-          zoom: 9
-          };
-  L.easyButton(&#39;&lt;i class=&quot;fa fa-home&quot; style=&quot;font-size:15px;&quot;&gt;&lt;/i&gt;&#39;, function(){
+    lat: 10,
+    lng: 0,
+    zoom: 1
+  };
+  L.easyButton(&#39;&lt;i class=&quot;fa fa-home&quot; style=&quot;font-size:15px;&quot;&gt;&lt;/i&gt;&#39;, function() {
     map.setView([home.lat, home.lng], home.zoom);
-  },&#39;Zoom To Home&#39;).addTo(map);
+  }, &#39;Zoom To Home&#39;).addTo(map);
 
   L.control.locate().addTo(map);
 
   &lt;/script&gt;</code></pre></li>
 </ul>
-<script async src="https://jsfiddle.net/WandaBodnar/2eton50g/21/embed/js,html,css,result/dark/"></script>
+<script async src="https://jsfiddle.net/WandaBodnar/cbu6gg0k/9/embed/js,html,css,result/dark/"></script>
 <p><span class="math inline">\(~\)</span></p>
 </div>
 <div id="full-screen-button" class="section level1">
@@ -866,8 +884,8 @@ attribution: &#39;&amp;copy; &lt;a href=&quot;http://www.openstreetmap.org/copyr
 <pre><code>  &lt;script&gt;
 
   var map = L.map(&#39;map&#39;, {
-    center: [0, 0],
-    zoom: 2
+    center: [10, 0],
+    zoom: 0
   });
 
   L.tileLayer(&#39;http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png&#39;, {
@@ -879,7 +897,7 @@ attribution: &#39;&amp;copy; &lt;a href=&quot;http://www.openstreetmap.org/copyr
 
   &lt;/script&gt;</code></pre></li>
 </ul>
-<script async src="https://jsfiddle.net/WandaBodnar/2tbp9cL5/12/embed/js,html,css,result/dark/"></script>
+<script async src="https://jsfiddle.net/WandaBodnar/y7swnnmk/2/embed/js,html,css,result/dark/"></script>
 <p><span class="math inline">\(~\)</span></p>
 </div>
 <div id="locate-button" class="section level1">
@@ -905,7 +923,28 @@ attribution: &#39;&amp;copy; &lt;a href=&quot;http://www.openstreetmap.org/copyr
 
   &lt;/script&gt;</code></pre></li>
 </ul>
-<script async src="https://jsfiddle.net/WandaBodnar/p8og2hgg/2/embed/js,html,css,result/dark/"></script>
+<script async src="https://jsfiddle.net/WandaBodnar/m6aLp51j/1/embed/js,html,css,result/dark/"></script>
+<p><span class="math inline">\(~\)</span></p>
+</div>
+<div id="scale" class="section level1">
+<h1>Scale</h1>
+<pre><code>      &lt;script&gt;
+      
+      var map = L.map(&#39;map&#39;, {
+        center: [10, 0],
+        zoom: 1
+      });
+
+      L.tileLayer(&#39;http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png&#39;, {
+        attribution: &#39;&amp;copy; &lt;a href=&quot;http://www.openstreetmap.org/copyright&quot;&gt;OpenStreetMap&lt;/a&gt;&#39;
+      }).addTo(map);
+
+      var scale = L.control.scale();
+      scale.addTo(map);
+  
+      &lt;/script&gt;
+      </code></pre>
+<script async src="https://jsfiddle.net/WandaBodnar/n2q0h1n3/2/embed/js,html,css,result/dark/"></script>
 <p><span class="math inline">\(~\)</span></p>
 <p><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a> This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a></p>
 </div>

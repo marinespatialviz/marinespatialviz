@@ -76,8 +76,6 @@ $~$
 
 # Marker
 
-Using the example from the R Studio [section](https://marinespatialviz.github.io/marinespatialviz/rstudio.html#marker), let's add a marker. 
-
 ```{r message = FALSE}
 library(shiny)
 library(leaflet)
@@ -100,8 +98,6 @@ shinyApp(ui, server)
 $~$
 
 ## Pop-up
-
-Let's add a pop-up to the marker. 
 
 ```{r message = FALSE}
 library(shiny)
@@ -152,8 +148,6 @@ $~$
 
 ## Circle marker
 
-Change to marker to a circle marker. 
-
 ```{r message = FALSE}
 library(shiny)
 library(leaflet)
@@ -175,8 +169,6 @@ shinyApp(ui, server)
 $~$
 
 ## Costum marker
-
-Let's add the submarine.
 
 ```{r message = FALSE}
 library(shiny)
@@ -202,8 +194,6 @@ shinyApp(ui, server)
 $~$
 
 # Polyline
-
-Let's add the Equator to the map. 
 
 ```{r message = FALSE}
 library(shiny)
@@ -232,8 +222,6 @@ $~$
 
 # Polygon
 
-Let's also highlight the tropics adding a polygon. 
-
 ```{r message = FALSE}
 library(shiny)
 library(leaflet)
@@ -260,8 +248,6 @@ shinyApp(ui, server)
 $~$
 
 # Layer control
-
-Here is function for the layer control. 
 
 ```{r message = FALSE}
 library(shiny)
@@ -316,8 +302,6 @@ $~$
 
 # WMS tile
 
-Here is the same example for the WMS tile in Shiny.
-
 ```{r message = FALSE}
 library(shiny)
 library(leaflet)
@@ -367,8 +351,6 @@ shinyApp(ui, server)
 $~$
 
 # Adding geotagged pictures to a map
-
-Here, the same example is used as for R Studio. In addition, a title was also added to the app. 
 
 ```{r}
 library(shiny)
@@ -512,6 +494,42 @@ server <- function(input, output, session) {
           icon = "fa-crosshairs", title = "Locate Me",
           onClick=JS("function(btn, map){ map.locate({setView: true}); }"))) %>%
         addFullscreenControl()})
+}
+
+shinyApp(ui, server)
+```
+
+$~$
+
+# Scale
+
+```{r, fig.width = 8.4, fig.height = 6}
+library(shiny)
+
+ui <- fluidPage(leafletOutput("mymap"))
+
+server <- function(input, output, session) {
+  
+  output$mymap <- renderLeaflet({
+ 
+      library(leaflet)
+      library(leaflet.extras)
+      library(mapview)
+      library(htmltools)
+      library(htmlwidgets)
+
+      leaflet() %>% 
+        addTiles() %>%
+        setView(0, 0, zoom = 2) %>%
+        addMouseCoordinates(style = "basic") %>%
+        addEasyButton(easyButton(
+          icon = "fa-globe",
+          onClick = JS("function(btn, map){ map.setZoom(3);}"))) %>%
+        addEasyButton(easyButton(
+          icon = "fa-crosshairs", title = "Locate Me",
+          onClick = JS("function(btn, map){ map.locate({setView: true}); }"))) %>%
+        addFullscreenControl() %>%
+        addScaleBar(position = "bottomleft")})
 }
 
 shinyApp(ui, server)

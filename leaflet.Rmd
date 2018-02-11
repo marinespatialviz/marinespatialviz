@@ -58,9 +58,9 @@ Both files will sit in the head section of the HTML code. Make sure to keep the 
 
       <head>
 
-        <link rel = "stylesheet" href = "http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+        <link rel = "stylesheet" href = "https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" />
 
-        <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+        <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js"></script>
 
         <style>
 
@@ -86,9 +86,9 @@ Then, create a container for the map defining the dimensions. This will sit in t
 
       <head>
 
-        <link rel = "stylesheet" href = "http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+        <link rel = "stylesheet" href = "https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" />
 
-        <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+        <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js"></script>
 
         <style>
 
@@ -98,7 +98,7 @@ Then, create a container for the map defining the dimensions. This will sit in t
 
         <body>
 
-          <div id = "map" style = "width: 1350px; height: 600px"></div>
+          <div id = "map" style = "width: 100%; height: 100%"></div>
 
           <script>
 
@@ -123,9 +123,9 @@ The first step here is to add leaflet.js and leaflet.css as an external resource
 
 Click on External Resources and add these two web addresses:
 
-https://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css
+https://unpkg.com/leaflet@1.3.1/dist/leaflet.css
 
-https://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js
+https://unpkg.com/leaflet@1.3.1/dist/leaflet.js
 
 ![](http://marinespatialviz.github.io/marinespatialviz/images/jsfiddle1.png)
 $~$
@@ -159,7 +159,7 @@ JavaScript:
     }).addTo(map);
     
     
-<script async src="https://jsfiddle.net/WandaBodnar/2eton50g/embed/js,html,css,result/dark/"></script>
+<script async src="https://jsfiddle.net/WandaBodnar/b0hraygg/2/embed/js,html,css,result/dark/"></script>
 
 $~$
 
@@ -178,9 +178,9 @@ Now, let's construct the body adding the map object. The view can be set using `
 
       <head>
 
-        <link rel = "stylesheet" href = "http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+        <link rel = "stylesheet" href = "https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" />
 
-        <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+        <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js"></script>
 
         <style>
 
@@ -209,13 +209,11 @@ Now, let's construct the body adding the map object. The view can be set using `
 
     </html>
 
-<script async src=https:"//jsfiddle.net/WandaBodnar/2eton50g/1/embed/js,html,css,result/dark/"></script>
+<script async src="https://jsfiddle.net/WandaBodnar/b0hraygg/2/embed/js,html,css,result/dark/"></script>
 
 $~$
 
 # Marker
-
-With the marker variable `var marker = L.marker ([x, y])` the coordinates will be given and it will be added to the map `marker.addTo()`.
 
           <script>
 
@@ -233,13 +231,11 @@ With the marker variable `var marker = L.marker ([x, y])` the coordinates will b
 
           </script>
 
-<script async src="https://jsfiddle.net/WandaBodnar/Lvgjye3n/1/embed/js,html,css,result/dark/"></script>
+<script async src="https://jsfiddle.net/WandaBodnar/tmeydta0/1/embed/js,html,css,result/dark/"></script>
 
 $~$
 
 ## Pop-up
-
-Let's add a pop-up with text to the marker.
 
           <script>
           
@@ -279,7 +275,7 @@ Here is another option.
 
           </script>
 
-<script async src="https://jsfiddle.net/WandaBodnar/2tbp9cL5/1/embed/js,html,css,result/dark/"></script>
+<script async src="https://jsfiddle.net/WandaBodnar/a4aono63/2/embed/js,html,css,result/dark/"></script>
 
 $~$
 
@@ -304,13 +300,11 @@ Extension used:
 
           </script>
           
-<script async src="https://jsfiddle.net/WandaBodnar/Lvgjye3n/30/embed/js,html,css,result/dark/"></script>
+<script async src="https://jsfiddle.net/WandaBodnar/4gnvkd97/1/embed/js,html,css,result/dark/"></script>
           
 $~$
 
 ## Circle marker
-
-Here is the code for adding a circle. 
 
           <script>
 
@@ -330,13 +324,11 @@ Here is the code for adding a circle.
 
           map.addLayer(circle);
 
-<script async src="https://jsfiddle.net/WandaBodnar/2tbp9cL5/2/embed/js,html,css,result/dark/"></script>
+<script async src="https://jsfiddle.net/WandaBodnar/x52Lhwha/1/embed/js,html,css,result/dark/"></script>
 
 $~$
 
 ## Costum marker
-
-Let's also add the submarine to the map. 
 
           <script>
 
@@ -359,15 +351,34 @@ Let's also add the submarine to the map.
 
           </script>
     
-<script async src="https://jsfiddle.net/WandaBodnar/2tbp9cL5/3/embed/js,html,css,result/dark/"></script>
+<script async src="https://jsfiddle.net/WandaBodnar/00ucj6m1/1/embed/js,html,css,result/dark/"></script>
+
+$~$
+
+# Dragable marker
+
+          <script>
+
+          var map = L.map('map', {
+            center: [11, 142],
+            zoom: 3
+          });
+          
+          L.tileLayer('http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+          }).addTo(map);
+          
+          var marker = L.marker([11.3499986, 142.1999992], {
+          draggable: true})
+          marker.addTo(map);
+
+          </script>
+
+<script async src="https://jsfiddle.net/WandaBodnar/hmazun1g/1/embed/js,html,css,result/dark/"></script>
 
 $~$
 
 # Polyline
-
-Let's see how we can add a line between two points (in this case The Equator).
-
-Here, the `var line = ()` was defined and was added to the map.
 
           <script>
 
@@ -384,13 +395,11 @@ Here, the `var line = ()` was defined and was added to the map.
 
           </script>
 
-<script async src="https://jsfiddle.net/WandaBodnar/2tbp9cL5/5/embed/js,html,css,result/dark/"></script>
+<script async src="https://jsfiddle.net/WandaBodnar/fhj507vz/1/embed/js,html,css,result/dark/"></script>
 
 $~$
 
 # Polygon
-
-A polygon can be added using the `var polygon = L.polygon()`
 
           <script>
 
@@ -410,13 +419,11 @@ A polygon can be added using the `var polygon = L.polygon()`
 
           </script>
           
-<script async src="https://jsfiddle.net/WandaBodnar/2eton50g/2/embed/js,html,css,result/dark/"></script>
+<script async src="https://jsfiddle.net/WandaBodnar/9ad1aeLx/2/embed/js,html,css,result/dark/"></script>
 
 $~$
 
 # Layer control
-
-The layer control can be added by defining the choosen basemap and adding the control function.
 
           <script>
 
@@ -443,7 +450,7 @@ The layer control can be added by defining the choosen basemap and adding the co
 
           </script>
 
-<script async src="https://jsfiddle.net/WandaBodnar/2eton50g/3/embed/js,html,css,result/dark/"></script>
+<script async src="https://jsfiddle.net/WandaBodnar/g8c34po6/1/embed/js,html,css,result/dark/"></script>
 
 $~$
 
@@ -488,13 +495,11 @@ $~$
           
           </script>
 
-<script async src="https://jsfiddle.net/WandaBodnar/2eton50g/4/embed/js,html,css,result/dark/"></script>
+<script async src="https://jsfiddle.net/WandaBodnar/sm2g32bt/1/embed/js,html,css,result/dark/"></script>
 
 $~$
 
 # WMS tile
-
-Web Map Sevices tile can be added using the `L.tileLayer.wms()` function. 
 
           <script>
 
@@ -516,7 +521,7 @@ Web Map Sevices tile can be added using the `L.tileLayer.wms()` function.
 
           </script>
           
-<script async src="https://jsfiddle.net/WandaBodnar/2eton50g/5/embed/js,html,css,result/dark/"></script>
+<script async src="https://jsfiddle.net/WandaBodnar/zha6qqpo/embed/js,html,css,result/dark/"></script>
 
 $~$
 
@@ -543,7 +548,7 @@ $~$
 
           </script>
           
-<script async src="https://jsfiddle.net/WandaBodnar/2eton50g/9/embed/js,html,css,result/dark/"></script>
+<script async src="https://jsfiddle.net/WandaBodnar/h4hc1f95/1/embed/js,html,css,result/dark/"></script>
 
 $~$
 
@@ -553,7 +558,7 @@ $~$
 
           var map = L.map('map', {
           center: [20, -15],
-          zoom: 2
+          zoom: 1
           });
 
           var CartoDB_DarkMatter = L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png', {
@@ -580,7 +585,7 @@ $~$
 
           </script>
           
-<script async src="https://jsfiddle.net/WandaBodnar/Lb951bdj/13/embed/js,html,css,result/dark/"></script>
+<script async src="https://jsfiddle.net/WandaBodnar/6asr8o83/2/embed/js,html,css,result/dark/"></script>
 
 $~$
 
@@ -599,7 +604,7 @@ $~$
     
           </script>
 
-<script async src="https://jsfiddle.net/WandaBodnar/2eton50g/18/embed/js,html,css,result/dark/"></script>
+<script async src="https://jsfiddle.net/WandaBodnar/cbu6gg0k/1/embed/js,html,css,result/dark/"></script>
 
 $~$
 
@@ -616,26 +621,29 @@ Externsions used are:
 
           <script>
           
-          var map = L.map('map', {center: [51.6, -0.3], zoom: 9});
-      
+          var map = L.map('map', {
+            center: [10, 0],
+            zoom: 1
+          });
+
           L.tileLayer('http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png', {
-          attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
           }).addTo(map);
-          
+
           var home = {
-                  lat: 51.6,
-                  lng: -0.3,
-                  zoom: 9
-                  };
-          L.easyButton('<i class="fa fa-home" style="font-size:15px;"></i>', function(){
+            lat: 10,
+            lng: 0,
+            zoom: 1
+          };
+          L.easyButton('<i class="fa fa-home" style="font-size:15px;"></i>', function() {
             map.setView([home.lat, home.lng], home.zoom);
-          },'Zoom To Home').addTo(map);
-      
+          }, 'Zoom To Home').addTo(map);
+
           L.control.locate().addTo(map);
       
           </script>
           
-<script async src="https://jsfiddle.net/WandaBodnar/2eton50g/21/embed/js,html,css,result/dark/"></script>
+<script async src="https://jsfiddle.net/WandaBodnar/cbu6gg0k/9/embed/js,html,css,result/dark/"></script>
 
 $~$
 
@@ -651,8 +659,8 @@ Extensions used are:
           <script>
           
           var map = L.map('map', {
-            center: [0, 0],
-            zoom: 2
+            center: [10, 0],
+            zoom: 0
           });
 
           L.tileLayer('http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png', {
@@ -665,7 +673,7 @@ Extensions used are:
           </script>
 
 
-<script async src="https://jsfiddle.net/WandaBodnar/2tbp9cL5/12/embed/js,html,css,result/dark/"></script>
+<script async src="https://jsfiddle.net/WandaBodnar/y7swnnmk/2/embed/js,html,css,result/dark/"></script>
 
 $~$
 
@@ -695,7 +703,29 @@ Extensions used are:
       
           </script>
 
-<script async src="https://jsfiddle.net/WandaBodnar/p8og2hgg/2/embed/js,html,css,result/dark/"></script>
+<script async src="https://jsfiddle.net/WandaBodnar/m6aLp51j/1/embed/js,html,css,result/dark/"></script>
+
+$~$
+
+# Scale
+
+          <script>
+          
+          var map = L.map('map', {
+            center: [10, 0],
+            zoom: 1
+          });
+
+          L.tileLayer('http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+          }).addTo(map);
+
+          var scale = L.control.scale();
+          scale.addTo(map);
+      
+          </script>
+          
+<script async src="https://jsfiddle.net/WandaBodnar/n2q0h1n3/2/embed/js,html,css,result/dark/"></script>
 
 $~$
 

@@ -61,6 +61,8 @@ $~$
 Let's set the view by defining a set of coordinates and the zoom level, and add a different basemap (leaflet will use Open Street Map by default). [Here](https://leaflet-extras.github.io/leaflet-providers/preview/) you can find a wide range of options for the basemap. 
 
 ```{r, fig.width = 8.4, fig.height = 6}
+library(leaflet)
+
 leaflet() %>%
   setView(lng = -15, lat = 20, zoom = 2) %>%
   addTiles() %>%
@@ -71,9 +73,9 @@ $~$
 
 # Marker
 
-You can easily add a marker by defining a set of coordinates and using `addMarker()`. The example here is the Mariana Trench, the deepest part of the world's oceans.
-
 ```{r, fig.width = 8.4, fig.height = 6}
+library(leaflet)
+
 leaflet() %>%
   addTiles() %>%
   setView(lng = 142, lat = 11, zoom = 3) %>%
@@ -85,9 +87,8 @@ $~$
 
 ## Pop-up
 
-Adding a pop-up to the marker can be done using `popup = ()`.
-
 ```{r, fig.width = 8.4, fig.height = 6}
+library(leaflet)
 
 leaflet() %>%
   addTiles() %>%
@@ -101,7 +102,7 @@ $~$
 ## Tooltip
 
 ```{r, fig.width = 8.4, fig.height = 6}
-
+library(leaflet)
 library(htmltools)
 
 df <- read.csv(textConnection(
@@ -119,9 +120,8 @@ $~$
 
 ## Circle marker
 
-Instead of the default marker, circle markers can also be used `addCircleMarkers = ()`.
-
 ```{r, fig.width = 8.4, fig.height = 6}
+library(leaflet)
 
 leaflet() %>%
   addTiles() %>%
@@ -134,9 +134,8 @@ $~$
 
 ## Costum marker
 
-Alternatively, the marker can be costumised. 
-
 ```{r, fig.width = 8.4, fig.height = 6}
+library(leaflet)
 
 subIcon <- makeIcon(iconUrl = "https://image.flaticon.com/icons/png/512/190/190006.png",
                     iconWidth = 100, iconHeight = 95)
@@ -152,9 +151,8 @@ $~$
 
 # Polyline
 
-Let's add the Equator to the map using the `addPolylines()`. 
-
 ```{r, fig.width = 8.4, fig.height = 6}
+library(leaflet)
 
 x = c(-180, 180)
 y = c(0, 0)
@@ -171,9 +169,8 @@ $~$
 
 # Polygon
 
-Highlighting the tropics, let's add a polygon to the map using `addPolygon()`. 
-
 ```{r, fig.width = 8.4, fig.height = 6}
+library(leaflet)
 
 x = c(-180, 180, 180, -180)
 y = c(23.5, 23.5, -23.5, -23.5)
@@ -190,9 +187,9 @@ $~$
 
 # Layer control
 
-In case of the use of more than one basemap, it can be decided which basemap to show using the layer control function `addLayersControl()`. In this case, the group needs to defined and also the layer control option can be defined to be either visible or not. 
-
 ```{r, fig.width = 8.4, fig.height = 6}
+library(leaflet)
+
 leaflet() %>%
   addTiles() %>%
   setView(lng = 0, lat = 0, zoom = 2) %>%
@@ -231,6 +228,8 @@ WMS stands for web map services and it is a standard protocol used for serving g
 For this example seabed habitats [data](http://www.emodnet-seabedhabitats.eu/default.aspx?page=1974&LAYERS=EUSMMSFD&zoom=2&Y=51.599999999888055&X=-14.999999999967768) from the [EMODnet](http://www.emodnet.eu/) website is used. 
 
 ```{r, fig.width = 8.4, fig.height = 6}
+library(leaflet)
+
 leaflet() %>% 
   addTiles() %>% 
   setView(1, 51, zoom = 3) %>%
@@ -363,8 +362,33 @@ leaflet() %>%
     onClick = JS("function(btn, map){ map.setZoom(3);}"))) %>%
   addEasyButton(easyButton(
     icon = "fa-crosshairs", title = "Locate Me",
-    onClick=JS("function(btn, map){ map.locate({setView: true}); }"))) %>%
+    onClick = JS("function(btn, map){ map.locate({setView: true}); }"))) %>%
   addFullscreenControl()
+```
+
+$~$
+
+# Scale
+
+```{r fig.width = 8.4, fig.height = 6}
+library(leaflet)
+library(leaflet.extras)
+library(mapview)
+library(htmltools)
+library(htmlwidgets)
+
+leaflet() %>% 
+  addTiles() %>%
+  setView(0, 0, zoom = 2) %>%
+  addMouseCoordinates(style = "basic") %>%
+  addEasyButton(easyButton(
+    icon = "fa-globe",
+    onClick = JS("function(btn, map){ map.setZoom(3);}"))) %>%
+  addEasyButton(easyButton(
+    icon = "fa-crosshairs", title = "Locate Me",
+    onClick = JS("function(btn, map){ map.locate({setView: true}); }"))) %>%
+  addFullscreenControl() %>%
+  addScaleBar(position = "bottomleft")
 ```
 
 $~$

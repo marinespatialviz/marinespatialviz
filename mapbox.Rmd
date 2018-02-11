@@ -61,13 +61,11 @@ Here is the basic HTML code for the web map, and you can set the view and the [b
 
     </html>
 
-<script async src="https://jsfiddle.net/WandaBodnar/jga1e38m/2/embed/js,html,css,result/dark/"></script>
+<script async src="https://jsfiddle.net/WandaBodnar/4hp4qks6/embed/js,html,css,result/dark/"></script>
 
 $~$
 
 # Marker
-
-You can add a marker to the map using the code `var marker = L.marker([]); marker.addTo(map);`. This will add the same type of marker as in Leaflet.js. 
 
           <script>
 
@@ -80,13 +78,11 @@ You can add a marker to the map using the code `var marker = L.marker([]); marke
 
           </script>
     
-<script async src="https://jsfiddle.net/WandaBodnar/jga1e38m/3/embed/js,html,css,result/dark/"></script>
+<script async src="https://jsfiddle.net/WandaBodnar/tozvt54w/1/embed/js,html,css,result/dark/"></script>
 
 $~$
 
 ## Mapbox marker
-
-You can also use the Mapbox marker `icon: L.mapbox.marker.icon`. 
 
           <script>
 
@@ -102,13 +98,11 @@ You can also use the Mapbox marker `icon: L.mapbox.marker.icon`.
 
           </script>
 
-<script async src="https://jsfiddle.net/WandaBodnar/jga1e38m/4/embed/js,html,css,result/dark/"></script>
+<script async src="https://jsfiddle.net/WandaBodnar/41xrs34s/1/embed/js,html,css,result/dark/"></script>
 
 $~$
 
 ## Pop-up 
-
-Pop-up can also be addded.
 
           <script>
 
@@ -124,7 +118,7 @@ Pop-up can also be addded.
 
           </script>
 
-<script async src="https://jsfiddle.net/WandaBodnar/jga1e38m/5/embed/js,html,css,result/dark/"></script>
+<script async src="https://jsfiddle.net/WandaBodnar/xgc2sj79/1/embed/js,html,css,result/dark/"></script>
 
 $~$
 
@@ -145,13 +139,11 @@ $~$
 
           </script>
           
-<script async src="https://jsfiddle.net/WandaBodnar/rLvmzrnw/3/embed/js,html,css,result/dark/"></script>
+<script async src="https://jsfiddle.net/WandaBodnar/0Ljnzef6/1/embed/js,html,css,result/dark/"></script>
 
 $~$
 
 ## Circle marker
-
-Changing the default marker to circle. 
 
           <script>
 
@@ -168,13 +160,11 @@ Changing the default marker to circle.
           
           </script>
           
-<script async src="https://jsfiddle.net/WandaBodnar/jga1e38m/6/embed/js,html,css,result/dark/"></script>
+<script async src="https://jsfiddle.net/WandaBodnar/zpary9v1/1/embed/js,html,css,result/dark/"></script>
 
 $~$
 
 ## Costum marker
-
-Adding costum maker. 
 
           <script>
 
@@ -192,37 +182,55 @@ Adding costum maker.
 
           </script>
 
-<script async src="https://jsfiddle.net/WandaBodnar/jga1e38m/7/embed/js,html,css,result/dark/"></script>
+<script async src="https://jsfiddle.net/WandaBodnar/sdfkLy96/1/embed/js,html,css,result/dark/"></script>
+
+$~$
+
+# Dragable marker
+
+          <script>
+
+          L.mapbox.accessToken = 'pk.eyJ1Ijoid2FuZGFib2RuYXIiLCJhIjoiY2phdHM1dm0xNXF0ajJxanU3dmdmaHRqcCJ9.mFPox1jAE9LkZN6v5OZ7Lw';
+
+          var map = L.mapbox.map('map', 'mapbox.light').setView([11, 142], 3);
+
+          var marker = L.marker([11.3499986, 142.1999992], {
+            draggable: true,
+            icon: L.mapbox.marker.icon({
+            'marker-size': 'large',
+            'marker-color': '#e12323'
+            })
+          }).addTo(map);
+
+          </script>
+
+<script async src="https://jsfiddle.net/WandaBodnar/uybqe2vu/1/embed/js,html,css,result/dark/"></script>
 
 $~$
 
 # Polyline
 
-For adding a line, the same code can be used as in Leaflet.js. 
-
           <script>
 
           L.mapbox.accessToken = 'pk.eyJ1Ijoid2FuZGFib2RuYXIiLCJhIjoiY2phdHM1dm0xNXF0ajJxanU3dmdmaHRqcCJ9.mFPox1jAE9LkZN6v5OZ7Lw';
 
-          var map = L.mapbox.map('map', 'mapbox.light').setView([0, 0], 3);
+          var map = L.mapbox.map('map', 'mapbox.light').setView([10, 0], 1);
 
           var line = L.polyline([[0, -180], [0, 180]],{color: 'red'}).addTo(map);
 
           </script>
 
-<script async src="https://jsfiddle.net/WandaBodnar/jga1e38m/8/embed/js,html,css,result/dark/"></script>
+<script async src="https://jsfiddle.net/WandaBodnar/qhzx0zxk/2/embed/js,html,css,result/dark/"></script>
 
 $~$
 
 # Polygon
 
-Again, the same code can be used. 
-
           <script>
 
           L.mapbox.accessToken = 'pk.eyJ1Ijoid2FuZGFib2RuYXIiLCJhIjoiY2phdHM1dm0xNXF0ajJxanU3dmdmaHRqcCJ9.mFPox1jAE9LkZN6v5OZ7Lw';
 
-          var map = L.mapbox.map('map', 'mapbox.light').setView([0, 0], 3);
+          var map = L.mapbox.map('map', 'mapbox.light').setView([10, 0], 1);
 
           var polygon = L.polygon([[23.5, 180], [-23.5, 180], [-23.5, -180], [23.5, -180]],
           {color: 'orange', fillColor: 'orange', fillOpacity: .5}).addTo(map);
@@ -231,19 +239,17 @@ Again, the same code can be used.
 
           </script>
 
-<script async src="https://jsfiddle.net/WandaBodnar/jga1e38m/9/embed/js,html,css,result/dark/"></script>
+<script async src="https://jsfiddle.net/WandaBodnar/06pL6wsz/2/embed/js,html,css,result/dark/"></script>
 
 $~$
 
 # Layer control
 
-For the layer control option the same example is used as for the leaflet.js map. 
-
           <script>
 
           L.mapbox.accessToken = 'pk.eyJ1Ijoid2FuZGFib2RuYXIiLCJhIjoiY2phdHM1dm0xNXF0ajJxanU3dmdmaHRqcCJ9.mFPox1jAE9LkZN6v5OZ7Lw';
 
-          var map = L.mapbox.map('map').setView([0, 0], 3);
+          var map = L.mapbox.map('map').setView([10, 0], 1);
 
           var Hydda_Full = L.tileLayer('https://{s}.tile.openstreetmap.se/hydda/full/{z}/{x}/{y}.png', {maxZoom: 18, attribution: 'Tiles courtesy of <a href="http://openstreetmap.se/" target="_blank">OpenStreetMap Sweden</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
           }).addTo(map);
@@ -260,7 +266,7 @@ For the layer control option the same example is used as for the leaflet.js map.
 
           </script>
           
-<script async src="https://jsfiddle.net/WandaBodnar/jga1e38m/10/embed/js,html,css,result/dark/"></script>
+<script async src="https://jsfiddle.net/WandaBodnar/6tqvhpja/2/embed/js,html,css,result/dark/"></script>
 
 $~$
 
@@ -311,13 +317,11 @@ $~$
           
           </script>
 
-<script async src="https://jsfiddle.net/WandaBodnar/jga1e38m/18/embed/js,html,css,result/dark/"></script>
+<script async src="https://jsfiddle.net/WandaBodnar/us7zrwna/1/embed/js,html,css,result/dark/"></script>
 
 $~$
 
 # WMS tile
-
-The same code can be applied for the WMS tile. 
 
           <script>
           
@@ -334,7 +338,7 @@ The same code can be applied for the WMS tile.
           
           </script>
           
-<script async src="https://jsfiddle.net/WandaBodnar/jga1e38m/11/embed/js,html,css,result/dark/"></script
+<script async src="https://jsfiddle.net/WandaBodnar/kxouorjn/1/embed/js,html,css,result/dark/"></script>
 
 $~$
 
@@ -344,7 +348,7 @@ $~$
 
           L.mapbox.accessToken = 'pk.eyJ1Ijoid2FuZGFib2RuYXIiLCJhIjoiY2phdHM1dm0xNXF0ajJxanU3dmdmaHRqcCJ9.mFPox1jAE9LkZN6v5OZ7Lw';
 
-          var map = L.mapbox.map('map').setView([0, 0], 3);
+          var map = L.mapbox.map('map').setView([10, 0], 1);
 
           var CartoDB_DarkMatter = L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png', {
           attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
@@ -362,8 +366,10 @@ $~$
           }
 
           map.on('click', onMapClick);
+          
+          </script>
 
-<script async src="https://jsfiddle.net/WandaBodnar/jga1e38m/20/embed/js,html,css,result/dark/"></script>
+<script async src="https://jsfiddle.net/WandaBodnar/4rfpp4r0/2/embed/js,html,css,result/dark/"></script>
 
 $~$
 
@@ -400,7 +406,7 @@ $~$
 
           </script>
           
-<script async src="https://jsfiddle.net/WandaBodnar/jga1e38m/28/embed/js,html,css,result/dark/"></script>
+<script async src="https://jsfiddle.net/WandaBodnar/o0bxvekf/2/embed/js,html,css,result/dark/"></script>
 
 $~$
 
@@ -410,7 +416,7 @@ $~$
           
           L.mapbox.accessToken = 'pk.eyJ1Ijoid2FuZGFib2RuYXIiLCJhIjoiY2phdHM1dm0xNXF0ajJxanU3dmdmaHRqcCJ9.mFPox1jAE9LkZN6v5OZ7Lw';
 
-          var map = L.mapbox.map('map', 'mapbox.light').setView([0, 0], 3);
+          var map = L.mapbox.map('map', 'mapbox.light').setView([10, 0], 1);
 
           L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
           attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
@@ -425,7 +431,7 @@ $~$
     
           </script>
           
-<script async src="https://jsfiddle.net/WandaBodnar/jga1e38m/41/embed/js,html,css,result/dark/"></script>
+<script async src="https://jsfiddle.net/WandaBodnar/swmvmho1/2/embed/js,html,css,result/dark/"></script>
 
 $~$
 
@@ -444,7 +450,7 @@ Externsions used are:
           
           L.mapbox.accessToken = 'pk.eyJ1Ijoid2FuZGFib2RuYXIiLCJhIjoiY2phdHM1dm0xNXF0ajJxanU3dmdmaHRqcCJ9.mFPox1jAE9LkZN6v5OZ7Lw';
           
-          var map = L.mapbox.map('map').setView([0, 0], 3);
+          var map = L.mapbox.map('map').setView([10, 0], 1);
           
           var Hydda_Full = L.tileLayer('https://{s}.tile.openstreetmap.se/hydda/full/{z}/{x}/{y}.png', {
             maxZoom: 18,
@@ -463,9 +469,9 @@ Externsions used are:
           }).addTo(map);
           
           var home = {
-            lat: 0,
+            lat: 10,
             lng: 0,
-            zoom: 3
+            zoom: 1
           };
           L.easyButton('<i class="fa-home" style="font-size:15px;"></i>', function() {
             map.setView([home.lat, home.lng], home.zoom);
@@ -475,7 +481,7 @@ Externsions used are:
       
           </script>
           
-<script async src="https://jsfiddle.net/WandaBodnar/wxmy32o6/1/embed/js,html,css,result/dark/"></script>
+<script async src="https://jsfiddle.net/WandaBodnar/0bjyah5q/2/embed/js,html,css,result/dark/"></script>
 
 $~$
 
@@ -492,7 +498,7 @@ Extensions used are:
           
            L.mapbox.accessToken = 'pk.eyJ1Ijoid2FuZGFib2RuYXIiLCJhIjoiY2phdHM1dm0xNXF0ajJxanU3dmdmaHRqcCJ9.mFPox1jAE9LkZN6v5OZ7Lw';
           
-          var map = L.mapbox.map('map').setView([0, 0], 3);
+          var map = L.mapbox.map('map').setView([10, 0], 1);
           
           var CartoDB_DarkMatter = L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
@@ -505,7 +511,7 @@ Extensions used are:
           </script>
 
 
-<script async src="https://jsfiddle.net/WandaBodnar/jga1e38m/44/embed/js,html,css,result/dark/"></script>
+<script async src="https://jsfiddle.net/WandaBodnar/Lg8as5mk/2/embed/js,html,css,result/dark/"></script>
 
 $~$
 
@@ -522,13 +528,30 @@ Extensions used are:
           
           L.mapbox.accessToken = 'pk.eyJ1Ijoid2FuZGFib2RuYXIiLCJhIjoiY2phdHM1dm0xNXF0ajJxanU3dmdmaHRqcCJ9.mFPox1jAE9LkZN6v5OZ7Lw';
           
-          var map = L.mapbox.map('map', 'mapbox.streets').setView([20, -15], 3);
+          var map = L.mapbox.map('map', 'mapbox.streets').setView([10, 0], 1);
           
           L.control.locate().addTo(map);
       
           </script>
           
-<script async src="https://jsfiddle.net/WandaBodnar/rLvmzrnw/4/embed/js,html,css,result/dark/"></script>
+<script async src="https://jsfiddle.net/WandaBodnar/asr1pn11/2/embed/js,html,css,result/dark/"></script>
+
+$~$
+
+# Scale
+
+          <script>
+          
+          L.mapbox.accessToken = 'pk.eyJ1Ijoid2FuZGFib2RuYXIiLCJhIjoiY2phdHM1dm0xNXF0ajJxanU3dmdmaHRqcCJ9.mFPox1jAE9LkZN6v5OZ7Lw';
+
+          var map = L.mapbox.map('map', 'mapbox.streets').setView([10, 0], 1);
+
+          var scale = L.control.scale();
+          scale.addTo(map);
+      
+          </script>
+     
+<script async src="https://jsfiddle.net/WandaBodnar/xj59df43/1/embed/js,html,css,result/dark/"></script>
 
 $~$
 
