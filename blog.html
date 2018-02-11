@@ -317,6 +317,47 @@ div.tocify {
 
 
 <p><span class="math inline">\(~\)</span></p>
+<div id="creating-web-map-with-arcgis-api" class="section level1">
+<h1>Creating web map with ArcGIS API</h1>
+<pre><code>  &lt;html&gt;
+  
+    &lt;head&gt;
+  
+      &lt;link rel=&quot;stylesheet&quot; href=&quot;https://js.arcgis.com/3.23/esri/css/esri.css&quot;&gt;
+      &lt;script src=&quot;https://js.arcgis.com/3.23/&quot;&gt;&lt;/script&gt;
+  
+      &lt;style&gt;
+  
+        body { margin:0; padding:0; }
+        #map { position:absolute; top:0; bottom:0; width:100%; }
+  
+      &lt;/style&gt;
+  
+    &lt;/head&gt;
+  
+    &lt;body&gt;
+  
+      &lt;div id=&quot;map&quot;&gt;&lt;/div&gt;
+  
+      &lt;script&gt;
+  
+      var map;
+      require([&quot;esri/map&quot;, &quot;dojo/domReady!&quot;], function(Map) {
+        map = new Map(&quot;map&quot;, {
+          basemap: &quot;dark-gray&quot;,
+          center: [0, 10],
+          zoom: 2
+        });
+      });
+  
+      &lt;/script&gt;
+  
+    &lt;/body&gt;
+  
+  &lt;/html&gt;</code></pre>
+<script async src="https://jsfiddle.net/WandaBodnar/h3vo0zju/5/embed/js,html,css,result/dark/"></script>
+<p><span class="math inline">\(~\)</span></p>
+</div>
 <div id="reading-and-mapping-.dat-file-in-r-studio" class="section level1">
 <h1>Reading and mapping .dat file in R Studio</h1>
 <pre class="r"><code>irma &lt;- &quot;http://weather.unisys.com/hurricane/atlantic/2017/IRMA/track.dat&quot;
@@ -401,7 +442,7 @@ wordcloud(c(&quot;gis&quot;, &quot;data&quot;, &quot;rstudio&quot;, &quot;leafle
             &quot;climate&quot;),
           freq = c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13), 
           col = pal, scale = c(2, 3), min.freq = 1)</code></pre>
-<p><img src="blog_files/figure-html/unnamed-chunk-16-1.png" width="672" /> <img src="https://marinespatialviz.github.io/marinespatialviz/images/wordcloud.png" /></p>
+<p><img src="blog_files/figure-html/unnamed-chunk-4-1.png" width="672" /> <img src="https://marinespatialviz.github.io/marinespatialviz/images/wordcloud.png" /></p>
 <p><span class="math inline">\(~\)</span></p>
 <p><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a> This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a></p>
 </div>

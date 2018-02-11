@@ -10,6 +10,49 @@ output:
 
 $~$
 
+# Creating web map with ArcGIS API
+
+      <html>
+      
+        <head>
+      
+          <link rel="stylesheet" href="https://js.arcgis.com/3.23/esri/css/esri.css">
+          <script src="https://js.arcgis.com/3.23/"></script>
+      
+          <style>
+      
+            body { margin:0; padding:0; }
+            #map { position:absolute; top:0; bottom:0; width:100%; }
+      
+          </style>
+      
+        </head>
+      
+        <body>
+      
+          <div id="map"></div>
+      
+          <script>
+      
+          var map;
+          require(["esri/map", "dojo/domReady!"], function(Map) {
+            map = new Map("map", {
+              basemap: "dark-gray",
+              center: [0, 10],
+              zoom: 2
+            });
+          });
+      
+          </script>
+      
+        </body>
+      
+      </html>
+
+<script async src="https://jsfiddle.net/WandaBodnar/h3vo0zju/5/embed/js,html,css,result/dark/"></script>
+
+$~$
+
 # Reading and mapping .dat file in R Studio
 
 ```{r results = 'hide'}
