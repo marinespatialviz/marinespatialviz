@@ -11,7 +11,7 @@
 
 
 
-<title>ArcGIS</title>
+<title>ArcGIS API for JavaScript</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -311,7 +311,7 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">ArcGIS</h1>
+<h1 class="title toc-ignore">ArcGIS API for JavaScript</h1>
 
 </div>
 
@@ -751,6 +751,230 @@ div.tocify {
   &lt;/html&gt;
   </code></pre>
 <script async src="https://jsfiddle.net/WandaBodnar/psq1whym/2/embed/js,html,css,result/dark/"></script>
+<p><span class="math inline">\(~\)</span></p>
+</div>
+<div id="home-button" class="section level1">
+<h1>Home button</h1>
+<pre><code>  &lt;html&gt;
+  
+  &lt;head&gt;
+  
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;initial-scale=1, maximum-scale=1,user-scalable=no&quot;&gt;
+  
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://js.arcgis.com/3.23/esri/css/esri.css&quot;&gt;
+  
+    &lt;style&gt;
+  
+      html, body,
+  
+      #map {
+        padding:0;
+        margin:0;
+        height:100%;
+      }
+  
+      #HomeButton {
+        position: absolute;
+        top: 95px;
+        left: 20px;
+        z-index: 50;
+      }
+  
+    &lt;/style&gt;
+  
+    &lt;script src=&quot;https://js.arcgis.com/3.23/&quot;&gt;&lt;/script&gt;
+  
+    &lt;script&gt;
+  
+      require([
+        &quot;esri/map&quot;,
+        &quot;esri/dijit/HomeButton&quot;,
+        &quot;dojo/domReady!&quot;
+      ], function(
+        Map, HomeButton
+      )  {
+  
+        var map = new Map(&quot;map&quot;, {
+          basemap: &quot;dark-gray&quot;,
+          center: [142, 11],
+          zoom: 3
+        });
+  
+        var home = new HomeButton({
+          map: map
+        }, &quot;HomeButton&quot;);
+        home.startup();
+  
+      });
+  
+    &lt;/script&gt;
+  
+  &lt;/head&gt;
+  
+  &lt;body&gt;
+  
+      &lt;div id=&quot;map&quot; class=&quot;map&quot;&gt;
+  
+      &lt;div id=&quot;HomeButton&quot;&gt;&lt;/div&gt;
+  
+    &lt;/div&gt;
+  
+  &lt;/body&gt;
+  
+  &lt;/html&gt;
+  </code></pre>
+<script async src="https://jsfiddle.net/WandaBodnar/tnuuz4qk/2/embed/js,html,css,result/dark/"></script>
+<p><span class="math inline">\(~\)</span></p>
+</div>
+<div id="locate-button" class="section level1">
+<h1>Locate button</h1>
+<pre><code>  &lt;html&gt;
+  
+  &lt;head&gt;
+  
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;initial-scale=1, maximum-scale=1,user-scalable=no&quot;&gt;
+  
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://js.arcgis.com/3.23/dijit/themes/claro/claro.css&quot;&gt;
+  
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://js.arcgis.com/3.23/esri/css/esri.css&quot;&gt;
+  
+    &lt;style&gt;
+  
+      html, body,
+  
+      #map {
+        padding:0;
+        margin:0;
+        height:100%;
+      }
+  
+      #LocateButton {
+        position: absolute;
+        top: 95px;
+        left: 20px;
+        z-index: 50;
+      }
+  
+    &lt;/style&gt;
+  
+    &lt;script src=&quot;https://js.arcgis.com/3.23/&quot;&gt;&lt;/script&gt;
+  
+    &lt;script&gt;
+  
+      require([
+        &quot;esri/map&quot;,
+        &quot;esri/dijit/LocateButton&quot;,
+        &quot;dojo/domReady!&quot;
+      ], function(
+        Map, LocateButton
+      )  {
+  
+        var map = new Map(&quot;map&quot;, {
+          basemap: &quot;dark-gray&quot;,
+          center: [142, 11],
+          zoom: 3
+        });
+  
+        var geoLocate = new LocateButton({
+          map: map
+        }, &quot;LocateButton&quot;);
+        geoLocate.startup();
+  
+      });
+  
+    &lt;/script&gt;
+  
+  &lt;/head&gt;
+  
+  &lt;body&gt;
+  
+      &lt;div id=&quot;map&quot; class=&quot;map&quot;&gt;
+  
+      &lt;div id=&quot;LocateButton&quot;&gt;&lt;/div&gt;
+  
+    &lt;/div&gt;
+  
+  &lt;/body&gt;
+  
+  &lt;/html&gt;</code></pre>
+<script async src="https://jsfiddle.net/WandaBodnar/ube8pLxn/3/embed/js,html,css,result/dark/"></script>
+<p><span class="math inline">\(~\)</span></p>
+</div>
+<div id="scale" class="section level1">
+<h1>Scale</h1>
+<pre><code>  &lt;html&gt;
+  
+  &lt;head&gt;
+  
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;initial-scale=1, maximum-scale=1,user-scalable=no&quot;&gt;
+  
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://js.arcgis.com/3.23/dijit/themes/claro/claro.css&quot;&gt;
+  
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://js.arcgis.com/3.23/esri/css/esri.css&quot;&gt;
+  
+    &lt;style&gt;
+  
+      html, body,
+  
+      #map {
+        padding:0;
+        margin:0;
+        height:100%;
+      }
+  
+      body {
+        background-color: #FFF;
+        overflow: hidden;
+        font-family: &quot;Trebuchet MS&quot;;
+      }
+  
+  
+    &lt;/style&gt;
+  
+    &lt;script src=&quot;https://js.arcgis.com/3.23/&quot;&gt;&lt;/script&gt;
+  
+    &lt;script&gt;
+  
+      require([
+        &quot;esri/map&quot;,
+        &quot;esri/dijit/Scalebar&quot;,
+        &quot;dojo/domReady!&quot;
+      ], function(
+        Map, Scalebar
+  
+      )  {
+  
+        var map = new Map(&quot;map&quot;, {
+            basemap: &quot;dark-gray&quot;,
+            center: [142, 11],
+            zoom: 3
+          });
+  
+        var scalebar = new Scalebar({
+          map: map,
+          scalebarUnit: &quot;dual&quot;
+        });
+  
+      });
+  
+    &lt;/script&gt;
+  
+  &lt;/head&gt;
+  
+  &lt;body&gt;
+  
+      &lt;div id=&quot;map&quot; class=&quot;map&quot;&gt;
+  
+    &lt;/div&gt;
+  
+  &lt;/body&gt;
+  
+  &lt;/html&gt;
+  </code></pre>
+<script async src="https://jsfiddle.net/WandaBodnar/nv9d5ck0/4/embed/js,html,css,result/dark/"></script>
 <p><span class="math inline">\(~\)</span></p>
 <p><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a> This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a></p>
 </div>
