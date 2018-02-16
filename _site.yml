@@ -13,9 +13,9 @@ navbar:
       href: leaflet.html
     - text: "Mapbox.js"
       href: mapbox.html
+    - text: "ArcGIS API"
+      href: arcgis.html
     - text: "Sources"
       href: datasources.html
     - text: "Blog"
       href: blog.html
-    - text: "Roadmap"
-      href: roadmap.html

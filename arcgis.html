@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<title>ArcGIS</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 60px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+
+.section h2 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h3 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h4 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h5 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h6 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+  padding-left: 25px;
+  text-indent: 0;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">MarineSpatialViz</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Marine GIS &amp; Data Visualisation</a>
+</li>
+<li>
+  <a href="rstudio.html">R Studio - Leaflet</a>
+</li>
+<li>
+  <a href="shiny.html">R Studio - Shiny</a>
+</li>
+<li>
+  <a href="leaflet.html">Leaflet.js</a>
+</li>
+<li>
+  <a href="mapbox.html">Mapbox.js</a>
+</li>
+<li>
+  <a href="arcgis.html">ArcGIS API</a>
+</li>
+<li>
+  <a href="datasources.html">Sources</a>
+</li>
+<li>
+  <a href="blog.html">Blog</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">ArcGIS</h1>
+
+</div>
+
+
+<p><span class="math inline">\(~\)</span></p>
+<div id="view-and-basemap-2d" class="section level1">
+<h1>View and basemap (2D)</h1>
+<pre><code>  &lt;html&gt;
+  
+    &lt;head&gt;
+  
+      &lt;link rel=&quot;stylesheet&quot; href=&quot;https://js.arcgis.com/3.23/esri/css/esri.css&quot;&gt;
+      &lt;script src=&quot;https://js.arcgis.com/3.23/&quot;&gt;&lt;/script&gt;
+  
+      &lt;style&gt;
+  
+        body { margin:0; padding:0; }
+        #map { position:absolute; top:0; bottom:0; width:100%; }
+  
+      &lt;/style&gt;
+  
+    &lt;/head&gt;
+  
+    &lt;body&gt;
+  
+      &lt;div id=&quot;map&quot;&gt;&lt;/div&gt;
+  
+      &lt;script&gt;
+  
+      var map;
+      require([&quot;esri/map&quot;, &quot;dojo/domReady!&quot;], function(Map) {
+        map = new Map(&quot;map&quot;, {
+          basemap: &quot;dark-gray&quot;,
+          center: [0, 10],
+          zoom: 2
+        });
+      });
+  
+      &lt;/script&gt;
+  
+    &lt;/body&gt;
+  
+  &lt;/html&gt;</code></pre>
+<script async src="https://jsfiddle.net/WandaBodnar/h3vo0zju/5/embed/js,html,css,result/dark/"></script>
+<p><span class="math inline">\(~\)</span></p>
+</div>
+<div id="view-and-basemap-3d" class="section level1">
+<h1>View and basemap (3D)</h1>
+<pre><code>  &lt;html&gt;
+  
+  &lt;head&gt;
+  
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;initial-scale=1,maximum-scale=1,user-scalable=no&quot;&gt;
+  
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://js.arcgis.com/4.6/esri/css/main.css&quot;&gt;
+    &lt;script src=&quot;https://js.arcgis.com/4.6/&quot;&gt;&lt;/script&gt;
+  
+    &lt;style&gt;
+      html,
+      body,
+      #viewDiv {
+        padding: 0;
+        margin: 0;
+        height: 100%;
+        width: 100%;
+      }
+    &lt;/style&gt;
+  
+    &lt;script&gt;
+  
+      require([
+          &quot;esri/Map&quot;,
+          &quot;esri/views/SceneView&quot;,
+          &quot;esri/layers/GraphicsLayer&quot;,
+          &quot;esri/Graphic&quot;,
+          &quot;esri/widgets/Locate&quot;,
+  
+          &quot;dojo/domReady!&quot;
+        ],
+        function(
+          Map, SceneView, GraphicsLayer, Graphic
+        ) {
+  
+          var map = new Map({
+            basemap: &quot;dark-gray&quot;
+          });
+  
+          var view = new SceneView({
+          container: &quot;viewDiv&quot;,
+          map: map,
+          scale: 30000000,
+          center: [142, 11]
+          });
+  
+  
+          var locateBtn = new Locate({
+                  view: view
+                });
+  
+  
+          view.ui.add(locateBtn, {
+                  position: &quot;top-left&quot;
+          });
+  
+        });
+  
+    &lt;/script&gt;
+  
+  &lt;/head&gt;
+  
+  &lt;body&gt;
+    &lt;div id=&quot;viewDiv&quot;&gt;&lt;/div&gt;
+  &lt;/body&gt;
+  
+  &lt;/html&gt;</code></pre>
+<script async src="https://jsfiddle.net/WandaBodnar/h3vo0zju/38/embed/js,html,css,result/dark/"></script>
+<p><span class="math inline">\(~\)</span></p>
+</div>
+<div id="marker" class="section level1">
+<h1>Marker</h1>
+<pre><code>  &lt;html&gt;
+  
+  &lt;head&gt;
+  
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;initial-scale=1,maximum-scale=1,user-scalable=no&quot;&gt;
+  
+    &lt;title&gt;Marker&lt;/title&gt;
+  
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://js.arcgis.com/4.6/esri/css/main.css&quot;&gt;
+    &lt;script src=&quot;https://js.arcgis.com/4.6/&quot;&gt;&lt;/script&gt;
+  
+    &lt;style&gt;
+      html,
+      body,
+      #viewDiv {
+        padding: 0;
+        margin: 0;
+        height: 100%;
+        width: 100%;
+      }
+    &lt;/style&gt;
+  
+    &lt;script&gt;
+      require([
+        &quot;esri/Map&quot;,
+        &quot;esri/views/MapView&quot;,
+        &quot;esri/Graphic&quot;,
+        &quot;dojo/domReady!&quot;
+      ], function(
+        Map, MapView, Graphic,
+      ) {
+  
+        var map = new Map({
+          basemap: &quot;dark-gray&quot;
+        });
+  
+        var view = new MapView({
+          center: [142, 11],
+          container: &quot;viewDiv&quot;,
+          map: map,
+          zoom: 3
+        });
+  
+        var point = {
+          type: &quot;point&quot;,
+          longitude: 142.11,
+          latitude: 11.34
+        };
+  
+        var markerSymbol = {
+          type: &quot;simple-marker&quot;,
+          color: [230, 0, 169]
+        };
+  
+        var pointGraphic = new Graphic({
+          geometry: point,
+          symbol: markerSymbol
+        });
+  
+        view.graphics.addMany([pointGraphic]);
+      });
+  
+    &lt;/script&gt;
+  
+  &lt;/head&gt;
+  
+  &lt;body&gt;
+  
+    &lt;div id=&quot;viewDiv&quot;&gt;&lt;/div&gt;
+  
+  &lt;/body&gt;
+  
+  &lt;/html&gt;
+  </code></pre>
+<script async src="https://jsfiddle.net/WandaBodnar/ebkjkv01/21/embed/js,html,css,result/dark/"></script>
+<p><span class="math inline">\(~\)</span></p>
+</div>
+<div id="line" class="section level1">
+<h1>Line</h1>
+<pre><code>  &lt;html&gt;
+  
+  &lt;head&gt;
+  
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;initial-scale=1,maximum-scale=1,user-scalable=no&quot;&gt;
+  
+    &lt;title&gt;Line&lt;/title&gt;
+  
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://js.arcgis.com/4.6/esri/css/main.css&quot;&gt;
+    &lt;script src=&quot;https://js.arcgis.com/4.6/&quot;&gt;&lt;/script&gt;
+  
+    &lt;style&gt;
+      html,
+      body,
+      #viewDiv {
+        padding: 0;
+        margin: 0;
+        height: 100%;
+        width: 100%;
+      }
+    &lt;/style&gt;
+  
+    &lt;script&gt;
+      require([
+        &quot;esri/Map&quot;,
+        &quot;esri/views/MapView&quot;,
+        &quot;esri/Graphic&quot;,
+        &quot;dojo/domReady!&quot;
+      ], function(
+        Map, MapView, Graphic,
+      ) {
+  
+        var map = new Map({
+          basemap: &quot;dark-gray&quot;
+        });
+  
+        var view = new MapView({
+          center: [20, 0],
+          container: &quot;viewDiv&quot;,
+          map: map,
+          zoom: 2
+        });
+  
+        var polyline = {
+          type: &quot;polyline&quot;,
+          paths: [
+            [-180, 0],
+            [180, 0]
+          ]
+        };
+  
+        var lineSymbol = {
+          type: &quot;simple-line&quot;,
+          color: [236, 54, 95],
+          width: 2
+        };
+  
+        var polylineGraphic = new Graphic({
+          geometry: polyline,
+          symbol: lineSymbol
+        });
+  
+        view.graphics.addMany([polylineGraphic]);
+  
+      });
+  
+    &lt;/script&gt;
+  
+  &lt;/head&gt;
+  
+  &lt;body&gt;
+  
+    &lt;div id=&quot;viewDiv&quot;&gt;&lt;/div&gt;
+  
+  &lt;/body&gt;
+  
+  &lt;/html&gt;
+  </code></pre>
+<script async src="https://jsfiddle.net/WandaBodnar/th8vm78z/3/embed/js,html,css,result/dark/"></script>
+<p><span class="math inline">\(~\)</span></p>
+</div>
+<div id="polygon" class="section level1">
+<h1>Polygon</h1>
+<pre><code>  &lt;html&gt;
+  
+  &lt;head&gt;
+  
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;initial-scale=1,maximum-scale=1,user-scalable=no&quot;&gt;
+  
+    &lt;title&gt;Polygon&lt;/title&gt;
+  
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://js.arcgis.com/4.6/esri/css/main.css&quot;&gt;
+    &lt;script src=&quot;https://js.arcgis.com/4.6/&quot;&gt;&lt;/script&gt;
+  
+    &lt;style&gt;
+      html,
+      body,
+      #viewDiv {
+        padding: 0;
+        margin: 0;
+        height: 100%;
+        width: 100%;
+      }
+    &lt;/style&gt;
+  
+    &lt;script&gt;
+      require([
+        &quot;esri/Map&quot;,
+        &quot;esri/views/MapView&quot;,
+        &quot;esri/Graphic&quot;,
+        &quot;dojo/domReady!&quot;
+      ], function(
+        Map, MapView, Graphic,
+      ) {
+  
+        var map = new Map({
+          basemap: &quot;dark-gray&quot;
+        });
+  
+        var view = new MapView({
+          center: [20, 0],
+          container: &quot;viewDiv&quot;,
+          map: map,
+          zoom: 3
+        });
+  
+        var polygon = {
+            type: &quot;polygon&quot;,
+            rings: [
+              [180, 23.5],
+              [-180, 23.5],
+              [-180, -23.5],
+              [180, -23.5]
+            ]
+          };
+  
+          var fillSymbol = {
+            type: &quot;simple-fill&quot;,
+            color: [225, 54, 236],
+            outline: {
+              color: [225, 54, 236],
+              width: 1
+            }
+          };
+  
+          var polygonGraphic = new Graphic({
+            geometry: polygon,
+            symbol: fillSymbol
+          });
+  
+        view.graphics.addMany([polygonGraphic]);
+  
+      });
+  
+    &lt;/script&gt;
+  
+  &lt;/head&gt;
+  
+  &lt;body&gt;
+  
+    &lt;div id=&quot;viewDiv&quot;&gt;&lt;/div&gt;
+  
+  &lt;/body&gt;
+  
+  &lt;/html&gt;
+  </code></pre>
+<script async src="https://jsfiddle.net/WandaBodnar/et9kxjyh/3/embed/js,html,css,result/dark/"></script>
+<p><span class="math inline">\(~\)</span></p>
+</div>
+<div id="switching-between-basemaps" class="section level1">
+<h1>Switching between basemaps</h1>
+<pre><code>  &lt;html&gt;
+  
+  &lt;head&gt;
+  
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;initial-scale=1, maximum-scale=1,user-scalable=no&quot;&gt;
+    
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://js.arcgis.com/3.23/esri/css/esri.css&quot;&gt;
+    
+    &lt;style&gt;
+      html, body, #map {
+        padding:0;
+        margin:0;
+        height:100%;
+      }
+      #BasemapToggle {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        z-index: 50;
+      }
+    &lt;/style&gt;
+    
+    
+    &lt;script src=&quot;https://js.arcgis.com/3.23/&quot;&gt;&lt;/script&gt;
+    
+    &lt;script&gt;
+  var map;
+      require([
+        &quot;esri/map&quot;,
+        &quot;esri/dijit/BasemapToggle&quot;,
+        &quot;dojo/domReady!&quot;
+      ], function(
+        Map, BasemapToggle
+      )  {
+  
+        map = new Map(&quot;map&quot;, {
+          center: [142, 11],
+          zoom: 3,
+          basemap: &quot;dark-gray&quot;
+        });
+  
+        var toggle = new BasemapToggle({
+          map: map,
+          basemap: &quot;satellite&quot;
+        }, &quot;BasemapToggle&quot;);
+        toggle.startup();
+  
+      });
+    &lt;/script&gt;
+    
+  &lt;/head&gt;
+  
+  &lt;body&gt;
+  
+    &lt;div id=&quot;map&quot; class=&quot;map&quot;&gt;
+    &lt;div id=&quot;BasemapToggle&quot;&gt;&lt;/div&gt;
+    
+    &lt;/div&gt;
+    
+  &lt;/body&gt;
+  
+  &lt;/html&gt;
+  </code></pre>
+<script async src="https://jsfiddle.net/WandaBodnar/psq1whym/2/embed/js,html,css,result/dark/"></script>
+<p><span class="math inline">\(~\)</span></p>
+<p><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a> This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a></p>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

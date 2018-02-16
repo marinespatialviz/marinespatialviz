@@ -729,4 +729,159 @@ $~$
 
 $~$
 
+# Time slider
+
+          <script>
+          
+          var map = L.map('map',{
+          center: [18, -53],
+          zoom: 3
+          });
+    
+          var CartoDB_DarkMatter = L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png', {
+          attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
+          subdomains: 'abcd',
+          maxZoom: 19
+          }).addTo(map);
+    
+          var irma = {"type":"FeatureCollection","features":
+          [{"type":"Feature","properties":{"Day":" Day 1"},
+          "geometry": { "type": "Point", "coordinates": [ -30.3, 16.4 ] } },
+          {"type":"Feature","properties":{"Day":" Day 2"},
+          "geometry": { "type": "Point", "coordinates": [ -31.2, 16.4 ] } },
+          {"type":"Feature","properties":{"Day":" Day 3"},
+          "geometry": { "type": "Point", "coordinates": [ -32.2, 16.4 ] } },
+          {"type":"Feature","properties":{"Day":" Day 3"},
+          "geometry": { "type": "Point", "coordinates": [ -32.9, 16.5 ] } },
+          {"type":"Feature","properties":{"Day":" Day 3"},
+          "geometry": { "type": "Point", "coordinates": [ -33.8, 16.9 ] } },
+          {"type":"Feature","properties":{"Day":" Day 3"},
+          "geometry": { "type": "Point", "coordinates": [ -34.8, 17.3 ] } },
+          {"type":"Feature","properties":{"Day":" Day 4"},
+          "geometry": { "type": "Point", "coordinates": [ -35.6, 17.8 ] } },
+          {"type":"Feature","properties":{"Day":" Day 4"},
+          "geometry": { "type": "Point", "coordinates": [ -36.5, 18.2 ] } },
+          {"type":"Feature","properties":{"Day":" Day 4"},
+          "geometry": { "type": "Point", "coordinates": [ -37.8, 18.5 ] } },
+          {"type":"Feature","properties":{"Day":" Day 4"},
+          "geometry": { "type": "Point", "coordinates": [ -39.1, 18.8 ] } },
+          {"type":"Feature","properties":{"Day":" Day 5"},
+          "geometry": { "type": "Point", "coordinates": [ -40.5, 19.1 ] } },
+          {"type":"Feature","properties":{"Day":" Day 5"},
+          "geometry": { "type": "Point", "coordinates": [ -41.8, 19.0 ] } },
+          {"type":"Feature","properties":{"Day":" Day 5"},
+          "geometry": { "type": "Point", "coordinates": [ -43.3, 18.8 ] } },
+          {"type":"Feature","properties":{"Day":" Day 5"},
+          "geometry": { "type": "Point", "coordinates": [ -44.6, 18.5 ] } },
+          {"type":"Feature","properties":{"Day":" Day 6"},
+          "geometry": { "type": "Point", "coordinates": [ -46.2, 18.3 ] } },
+          {"type":"Feature","properties":{"Day":" Day 6"},
+          "geometry": { "type": "Point", "coordinates": [ -47.5, 18.0 ] } },
+          {"type":"Feature","properties":{"Day":" Day 6"},
+          "geometry": { "type": "Point", "coordinates": [ -48.4, 17.7 ] } },
+          {"type":"Feature","properties":{"Day":" Day 6"},
+          "geometry": { "type": "Point", "coordinates": [ -49.8, 17.6 ] } },
+          {"type":"Feature","properties":{"Day":" Day 7"},
+          "geometry": { "type": "Point", "coordinates": [ -51.0, 17.2 ] } },
+          {"type":"Feature","properties":{"Day":" Day 7"},
+          "geometry": { "type": "Point", "coordinates": [ -52.3, 16.9 ] } },
+          {"type":"Feature","properties":{"Day":" Day 7"},
+          "geometry": { "type": "Point", "coordinates": [ -53.3, 16.8 ] } },
+          {"type":"Feature","properties":{"Day":" Day 7"},
+          "geometry": { "type": "Point", "coordinates": [ -54.4, 16.7 ] } },
+          {"type":"Feature","properties":{"Day":" Day 8"},
+          "geometry": { "type": "Point", "coordinates": [ -55.6, 16.7 ] } },
+          {"type":"Feature","properties":{"Day":" Day 8"},
+          "geometry": { "type": "Point", "coordinates": [ -57.0, 16.6 ] } },
+          {"type":"Feature","properties":{"Day":" Day 8"},
+          "geometry": { "type": "Point", "coordinates": [ -57.7, 16.7 ] } },
+          {"type":"Feature","properties":{"Day":" Day 8"},
+          "geometry": { "type": "Point", "coordinates": [ -58.4, 16.8 ] } },
+          {"type":"Feature","properties":{"Day":" Day 9"},
+          "geometry": { "type": "Point", "coordinates": [ -59.8, 17.1 ] } },
+          {"type":"Feature","properties":{"Day":" Day 9"},
+          "geometry": { "type": "Point", "coordinates": [ -61.1, 17.4 ] } },
+          {"type":"Feature","properties":{"Day":" Day 9"},
+          "geometry": { "type": "Point", "coordinates": [ -62.6, 17.9 ] } },
+          {"type":"Feature","properties":{"Day":" Day 9"},
+          "geometry": { "type": "Point", "coordinates": [ -64.0, 18.2 ] } },
+          {"type":"Feature","properties":{"Day":" Day 10"},
+          "geometry": { "type": "Point", "coordinates": [ -65.4, 18.8 ] } },
+          {"type":"Feature","properties":{"Day":" Day 10"},
+          "geometry": { "type": "Point", "coordinates": [ -66.8, 19.4 ] } },
+          {"type":"Feature","properties":{"Day":" Day 10"},
+          "geometry": { "type": "Point", "coordinates": [ -68.3, 20.0 ] } },
+          {"type":"Feature","properties":{"Day":" Day 10"},
+          "geometry": { "type": "Point", "coordinates": [ -69.7, 20.4 ] } },
+          {"type":"Feature","properties":{"Day":" Day 11"},
+          "geometry": { "type": "Point", "coordinates": [ -71.1, 20.9 ] } },
+          {"type":"Feature","properties":{"Day":" Day 11"},
+          "geometry": { "type": "Point", "coordinates": [ -72.4, 21.3 ] } },
+          {"type":"Feature","properties":{"Day":" Day 11"},
+          "geometry": { "type": "Point", "coordinates": [ -73.8, 21.7 ] } },
+          {"type":"Feature","properties":{"Day":" Day 11"},
+          "geometry": { "type": "Point", "coordinates": [ -75.3, 22.0 ] } },
+          {"type":"Feature","properties":{"Day":" Day 12"},
+          "geometry": { "type": "Point", "coordinates": [ -76.5, 22.1 ] } },
+          {"type":"Feature","properties":{"Day":" Day 12"},
+          "geometry": { "type": "Point", "coordinates": [ -77.7, 22.1 ] } },
+          {"type":"Feature","properties":{"Day":" Day 12"},
+          "geometry": { "type": "Point", "coordinates": [ -78.8, 22.5 ] } },
+          {"type":"Feature","properties":{"Day":" Day 12"},
+          "geometry": { "type": "Point", "coordinates": [ -79.8, 22.8 ] } },
+          {"type":"Feature","properties":{"Day":" Day 13"},
+          "geometry": { "type": "Point", "coordinates": [ -80.5, 23.4 ] } },
+          {"type":"Feature","properties":{"Day":" Day 13"},
+          "geometry": { "type": "Point", "coordinates": [ -81.0, 23.5 ] } },
+          {"type":"Feature","properties":{"Day":" Day 13"},
+          "geometry": { "type": "Point", "coordinates": [ -81.5, 24.1 ] } },
+          {"type":"Feature","properties":{"Day":" Day 13"},
+          "geometry": { "type": "Point", "coordinates": [ -81.5, 25.0 ] } },
+          {"type":"Feature","properties":{"Day":" Day 1"},
+          "geometry": { "type": "Point", "coordinates": [ -81.8, 26.2 ] } },
+          {"type":"Feature","properties":{"Day":" Day 14"},
+          "geometry": { "type": "Point", "coordinates": [ -81.9, 27.5 ] } },
+          {"type":"Feature","properties":{"Day":" Day 14"},
+          "geometry": { "type": "Point", "coordinates": [ -82.6, 28.9 ] } },
+          {"type":"Feature","properties":{"Day":" Day 14"},
+          "geometry": { "type": "Point", "coordinates": [ -83.1, 30.3 ] } },
+          {"type":"Feature","properties":{"Day":" Day 15"},
+          "geometry": { "type": "Point", "coordinates": [ -84.0, 31.5 ] } },
+          {"type":"Feature","properties":{"Day":" Day 15"},
+           "geometry": { "type": "Point", "coordinates": [ -84.9, 32.4 ] } }
+          ]};
+    
+          var geojsonMarkerOptions = {
+              radius: 8,
+              color: '#a58fa4',
+              fillColor: '#0d11ee',
+              fillOpacity: 0.5
+          };
+    
+          var testlayer = L.geoJson(irma, {
+              pointToLayer: function (feature, latlng) {
+                  return L.circleMarker(latlng, geojsonMarkerOptions);
+              }
+          });
+    
+          var sliderControl = L.control.sliderControl({
+            position: "topright",
+            layer: testlayer,
+            timeAttribute: 'Day'});
+          map.addControl(sliderControl);
+          sliderControl.startSlider();
+    
+          map.addControl(new L.Control.Fullscreen());
+    
+          var scale = L.control.scale();
+          scale.addTo(map);
+
+
+          </script>
+          
+
+<script async src="https://jsfiddle.net/WandaBodnar/eup48mrx/1/embed/js,html,css,result/dark/"></script>
+
+$~$
+
 <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a> This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>

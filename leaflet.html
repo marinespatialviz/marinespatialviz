@@ -291,13 +291,13 @@ div.tocify {
   <a href="mapbox.html">Mapbox.js</a>
 </li>
 <li>
+  <a href="arcgis.html">ArcGIS API</a>
+</li>
+<li>
   <a href="datasources.html">Sources</a>
 </li>
 <li>
   <a href="blog.html">Blog</a>
-</li>
-<li>
-  <a href="roadmap.html">Roadmap</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -945,6 +945,159 @@ attribution: &#39;&amp;copy; &lt;a href=&quot;http://www.openstreetmap.org/copyr
       &lt;/script&gt;
       </code></pre>
 <script async src="https://jsfiddle.net/WandaBodnar/n2q0h1n3/2/embed/js,html,css,result/dark/"></script>
+<p><span class="math inline">\(~\)</span></p>
+</div>
+<div id="time-slider" class="section level1">
+<h1>Time slider</h1>
+<pre><code>      &lt;script&gt;
+      
+      var map = L.map(&#39;map&#39;,{
+      center: [18, -53],
+      zoom: 3
+      });
+
+      var CartoDB_DarkMatter = L.tileLayer(&#39;https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png&#39;, {
+      attribution: &#39;&amp;copy; &lt;a href=&quot;http://www.openstreetmap.org/copyright&quot;&gt;OpenStreetMap&lt;/a&gt; &amp;copy; &lt;a href=&quot;http://cartodb.com/attributions&quot;&gt;CartoDB&lt;/a&gt;&#39;,
+      subdomains: &#39;abcd&#39;,
+      maxZoom: 19
+      }).addTo(map);
+
+      var irma = {&quot;type&quot;:&quot;FeatureCollection&quot;,&quot;features&quot;:
+      [{&quot;type&quot;:&quot;Feature&quot;,&quot;properties&quot;:{&quot;Day&quot;:&quot; Day 1&quot;},
+      &quot;geometry&quot;: { &quot;type&quot;: &quot;Point&quot;, &quot;coordinates&quot;: [ -30.3, 16.4 ] } },
+      {&quot;type&quot;:&quot;Feature&quot;,&quot;properties&quot;:{&quot;Day&quot;:&quot; Day 2&quot;},
+      &quot;geometry&quot;: { &quot;type&quot;: &quot;Point&quot;, &quot;coordinates&quot;: [ -31.2, 16.4 ] } },
+      {&quot;type&quot;:&quot;Feature&quot;,&quot;properties&quot;:{&quot;Day&quot;:&quot; Day 3&quot;},
+      &quot;geometry&quot;: { &quot;type&quot;: &quot;Point&quot;, &quot;coordinates&quot;: [ -32.2, 16.4 ] } },
+      {&quot;type&quot;:&quot;Feature&quot;,&quot;properties&quot;:{&quot;Day&quot;:&quot; Day 3&quot;},
+      &quot;geometry&quot;: { &quot;type&quot;: &quot;Point&quot;, &quot;coordinates&quot;: [ -32.9, 16.5 ] } },
+      {&quot;type&quot;:&quot;Feature&quot;,&quot;properties&quot;:{&quot;Day&quot;:&quot; Day 3&quot;},
+      &quot;geometry&quot;: { &quot;type&quot;: &quot;Point&quot;, &quot;coordinates&quot;: [ -33.8, 16.9 ] } },
+      {&quot;type&quot;:&quot;Feature&quot;,&quot;properties&quot;:{&quot;Day&quot;:&quot; Day 3&quot;},
+      &quot;geometry&quot;: { &quot;type&quot;: &quot;Point&quot;, &quot;coordinates&quot;: [ -34.8, 17.3 ] } },
+      {&quot;type&quot;:&quot;Feature&quot;,&quot;properties&quot;:{&quot;Day&quot;:&quot; Day 4&quot;},
+      &quot;geometry&quot;: { &quot;type&quot;: &quot;Point&quot;, &quot;coordinates&quot;: [ -35.6, 17.8 ] } },
+      {&quot;type&quot;:&quot;Feature&quot;,&quot;properties&quot;:{&quot;Day&quot;:&quot; Day 4&quot;},
+      &quot;geometry&quot;: { &quot;type&quot;: &quot;Point&quot;, &quot;coordinates&quot;: [ -36.5, 18.2 ] } },
+      {&quot;type&quot;:&quot;Feature&quot;,&quot;properties&quot;:{&quot;Day&quot;:&quot; Day 4&quot;},
+      &quot;geometry&quot;: { &quot;type&quot;: &quot;Point&quot;, &quot;coordinates&quot;: [ -37.8, 18.5 ] } },
+      {&quot;type&quot;:&quot;Feature&quot;,&quot;properties&quot;:{&quot;Day&quot;:&quot; Day 4&quot;},
+      &quot;geometry&quot;: { &quot;type&quot;: &quot;Point&quot;, &quot;coordinates&quot;: [ -39.1, 18.8 ] } },
+      {&quot;type&quot;:&quot;Feature&quot;,&quot;properties&quot;:{&quot;Day&quot;:&quot; Day 5&quot;},
+      &quot;geometry&quot;: { &quot;type&quot;: &quot;Point&quot;, &quot;coordinates&quot;: [ -40.5, 19.1 ] } },
+      {&quot;type&quot;:&quot;Feature&quot;,&quot;properties&quot;:{&quot;Day&quot;:&quot; Day 5&quot;},
+      &quot;geometry&quot;: { &quot;type&quot;: &quot;Point&quot;, &quot;coordinates&quot;: [ -41.8, 19.0 ] } },
+      {&quot;type&quot;:&quot;Feature&quot;,&quot;properties&quot;:{&quot;Day&quot;:&quot; Day 5&quot;},
+      &quot;geometry&quot;: { &quot;type&quot;: &quot;Point&quot;, &quot;coordinates&quot;: [ -43.3, 18.8 ] } },
+      {&quot;type&quot;:&quot;Feature&quot;,&quot;properties&quot;:{&quot;Day&quot;:&quot; Day 5&quot;},
+      &quot;geometry&quot;: { &quot;type&quot;: &quot;Point&quot;, &quot;coordinates&quot;: [ -44.6, 18.5 ] } },
+      {&quot;type&quot;:&quot;Feature&quot;,&quot;properties&quot;:{&quot;Day&quot;:&quot; Day 6&quot;},
+      &quot;geometry&quot;: { &quot;type&quot;: &quot;Point&quot;, &quot;coordinates&quot;: [ -46.2, 18.3 ] } },
+      {&quot;type&quot;:&quot;Feature&quot;,&quot;properties&quot;:{&quot;Day&quot;:&quot; Day 6&quot;},
+      &quot;geometry&quot;: { &quot;type&quot;: &quot;Point&quot;, &quot;coordinates&quot;: [ -47.5, 18.0 ] } },
+      {&quot;type&quot;:&quot;Feature&quot;,&quot;properties&quot;:{&quot;Day&quot;:&quot; Day 6&quot;},
+      &quot;geometry&quot;: { &quot;type&quot;: &quot;Point&quot;, &quot;coordinates&quot;: [ -48.4, 17.7 ] } },
+      {&quot;type&quot;:&quot;Feature&quot;,&quot;properties&quot;:{&quot;Day&quot;:&quot; Day 6&quot;},
+      &quot;geometry&quot;: { &quot;type&quot;: &quot;Point&quot;, &quot;coordinates&quot;: [ -49.8, 17.6 ] } },
+      {&quot;type&quot;:&quot;Feature&quot;,&quot;properties&quot;:{&quot;Day&quot;:&quot; Day 7&quot;},
+      &quot;geometry&quot;: { &quot;type&quot;: &quot;Point&quot;, &quot;coordinates&quot;: [ -51.0, 17.2 ] } },
+      {&quot;type&quot;:&quot;Feature&quot;,&quot;properties&quot;:{&quot;Day&quot;:&quot; Day 7&quot;},
+      &quot;geometry&quot;: { &quot;type&quot;: &quot;Point&quot;, &quot;coordinates&quot;: [ -52.3, 16.9 ] } },
+      {&quot;type&quot;:&quot;Feature&quot;,&quot;properties&quot;:{&quot;Day&quot;:&quot; Day 7&quot;},
+      &quot;geometry&quot;: { &quot;type&quot;: &quot;Point&quot;, &quot;coordinates&quot;: [ -53.3, 16.8 ] } },
+      {&quot;type&quot;:&quot;Feature&quot;,&quot;properties&quot;:{&quot;Day&quot;:&quot; Day 7&quot;},
+      &quot;geometry&quot;: { &quot;type&quot;: &quot;Point&quot;, &quot;coordinates&quot;: [ -54.4, 16.7 ] } },
+      {&quot;type&quot;:&quot;Feature&quot;,&quot;properties&quot;:{&quot;Day&quot;:&quot; Day 8&quot;},
+      &quot;geometry&quot;: { &quot;type&quot;: &quot;Point&quot;, &quot;coordinates&quot;: [ -55.6, 16.7 ] } },
+      {&quot;type&quot;:&quot;Feature&quot;,&quot;properties&quot;:{&quot;Day&quot;:&quot; Day 8&quot;},
+      &quot;geometry&quot;: { &quot;type&quot;: &quot;Point&quot;, &quot;coordinates&quot;: [ -57.0, 16.6 ] } },
+      {&quot;type&quot;:&quot;Feature&quot;,&quot;properties&quot;:{&quot;Day&quot;:&quot; Day 8&quot;},
+      &quot;geometry&quot;: { &quot;type&quot;: &quot;Point&quot;, &quot;coordinates&quot;: [ -57.7, 16.7 ] } },
+      {&quot;type&quot;:&quot;Feature&quot;,&quot;properties&quot;:{&quot;Day&quot;:&quot; Day 8&quot;},
+      &quot;geometry&quot;: { &quot;type&quot;: &quot;Point&quot;, &quot;coordinates&quot;: [ -58.4, 16.8 ] } },
+      {&quot;type&quot;:&quot;Feature&quot;,&quot;properties&quot;:{&quot;Day&quot;:&quot; Day 9&quot;},
+      &quot;geometry&quot;: { &quot;type&quot;: &quot;Point&quot;, &quot;coordinates&quot;: [ -59.8, 17.1 ] } },
+      {&quot;type&quot;:&quot;Feature&quot;,&quot;properties&quot;:{&quot;Day&quot;:&quot; Day 9&quot;},
+      &quot;geometry&quot;: { &quot;type&quot;: &quot;Point&quot;, &quot;coordinates&quot;: [ -61.1, 17.4 ] } },
+      {&quot;type&quot;:&quot;Feature&quot;,&quot;properties&quot;:{&quot;Day&quot;:&quot; Day 9&quot;},
+      &quot;geometry&quot;: { &quot;type&quot;: &quot;Point&quot;, &quot;coordinates&quot;: [ -62.6, 17.9 ] } },
+      {&quot;type&quot;:&quot;Feature&quot;,&quot;properties&quot;:{&quot;Day&quot;:&quot; Day 9&quot;},
+      &quot;geometry&quot;: { &quot;type&quot;: &quot;Point&quot;, &quot;coordinates&quot;: [ -64.0, 18.2 ] } },
+      {&quot;type&quot;:&quot;Feature&quot;,&quot;properties&quot;:{&quot;Day&quot;:&quot; Day 10&quot;},
+      &quot;geometry&quot;: { &quot;type&quot;: &quot;Point&quot;, &quot;coordinates&quot;: [ -65.4, 18.8 ] } },
+      {&quot;type&quot;:&quot;Feature&quot;,&quot;properties&quot;:{&quot;Day&quot;:&quot; Day 10&quot;},
+      &quot;geometry&quot;: { &quot;type&quot;: &quot;Point&quot;, &quot;coordinates&quot;: [ -66.8, 19.4 ] } },
+      {&quot;type&quot;:&quot;Feature&quot;,&quot;properties&quot;:{&quot;Day&quot;:&quot; Day 10&quot;},
+      &quot;geometry&quot;: { &quot;type&quot;: &quot;Point&quot;, &quot;coordinates&quot;: [ -68.3, 20.0 ] } },
+      {&quot;type&quot;:&quot;Feature&quot;,&quot;properties&quot;:{&quot;Day&quot;:&quot; Day 10&quot;},
+      &quot;geometry&quot;: { &quot;type&quot;: &quot;Point&quot;, &quot;coordinates&quot;: [ -69.7, 20.4 ] } },
+      {&quot;type&quot;:&quot;Feature&quot;,&quot;properties&quot;:{&quot;Day&quot;:&quot; Day 11&quot;},
+      &quot;geometry&quot;: { &quot;type&quot;: &quot;Point&quot;, &quot;coordinates&quot;: [ -71.1, 20.9 ] } },
+      {&quot;type&quot;:&quot;Feature&quot;,&quot;properties&quot;:{&quot;Day&quot;:&quot; Day 11&quot;},
+      &quot;geometry&quot;: { &quot;type&quot;: &quot;Point&quot;, &quot;coordinates&quot;: [ -72.4, 21.3 ] } },
+      {&quot;type&quot;:&quot;Feature&quot;,&quot;properties&quot;:{&quot;Day&quot;:&quot; Day 11&quot;},
+      &quot;geometry&quot;: { &quot;type&quot;: &quot;Point&quot;, &quot;coordinates&quot;: [ -73.8, 21.7 ] } },
+      {&quot;type&quot;:&quot;Feature&quot;,&quot;properties&quot;:{&quot;Day&quot;:&quot; Day 11&quot;},
+      &quot;geometry&quot;: { &quot;type&quot;: &quot;Point&quot;, &quot;coordinates&quot;: [ -75.3, 22.0 ] } },
+      {&quot;type&quot;:&quot;Feature&quot;,&quot;properties&quot;:{&quot;Day&quot;:&quot; Day 12&quot;},
+      &quot;geometry&quot;: { &quot;type&quot;: &quot;Point&quot;, &quot;coordinates&quot;: [ -76.5, 22.1 ] } },
+      {&quot;type&quot;:&quot;Feature&quot;,&quot;properties&quot;:{&quot;Day&quot;:&quot; Day 12&quot;},
+      &quot;geometry&quot;: { &quot;type&quot;: &quot;Point&quot;, &quot;coordinates&quot;: [ -77.7, 22.1 ] } },
+      {&quot;type&quot;:&quot;Feature&quot;,&quot;properties&quot;:{&quot;Day&quot;:&quot; Day 12&quot;},
+      &quot;geometry&quot;: { &quot;type&quot;: &quot;Point&quot;, &quot;coordinates&quot;: [ -78.8, 22.5 ] } },
+      {&quot;type&quot;:&quot;Feature&quot;,&quot;properties&quot;:{&quot;Day&quot;:&quot; Day 12&quot;},
+      &quot;geometry&quot;: { &quot;type&quot;: &quot;Point&quot;, &quot;coordinates&quot;: [ -79.8, 22.8 ] } },
+      {&quot;type&quot;:&quot;Feature&quot;,&quot;properties&quot;:{&quot;Day&quot;:&quot; Day 13&quot;},
+      &quot;geometry&quot;: { &quot;type&quot;: &quot;Point&quot;, &quot;coordinates&quot;: [ -80.5, 23.4 ] } },
+      {&quot;type&quot;:&quot;Feature&quot;,&quot;properties&quot;:{&quot;Day&quot;:&quot; Day 13&quot;},
+      &quot;geometry&quot;: { &quot;type&quot;: &quot;Point&quot;, &quot;coordinates&quot;: [ -81.0, 23.5 ] } },
+      {&quot;type&quot;:&quot;Feature&quot;,&quot;properties&quot;:{&quot;Day&quot;:&quot; Day 13&quot;},
+      &quot;geometry&quot;: { &quot;type&quot;: &quot;Point&quot;, &quot;coordinates&quot;: [ -81.5, 24.1 ] } },
+      {&quot;type&quot;:&quot;Feature&quot;,&quot;properties&quot;:{&quot;Day&quot;:&quot; Day 13&quot;},
+      &quot;geometry&quot;: { &quot;type&quot;: &quot;Point&quot;, &quot;coordinates&quot;: [ -81.5, 25.0 ] } },
+      {&quot;type&quot;:&quot;Feature&quot;,&quot;properties&quot;:{&quot;Day&quot;:&quot; Day 1&quot;},
+      &quot;geometry&quot;: { &quot;type&quot;: &quot;Point&quot;, &quot;coordinates&quot;: [ -81.8, 26.2 ] } },
+      {&quot;type&quot;:&quot;Feature&quot;,&quot;properties&quot;:{&quot;Day&quot;:&quot; Day 14&quot;},
+      &quot;geometry&quot;: { &quot;type&quot;: &quot;Point&quot;, &quot;coordinates&quot;: [ -81.9, 27.5 ] } },
+      {&quot;type&quot;:&quot;Feature&quot;,&quot;properties&quot;:{&quot;Day&quot;:&quot; Day 14&quot;},
+      &quot;geometry&quot;: { &quot;type&quot;: &quot;Point&quot;, &quot;coordinates&quot;: [ -82.6, 28.9 ] } },
+      {&quot;type&quot;:&quot;Feature&quot;,&quot;properties&quot;:{&quot;Day&quot;:&quot; Day 14&quot;},
+      &quot;geometry&quot;: { &quot;type&quot;: &quot;Point&quot;, &quot;coordinates&quot;: [ -83.1, 30.3 ] } },
+      {&quot;type&quot;:&quot;Feature&quot;,&quot;properties&quot;:{&quot;Day&quot;:&quot; Day 15&quot;},
+      &quot;geometry&quot;: { &quot;type&quot;: &quot;Point&quot;, &quot;coordinates&quot;: [ -84.0, 31.5 ] } },
+      {&quot;type&quot;:&quot;Feature&quot;,&quot;properties&quot;:{&quot;Day&quot;:&quot; Day 15&quot;},
+       &quot;geometry&quot;: { &quot;type&quot;: &quot;Point&quot;, &quot;coordinates&quot;: [ -84.9, 32.4 ] } }
+      ]};
+
+      var geojsonMarkerOptions = {
+          radius: 8,
+          color: &#39;#a58fa4&#39;,
+          fillColor: &#39;#0d11ee&#39;,
+          fillOpacity: 0.5
+      };
+
+      var testlayer = L.geoJson(irma, {
+          pointToLayer: function (feature, latlng) {
+              return L.circleMarker(latlng, geojsonMarkerOptions);
+          }
+      });
+
+      var sliderControl = L.control.sliderControl({
+        position: &quot;topright&quot;,
+        layer: testlayer,
+        timeAttribute: &#39;Day&#39;});
+      map.addControl(sliderControl);
+      sliderControl.startSlider();
+
+      map.addControl(new L.Control.Fullscreen());
+
+      var scale = L.control.scale();
+      scale.addTo(map);
+
+
+      &lt;/script&gt;
+      </code></pre>
+<script async src="https://jsfiddle.net/WandaBodnar/eup48mrx/1/embed/js,html,css,result/dark/"></script>
 <p><span class="math inline">\(~\)</span></p>
 <p><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a> This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a></p>
 </div>

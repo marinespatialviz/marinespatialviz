@@ -1,0 +1,457 @@
+---
+title: "ArcGIS"
+output: 
+  html_document:
+    toc: true
+    toc_depth: 2
+    toc_float: true
+    theme: flatly
+---
+
+$~$
+
+# View and basemap (2D)
+
+      <html>
+      
+        <head>
+      
+          <link rel="stylesheet" href="https://js.arcgis.com/3.23/esri/css/esri.css">
+          <script src="https://js.arcgis.com/3.23/"></script>
+      
+          <style>
+      
+            body { margin:0; padding:0; }
+            #map { position:absolute; top:0; bottom:0; width:100%; }
+      
+          </style>
+      
+        </head>
+      
+        <body>
+      
+          <div id="map"></div>
+      
+          <script>
+      
+          var map;
+          require(["esri/map", "dojo/domReady!"], function(Map) {
+            map = new Map("map", {
+              basemap: "dark-gray",
+              center: [0, 10],
+              zoom: 2
+            });
+          });
+      
+          </script>
+      
+        </body>
+      
+      </html>
+
+<script async src="https://jsfiddle.net/WandaBodnar/h3vo0zju/5/embed/js,html,css,result/dark/"></script>
+
+$~$
+
+# View and basemap (3D)
+
+      <html>
+      
+      <head>
+      
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+      
+        <link rel="stylesheet" href="https://js.arcgis.com/4.6/esri/css/main.css">
+        <script src="https://js.arcgis.com/4.6/"></script>
+      
+        <style>
+          html,
+          body,
+          #viewDiv {
+            padding: 0;
+            margin: 0;
+            height: 100%;
+            width: 100%;
+          }
+        </style>
+      
+        <script>
+      
+          require([
+              "esri/Map",
+              "esri/views/SceneView",
+              "esri/layers/GraphicsLayer",
+              "esri/Graphic",
+              "esri/widgets/Locate",
+      
+              "dojo/domReady!"
+            ],
+            function(
+              Map, SceneView, GraphicsLayer, Graphic
+            ) {
+      
+              var map = new Map({
+                basemap: "dark-gray"
+              });
+      
+              var view = new SceneView({
+              container: "viewDiv",
+              map: map,
+              scale: 30000000,
+              center: [142, 11]
+              });
+      
+      
+              var locateBtn = new Locate({
+                      view: view
+                    });
+      
+      
+              view.ui.add(locateBtn, {
+                      position: "top-left"
+              });
+      
+            });
+      
+        </script>
+      
+      </head>
+      
+      <body>
+        <div id="viewDiv"></div>
+      </body>
+      
+      </html>
+
+<script async src="https://jsfiddle.net/WandaBodnar/h3vo0zju/38/embed/js,html,css,result/dark/"></script>
+
+$~$
+
+# Marker
+
+      <html>
+      
+      <head>
+      
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+      
+        <title>Marker</title>
+      
+        <link rel="stylesheet" href="https://js.arcgis.com/4.6/esri/css/main.css">
+        <script src="https://js.arcgis.com/4.6/"></script>
+      
+        <style>
+          html,
+          body,
+          #viewDiv {
+            padding: 0;
+            margin: 0;
+            height: 100%;
+            width: 100%;
+          }
+        </style>
+      
+        <script>
+          require([
+            "esri/Map",
+            "esri/views/MapView",
+            "esri/Graphic",
+            "dojo/domReady!"
+          ], function(
+            Map, MapView, Graphic,
+          ) {
+      
+            var map = new Map({
+              basemap: "dark-gray"
+            });
+      
+            var view = new MapView({
+              center: [142, 11],
+              container: "viewDiv",
+              map: map,
+              zoom: 3
+            });
+      
+            var point = {
+              type: "point",
+              longitude: 142.11,
+              latitude: 11.34
+            };
+      
+            var markerSymbol = {
+              type: "simple-marker",
+              color: [230, 0, 169]
+            };
+      
+            var pointGraphic = new Graphic({
+              geometry: point,
+              symbol: markerSymbol
+            });
+      
+            view.graphics.addMany([pointGraphic]);
+          });
+      
+        </script>
+      
+      </head>
+      
+      <body>
+      
+        <div id="viewDiv"></div>
+      
+      </body>
+      
+      </html>
+      
+<script async src="https://jsfiddle.net/WandaBodnar/ebkjkv01/21/embed/js,html,css,result/dark/"></script>
+
+$~$
+
+# Line
+
+      <html>
+      
+      <head>
+      
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+      
+        <title>Line</title>
+      
+        <link rel="stylesheet" href="https://js.arcgis.com/4.6/esri/css/main.css">
+        <script src="https://js.arcgis.com/4.6/"></script>
+      
+        <style>
+          html,
+          body,
+          #viewDiv {
+            padding: 0;
+            margin: 0;
+            height: 100%;
+            width: 100%;
+          }
+        </style>
+      
+        <script>
+          require([
+            "esri/Map",
+            "esri/views/MapView",
+            "esri/Graphic",
+            "dojo/domReady!"
+          ], function(
+            Map, MapView, Graphic,
+          ) {
+      
+            var map = new Map({
+              basemap: "dark-gray"
+            });
+      
+            var view = new MapView({
+              center: [20, 0],
+              container: "viewDiv",
+              map: map,
+              zoom: 2
+            });
+      
+            var polyline = {
+              type: "polyline",
+              paths: [
+                [-180, 0],
+                [180, 0]
+              ]
+            };
+      
+            var lineSymbol = {
+              type: "simple-line",
+              color: [236, 54, 95],
+              width: 2
+            };
+      
+            var polylineGraphic = new Graphic({
+              geometry: polyline,
+              symbol: lineSymbol
+            });
+      
+            view.graphics.addMany([polylineGraphic]);
+      
+          });
+      
+        </script>
+      
+      </head>
+      
+      <body>
+      
+        <div id="viewDiv"></div>
+      
+      </body>
+      
+      </html>
+      
+<script async src="https://jsfiddle.net/WandaBodnar/th8vm78z/3/embed/js,html,css,result/dark/"></script>
+
+$~$
+
+# Polygon
+
+      <html>
+      
+      <head>
+      
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+      
+        <title>Polygon</title>
+      
+        <link rel="stylesheet" href="https://js.arcgis.com/4.6/esri/css/main.css">
+        <script src="https://js.arcgis.com/4.6/"></script>
+      
+        <style>
+          html,
+          body,
+          #viewDiv {
+            padding: 0;
+            margin: 0;
+            height: 100%;
+            width: 100%;
+          }
+        </style>
+      
+        <script>
+          require([
+            "esri/Map",
+            "esri/views/MapView",
+            "esri/Graphic",
+            "dojo/domReady!"
+          ], function(
+            Map, MapView, Graphic,
+          ) {
+      
+            var map = new Map({
+              basemap: "dark-gray"
+            });
+      
+            var view = new MapView({
+              center: [20, 0],
+              container: "viewDiv",
+              map: map,
+              zoom: 3
+            });
+      
+            var polygon = {
+                type: "polygon",
+                rings: [
+                  [180, 23.5],
+                  [-180, 23.5],
+                  [-180, -23.5],
+                  [180, -23.5]
+                ]
+              };
+      
+              var fillSymbol = {
+                type: "simple-fill",
+                color: [225, 54, 236],
+                outline: {
+                  color: [225, 54, 236],
+                  width: 1
+                }
+              };
+      
+              var polygonGraphic = new Graphic({
+                geometry: polygon,
+                symbol: fillSymbol
+              });
+      
+            view.graphics.addMany([polygonGraphic]);
+      
+          });
+      
+        </script>
+      
+      </head>
+      
+      <body>
+      
+        <div id="viewDiv"></div>
+      
+      </body>
+      
+      </html>
+      
+<script async src="https://jsfiddle.net/WandaBodnar/et9kxjyh/3/embed/js,html,css,result/dark/"></script>
+
+$~$
+
+# Switching between basemaps
+
+      <html>
+      
+      <head>
+      
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no">
+        
+        <link rel="stylesheet" href="https://js.arcgis.com/3.23/esri/css/esri.css">
+        
+        <style>
+          html, body, #map {
+            padding:0;
+            margin:0;
+            height:100%;
+          }
+          #BasemapToggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 50;
+          }
+        </style>
+        
+        
+        <script src="https://js.arcgis.com/3.23/"></script>
+        
+        <script>
+      var map;
+          require([
+            "esri/map",
+            "esri/dijit/BasemapToggle",
+            "dojo/domReady!"
+          ], function(
+            Map, BasemapToggle
+          )  {
+      
+            map = new Map("map", {
+              center: [142, 11],
+              zoom: 3,
+              basemap: "dark-gray"
+            });
+      
+            var toggle = new BasemapToggle({
+              map: map,
+              basemap: "satellite"
+            }, "BasemapToggle");
+            toggle.startup();
+      
+          });
+        </script>
+        
+      </head>
+      
+      <body>
+      
+        <div id="map" class="map">
+        <div id="BasemapToggle"></div>
+        
+        </div>
+        
+      </body>
+      
+      </html>
+      
+<script async src="https://jsfiddle.net/WandaBodnar/psq1whym/2/embed/js,html,css,result/dark/"></script>
+
+$~$
+
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a> This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>
