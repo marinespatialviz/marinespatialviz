@@ -850,7 +850,65 @@ server &lt;- function(input, output){
 
 
 shinyApp(ui = ui, server = server)</code></pre>
-<p><div style="width: 100% ; height: 400px ; text-align: center; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;" class="muted well">Shiny applications not supported in static R Markdown documents</div> <span class="math inline">\(~\)</span></p>
+<div style="width: 100% ; height: 400px ; text-align: center; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;" class="muted well">Shiny applications not supported in static R Markdown documents</div>
+<p><span class="math inline">\(~\)</span></p>
+</div>
+<div id="choropleth-map" class="section level1">
+<h1>Choropleth map</h1>
+<pre class="r"><code>library(shiny)
+library(downloader)
+
+file &lt;- &quot;https://raw.githubusercontent.com/marinespatialviz/marinespatialviz/master/lme.geojson&quot;
+downloader::download(url = file, destfile = &quot;C:/Users/HP/Desktop/lme.geojson&quot;)
+
+lme &lt;- geojsonio::geojson_read(&quot;C:/Users/HP/Desktop/lme.geojson&quot;, what = &quot;sp&quot;)
+
+bins &lt;- c(0, 100000, 200000, 300000, 400000, 500000, 600000, 700000, 800000, 900000, 1000000, 2000000, 3000000)
+pal &lt;- colorBin(&quot;Set3&quot;, domain = lme$Area, bins = bins)
+
+ui &lt;- bootstrapPage(tags$style(type = &quot;text/css&quot;, &quot;html, body {width:100%;height:100%}&quot;),
+                    
+                    leafletOutput(&quot;mymap&quot;, width = &quot;100%&quot;, height = &quot;100%&quot;))
+
+server &lt;- function(input, output, session) {
+  
+  output$mymap &lt;- renderLeaflet({
+ 
+      library(leaflet)
+      library(leaflet.extras)
+      library(htmltools)
+
+      leaflet(lme) %&gt;%
+        setView(18, 55, 4) %&gt;%
+        addTiles() %&gt;% 
+        addProviderTiles(providers$CartoDB.DarkMatter) %&gt;%
+        addPolygons(fillColor = ~pal(Area),
+              label = ~htmlEscape(Name),
+              popup = ~as.character(Area),
+              weight = 1,
+              opacity = 0.1,
+              color = &quot;gray&quot;,
+              dashArray = &quot;1&quot;,
+              fillOpacity = 0.1,
+              highlight = highlightOptions(
+                weight = 1,
+                color = &quot;gray&quot;,
+                dashArray = &quot;&quot;,
+                opacity = 1,
+                fillOpacity = 0.7,
+                bringToFront = TRUE)) %&gt;%
+        addLegend(pal = pal, 
+            values = ~Area,
+            title = &quot;LMEs (EU) &lt;br&gt; Area (sqkm)&quot;,
+            position = &quot;topright&quot;) %&gt;%
+        addFullscreenControl() %&gt;%
+        addScaleBar(position = &quot;bottomleft&quot;)
+})
+}
+
+shinyApp(ui, server)</code></pre>
+<div style="width: 100% ; height: 400px ; text-align: center; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;" class="muted well">Shiny applications not supported in static R Markdown documents</div>
+<p><span class="math inline">\(~\)</span></p>
 <p><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a> This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a></p>
 </div>
 

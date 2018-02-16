@@ -393,4 +393,49 @@ leaflet() %>%
 
 $~$
 
+# Choropleth map
+
+```{r fig.width = 8.4, fig.height = 6}
+library(downloader)
+library(leaflet)
+library(leaflet.extras)
+library(htmltools)
+
+file <- "https://raw.githubusercontent.com/marinespatialviz/marinespatialviz/master/lme.geojson"
+downloader::download(url = file, destfile = "C:/Users/HP/Desktop/lme.geojson")
+
+lme <- geojsonio::geojson_read("C:/Users/HP/Desktop/lme.geojson", what = "sp")
+
+bins <- c(0, 100000, 200000, 300000, 400000, 500000, 600000, 700000, 800000, 900000, 1000000, 2000000, 3000000)
+pal <- colorBin("Set3", domain = lme$Area, bins = bins)
+
+leaflet(lme) %>%
+  setView(18, 55, 4) %>%
+  addTiles() %>% 
+  addProviderTiles(providers$CartoDB.DarkMatter) %>%
+  addPolygons(fillColor = ~pal(Area),
+              label = ~htmlEscape(Name),
+              popup = ~as.character(Area),
+              weight = 1,
+              opacity = 0.1,
+              color = "gray",
+              dashArray = "1",
+              fillOpacity = 0.1,
+              highlight = highlightOptions(
+                weight = 1,
+                color = "gray",
+                dashArray = "",
+                opacity = 1,
+                fillOpacity = 0.7,
+                bringToFront = TRUE)) %>%
+  addLegend(pal = pal, 
+            values = ~Area,
+            title = "LMEs (EU) <br> Area (sqkm)",
+            position = "topright") %>%
+  addFullscreenControl() %>%
+  addScaleBar(position = "bottomleft")
+```
+
+$~$
+
 <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a> This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>
