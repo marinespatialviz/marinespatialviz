@@ -555,4 +555,90 @@ $~$
 
 $~$
 
+# Choropleth map
+
+Extension used to read external geoJson file
+
+* https://cdnjs.cloudflare.com/ajax/libs/leaflet-ajax/2.1.0/leaflet.ajax.js
+
+
+          <script>
+          
+          L.mapbox.accessToken = 'pk.eyJ1Ijoid2FuZGFib2RuYXIiLCJhIjoiY2phdHM1dm0xNXF0ajJxanU3dmdmaHRqcCJ9.mFPox1jAE9LkZN6v5OZ7Lw';
+          
+          var map = L.mapbox.map('map', 'mapbox.dark').setView([55, 15], 3);
+          
+          function getColor(a) {
+              return a > 3000000 ? '#154360' :
+                    a > 2000000 ? '#1B4F72' :
+                    a > 1000000  ? '#154360' :
+                    a > 900000  ? '#1A5276' :
+                    a > 800000  ? '#1F618D' :
+                    a > 700000  ? '#2471A3' :
+                    a > 600000   ? '#2980B9' :
+                    a > 500000   ? '#5499C7' :
+                    a > 400000   ? '#7FB3D5' :
+                    a > 300000   ? '#A9CCE3' :
+                    a > 200000  ? '#D4E6F1' :
+                    a > 100000   ? '#EAF2F8' :
+                    a == null   ? '#000000' :
+                                '#ffffff';
+          }
+          
+          function style(feature) {
+          return {
+              fillColor: getColor(feature.properties.Area),
+              weight: 0.5,
+              opacity: 1,
+              color: 'white',
+              fillOpacity: 0.7
+          };
+          }
+          
+          function highlightFeature(a) {
+              var layer = a.target;
+              layer.setStyle({
+                          weight: 1,
+                          opacity: 0.1,
+                          fillOpacity: 0.1
+                });
+              info.update(layer.feature.properties);
+          }
+          function resetHighlight(a) {         /// layer 2
+              geojsonLayerLME.setStyle(style);
+              info.update(layer.feature.properties);
+          }
+          function onEachFeature(feature, layer) {
+              layer.bindPopup('</h1><p>Name: '+feature.properties.Name+'</h1><p>Area: '+feature.properties.Area+'</p>');
+              layer.on('mouseover', function() { layer.openPopup(); });
+              layer.on('mouseout', function() { layer.closePopup(); });
+              layer.on({
+                  mouseover: highlightFeature,
+                  mouseout: resetHighlight,
+              });
+          }
+          
+          var geojsonLayerLME = new L.GeoJSON.AJAX("https://raw.githubusercontent.com/marinespatialviz/marinespatialviz/master/lme.geojson", {
+            style:style,
+            onEachFeature:onEachFeature}).addTo(map);
+          
+            var overlayMaps = {
+              'LME': geojsonLayerLME
+            };
+          
+            L.control.layers(null, overlayMaps, {collapsed: false}).addTo(map);
+          
+            L.control.locate().addTo(map);
+          
+            var scale = L.control.scale();
+                scale.addTo(map);
+          
+            map.addControl(new L.Control.Fullscreen());
+
+          </script>
+          
+<script async src="https://jsfiddle.net/WandaBodnar/ozrvL6ob/3/embed/js,html,css,result/dark/"></script>
+
+$~$
+
 <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a> This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>

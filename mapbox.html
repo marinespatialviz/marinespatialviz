@@ -813,6 +813,89 @@ div.tocify {
  </code></pre>
 <script async src="https://jsfiddle.net/WandaBodnar/xj59df43/1/embed/js,html,css,result/dark/"></script>
 <p><span class="math inline">\(~\)</span></p>
+</div>
+<div id="choropleth-map" class="section level1">
+<h1>Choropleth map</h1>
+<p>Extension used to read external geoJson file</p>
+<ul>
+<li><p><a href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-ajax/2.1.0/leaflet.ajax.js" class="uri">https://cdnjs.cloudflare.com/ajax/libs/leaflet-ajax/2.1.0/leaflet.ajax.js</a></p>
+<pre><code>  &lt;script&gt;
+
+  L.mapbox.accessToken = &#39;pk.eyJ1Ijoid2FuZGFib2RuYXIiLCJhIjoiY2phdHM1dm0xNXF0ajJxanU3dmdmaHRqcCJ9.mFPox1jAE9LkZN6v5OZ7Lw&#39;;
+
+  var map = L.mapbox.map(&#39;map&#39;, &#39;mapbox.dark&#39;).setView([55, 15], 3);
+
+  function getColor(a) {
+      return a &gt; 3000000 ? &#39;#154360&#39; :
+            a &gt; 2000000 ? &#39;#1B4F72&#39; :
+            a &gt; 1000000  ? &#39;#154360&#39; :
+            a &gt; 900000  ? &#39;#1A5276&#39; :
+            a &gt; 800000  ? &#39;#1F618D&#39; :
+            a &gt; 700000  ? &#39;#2471A3&#39; :
+            a &gt; 600000   ? &#39;#2980B9&#39; :
+            a &gt; 500000   ? &#39;#5499C7&#39; :
+            a &gt; 400000   ? &#39;#7FB3D5&#39; :
+            a &gt; 300000   ? &#39;#A9CCE3&#39; :
+            a &gt; 200000  ? &#39;#D4E6F1&#39; :
+            a &gt; 100000   ? &#39;#EAF2F8&#39; :
+            a == null   ? &#39;#000000&#39; :
+                        &#39;#ffffff&#39;;
+  }
+
+  function style(feature) {
+  return {
+      fillColor: getColor(feature.properties.Area),
+      weight: 0.5,
+      opacity: 1,
+      color: &#39;white&#39;,
+      fillOpacity: 0.7
+  };
+  }
+
+  function highlightFeature(a) {
+      var layer = a.target;
+      layer.setStyle({
+                  weight: 1,
+                  opacity: 0.1,
+                  fillOpacity: 0.1
+        });
+      info.update(layer.feature.properties);
+  }
+  function resetHighlight(a) {         /// layer 2
+      geojsonLayerLME.setStyle(style);
+      info.update(layer.feature.properties);
+  }
+  function onEachFeature(feature, layer) {
+      layer.bindPopup(&#39;&lt;/h1&gt;&lt;p&gt;Name: &#39;+feature.properties.Name+&#39;&lt;/h1&gt;&lt;p&gt;Area: &#39;+feature.properties.Area+&#39;&lt;/p&gt;&#39;);
+      layer.on(&#39;mouseover&#39;, function() { layer.openPopup(); });
+      layer.on(&#39;mouseout&#39;, function() { layer.closePopup(); });
+      layer.on({
+          mouseover: highlightFeature,
+          mouseout: resetHighlight,
+      });
+  }
+
+  var geojsonLayerLME = new L.GeoJSON.AJAX(&quot;https://raw.githubusercontent.com/marinespatialviz/marinespatialviz/master/lme.geojson&quot;, {
+    style:style,
+    onEachFeature:onEachFeature}).addTo(map);
+
+    var overlayMaps = {
+      &#39;LME&#39;: geojsonLayerLME
+    };
+
+    L.control.layers(null, overlayMaps, {collapsed: false}).addTo(map);
+
+    L.control.locate().addTo(map);
+
+    var scale = L.control.scale();
+        scale.addTo(map);
+
+    map.addControl(new L.Control.Fullscreen());
+
+  &lt;/script&gt;</code></pre></li>
+</ul>
+<script async src="https://jsfiddle.net/WandaBodnar/ozrvL6ob/3/embed/js,html,css,result/dark/"></script>
+<p><span class="math inline">\(~\)</span></p>
 <p><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a> This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a></p>
 </div>
 
