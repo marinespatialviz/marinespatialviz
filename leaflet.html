@@ -737,6 +737,247 @@ attribution: &#39;&amp;copy; &lt;a href=&quot;http://www.openstreetmap.org/copyr
 <p><span class="math inline">\(~\)</span></p>
 </div>
 </div>
+<div id="geojson" class="section level1">
+<h1>GeoJson</h1>
+<p><span class="math inline">\(~\)</span></p>
+<div id="point-marker" class="section level2">
+<h2>Point (Marker)</h2>
+<pre><code>      &lt;script&gt;
+      
+            var map = L.map(&#39;map&#39;,{
+              center: [11, 142],
+              zoom: 3
+            });
+      
+            var Mapbox = L.tileLayer(&#39;https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}&#39;, {
+            attribution: &#39;Map data &amp;copy; &lt;a href=&quot;http://openstreetmap.org&quot;&gt;OpenStreetMap&lt;/a&gt; contributors, &lt;a href=&quot;http://creativecommons.org/licenses/by-sa/2.0/&quot;&gt;CC-BY-SA&lt;/a&gt;, Imagery © &lt;a href=&quot;http://mapbox.com&quot;&gt;Mapbox&lt;/a&gt;&#39;,
+            maxZoom: 18,
+            id: &#39;mapbox.streets&#39;,
+            accessToken: &#39;pk.eyJ1Ijoid2FuZGFib2RuYXIiLCJhIjoiY2phdHM1dm0xNXF0ajJxanU3dmdmaHRqcCJ9.mFPox1jAE9LkZN6v5OZ7Lw&#39;
+            }).addTo(map);
+      
+            var CartoDB_DarkMatter = L.tileLayer(&#39;https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png&#39;, {
+            attribution: &#39;&amp;copy; &lt;a href=&quot;http://www.openstreetmap.org/copyright&quot;&gt;OpenStreetMap&lt;/a&gt; &amp;copy; &lt;a href=&quot;http://cartodb.com/attributions&quot;&gt;CartoDB&lt;/a&gt;&#39;,
+            subdomains: &#39;abcd&#39;,
+            maxZoom: 19
+            }).addTo(map);
+      
+            var geojsonFeature = {
+                  &quot;type&quot;: &quot;Feature&quot;,
+                  &quot;properties&quot;: {
+                      &quot;name&quot;: &quot;Mariana Trench&quot;,
+                      &quot;popupContent&quot;: &quot;Mariana Trench!&quot;
+                  },
+                  &quot;geometry&quot;: {
+                      &quot;type&quot;: &quot;Point&quot;,
+                      &quot;coordinates&quot;: [142.1999992, 11.3499986]
+                  }
+              };
+      
+            L.geoJSON(geojsonFeature).addTo(map);
+      
+            L.control.layers({
+                    &#39;Mapbox&#39;: Mapbox,
+                    &#39;Carto&#39;: CartoDB_DarkMatter
+                }).addTo(map);
+      
+      &lt;/script&gt;</code></pre>
+<script async src="https://jsfiddle.net/WandaBodnar/o4nyb1qa/5/embed/js,html,css,result/dark/"></script>
+<p><span class="math inline">\(~\)</span></p>
+</div>
+<div id="point-circle-with-tooltip" class="section level2">
+<h2>Point (Circle) with tooltip</h2>
+<pre><code>      &lt;script&gt;
+  
+        var map = L.map(&#39;map&#39;,{
+          center: [11, 142],
+          zoom: 3
+        });
+  
+        var Mapbox = L.tileLayer(&#39;https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}&#39;, {
+        attribution: &#39;Map data &amp;copy; &lt;a href=&quot;http://openstreetmap.org&quot;&gt;OpenStreetMap&lt;/a&gt; contributors, &lt;a href=&quot;http://creativecommons.org/licenses/by-sa/2.0/&quot;&gt;CC-BY-SA&lt;/a&gt;, Imagery © &lt;a href=&quot;http://mapbox.com&quot;&gt;Mapbox&lt;/a&gt;&#39;,
+        maxZoom: 18,
+        id: &#39;mapbox.streets&#39;,
+        accessToken: &#39;pk.eyJ1Ijoid2FuZGFib2RuYXIiLCJhIjoiY2phdHM1dm0xNXF0ajJxanU3dmdmaHRqcCJ9.mFPox1jAE9LkZN6v5OZ7Lw&#39;
+        }).addTo(map);
+  
+        var CartoDB_DarkMatter = L.tileLayer(&#39;https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png&#39;, {
+        attribution: &#39;&amp;copy; &lt;a href=&quot;http://www.openstreetmap.org/copyright&quot;&gt;OpenStreetMap&lt;/a&gt; &amp;copy; &lt;a href=&quot;http://cartodb.com/attributions&quot;&gt;CartoDB&lt;/a&gt;&#39;,
+        subdomains: &#39;abcd&#39;,
+        maxZoom: 19
+        }).addTo(map);
+  
+        var geojsonMarkerOptions = {
+          radius: 8,
+          weight: 1,
+          opacity: 1,
+          color: &#39;#a58fa4&#39;,
+          fillColor: &#39;#0d11ee&#39;,
+          fillOpacity: 0.5
+        };
+  
+        var geojsonFeature = {
+              &quot;type&quot;: &quot;Feature&quot;,
+              &quot;properties&quot;: {
+                  &quot;name&quot;: &quot;Mariana Trench&quot;,
+                  &quot;popupContent&quot;: &quot;Mariana Trench!&quot;
+              },
+              &quot;geometry&quot;: {
+                  &quot;type&quot;: &quot;Point&quot;,
+                  &quot;coordinates&quot;: [142.1999992, 11.3499986]
+              }
+          };
+  
+          L.geoJSON(geojsonFeature, {
+            pointToLayer: function(feature, latlng){
+              var marker = L.circleMarker(latlng, geojsonMarkerOptions);
+              marker.bindTooltip(feature.properties.popupContent);
+              return marker;}
+          }).addTo(map);
+  
+          L.control.layers({
+                &#39;Mapbox&#39;: Mapbox,
+                &#39;Carto&#39;: CartoDB_DarkMatter
+            }).addTo(map);
+  
+        &lt;/script&gt;</code></pre>
+<script async src="https://jsfiddle.net/WandaBodnar/f8mLr828/4/embed/js,html,css,result/dark/"></script>
+<p><span class="math inline">\(~\)</span></p>
+</div>
+<div id="line" class="section level2">
+<h2>Line</h2>
+<pre><code>        &lt;script&gt;
+        
+              var map = L.map(&#39;map&#39;,{
+                center: [0, 0],
+                zoom: 3
+              });
+        
+              var Mapbox = L.tileLayer(&#39;https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}&#39;, {
+              attribution: &#39;Map data &amp;copy; &lt;a href=&quot;http://openstreetmap.org&quot;&gt;OpenStreetMap&lt;/a&gt; contributors, &lt;a href=&quot;http://creativecommons.org/licenses/by-sa/2.0/&quot;&gt;CC-BY-SA&lt;/a&gt;, Imagery © &lt;a href=&quot;http://mapbox.com&quot;&gt;Mapbox&lt;/a&gt;&#39;,
+              maxZoom: 18,
+              id: &#39;mapbox.streets&#39;,
+              accessToken: &#39;pk.eyJ1Ijoid2FuZGFib2RuYXIiLCJhIjoiY2phdHM1dm0xNXF0ajJxanU3dmdmaHRqcCJ9.mFPox1jAE9LkZN6v5OZ7Lw&#39;
+              }).addTo(map);
+        
+              var CartoDB_DarkMatter = L.tileLayer(&#39;https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png&#39;, {
+              attribution: &#39;&amp;copy; &lt;a href=&quot;http://www.openstreetmap.org/copyright&quot;&gt;OpenStreetMap&lt;/a&gt; &amp;copy; &lt;a href=&quot;http://cartodb.com/attributions&quot;&gt;CartoDB&lt;/a&gt;&#39;,
+              subdomains: &#39;abcd&#39;,
+              maxZoom: 19
+              }).addTo(map);
+        
+              var line = [{
+                  &quot;type&quot;: &quot;LineString&quot;,
+                  &quot;coordinates&quot;: [[-180, 0], [180, 0]]
+              }];
+        
+              var style = {
+                  &quot;color&quot;: &quot;red&quot;,
+                  &quot;weight&quot;: 2,
+                  &quot;opacity&quot;: 0.5
+              };
+        
+              L.geoJSON(line, {
+                  style: style
+              }).addTo(map);
+        
+                L.control.layers({
+                        &#39;Mapbox&#39;: Mapbox,
+                        &#39;Carto&#39;: CartoDB_DarkMatter
+                    }).addTo(map);
+        
+        &lt;/script&gt;
+        </code></pre>
+<script async src="https://jsfiddle.net/WandaBodnar/vm6pkkf4/2/embed/js,html,css,result/dark/"></script>
+<p><span class="math inline">\(~\)</span></p>
+</div>
+<div id="polygon-1" class="section level2">
+<h2>Polygon</h2>
+<pre><code>        &lt;script&gt;
+        
+        var map = L.map(&#39;map&#39;,{
+          center: [0, 0],
+          zoom: 3
+        });
+  
+        var Mapbox = L.tileLayer(&#39;https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}&#39;, {
+        attribution: &#39;Map data &amp;copy; &lt;a href=&quot;http://openstreetmap.org&quot;&gt;OpenStreetMap&lt;/a&gt; contributors, &lt;a href=&quot;http://creativecommons.org/licenses/by-sa/2.0/&quot;&gt;CC-BY-SA&lt;/a&gt;, Imagery © &lt;a href=&quot;http://mapbox.com&quot;&gt;Mapbox&lt;/a&gt;&#39;,
+        maxZoom: 18,
+        id: &#39;mapbox.streets&#39;,
+        accessToken: &#39;pk.eyJ1Ijoid2FuZGFib2RuYXIiLCJhIjoiY2phdHM1dm0xNXF0ajJxanU3dmdmaHRqcCJ9.mFPox1jAE9LkZN6v5OZ7Lw&#39;
+        }).addTo(map);
+  
+        var CartoDB_DarkMatter = L.tileLayer(&#39;https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png&#39;, {
+        attribution: &#39;&amp;copy; &lt;a href=&quot;http://www.openstreetmap.org/copyright&quot;&gt;OpenStreetMap&lt;/a&gt; &amp;copy; &lt;a href=&quot;http://cartodb.com/attributions&quot;&gt;CartoDB&lt;/a&gt;&#39;,
+        subdomains: &#39;abcd&#39;,
+        maxZoom: 19
+        }).addTo(map);
+  
+        var polygon = [{
+        &quot;type&quot;: &quot;Polygon&quot;,
+        &quot;coordinates&quot;: [[
+          [180, 23.5], [180, -23.5],
+          [-180, -23.5], [-180, 23.5]
+          ]]
+        }];
+  
+        var style = {
+            &quot;color&quot;: &quot;red&quot;,
+            &quot;weight&quot;: 2,
+            &quot;opacity&quot;: 0.5
+        };
+  
+        L.geoJSON(polygon, {
+            style: style
+        }).addTo(map);
+  
+        L.control.layers({
+                &#39;Mapbox&#39;: Mapbox,
+                &#39;Carto&#39;: CartoDB_DarkMatter
+        }).addTo(map);
+        
+        &lt;/script&gt;</code></pre>
+<script async src="https://jsfiddle.net/WandaBodnar/8v53ukv9/8/embed/js,html,css,result/dark/"></script>
+<p><span class="math inline">\(~\)</span></p>
+</div>
+<div id="exeternal-geojson" class="section level2">
+<h2>Exeternal GeoJson</h2>
+<p>Extension used:</p>
+<ul>
+<li><p><a href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-ajax/2.1.0/leaflet.ajax.js" class="uri">https://cdnjs.cloudflare.com/ajax/libs/leaflet-ajax/2.1.0/leaflet.ajax.js</a></p>
+<pre><code>  &lt;script&gt;
+
+      var map = L.map(&#39;map&#39;, {
+        center: [55, 15],
+        zoom: 3
+      });
+
+      var Mapbox = L.tileLayer(&#39;https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}&#39;, {
+        attribution: &#39;Map data &amp;copy; &lt;a href=&quot;http://openstreetmap.org&quot;&gt;OpenStreetMap&lt;/a&gt; contributors, &lt;a href=&quot;http://creativecommons.org/licenses/by-sa/2.0/&quot;&gt;CC-BY-SA&lt;/a&gt;, Imagery © &lt;a href=&quot;http://mapbox.com&quot;&gt;Mapbox&lt;/a&gt;&#39;,
+        maxZoom: 18,
+        id: &#39;mapbox.streets&#39;,
+        accessToken: &#39;pk.eyJ1Ijoid2FuZGFib2RuYXIiLCJhIjoiY2phdHM1dm0xNXF0ajJxanU3dmdmaHRqcCJ9.mFPox1jAE9LkZN6v5OZ7Lw&#39;
+      }).addTo(map);
+
+      var CartoDB_DarkMatter = L.tileLayer(&#39;https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png&#39;, {
+        attribution: &#39;&amp;copy; &lt;a href=&quot;http://www.openstreetmap.org/copyright&quot;&gt;OpenStreetMap&lt;/a&gt; &amp;copy; &lt;a href=&quot;http://cartodb.com/attributions&quot;&gt;CartoDB&lt;/a&gt;&#39;,
+        subdomains: &#39;abcd&#39;,
+        maxZoom: 19
+      }).addTo(map);
+
+      var geojsonLayerLME = new L.GeoJSON.AJAX(&quot;https://raw.githubusercontent.com/marinespatialviz/marinespatialviz/master/lme.geojson&quot;).addTo(map);
+
+      L.control.layers({
+        &#39;Mapbox&#39;: Mapbox,
+        &#39;Carto&#39;: CartoDB_DarkMatter
+      }).addTo(map);
+
+  &lt;/script&gt;</code></pre></li>
+</ul>
+<script async src="https://jsfiddle.net/WandaBodnar/qgjwqz8y/5/embed/js,html,css,result/dark/"></script>
+<p><span class="math inline">\(~\)</span></p>
+</div>
+</div>
 <div id="wms-tile" class="section level1">
 <h1>WMS tile</h1>
 <pre><code>      &lt;script&gt;

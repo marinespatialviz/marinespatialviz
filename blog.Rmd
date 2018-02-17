@@ -10,46 +10,16 @@ output:
 
 $~$
 
-# Creating web map with ArcGIS API
+# External file download to local PC
 
-      <html>
-      
-        <head>
-      
-          <link rel="stylesheet" href="https://js.arcgis.com/3.23/esri/css/esri.css">
-          <script src="https://js.arcgis.com/3.23/"></script>
-      
-          <style>
-      
-            body { margin:0; padding:0; }
-            #map { position:absolute; top:0; bottom:0; width:100%; }
-      
-          </style>
-      
-        </head>
-      
-        <body>
-      
-          <div id="map"></div>
-      
-          <script>
-      
-          var map;
-          require(["esri/map", "dojo/domReady!"], function(Map) {
-            map = new Map("map", {
-              basemap: "dark-gray",
-              center: [0, 10],
-              zoom: 2
-            });
-          });
-      
-          </script>
-      
-        </body>
-      
-      </html>
+This method can be used for file types for example: geojson, txt, csv, dat, etc
 
-<script async src="https://jsfiddle.net/WandaBodnar/h3vo0zju/5/embed/js,html,css,result/dark/"></script>
+```{r results = 'hide'}
+library(downloader)
+
+c <- "https://www.metoffice.gov.uk/hadobs/hadsst3/data/HadSST.3.1.1.0/diagnostics/HadSST.3.1.1.0_annual_globe_ts.txt"
+downloader::download(url = c, destfile = "C:/Users/HP/Desktop/HadSST.3.1.1.0_annual_globe_ts.txt")
+```
 
 $~$
 
