@@ -911,8 +911,7 @@ Extension used to read external geoJson file
     
     
           function getColor(a) {
-              return a > 3000000 ? '#154360' :
-                    a > 2000000 ? '#1B4F72' :
+              return a > 2000000 ? '#1B4F72' :
                     a > 1000000  ? '#154360' :
                     a > 900000  ? '#1A5276' :
                     a > 800000  ? '#1F618D' :
@@ -963,6 +962,25 @@ Extension used to read external geoJson file
           var geojsonLayerLME = new L.GeoJSON.AJAX("https://raw.githubusercontent.com/marinespatialviz/marinespatialviz/master/lme.geojson", {
           style:style,
           onEachFeature:onEachFeature}).addTo(map);
+          
+          var legend = L.control({position: 'bottomright'});
+
+          legend.onAdd = function(map) {
+
+            var div = L.DomUtil.create('div', 'info legend'),
+              grades = [100000, 200000, 300000, 400000, 500000, 600000, 700000, 800000, 900000, 1000000, 2000000];
+            labels = [];
+          
+            for (var i = 0; i < grades.length; i++) {
+              div.innerHTML +=
+                '<i style="background:' + getColor(grades[i] + 1) + '"></i> ' +
+                grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '+');
+            }
+          
+            return div;
+          };
+          
+          legend.addTo(map);
     
     
           var baseMaps = {
@@ -997,7 +1015,7 @@ Extension used to read external geoJson file
           </script>
 
 
-<script async src="https://jsfiddle.net/WandaBodnar/juy5ejym/1/embed/js,html,css,result/dark/"></script>
+<script async src="https://jsfiddle.net/WandaBodnar/w205ygor/18/embed/js,html,css,result/dark/"></script>
 
 $~$
 

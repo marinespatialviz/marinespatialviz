@@ -1125,8 +1125,7 @@ attribution: &#39;&amp;copy; &lt;a href=&quot;http://www.openstreetmap.org/copyr
 
 
   function getColor(a) {
-      return a &gt; 3000000 ? &#39;#154360&#39; :
-            a &gt; 2000000 ? &#39;#1B4F72&#39; :
+      return a &gt; 2000000 ? &#39;#1B4F72&#39; :
             a &gt; 1000000  ? &#39;#154360&#39; :
             a &gt; 900000  ? &#39;#1A5276&#39; :
             a &gt; 800000  ? &#39;#1F618D&#39; :
@@ -1178,6 +1177,25 @@ attribution: &#39;&amp;copy; &lt;a href=&quot;http://www.openstreetmap.org/copyr
   style:style,
   onEachFeature:onEachFeature}).addTo(map);
 
+  var legend = L.control({position: &#39;bottomright&#39;});
+
+  legend.onAdd = function(map) {
+
+    var div = L.DomUtil.create(&#39;div&#39;, &#39;info legend&#39;),
+      grades = [100000, 200000, 300000, 400000, 500000, 600000, 700000, 800000, 900000, 1000000, 2000000];
+    labels = [];
+
+    for (var i = 0; i &lt; grades.length; i++) {
+      div.innerHTML +=
+        &#39;&lt;i style=&quot;background:&#39; + getColor(grades[i] + 1) + &#39;&quot;&gt;&lt;/i&gt; &#39; +
+        grades[i] + (grades[i + 1] ? &#39;&amp;ndash;&#39; + grades[i + 1] + &#39;&lt;br&gt;&#39; : &#39;+&#39;);
+    }
+
+    return div;
+  };
+
+  legend.addTo(map);
+
 
   var baseMaps = {
               &#39;Mapbox&#39;: Mapbox,
@@ -1210,7 +1228,7 @@ attribution: &#39;&amp;copy; &lt;a href=&quot;http://www.openstreetmap.org/copyr
 
   &lt;/script&gt;</code></pre></li>
 </ul>
-<script async src="https://jsfiddle.net/WandaBodnar/juy5ejym/1/embed/js,html,css,result/dark/"></script>
+<script async src="https://jsfiddle.net/WandaBodnar/w205ygor/18/embed/js,html,css,result/dark/"></script>
 <p><span class="math inline">\(~\)</span></p>
 <p><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a> This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a></p>
 </div>

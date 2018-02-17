@@ -621,6 +621,27 @@ Extension used to read external geoJson file
           var geojsonLayerLME = new L.GeoJSON.AJAX("https://raw.githubusercontent.com/marinespatialviz/marinespatialviz/master/lme.geojson", {
             style:style,
             onEachFeature:onEachFeature}).addTo(map);
+            
+            var legend = L.control({
+              position: 'bottomright'
+            });
+          
+            legend.onAdd = function(map) {
+          
+            var div = L.DomUtil.create('div', 'info legend'),
+                grades = [100000, 200000, 300000, 400000, 500000, 600000, 700000, 800000, 900000, 1000000, 2000000];
+              labels = [];
+          
+              for (var i = 0; i < grades.length; i++) {
+                div.innerHTML +=
+                  '<i style="background:' + getColor(grades[i] + 1) + '"></i> ' +
+                  grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '+');
+              }
+          
+              return div;
+            };
+          
+            legend.addTo(map);
           
             var overlayMaps = {
               'LME': geojsonLayerLME
@@ -637,7 +658,7 @@ Extension used to read external geoJson file
 
           </script>
           
-<script async src="https://jsfiddle.net/WandaBodnar/ozrvL6ob/3/embed/js,html,css,result/dark/"></script>
+<script async src="https://jsfiddle.net/WandaBodnar/qsrcdwm8/7/embed/js,html,css,result/dark/"></script>
 
 $~$
 

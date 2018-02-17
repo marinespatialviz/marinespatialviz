@@ -879,6 +879,27 @@ div.tocify {
     style:style,
     onEachFeature:onEachFeature}).addTo(map);
 
+    var legend = L.control({
+      position: &#39;bottomright&#39;
+    });
+
+    legend.onAdd = function(map) {
+
+    var div = L.DomUtil.create(&#39;div&#39;, &#39;info legend&#39;),
+        grades = [100000, 200000, 300000, 400000, 500000, 600000, 700000, 800000, 900000, 1000000, 2000000];
+      labels = [];
+
+      for (var i = 0; i &lt; grades.length; i++) {
+        div.innerHTML +=
+          &#39;&lt;i style=&quot;background:&#39; + getColor(grades[i] + 1) + &#39;&quot;&gt;&lt;/i&gt; &#39; +
+          grades[i] + (grades[i + 1] ? &#39;&amp;ndash;&#39; + grades[i + 1] + &#39;&lt;br&gt;&#39; : &#39;+&#39;);
+      }
+
+      return div;
+    };
+
+    legend.addTo(map);
+
     var overlayMaps = {
       &#39;LME&#39;: geojsonLayerLME
     };
@@ -894,7 +915,7 @@ div.tocify {
 
   &lt;/script&gt;</code></pre></li>
 </ul>
-<script async src="https://jsfiddle.net/WandaBodnar/ozrvL6ob/3/embed/js,html,css,result/dark/"></script>
+<script async src="https://jsfiddle.net/WandaBodnar/qsrcdwm8/7/embed/js,html,css,result/dark/"></script>
 <p><span class="math inline">\(~\)</span></p>
 <p><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a> This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a></p>
 </div>
