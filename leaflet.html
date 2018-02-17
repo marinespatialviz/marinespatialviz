@@ -470,6 +470,22 @@ attribution: &#39;&amp;copy; &lt;a href=&quot;http://www.openstreetmap.org/copyr
 &lt;/html&gt;</code></pre>
 <script async src="https://jsfiddle.net/WandaBodnar/b0hraygg/2/embed/js,html,css,result/dark/"></script>
 <p><span class="math inline">\(~\)</span></p>
+<div id="esri-basemap" class="section level2">
+<h2>Esri basemap</h2>
+<p>Extension used:</p>
+<ul>
+<li><p><a href="https://unpkg.com/esri-leaflet@2.1.3/dist/esri-leaflet.js" class="uri">https://unpkg.com/esri-leaflet@2.1.3/dist/esri-leaflet.js</a></p>
+<pre><code>  &lt;script&gt;
+
+    var map = L.map(&quot;map&quot;).setView([11, 142], 3);
+
+    L.esri.basemapLayer(&quot;DarkGray&quot;).addTo(map);
+
+  &lt;/script&gt;</code></pre></li>
+</ul>
+<script async src="https://jsfiddle.net/WandaBodnar/tm7rcjzn/1/embed/js,html,css,result/dark/"></script>
+<p><span class="math inline">\(~\)</span></p>
+</div>
 </div>
 <div id="marker" class="section level1">
 <h1>Marker</h1>

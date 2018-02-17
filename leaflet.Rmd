@@ -213,6 +213,25 @@ Now, let's construct the body adding the map object. The view can be set using `
 
 $~$
 
+## Esri basemap
+
+Extension used:
+
+* https://unpkg.com/esri-leaflet@2.1.3/dist/esri-leaflet.js
+
+
+          <script>
+          
+            var map = L.map("map").setView([11, 142], 3);
+          
+            L.esri.basemapLayer("DarkGray").addTo(map);
+          
+          </script>
+          
+<script async src="https://jsfiddle.net/WandaBodnar/tm7rcjzn/1/embed/js,html,css,result/dark/"></script>
+
+$~$
+
 # Marker
 
           <script>
