@@ -39,6 +39,8 @@ $~$
 * [GeoJSON](http://geojson.io/)
 * [Leaflet drag and drop](http://leaflet.calvinmetcalf.com/)
 * [Map Shaper](http://mapshaper.org/)
+* [GeoImgr](https://www.geoimgr.com/)
+* [Geotagged images to KML](https://www.gearthblog.com/blog/archives/2015/11/importing-geotagged-photos-into-google-earth.html)
 
 $~$
 

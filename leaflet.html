@@ -381,6 +381,10 @@ div.tocify {
     &lt;script src=&quot;https://unpkg.com/leaflet@1.3.1/dist/leaflet.js&quot;&gt;&lt;/script&gt;
 
     &lt;style&gt;
+    
+        #map {
+        width: 100%;
+        height: 100%;}
 
     &lt;/style&gt;
 
@@ -388,7 +392,7 @@ div.tocify {
 
     &lt;body&gt;
 
-      &lt;div id = &quot;map&quot; style = &quot;width: 100%; height: 100%&quot;&gt;&lt;/div&gt;
+      &lt;div id = &quot;map&quot; &gt;&lt;/div&gt;
 
       &lt;script&gt;
 
@@ -418,7 +422,7 @@ div.tocify {
 <p>HTML (will not need the whole HTML code):</p>
 <pre><code>&lt;div id=&quot;map&quot;&gt;&lt;/div&gt;</code></pre>
 <p>CSS (the width and height is adjusted to the size of the preview window):</p>
-<pre><code>#map {height: 420px}</code></pre>
+<pre><code>#map {width: 100%; height: 100%;}</code></pre>
 <p>JavaScript:</p>
 <pre><code>var map = L.map(&#39;map&#39;,{center: [20, -15],zoom: 3});
 
@@ -443,6 +447,8 @@ attribution: &#39;&amp;copy; &lt;a href=&quot;http://www.openstreetmap.org/copyr
     &lt;script src=&quot;https://unpkg.com/leaflet@1.3.1/dist/leaflet.js&quot;&gt;&lt;/script&gt;
 
     &lt;style&gt;
+    
+        #map {width: 100%; height: 100%;}
 
     &lt;/style&gt;
 
@@ -450,7 +456,7 @@ attribution: &#39;&amp;copy; &lt;a href=&quot;http://www.openstreetmap.org/copyr
 
     &lt;body&gt;
 
-      &lt;div id = &quot;map&quot; style = &quot;width: 1350px; height: 600px&quot;&gt;&lt;/div&gt;
+      &lt;div id = &quot;map&quot;&gt;&lt;/div&gt;
 
       &lt;script&gt;
 
@@ -468,7 +474,7 @@ attribution: &#39;&amp;copy; &lt;a href=&quot;http://www.openstreetmap.org/copyr
     &lt;/body&gt;
 
 &lt;/html&gt;</code></pre>
-<script async src="https://jsfiddle.net/WandaBodnar/b0hraygg/2/embed/js,html,css,result/dark/"></script>
+<script async src="https://jsfiddle.net/WandaBodnar/wwc6ppuj/embed/js,html,css,result/dark/"></script>
 <p><span class="math inline">\(~\)</span></p>
 <div id="esri-basemap" class="section level2">
 <h2>Esri basemap</h2>
@@ -483,7 +489,7 @@ attribution: &#39;&amp;copy; &lt;a href=&quot;http://www.openstreetmap.org/copyr
 
   &lt;/script&gt;</code></pre></li>
 </ul>
-<script async src="https://jsfiddle.net/WandaBodnar/tm7rcjzn/1/embed/js,html,css,result/dark/"></script>
+<script async src="https://jsfiddle.net/WandaBodnar/Lk5qt340/embed/js,html,css,result/dark/"></script>
 <p><span class="math inline">\(~\)</span></p>
 </div>
 </div>
@@ -506,6 +512,53 @@ attribution: &#39;&amp;copy; &lt;a href=&quot;http://www.openstreetmap.org/copyr
       &lt;/script&gt;</code></pre>
 <script async src="https://jsfiddle.net/WandaBodnar/tmeydta0/1/embed/js,html,css,result/dark/"></script>
 <p><span class="math inline">\(~\)</span></p>
+<div id="cluster-marker-uk-offshore-windfarms" class="section level2">
+<h2>Cluster marker (UK offshore windfarms)</h2>
+<p>Extensions used:</p>
+<ul>
+<li><a href="https://rawgit.com/Leaflet/Leaflet.markercluster/leaflet-0.7/dist/MarkerCluster.css" class="uri">https://rawgit.com/Leaflet/Leaflet.markercluster/leaflet-0.7/dist/MarkerCluster.css</a></li>
+<li><a href="https://rawgit.com/Leaflet/Leaflet.markercluster/leaflet-0.7/dist/MarkerCluster.Default.css" class="uri">https://rawgit.com/Leaflet/Leaflet.markercluster/leaflet-0.7/dist/MarkerCluster.Default.css</a></li>
+<li><p><a href="https://rawgit.com/Leaflet/Leaflet.markercluster/leaflet-0.7/dist/leaflet.markercluster.js" class="uri">https://rawgit.com/Leaflet/Leaflet.markercluster/leaflet-0.7/dist/leaflet.markercluster.js</a></p>
+<pre><code>  &lt;script&gt;
+
+  var map = L.map(&#39;map&#39;,{
+  center: [51, 0.5],
+  zoom: 4
+  });
+
+  L.tileLayer(&#39;http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png&#39;, {
+  attribution: &#39;&amp;copy; &lt;a href=&quot;http://www.openstreetmap.org/copyright&quot;&gt;OpenStreetMap&lt;/a&gt;&#39;
+  }).addTo(map);
+
+  var markers = new L.MarkerClusterGroup();
+
+  markers.addLayer(L.marker([53.9833333, -3.283333333]));
+  markers.addLayer(L.marker([58.10555556, -3.093055556]));
+  markers.addLayer(L.marker([55.13583333, -1.490277778]));
+  markers.addLayer(L.marker([53.48333333, -3.183333333]));
+  markers.addLayer(L.marker([51.93333333,   1.883333333]));
+  markers.addLayer(L.marker([51.71666667,   1.213888889]));
+  markers.addLayer(L.marker([51.71666667, 1.213888889]));
+  markers.addLayer(L.marker([53.45, -3.583333333]));
+  markers.addLayer(L.marker([51.46, 1.09]));
+  markers.addLayer(L.marker([53.18333333, 0.483333333]));
+  markers.addLayer(L.marker([51.64388889, 1.553611111]));
+  markers.addLayer(L.marker([53.1275, 0.436111111]));
+  markers.addLayer(L.marker([56.16277778, -3.008888889]));
+  markers.addLayer(L.marker([53.11666667, 1.133333333]));
+  markers.addLayer(L.marker([54.64722222, -1.094444444]));
+  markers.addLayer(L.marker([51.43333333, 1.633333333]));
+  markers.addLayer(L.marker([54.05, -3.516666667]));
+  markers.addLayer(L.marker([53.805,    0.148888889]));
+  markers.addLayer(L.marker([53.98333333,   -3.466666667]));
+
+  map.addLayer(markers);
+
+&lt;/script&gt;</code></pre></li>
+</ul>
+<script async src="https://jsfiddle.net/WandaBodnar/z383nay6/embed/js,html,css,result/dark/"></script>
+<p><span class="math inline">\(~\)</span></p>
+</div>
 <div id="pop-up" class="section level2">
 <h2>Pop-up</h2>
 <pre><code>      &lt;script&gt;
@@ -1045,8 +1098,11 @@ attribution: &#39;&amp;copy; &lt;a href=&quot;http://www.openstreetmap.org/copyr
 <script async src="https://jsfiddle.net/WandaBodnar/h4hc1f95/1/embed/js,html,css,result/dark/"></script>
 <p><span class="math inline">\(~\)</span></p>
 </div>
-<div id="adding-geotagged-pictures-to-a-map" class="section level1">
-<h1>Adding geotagged pictures to a map</h1>
+<div id="geotagged-images" class="section level1">
+<h1>Geotagged images</h1>
+<p><span class="math inline">\(~\)</span></p>
+<div id="marker-1" class="section level2">
+<h2>Marker</h2>
 <pre><code>      &lt;script&gt;
 
       var map = L.map(&#39;map&#39;, {
@@ -1080,6 +1136,66 @@ attribution: &#39;&amp;copy; &lt;a href=&quot;http://www.openstreetmap.org/copyr
       </code></pre>
 <script async src="https://jsfiddle.net/WandaBodnar/6asr8o83/2/embed/js,html,css,result/dark/"></script>
 <p><span class="math inline">\(~\)</span></p>
+</div>
+<div id="thumbnail-cluster-and-popup" class="section level2">
+<h2>Thumbnail (cluster and popup)</h2>
+<p>Extensions used:</p>
+<ul>
+<li><a href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/0.4.0/MarkerCluster.css" class="uri">https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/0.4.0/MarkerCluster.css</a></li>
+<li><a href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/0.4.0/leaflet.markercluster.js" class="uri">https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/0.4.0/leaflet.markercluster.js</a></li>
+<li><a href="https://rawgit.com/turban/Leaflet.Photo/gh-pages/Leaflet.Photo.css" class="uri">https://rawgit.com/turban/Leaflet.Photo/gh-pages/Leaflet.Photo.css</a></li>
+<li><p><a href="https://rawgit.com/turban/Leaflet.Photo/gh-pages/Leaflet.Photo.js" class="uri">https://rawgit.com/turban/Leaflet.Photo/gh-pages/Leaflet.Photo.js</a></p>
+<pre><code>  &lt;script&gt;
+
+  var map = L.map(&#39;map&#39;, {
+  center: [20, 0],
+  zoom: 2
+  });
+
+  var CartoDB_DarkMatter = L.tileLayer(&#39;https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png&#39;, {
+    attribution: &#39;&amp;copy; &lt;a href=&quot;http://www.openstreetmap.org/copyright&quot;&gt;OpenStreetMap&lt;/a&gt; &amp;copy; &lt;a href=&quot;http://cartodb.com/attributions&quot;&gt;CartoDB&lt;/a&gt;&#39;,
+    subdomains: &#39;abcd&#39;,
+    maxZoom: 19
+  }).addTo(map);
+
+  var photos = [{
+    &quot;lat&quot;: 34.00,
+    &quot;lng&quot;: -118.49,
+    &quot;url&quot;: &quot;https://c1.staticflickr.com/5/4364/36053908023_67500b4bd6_b.jpg&quot;,
+    &quot;thumbnail&quot;: &quot;https://c1.staticflickr.com/5/4364/36053908023_67500b4bd6_m.jpg&quot;
+  },
+  {
+    &quot;lat&quot;: 36.29,
+    &quot;lng&quot;: 140.56,
+    &quot;url&quot;: &quot;https://c1.staticflickr.com/5/4435/36028473794_62c4e88482_b.jpg&quot;,
+    &quot;thumbnail&quot;: &quot;https://c1.staticflickr.com/5/4435/36028473794_62c4e88482_m.jpg&quot;
+  },
+  {
+    &quot;lat&quot;: -33.89,
+    &quot;lng&quot;: 151.28,
+    &quot;url&quot;: &quot;https://c1.staticflickr.com/5/4440/36862734845_8c485429e7_b.jpg&quot;,
+    &quot;thumbnail&quot;: &quot;https://c1.staticflickr.com/5/4440/36862734845_8c485429e7_m.jpg&quot;
+  },
+  {
+    &quot;lat&quot;: 50.76,
+    &quot;lng&quot;: -0.90,
+    &quot;url&quot;: &quot;https://c1.staticflickr.com/5/4391/36054414233_b3f762af22_b.jpg&quot;,
+    &quot;thumbnail&quot;: &quot;https://c1.staticflickr.com/5/4391/36054414233_b3f762af22_m.jpg&quot;
+  }];
+
+  var photoLayer = L.photo.cluster().on(&#39;click&#39;, function(evt) {
+    var photo = evt.layer.photo;
+    var template = &#39;&lt;img src=&quot;{thumbnail}&quot;&gt;&#39;;
+    evt.layer.bindPopup(L.Util.template(template, photo)).openPopup();
+  });
+
+  photoLayer.add(photos).addTo(map);
+
+  &lt;/script&gt;</code></pre></li>
+</ul>
+<script async src="https://jsfiddle.net/WandaBodnar/tvuhxu4a/embed/js,html,css,result/dark/"></script>
+<p><span class="math inline">\(~\)</span></p>
+</div>
 </div>
 <div id="adding-a-marker" class="section level1">
 <h1>Adding a marker</h1>
