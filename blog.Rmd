@@ -13,7 +13,7 @@ $~$
 # Mapping geotagged images (using Google Drive)
 
 
-1, Store getagged images on Google Drive photo album (make album public)
+1, Store geotagged images on Google Drive (make it public)
 
 2, Add images to [Google My Maps](https://support.google.com/mymaps/answer/3024454?co=GENIE.Platform%3DDesktop&hl=en)
 
@@ -22,6 +22,8 @@ $~$
 4, Add KML/KMZ file to ArcGIS Earth
 
 ![](http://marinespatialviz.github.io/marinespatialviz/images/arcearth.png)
+
+OR
 
 5, Convert KML to GeoJson (https://geoconverter.hsr.ch/)
 
