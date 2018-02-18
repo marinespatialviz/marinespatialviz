@@ -787,7 +787,7 @@ $~$
 
 $~$
 
-## Exeternal GeoJson
+## External GeoJson
 
 Extension used:
 
