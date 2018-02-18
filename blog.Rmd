@@ -10,6 +10,27 @@ output:
 
 $~$
 
+# Mapping geotagged images (using Google Drive)
+
+
+1, Store getagged images on Google Drive photo album (make album public)
+
+2, Add images to [Google My Maps](https://support.google.com/mymaps/answer/3024454?co=GENIE.Platform%3DDesktop&hl=en)
+
+3, Export imported photos as KML/KMZ
+
+4, Add KML/KMZ file to ArcGIS Earth
+
+![](http://marinespatialviz.github.io/marinespatialviz/images/arcearth.png)
+
+5, Convert KML to GeoJson (https://geoconverter.hsr.ch/)
+
+6, Add to Leaflet map as GeoJson (example for hosting it externally)
+
+<script async src="https://jsfiddle.net/WandaBodnar/mL7bm28t/16/embed/js,html,css,result/dark/"></script>
+
+$~$
+
 # External file download to local PC
 
 This method can be used for file types for example: geojson, txt, csv, dat, etc
