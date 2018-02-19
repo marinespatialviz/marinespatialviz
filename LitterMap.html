@@ -60,16 +60,16 @@
          iconSize: [35, 35]
        });
 
-       var geojsonLayerP = new L.GeoJSON.AJAX("https://raw.githubusercontent.com/marinespatialviz/marinespatialviz/master/litter.geojson", {
-         pointToLayer: function(feature, yx) {
-           var marker = L.marker(yx, {
-             icon: myIcon
-           });
-           marker.bindPopup('<p>' + feature.properties.description + '</p>')
+      var litter = new L.GeoJSON.AJAX("https://raw.githubusercontent.com/marinespatialviz/marinespatialviz/master/litter.geojson", {
+       pointToLayer: function(feature, yx) {
+         var icon = L.icon({
+           iconUrl: feature.properties.gx_media_links,
+           iconSize: [40, 40]});
+           var marker = L.marker(yx, {icon: icon});
+           marker.bindTooltip('<p>' + feature.properties.description + '</p>');
            return marker;
-         }
-       });
-       geojsonLayerP.addTo(map);
+       }
+     }).addTo(map);
 
                  var home = {
                    lat: 20,
