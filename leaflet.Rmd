@@ -789,6 +789,8 @@ $~$
 
 ## External GeoJson
 
+### Ajax
+
 Extension used:
 
 * https://cdnjs.cloudflare.com/ajax/libs/leaflet-ajax/2.1.0/leaflet.ajax.js
@@ -824,6 +826,49 @@ Extension used:
           </script>
 
 <script async src="https://jsfiddle.net/WandaBodnar/qgjwqz8y/5/embed/js,html,css,result/dark/"></script>
+
+$~$
+
+### JQuery
+
+Extension used: 
+
+* https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js
+
+
+        <script>
+        
+        var map = L.map('map', {
+        center: [55, 15],
+        zoom: 3
+        });
+
+        var Mapbox = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+          attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+          maxZoom: 18,
+          id: 'mapbox.streets',
+          accessToken: 'pk.eyJ1Ijoid2FuZGFib2RuYXIiLCJhIjoiY2phdHM1dm0xNXF0ajJxanU3dmdmaHRqcCJ9.mFPox1jAE9LkZN6v5OZ7Lw'
+        }).addTo(map);
+
+        var CartoDB_DarkMatter = L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png', {
+          attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
+          subdomains: 'abcd',
+          maxZoom: 19
+        }).addTo(map);
+    
+        $.getJSON("https://raw.githubusercontent.com/marinespatialviz/marinespatialviz/master/lme.geojson",function(data){
+          L.geoJson(data).addTo(map);
+        });
+
+        L.control.layers({
+          'Mapbox': Mapbox,
+          'Carto': CartoDB_DarkMatter
+        }).addTo(map);
+        
+        </script>
+
+
+<script async src="https://jsfiddle.net/WandaBodnar/0px4aj5r/2/embed/js,html,css,result/dark/"></script>
 
 $~$
 

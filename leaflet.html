@@ -1011,6 +1011,8 @@ attribution: &#39;&amp;copy; &lt;a href=&quot;http://www.openstreetmap.org/copyr
 </div>
 <div id="external-geojson" class="section level2">
 <h2>External GeoJson</h2>
+<div id="ajax" class="section level3">
+<h3>Ajax</h3>
 <p>Extension used:</p>
 <ul>
 <li><p><a href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-ajax/2.1.0/leaflet.ajax.js" class="uri">https://cdnjs.cloudflare.com/ajax/libs/leaflet-ajax/2.1.0/leaflet.ajax.js</a></p>
@@ -1045,6 +1047,46 @@ attribution: &#39;&amp;copy; &lt;a href=&quot;http://www.openstreetmap.org/copyr
 </ul>
 <script async src="https://jsfiddle.net/WandaBodnar/qgjwqz8y/5/embed/js,html,css,result/dark/"></script>
 <p><span class="math inline">\(~\)</span></p>
+</div>
+<div id="jquery" class="section level3">
+<h3>JQuery</h3>
+<p>Extension used:</p>
+<ul>
+<li><p><a href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" class="uri">https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js</a></p>
+<pre><code>&lt;script&gt;
+
+var map = L.map(&#39;map&#39;, {
+center: [55, 15],
+zoom: 3
+});
+
+var Mapbox = L.tileLayer(&#39;https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}&#39;, {
+  attribution: &#39;Map data &amp;copy; &lt;a href=&quot;http://openstreetmap.org&quot;&gt;OpenStreetMap&lt;/a&gt; contributors, &lt;a href=&quot;http://creativecommons.org/licenses/by-sa/2.0/&quot;&gt;CC-BY-SA&lt;/a&gt;, Imagery © &lt;a href=&quot;http://mapbox.com&quot;&gt;Mapbox&lt;/a&gt;&#39;,
+  maxZoom: 18,
+  id: &#39;mapbox.streets&#39;,
+  accessToken: &#39;pk.eyJ1Ijoid2FuZGFib2RuYXIiLCJhIjoiY2phdHM1dm0xNXF0ajJxanU3dmdmaHRqcCJ9.mFPox1jAE9LkZN6v5OZ7Lw&#39;
+}).addTo(map);
+
+var CartoDB_DarkMatter = L.tileLayer(&#39;https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png&#39;, {
+  attribution: &#39;&amp;copy; &lt;a href=&quot;http://www.openstreetmap.org/copyright&quot;&gt;OpenStreetMap&lt;/a&gt; &amp;copy; &lt;a href=&quot;http://cartodb.com/attributions&quot;&gt;CartoDB&lt;/a&gt;&#39;,
+  subdomains: &#39;abcd&#39;,
+  maxZoom: 19
+}).addTo(map);
+
+$.getJSON(&quot;https://raw.githubusercontent.com/marinespatialviz/marinespatialviz/master/lme.geojson&quot;,function(data){
+  L.geoJson(data).addTo(map);
+});
+
+L.control.layers({
+  &#39;Mapbox&#39;: Mapbox,
+  &#39;Carto&#39;: CartoDB_DarkMatter
+}).addTo(map);
+
+&lt;/script&gt;</code></pre></li>
+</ul>
+<script async src="https://jsfiddle.net/WandaBodnar/0px4aj5r/2/embed/js,html,css,result/dark/"></script>
+<p><span class="math inline">\(~\)</span></p>
+</div>
 </div>
 </div>
 <div id="wms-tile" class="section level1">
