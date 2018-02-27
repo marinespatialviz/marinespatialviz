@@ -27,9 +27,9 @@ OR
 
 5, Convert KML to GeoJson (https://geoconverter.hsr.ch/)
 
-6, Add to Leaflet map as GeoJson (example below is for hosting [it](https://marinespatialviz.github.io/marinespatialviz/leaflet.html#external_geojson) externally, with image icon and tooltip)
+6, Add to Leaflet map as GeoJson (example below is for hosting [it](https://marinespatialviz.github.io/marinespatialviz/leaflet.html#external_geojson) externally, with image icon, tooltip and cluster)
 
-<script async src="https://jsfiddle.net/WandaBodnar/3shwwtsa/embed/js,html,css,result/dark/"></script>
+<script async src="https://jsfiddle.net/WandaBodnar/ajyxoy2g/1/embed/js,html,css,result/dark/"></script>
 
 $~$
 
